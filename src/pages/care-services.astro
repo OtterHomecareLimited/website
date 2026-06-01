@@ -1,0 +1,41 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { services } from "../data/services";
+---
+<BaseLayout
+  title="Care Services in Wiltshire & Somerset | Otter Homecare"
+  description="Explore our full range of home care services — from companionship and personal care to live-in support. Local, reliable and caring."
+>
+  <div class="page-head">
+    <div class="wrap">
+      <span class="eyebrow">What we do</span>
+      <h1>Our care services</h1>
+      <p>From an hour of companionship a week to full live-in support — care shaped around the person, not a task list.</p>
+    </div>
+  </div>
+
+  <section class="services">
+    <div class="wrap">
+      <div class="cards" style="grid-template-columns:repeat(3,1fr)">
+        {services.map((service) => (
+          <a class="service" href={`/${service.slug}`}>
+            <h3>{service.name}</h3>
+            <p>{service.subtitle}</p>
+            <span class="more">Learn more →</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="big-cta" style="padding:64px 0">
+    <div class="wrap">
+      <h2>Not sure where to start?</h2>
+      <p>Tell us what's going on and we'll help you work out what would actually help. No pressure, no jargon.</p>
+      <div class="row">
+        <a href="tel:01225690022" class="phone">📞 01225 690022</a>
+        <a href="/contact" class="cta large" style="background:#fff;color:var(--teal)">Arrange a free chat →</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
