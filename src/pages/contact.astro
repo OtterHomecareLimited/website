@@ -1,0 +1,121 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+<BaseLayout
+  title="Contact Otter Homecare | Home Care in Wiltshire & Somerset"
+  description="Get in touch with Otter Homecare for a free, no-pressure chat about home care in Trowbridge, Melksham, Frome, Bradford-on-Avon and Westbury. Call 01225 690022."
+>
+  <div class="page-head">
+    <div class="wrap">
+      <span class="eyebrow">Get in touch</span>
+      <h1>Need a helping hand for Mum, Dad or yourself?</h1>
+      <p>Have a free, no-pressure chat with someone local. We'll listen first.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h2>Talk to a real person</h2>
+          <p>No call centres, no pressure. Just honest advice about whether home care could help — and how it works.</p>
+          <div class="line">
+            <span class="ic">📞</span>
+            <div><strong>01225 690022</strong><br><span style="color:var(--muted);font-size:14px">Mon–Fri 8:30–17:00</span></div>
+          </div>
+          <div class="line">
+            <span class="ic">✉️</span>
+            <div><a href="mailto:hello@otterhomecare.co.uk">hello@otterhomecare.co.uk</a></div>
+          </div>
+          <div class="line">
+            <span class="ic">📍</span>
+            <div>Arlington House, 72 Fore Street<br>Trowbridge, BA14 8HQ</div>
+          </div>
+        </div>
+
+        <div class="form-card">
+          <form id="contactForm" action="/api/contact" method="POST" novalidate>
+            <div class="form-msg" id="formMsg" role="status" aria-live="polite"></div>
+
+            <!-- Honeypot: hidden from people, tempting to bots -->
+            <div class="hp" aria-hidden="true">
+              <label>Company<input type="text" name="company" tabindex="-1" autocomplete="off" /></label>
+            </div>
+
+            <div class="form-row">
+              <div class="field">
+                <label for="firstName">First name</label>
+                <input id="firstName" name="firstName" type="text" autocomplete="given-name" />
+              </div>
+              <div class="field">
+                <label for="lastName">Last name</label>
+                <input id="lastName" name="lastName" type="text" autocomplete="family-name" />
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="email">Email <span class="req">*</span></label>
+              <input id="email" name="email" type="email" required autocomplete="email" />
+            </div>
+
+            <div class="field">
+              <label for="phone">Phone</label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" />
+            </div>
+
+            <div class="field">
+              <label for="message">How can we help? <span class="req">*</span></label>
+              <textarea id="message" name="message" required placeholder="Tell us a little about who needs support and what's going on…"></textarea>
+            </div>
+
+            <div class="field checkbox">
+              <input id="consent" name="consent" type="checkbox" value="yes" />
+              <label for="consent">I'm happy to receive occasional updates from Otter Homecare. (Optional)</label>
+            </div>
+
+            <button type="submit" class="cta large" style="width:100%;justify-content:center">Send message →</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  // Progressive enhancement: submit via fetch for inline feedback.
+  // If JS is off, the form posts natively and the function redirects to /thank-you.
+  const form = document.getElementById("contactForm") as HTMLFormElement | null;
+  const msg = document.getElementById("formMsg");
+  if (form && msg) {
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const btn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+      const data = Object.fromEntries(new FormData(form).entries());
+      msg.className = "form-msg";
+      btn.disabled = true;
+      btn.textContent = "Sending…";
+      try {
+        const res = await fetch("/api/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify(data),
+        });
+        const json = await res.json();
+        if (res.ok && json.ok) {
+          msg.className = "form-msg ok";
+          msg.textContent = "Thank you — we've got your message and will be in touch very soon.";
+          form.reset();
+        } else {
+          msg.className = "form-msg err";
+          msg.textContent = json.error || "Something went wrong — please call us on 01225 690022.";
+        }
+      } catch {
+        msg.className = "form-msg err";
+        msg.textContent = "Something went wrong — please call us on 01225 690022.";
+      } finally {
+        btn.disabled = false;
+        btn.textContent = "Send message →";
+      }
+    });
+  }
+</script>
