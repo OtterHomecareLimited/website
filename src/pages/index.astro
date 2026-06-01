@@ -1,5 +1,9 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
+import hero from "../assets/img/hero.jpg";
+import founder from "../assets/img/founder.jpg";
+import community from "../assets/img/community.jpg";
 ---
 <BaseLayout
   title="Otter Homecare — Trusted home care across Wiltshire & Somerset"
@@ -26,7 +30,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         </div>
         <div style="position:relative">
           <div class="hero-art">
-            <div class="label">[ Hero photograph ]<small>Warm portrait — care worker with client at home, natural light, hands or smiling moment</small></div>
+            <Image src={hero} alt="A Care Professional sharing a laugh with a client outdoors" class="fill-img" widths={[480, 800, 1200]} sizes="(max-width: 980px) 100vw, 560px" loading="eager" />
           </div>
           <div class="badge-float tl">
             <div class="num">★★★★★</div>
@@ -71,14 +75,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       <div class="layout">
         <div class="media">
           <div class="video-frame">
-            <div class="poster">[ Founder video thumbnail<br>James to camera, warm setting ]</div>
-            <div class="play-btn"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
-            <div class="video-caption">
-              <span class="lbl">A message from James, our founder</span>
-              <span class="dur">2:14</span>
-            </div>
+            <Image src={founder} alt="Jamie sharing a cup of tea with a client in a Wiltshire garden" class="fill-img" widths={[480, 800]} sizes="(max-width: 980px) 100vw, 480px" />
           </div>
-          <div class="portrait">[ Photo<br>of James ]</div>
         </div>
         <div>
           <span class="eyebrow">A note from our founder</span>
@@ -261,7 +259,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     <div class="wrap">
       <div class="layout">
         <div class="community-art">
-          <div class="label">[ Otter Café photo<br>community gathering, tea & cake ]</div>
+          <Image src={community} alt="The Otter Homecare team at the Otter Café, Staverton Village Hall" class="fill-img" widths={[480, 800, 1000]} sizes="(max-width: 980px) 100vw, 480px" />
         </div>
         <div>
           <span class="eyebrow">More than care</span>

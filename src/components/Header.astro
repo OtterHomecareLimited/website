@@ -1,15 +1,12 @@
 ---
 // Sticky site header — logo (home link), primary nav, primary CTA.
+import { Image } from "astro:assets";
+import logo from "../assets/img/logo.png";
 ---
 <header class="site">
   <div class="wrap">
     <a href="/" class="logo">
-      <svg width="42" height="42" viewBox="0 0 42 42" fill="none">
-        <circle cx="21" cy="21" r="20" fill="#136B7D"/>
-        <path d="M14 18c0-3 3-6 7-6s7 3 7 6c0 4-3 8-7 12-4-4-7-8-7-12z" fill="#D4AC4F"/>
-        <circle cx="17.5" cy="17" r="1.5" fill="#136B7D"/>
-        <circle cx="24.5" cy="17" r="1.5" fill="#136B7D"/>
-      </svg>
+      <Image src={logo} alt="Otter Homecare" class="logo-mark" width={42} height={42} />
       Otter Homecare
     </a>
     <nav class="primary">
