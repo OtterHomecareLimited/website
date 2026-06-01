@@ -1,0 +1,27 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection, render } from "astro:content";
+
+// Posts published at /post/<slug> to match the existing Wix URLs (SEO parity).
+export async function getStaticPaths() {
+  const posts = await getCollection("blog", ({ data }) => !data.draft);
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const fmt = (d: Date) =>
+  d.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
+---
+<BaseLayout title={`${post.data.title} | Otter Homecare`} description={post.data.description}>
+  <article class="article">
+    <div class="meta">{post.data.category} · {fmt(post.data.pubDate)}</div>
+    <h1>{post.data.title}</h1>
+    <Content />
+    <a href="/blog" class="back">← Back to the blog</a>
+  </article>
+</BaseLayout>

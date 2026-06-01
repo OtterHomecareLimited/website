@@ -1,0 +1,60 @@
+---
+// Site footer — brand, sitemap columns, legal. Shared site-wide.
+const year = new Date().getFullYear();
+---
+<footer>
+  <div class="wrap">
+    <div class="grid">
+      <div class="brand">
+        <div style="display:flex;gap:10px;align-items:center;color:#fff;font-weight:700;font-size:19px">
+          <svg width="34" height="34" viewBox="0 0 42 42" fill="none">
+            <circle cx="21" cy="21" r="20" fill="#D4AC4F"/>
+            <path d="M14 18c0-3 3-6 7-6s7 3 7 6c0 4-3 8-7 12-4-4-7-8-7-12z" fill="#136B7D"/>
+          </svg>
+          Otter Homecare
+        </div>
+        <p>Care rooted in kindness, respect and compassion — across Wiltshire and Somerset. CQC-registered. Locally run by Jamie &amp; Bowling.</p>
+        <p style="color:rgba(255,255,255,.55);font-size:13px;margin:0">Arlington House, 72 Fore Street<br>Trowbridge, BA14 8HQ</p>
+        <div class="socials">
+          <a href="https://facebook.com/otterhomecare" aria-label="Facebook">f</a>
+          <a href="#" aria-label="Instagram">@</a>
+          <a href="#" aria-label="LinkedIn">in</a>
+        </div>
+      </div>
+      <div>
+        <h4>Our Care</h4>
+        <ul>
+          <li><a href="/personal-care">Personal Care</a></li>
+          <li><a href="/live-in-care">Live-in Care</a></li>
+          <li><a href="/companionship">Companionship</a></li>
+          <li><a href="/conditions">Specialist Support</a></li>
+          <li><a href="/fall-recovery">Fall Recovery</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Where We Cover</h4>
+        <ul>
+          <li><a href="/trowbridge">Trowbridge</a></li>
+          <li><a href="/melksham">Melksham</a></li>
+          <li><a href="/frome">Frome</a></li>
+          <li><a href="/bradford-on-avon">Bradford-on-Avon</a></li>
+          <li><a href="/westbury">Westbury</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>About</h4>
+        <ul>
+          <li><a href="/our-story">Our Story</a></li>
+          <li><a href="/our-team">Our Team</a></li>
+          <li><a href="/careers">Careers</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <span>© {year} Otter Homecare Ltd · CQC Registered · Wiltshire Council Approved Provider</span>
+      <span><a href="/privacy">Privacy</a> · <a href="/privacy">Cookies</a> · <a href="/contact">Contact</a></span>
+    </div>
+  </div>
+</footer>
