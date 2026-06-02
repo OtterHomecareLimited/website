@@ -1,13 +1,12 @@
 ---
-// Sticky site header — logo (home link), primary nav, primary CTA.
+// Sticky site header — real Otter wordmark (home link), primary nav, primary CTA.
 import { Image } from "astro:assets";
-import logo from "../assets/img/logo.png";
+import wordmark from "../assets/img/logo-wordmark.png";
 ---
 <header class="site">
   <div class="wrap">
-    <a href="/" class="logo">
-      <Image src={logo} alt="Otter Homecare" class="logo-mark" width={42} height={42} />
-      Otter Homecare
+    <a href="/" class="logo" aria-label="Otter Homecare — home">
+      <Image src={wordmark} alt="Otter Homecare" class="logo-wordmark" height={54} />
     </a>
     <nav class="primary">
       <a href="/care-services">Our Care</a>

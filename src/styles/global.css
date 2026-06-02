@@ -44,13 +44,13 @@ a:hover{text-decoration:underline}
 .dot{width:7px;height:7px;border-radius:50%;background:var(--sage)}
 
 /* ---- HEADER ---- */
-header.site{background:#fff;border-bottom:1px solid var(--hairline);position:sticky;top:0;z-index:50}
-header.site .wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;gap:24px}
-.logo{display:flex;align-items:center;gap:12px;font-weight:700;font-size:21px;color:var(--teal);letter-spacing:-.2px}
-.logo svg{flex-shrink:0}
+header.site{background:var(--teal);border-bottom:1px solid rgba(255,255,255,.12);position:sticky;top:0;z-index:50}
+header.site .wrap{display:flex;align-items:center;justify-content:space-between;padding:12px 24px;gap:24px}
+.logo{display:flex;align-items:center}
+.logo-wordmark{height:54px;width:auto;display:block}
 nav.primary{display:flex;gap:28px;align-items:center;font-weight:500;font-size:15.5px}
-nav.primary a{color:var(--ink)}
-nav.primary a:hover{color:var(--teal);text-decoration:none}
+nav.primary a{color:#fff}
+nav.primary a:hover{color:var(--mustard);text-decoration:none}
 .cta{display:inline-flex;align-items:center;gap:8px;background:var(--mustard);color:var(--ink);padding:10px 20px;border-radius:999px;font-weight:600;font-size:15px;border:0;cursor:pointer;transition:background .15s}
 .cta:hover{background:var(--mustard-dark);text-decoration:none}
 .cta.ghost{background:transparent;border:1.5px solid var(--teal);color:var(--teal)}
