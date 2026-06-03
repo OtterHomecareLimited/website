@@ -1,0 +1,90 @@
+---
+import "../styles/otter-home.css";
+import SiteNav from "../components/SiteNav.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  ogImage?: string;
+}
+const { title, description, ogImage = "/img/ff72ba_82b85220c73d4bf3b00cc07f8605e8f0~mv2.jpg" } = Astro.props;
+const canonical = new URL(
+  Astro.url.pathname.replace(/index\.html$/, "").replace(/\.html$/, "").replace(/\/$/, "") || "/",
+  Astro.site,
+).href;
+const ogImageUrl = new URL(ogImage, Astro.site).href;
+---
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script is:inline>document.documentElement.classList.add("js");</script>
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Fonts (self-host before launch for GDPR/perf — flagged) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Hanken+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:site_name" content="Otter Homecare" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "HomeAndConstructionBusiness",
+      "name": "Otter Homecare",
+      "image": ogImageUrl,
+      "telephone": "+441225690022",
+      "email": "hello@otterhomecare.co.uk",
+      "url": "https://www.otterhomecare.co.uk",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Arlington House, 72 Fore Street",
+        "addressLocality": "Trowbridge",
+        "postalCode": "BA14 8HQ",
+        "addressCountry": "GB"
+      },
+      "areaServed": ["Trowbridge", "Melksham", "Frome", "Bradford-on-Avon", "Westbury"]
+    })} />
+  </head>
+  <body>
+    <SiteNav />
+    <slot />
+    <SiteFooter />
+
+    <!-- sticky mobile action bar -->
+    <div class="mbar">
+      <a class="btn btn-ghost" href="tel:01225690022">Call</a>
+      <a class="btn btn-primary" href="/contact">Book a free assessment</a>
+    </div>
+
+    <script is:inline>
+      // nav toggle
+      const t = document.getElementById("navToggle"), m = document.getElementById("mobileMenu");
+      if (t && m) t.addEventListener("click", () => {
+        const open = m.classList.toggle("show");
+        t.classList.toggle("open", open);
+        t.setAttribute("aria-expanded", String(open));
+      });
+      // reveal on scroll
+      const io = new IntersectionObserver((es) => {
+        es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+      }, { rootMargin: "0px 0px -8% 0px" });
+      document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+      setTimeout(() => document.querySelectorAll(".reveal:not(.in)").forEach((el) => el.classList.add("in")), 1400);
+      // FAQ accordion
+      document.querySelectorAll(".faq > button").forEach((b) =>
+        b.addEventListener("click", () => b.parentElement.classList.toggle("open")));
+    </script>
+  </body>
+</html>

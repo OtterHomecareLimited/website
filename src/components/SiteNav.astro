@@ -1,0 +1,38 @@
+---
+// Design-system nav (pill, sticky). Links use root-relative anchors so they
+// work from any page; Care Services points to the real route.
+const mark = "/img/ff72ba_22266503bf64408e9f5cd5af4757b439~mv2.png";
+---
+<div class="util"><div class="wrap">
+  <span class="areas">Trowbridge · Bradford-on-Avon · Melksham · Westbury · Frome</span>
+  <a href="tel:01225690022">01225 690022 · hello@otterhomecare.co.uk</a>
+</div></div>
+
+<nav>
+  <div class="inner">
+    <a class="brand" href="/"><span class="mark"><img src={mark} alt="Otter" /></span>Otter Homecare</a>
+    <div class="navlinks">
+      <a href="/care-services">Care Services</a>
+      <a href="/#steps">How We Work</a>
+      <a href="/#founder">About Us</a>
+      <a href="/#app">For Families</a>
+      <a href="/careers">Careers</a>
+    </div>
+    <div class="nav-cta">
+      <span class="nav-phone">01225 690022</span>
+      <a class="btn btn-primary" href="/#book">Book a free assessment</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/care-services">Care Services</a>
+    <a href="/#steps">How We Work</a>
+    <a href="/#founder">About Us</a>
+    <a href="/#app">For Families</a>
+    <a href="/careers">Careers</a>
+    <div class="mm-cta">
+      <a class="btn btn-primary" href="/#book">Book a free assessment</a>
+      <a class="btn btn-ghost" href="tel:01225690022">Call 01225 690022</a>
+    </div>
+  </div>
+</nav>

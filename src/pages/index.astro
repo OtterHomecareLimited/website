@@ -1,327 +1,296 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import { Image } from "astro:assets";
-import hero from "../assets/img/hero.jpg";
-import founder from "../assets/img/founder.jpg";
-import community from "../assets/img/community.jpg";
+import SiteLayout from "../layouts/SiteLayout.astro";
+const img = (f: string) => `/img/${f}`;
 ---
-<BaseLayout
-  title="Otter Homecare — Trusted home care across Wiltshire & Somerset"
-  description="Personal, live-in and companionship home care in Trowbridge, Melksham, Frome, Bradford-on-Avon and Westbury. CQC-registered and locally run."
+<SiteLayout
+  title="Otter Homecare — Compassionate home care in Wiltshire & Somerset"
+  description="Warm, flexible home care from a small, local team across Trowbridge, Bradford-on-Avon, Melksham, Westbury and Frome. CQC regulated. Book a free assessment."
 >
-  <!-- ============ HERO ============ -->
-  <section class="hero">
+  <!-- hero -->
+  <header class="hero" id="top">
+    <div class="blob x"></div>
+    <div class="blob y"></div>
     <div class="wrap">
-      <div class="grid">
-        <div>
-          <span class="eyebrow">🦦 Home care · Wiltshire & Somerset</span>
-          <h1>Care that feels like <span class="accent">family</span> — in the home you love.</h1>
-          <p class="lede">Personal, live-in and companionship care across Trowbridge, Melksham, Frome, Bradford-on-Avon and Westbury. Locally run. Properly trained. Quietly brilliant.</p>
-          <div class="hero-ctas">
-            <a href="/contact" class="cta large">Arrange a free chat →</a>
-            <a href="/care-services" class="cta ghost large">Explore our care</a>
-          </div>
-          <a href="#founder" class="watch-link"><span class="play-mini">▶</span> Watch Jamie's 2-minute message — why we built Otter</a>
-          <div class="phone-line">
-            <span>Prefer to talk?</span>
-            <strong>01225 690022</strong>
-            <span>· Mon–Fri 8:30–17:00</span>
-          </div>
+      <div>
+        <span class="eyebrow">Local home care in Wiltshire &amp; Somerset</span>
+        <h1 style="margin-top:18px">Care for a <span class="hl">kinder</span> future</h1>
+        <p class="sub">Warm, flexible home care from a small, local team who treat your family like our own — from live-in support to a friendly visit and a cup of tea.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary btn-lg" href="#book">Book a free assessment</a>
+          <a class="btn btn-ghost btn-lg" href="tel:01225690022">Call 01225 690022</a>
         </div>
-        <div style="position:relative">
-          <div class="hero-art">
-            <Image src={hero} alt="A Care Professional sharing a laugh with a client outdoors" class="fill-img" widths={[480, 800, 1200]} sizes="(max-width: 980px) 100vw, 560px" loading="eager" />
+        <div class="chips">
+          <span class="chip">CQC regulated</span>
+          <span class="chip">Homecare Association member</span>
+          <span class="chip">★ Rated on homecare.co.uk</span>
+        </div>
+      </div>
+      <div class="hero-media">
+        <div class="main"><img src={img("ff72ba_82b85220c73d4bf3b00cc07f8605e8f0~mv2.jpg")} alt="Otter carer supporting a client outdoors" /></div>
+        <div class="bubble b1"><span class="em"><img src={img("ff72ba_6b697f1e4a3a41c1aecccee2682244ff~mv2.png")} alt="" /></span><div>Visits your way<small>from a quick call-in</small></div></div>
+        <div class="bubble b2"><span class="em"><img src={img("ff72ba_2bf82f37a4d848749064454cc8f0df2c~mv2.png")} alt="" /></span><div>Live updates<small>via the Care App</small></div></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- trust strip -->
+  <section class="trust"><div class="wrap">
+    <div class="item"><div class="ic">✓</div><div><small>Regulated by</small><b>Care Quality Commission</b></div></div>
+    <div class="item"><div class="ic">✓</div><div><small>Member of</small><b>The Homecare Association</b></div></div>
+    <div class="item"><div class="ic">✓</div><div><small>Reviewed on</small><b>homecare.co.uk</b></div></div>
+    <div class="item"><div class="ic">✓</div><div><small>Flexible</small><b>Visits to suit you</b></div></div>
+  </div></section>
+
+  <!-- proof band -->
+  <section class="proof"><div class="wrap">
+    <div class="pf"><b>1</b><small>One local team, not a national branch</small></div>
+    <div class="pf"><b>1-to-1</b><small>Carefully matched, familiar carers</small></div>
+    <div class="pf"><b>Your way</b><small>Visit lengths to suit you</small></div>
+    <div class="pf"><b>5 towns</b><small>Across Wiltshire &amp; Somerset</small></div>
+  </div></section>
+
+  <!-- founder -->
+  <section class="section founder" id="founder">
+    <div class="wrap">
+      <div class="pic reveal"><img src={img("ff72ba_a006c15eb20c4eb1b0930b2825f55912~mv2.jpg")} alt="Founder Jamie with his father" /></div>
+      <div class="reveal">
+        <span class="eyebrow on-clay">Our story</span>
+        <h2>Care that started at our own kitchen table</h2>
+        <blockquote>Otter was born after my father had a stroke and I became his main carer. Combined with 20 years in Asia — where older generations are deeply respected — it inspired a kinder, more personal kind of care here in Wiltshire and Somerset.</blockquote>
+        <div class="sig">Jamie Rowland-Jones<span>Founder, Otter Homecare</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- services -->
+  <section class="section services" id="services">
+    <div class="wrap">
+      <div class="head-c reveal">
+        <span class="eyebrow">Care services</span>
+        <h2>Care for your parents, partner, or yourself</h2>
+      </div>
+      <div class="svc-grid">
+        <a class="svc reveal" href="/live-in-care"><div class="img"><span class="tag">Popular</span><img src={img("ff72ba_0aa05eb659ee4c64a5d410e57b21eff0~mv2.jpg")} alt="" /></div><div class="body"><h3>Live-in Care</h3><p>Expert round-the-clock care in the comfort of your own home.</p><span class="more">Learn more →</span></div></a>
+        <a class="svc reveal" href="/care-services"><div class="img"><img src={img("ff72ba_3a8fe18215c24b3e9cb6884f0bf44228~mv2.jpg")} alt="" /></div><div class="body"><h3>Visiting Care</h3><p>Friendly carers visiting your home with flexible, tailored support.</p><span class="more">Learn more →</span></div></a>
+        <a class="svc reveal" href="/conditions"><div class="img"><img src={img("ff72ba_356da85da3114f4ea8c98fa716675d83~mv2.jpg")} alt="" /></div><div class="body"><h3>Conditions We Care For</h3><p>Specialist support for dementia, recovery and a range of conditions.</p><span class="more">Learn more →</span></div></a>
+        <a class="svc reveal" href="/companionship"><div class="img"><img src={img("ff72ba_82b85220c73d4bf3b00cc07f8605e8f0~mv2.jpg")} alt="" /></div><div class="body"><h3>Companionship</h3><p>A friendly face, shared hobbies and genuine connection, every visit.</p><span class="more">Learn more →</span></div></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- different -->
+  <section class="section diff" id="diff">
+    <div class="wrap">
+      <div class="head reveal">
+        <span class="eyebrow">Why families choose us</span>
+        <h2>What makes us different</h2>
+        <p>We're one local team who answer the phone ourselves — not a branch of a national chain or a call centre.</p>
+      </div>
+      <div class="diff-grid">
+        <div class="feat lead reveal"><div class="ic"><img src={img("ff72ba_5700a715dff44d6c8efc49ea98140c28~mv2.png")} alt="" /></div><h3>Good Enough for Dad</h3><p>We only hire carers we'd trust with our own families. In fact, our carers support my own dad.</p></div>
+        <div class="feat reveal"><div class="ic"><img src={img("ff72ba_fc3d57bfd4854541b312b420e82571e0~mv2.png")} alt="" /></div><h3>A small, dedicated team</h3><p>Tight-knit, so carers get to know each client and family properly.</p></div>
+        <div class="feat reveal"><div class="ic"><img src={img("ff72ba_c1c4f601da794bc6883e08519553e393~mv2.png")} alt="" /></div><h3>Local &amp; personal</h3><p>Based in Trowbridge and just around the corner — always close by.</p></div>
+        <div class="feat reveal"><div class="ic"><img src={img("ff72ba_2bf82f37a4d848749064454cc8f0df2c~mv2.png")} alt="" /></div><h3>Care App transparency</h3><p>Families see real-time updates from every visit, for total peace of mind.</p></div>
+        <div class="feat reveal"><div class="ic"><img src={img("ff72ba_6b697f1e4a3a41c1aecccee2682244ff~mv2.png")} alt="" /></div><h3>Visits that suit you</h3><p>From a quick daily call-in to a full day together — care that flexes around life.</p></div>
+        <div class="feat reveal"><div class="ic"><img src={img("ff72ba_1a0a055e1b314d97a1b43f988176b52d~mv2.png")} alt="" /></div><h3>Otter Happy Hour</h3><p>A free hour of care each month to enjoy something special.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- care you can trust -->
+  <section class="section trustwhy" id="trust-why">
+    <div class="wrap">
+      <div class="head-c reveal">
+        <span class="eyebrow">Care you can trust</span>
+        <h2>Peace of mind, built in</h2>
+      </div>
+      <div class="trust3">
+        <div class="t3 reveal"><span class="ix">01</span><h3>Fully CQC-regulated</h3><p>Independently inspected against the highest national standards — never an unregulated introductory agency.</p></div>
+        <div class="t3 reveal"><span class="ix">02</span><h3>Our own carers</h3><p>Directly employed and trained by us. No freelancers, no agency staff — just familiar, friendly faces.</p></div>
+        <div class="t3 reveal"><span class="ix">03</span><h3>Matched &amp; consistent</h3><p>The same small team of carers, who get to know you, your routine and the things that matter most.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- help -->
+  <section class="section help" id="help">
+    <div class="wrap">
+      <div class="head-c reveal">
+        <span class="eyebrow">How we can help</span>
+        <h2>Support tailored to everyday life</h2>
+        <p class="lede">Our Care Professionals are trained across a wide range of support — mixed and matched to suit you.</p>
+      </div>
+      <div class="help-grid">
+        <div class="help-item reveal"><img src={img("ff72ba_83df1eb983a540ec9504319d2046ca73~mv2.jpg")} alt="" /><span>Personal care</span></div>
+        <div class="help-item reveal"><img src={img("ff72ba_ccfd35686af147f6a016e747c91942d6~mv2.jpg")} alt="" /><span>Medication management</span></div>
+        <div class="help-item reveal"><img src={img("ff72ba_65e6bbb5381c4de39626e5fd8be7f9aa~mv2.jpg")} alt="" /><span>Meal preparation</span></div>
+        <div class="help-item reveal"><img src={img("ff72ba_7402ffd16d2848ac9e7a9bb2ac85cdf9~mv2.jpg")} alt="" /><span>Transportation</span></div>
+        <div class="help-item reveal"><img src={img("ff72ba_937a9c9f723a4acbb4b07d6c06efc354~mv2.jpg")} alt="" /><span>Hobbies &amp; interests</span></div>
+        <div class="help-item reveal"><img src={img("ff72ba_bcb4f2e40c2f405b8d0b51b783e888b2~mv2.jpg")} alt="" /><span>Physical activity</span></div>
+        <div class="help-item reveal"><img src={img("ff72ba_2b291b82c9c04a17b6b9a51f6953fd1f~mv2.jpg")} alt="" /><span>Home help</span></div>
+        <div class="help-item reveal"><img src={img("ff72ba_65e6bbb5381c4de39626e5fd8be7f9aa~mv2.jpg")} alt="" /><span>Grocery shopping</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- steps -->
+  <section class="section steps" id="steps">
+    <div class="wrap">
+      <div class="head-c reveal">
+        <span class="eyebrow">How to get started</span>
+        <h2>A simple, reassuring process</h2>
+      </div>
+      <div class="steps-grid">
+        <div class="step reveal"><div class="ic"><img src={img("ff72ba_042db41963494f38a129bc17b0ce576e~mv2.png")} alt="" /></div><span class="sn">Step 1</span><h3>Call us</h3><p>Complimentary, expert guidance tailored to your needs.</p></div>
+        <div class="step reveal"><div class="ic"><img src={img("ff72ba_fe924b8c9a6a414181c34d43e5bd4f69~mv2.png")} alt="" /></div><span class="sn">Step 2</span><h3>Home visit</h3><p>Our qualified manager visits to create your tailored care plan.</p></div>
+        <div class="step reveal"><div class="ic"><img src={img("ff72ba_0bbd91564fe4494ea87681e131d16a57~mv2.png")} alt="" /></div><span class="sn">Step 3</span><h3>Start care</h3><p>Your matched Care Professional begins support on your terms.</p></div>
+        <div class="step reveal"><div class="ic"><img src={img("ff72ba_450bd4f5f0764d2ab2652a812a08121a~mv2.png")} alt="" /></div><span class="sn">Step 4</span><h3>Ongoing</h3><p>We review and adapt your care as your needs change.</p></div>
+      </div>
+      <div class="quizcard reveal">
+        <div><h3>Not sure what care you need?</h3><p>Answer a few quick questions and we'll point you in the right direction — no pressure, no jargon.</p></div>
+        <a class="btn btn-clay" href="#book">Get in touch →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- app -->
+  <section class="section app" id="app">
+    <div class="wrap">
+      <div class="panel reveal"><div class="phone"><img src={img("ff72ba_92c3196bddda4a5f87fda89ca88bb38b~mv2.png")} alt="Otter Care App" /></div></div>
+      <div class="reveal">
+        <span class="eyebrow">The Otter Care App</span>
+        <h2>Stay connected to the moments that matter</h2>
+        <div class="fl"><span class="ix">01</span><div><h4>See who's visiting today</h4><p>Know exactly when your carer has been and when they're due.</p></div></div>
+        <div class="fl"><span class="ix">02</span><div><h4>Read real visit notes</h4><p>From breakfast choices to how they're feeling — all recorded with care.</p></div></div>
+        <div class="fl"><span class="ix">03</span><div><h4>Access care records anytime</h4><p>Easily view care plans, assessments and updates.</p></div></div>
+        <div class="fl"><span class="ix">04</span><div><h4>Know medication's been taken</h4><p>Confidence that medication's been given and needs are met.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- stories (SAMPLE testimonials — to be replaced with real, consented quotes) -->
+  <section class="section tmt" id="stories">
+    <div class="wrap">
+      <div class="head-c reveal">
+        <span class="eyebrow on-clay">Real stories</span>
+        <h2>The families we look after</h2>
+      </div>
+      <div class="story reveal">
+        <div class="story-pic"><img src={img("ff72ba_a006c15eb20c4eb1b0930b2825f55912~mv2.jpg")} alt="A client at home" /></div>
+        <div class="story-body">
+          <div class="star">★★★★★</div>
+          <blockquote>"After Mum's fall we were terrified she'd have to leave the home she's lived in for 40 years. Otter sat with us, built a plan around her, and matched her with two carers she now calls friends. She's still in her own kitchen — and we finally sleep at night."</blockquote>
+          <div class="by">The Hughes family<span>Caring for Margaret · Bradford-on-Avon</span></div>
+        </div>
+      </div>
+      <div class="tmt-grid">
+        <div class="quote reveal"><div class="star">★★★★★</div><p>"The carers feel like family now. Mum lights up when they arrive, and the app means I can see she's well even when I'm away."</p><div class="by"><span class="av">SM</span><div><b>Sarah M.</b><small>Daughter · Melksham</small></div></div></div>
+        <div class="quote reveal"><div class="star">★★★★★</div><p>"Genuinely kind and never rushed. They fit visits around Dad's day, so he always has time to enjoy the company."</p><div class="by"><span class="av">DR</span><div><b>David R.</b><small>Son · Trowbridge</small></div></div></div>
+        <div class="quote reveal"><div class="star">★★★★★</div><p>"From the first call I felt understood. The care plan fits our lives perfectly and the team are wonderful."</p><div class="by"><span class="av">MT</span><div><b>Margaret T.</b><small>Client · Frome</small></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- benefits -->
+  <section class="section benefits" id="benefits">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="eyebrow on-clay">Why home care</span>
+        <h2>Stay in the place you love</h2>
+        <p class="lede">For many families, staying at home with the right support is the most comfortable — and most empowering — option.</p>
+        <div class="blist">
+          <div class="b"><div class="ic">✓</div><div><b>Stay in the place you love</b><p>No need to leave home or uproot your life.</p></div></div>
+          <div class="b"><div class="ic">✓</div><div><b>Keep your independence</b><p>Care fits around your routine, not the other way around.</p></div></div>
+          <div class="b"><div class="ic">✓</div><div><b>Pay only for the time you need</b><p>Flexible, tailored support — never more than you use.</p></div></div>
+          <div class="b"><div class="ic">✓</div><div><b>One-to-one attention</b><p>Care that's personal, consistent and centred around you.</p></div></div>
+          <div class="b"><div class="ic">✓</div><div><b>Stay close to your pets</b><p>Keep the comfort of your companions by your side.</p></div></div>
+        </div>
+      </div>
+      <div class="pic reveal"><img src={img("ff72ba_a006c15eb20c4eb1b0930b2825f55912~mv2.jpg")} alt="Client enjoying tea at home" /></div>
+    </div>
+  </section>
+
+  <!-- careers -->
+  <section class="section careers" id="careers">
+    <div class="wrap reveal">
+      <div>
+        <span class="eyebrow" style="background:rgba(255,255,255,.2);color:#fff">Careers</span>
+        <h2 style="margin-top:14px">Become an Otter Care Professional</h2>
+        <div class="perks"><span>Flexible hours</span><span>Industry-leading pay</span><span>Full training &amp; support</span><span>A supportive team</span></div>
+      </div>
+      <a class="btn btn-ghost" href="/careers">Find out more →</a>
+    </div>
+  </section>
+
+  <!-- booking -->
+  <section class="section book" id="book">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="eyebrow" style="background:rgba(255,255,255,.14);color:#fff">Free, no-obligation assessment</span>
+        <h2>Let's find the right care, together</h2>
+        <p class="lede">Tell us a little about who needs support and we'll be in touch to arrange a free home visit — at a time that suits you.</p>
+        <div class="reassure">
+          <div><span class="ic">✓</span> Free, no-obligation home visit</div>
+          <div><span class="ic">✓</span> A tailored care plan, built around you</div>
+          <div><span class="ic">✓</span> Speak to a real local person — never a call centre</div>
+        </div>
+        <div class="callbox">
+          <small>Prefer to talk? Call us any time</small>
+          <a href="tel:01225690022">01225 690022</a>
+        </div>
+      </div>
+      <div class="reveal">
+        <form class="form" id="bookForm" action="/api/contact" method="POST" novalidate>
+          <h3>Book a free assessment</h3>
+          <p class="fhint">We usually reply the same day.</p>
+          <input type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none" />
+          <div class="frow">
+            <div class="field"><label for="name">Your name</label><input id="name" name="name" type="text" required placeholder="Jane Smith" /></div>
+            <div class="field"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" required placeholder="07700 900000" /></div>
           </div>
-          <div class="badge-float tl">
-            <div class="num">★★★★★</div>
-            <div class="lbl">Wiltshire Council QAF<br><strong style="color:#1F2E33">Perfect score 2024</strong></div>
+          <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" placeholder="jane@example.com" /></div>
+          <div class="frow">
+            <div class="field"><label for="who">Who is the care for?</label><select id="who" name="who"><option>My parent</option><option>My partner</option><option>Myself</option><option>Another relative</option><option>Someone else</option></select></div>
+            <div class="field"><label for="area">Your area</label><select id="area" name="area"><option>Trowbridge</option><option>Bradford-on-Avon</option><option>Melksham</option><option>Westbury</option><option>Frome</option><option>Elsewhere nearby</option></select></div>
           </div>
-          <div class="badge-float br">
-            <div class="num" style="color:#87A96B">100%</div>
-            <div class="lbl">Locally owned<br>& Trowbridge-based</div>
-          </div>
+          <div class="field"><label for="msg">How can we help? (optional)</label><textarea id="msg" name="msg" placeholder="A little about the support you're looking for…"></textarea></div>
+          <button class="btn btn-primary" type="submit">Request my free assessment →</button>
+          <p class="privacy">Your details are kept private and never shared. See our <a href="/privacy" style="text-decoration:underline">privacy policy</a>.</p>
+        </form>
+        <div class="form-success" id="formSuccess">
+          <div class="tick">✓</div>
+          <h3>Thank you — we've got it</h3>
+          <p>One of our local team will be in touch very soon to arrange your free visit. If it's urgent, please call <strong>01225 690022</strong>.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ TRUST STRIP ============ -->
-  <div class="trust">
-    <div class="wrap">
-      <div class="row">
-        <div class="item">
-          <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L3 7v6c0 5 4 9 9 10 5-1 9-5 9-10V7l-9-5z"/></svg></div>
-          <div><strong>CQC Registered</strong><span>Quality regulated</span></div>
-        </div>
-        <div class="item">
-          <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg></div>
-          <div><strong>Wiltshire Council Approved</strong><span>QAF perfect score</span></div>
-        </div>
-        <div class="item">
-          <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-7 8-7s8 3 8 7"/></svg></div>
-          <div><strong>Trained Local Team</strong><span>Properly supported staff</span></div>
-        </div>
-        <div class="item">
-          <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11c0 6-9 11-9 11s-9-5-9-11a9 9 0 0118 0z"/><circle cx="12" cy="11" r="3"/></svg></div>
-          <div><strong>Wiltshire & Somerset</strong><span>Trowbridge, Melksham, Frome…</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ============ FOUNDER'S MESSAGE ============ -->
-  <section class="founder" id="founder">
-    <div class="wrap">
-      <div class="layout">
-        <div class="media">
-          <div class="video-frame">
-            <Image src={founder} alt="Jamie sharing a cup of tea with a client in a Wiltshire garden" class="fill-img" widths={[480, 800]} sizes="(max-width: 980px) 100vw, 480px" />
-          </div>
-        </div>
-        <div>
-          <span class="eyebrow">A note from our founder</span>
-          <h2>I started Otter Homecare because of my Dad.</h2>
-          <p class="story">I grew up in Wiltshire, but spent my twenties and thirties in Thailand. There, I saw a culture where caring for older loved ones at home — surrounded by family — was simply the way of life. Care homes were almost unheard of.</p>
-          <p class="story">When I came back to the UK and my father suffered a severe stroke, I knew exactly what to do. We cared for him at home. Familiar faces. Dignity. Love. Supervising his support team opened my eyes to the real power of good care — not just for the person being supported, but for the whole family.</p>
-          <p class="story">My wife Bowling and I founded Otter Homecare to bring that same care to families across Wiltshire and Somerset. Three things still guide every decision we make:</p>
-          <p class="story"><strong>The Dad test.</strong> Before we hire anyone or write any care plan, I ask one question: <em>would this be good enough for my own Dad?</em> If the answer is anything other than yes, we change it.</p>
-          <p class="story"><strong>A small team, on purpose.</strong> We've stayed deliberately small so families know everyone who comes through the door — and so I know everyone we send.</p>
-          <p class="story"><strong>Full transparency through our care app.</strong> Families can see every visit, every note, every medication — in real time, from their phone. No mystery. No "how did Mum do today?" left hanging.</p>
-          <div class="sig">
-            <span class="sig-mark">Jamie,</span>
-            <div>
-              <div class="sig-name">Jamie Rowland-Jones</div>
-              <div class="sig-role">Founder & Managing Director · Otter Homecare</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ SERVICES ============ -->
-  <section class="services" id="services">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">What we do</span>
-        <h2>Care designed around the person, not the task list.</h2>
-        <p>Whether it's an hour of companionship a week or full live-in support, we shape our care around what someone actually needs — and what makes them feel like themselves.</p>
-      </div>
-      <div class="cards">
-        <a class="service" href="/personal-care">
-          <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
-          <h3>Personal Care</h3>
-          <p>Help with washing, dressing, medication, meals and the everyday moments that matter — delivered with dignity.</p>
-          <span class="more">Learn more →</span>
-        </a>
-        <a class="service" href="/live-in-care">
-          <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12l2-2 4 4 8-8 4 4"/><path d="M3 21h18"/></svg></div>
-          <h3>Live-in Care</h3>
-          <p>A dedicated carer in the home around the clock — a real alternative to residential care, in the place you know best.</p>
-          <span class="more">Learn more →</span>
-        </a>
-        <a class="service" href="/companionship">
-          <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/></svg></div>
-          <h3>Companionship</h3>
-          <p>A friendly visit, a cup of tea, a trip out — the kind of company that lifts a week and keeps loneliness at bay.</p>
-          <span class="more">Learn more →</span>
-        </a>
-        <a class="service" href="/conditions">
-          <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 6 6 1-4.5 4 1 6L12 16l-5.5 3 1-6L3 9l6-1z"/></svg></div>
-          <h3>Specialist Support</h3>
-          <p>Dementia, frailty, fall recovery, end-of-life — experienced support for the conditions that need a steady, expert hand.</p>
-          <span class="more">Learn more →</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ HOW IT WORKS ============ -->
-  <section class="how" id="how">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">How it works</span>
-        <h2>Three steps to care that fits.</h2>
-        <p>No call centres, no high-pressure sales. Just a friendly chat to understand what's needed, then a plan we build together.</p>
-      </div>
-      <div class="steps">
-        <div class="step">
-          <div class="num">1</div>
-          <h3>Free, no-pressure chat</h3>
-          <p>Call us or fill in the form. We'll listen, answer your questions and explain how home care actually works — in plain English.</p>
-        </div>
-        <div class="step">
-          <div class="num">2</div>
-          <h3>Home assessment</h3>
-          <p>We visit at a time that suits you to understand the person, the home and the routine. No commitment, no charge.</p>
-        </div>
-        <div class="step">
-          <div class="num">3</div>
-          <h3>Care that starts gently</h3>
-          <p>A bespoke care plan and a matched carer. We start small, build trust, and adjust as needs change — never the other way round.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ AREAS ============ -->
-  <section class="areas" id="areas">
-    <div class="wrap">
-      <div class="layout">
-        <div class="map-box">
-          <div class="map-label">[ Interactive map of West Wiltshire<br>with service pins ]</div>
-        </div>
-        <div>
-          <span class="eyebrow">Where we cover</span>
-          <h2 style="font-size:34px;margin:14px 0 16px">Proudly local. Properly local.</h2>
-          <p style="font-size:16.5px;color:var(--muted);margin:0 0 8px">We're a Trowbridge family business serving the towns and villages around us. That means short journeys for our carers, faster response when things change, and a team that knows the area you live in.</p>
-          <div class="area-pills">
-            <a class="pill" href="/trowbridge"><span class="marker"></span>Trowbridge</a>
-            <a class="pill" href="/melksham"><span class="marker"></span>Melksham</a>
-            <a class="pill" href="/frome"><span class="marker"></span>Frome</a>
-            <a class="pill" href="/bradford-on-avon"><span class="marker"></span>Bradford-on-Avon</a>
-            <a class="pill" href="/westbury"><span class="marker"></span>Westbury</a>
-            <span class="pill" style="background:var(--teal-soft);color:var(--teal);border-color:var(--teal-soft)">+ surrounding villages</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ WHY US ============ -->
-  <section class="why">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">The promises we make</span>
-        <h2>Not the biggest. Just genuinely good.</h2>
-        <p>Four things that aren't marketing — they're how we actually run.</p>
-      </div>
-      <div class="grid">
-        <div class="item">
-          <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
-          <h3>The "Dad test"</h3>
-          <p>Every carer we hire, every plan we write — we ask one question: would this be good enough for my own Dad?</p>
-        </div>
-        <div class="item">
-          <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-          <h3>A small team, on purpose</h3>
-          <p>We've stayed deliberately small so you know everyone we send — and so we know them too. No agency strangers.</p>
-        </div>
-        <div class="item">
-          <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M10 18h4"/></svg></div>
-          <h3>Real-time care app</h3>
-          <p>Every visit, every note, every medication — visible on your phone the moment it happens. No mystery.</p>
-        </div>
-        <div class="item">
-          <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-7 8-7s8 3 8 7"/></svg></div>
-          <h3>Same faces, every time</h3>
-          <p>We track carer continuity weekly. Familiar faces, familiar routines — because care that feels new every day isn't really care.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ TESTIMONIALS ============ -->
-  <section class="testimonials">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">In their own words</span>
-        <h2>What families and clients say.</h2>
-      </div>
-      <div class="quotes">
-        <div class="quote">
-          <p>The Otter team have been wonderful with Mum. They take time with her, they remember the little things, and I sleep better at night knowing they're there.</p>
-          <div class="who">
-            <div class="avatar">SW</div>
-            <div><div class="name">Sarah W.</div><div class="role">Daughter, Trowbridge</div></div>
-          </div>
-        </div>
-        <div class="quote">
-          <p>I didn't want to leave my home and I haven't had to. The carers are kind, professional, and feel like friends after a while.</p>
-          <div class="who">
-            <div class="avatar">DR</div>
-            <div><div class="name">David R.</div><div class="role">Client, Bradford-on-Avon</div></div>
-          </div>
-        </div>
-        <div class="quote">
-          <p>From the first phone call to the assessment to the care itself, it has all been brilliant. Honest, clear, and properly run.</p>
-          <div class="who">
-            <div class="avatar">MH</div>
-            <div><div class="name">Margaret H.</div><div class="role">Daughter-in-law, Melksham</div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ COMMUNITY ============ -->
-  <section class="community" id="community">
-    <div class="wrap">
-      <div class="layout">
-        <div class="community-art">
-          <Image src={community} alt="The Otter Homecare team at the Otter Café, Staverton Village Hall" class="fill-img" widths={[480, 800, 1000]} sizes="(max-width: 980px) 100vw, 480px" />
-        </div>
-        <div>
-          <span class="eyebrow">More than care</span>
-          <h2>The Otter Café — and a community we love.</h2>
-          <p>We run free monthly Otter Café gatherings in Staverton Village Hall, send out our Community Connect newsletter, and turn up to things that matter locally. Care doesn't end at the front door — and neither do we.</p>
-          <div style="display:flex;gap:14px;flex-wrap:wrap">
-            <a href="/contact" class="cta">Find the next Otter Café →</a>
-            <a href="/blog" class="cta ghost">Read Community Connect</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ BLOG ============ -->
-  <section class="blog">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">From the blog</span>
-        <h2>Helpful reads for families thinking about care.</h2>
-      </div>
-      <div class="cards">
-        <article class="post">
-          <a href="/post/community-connect-winter-february-2026">
-            <div class="img">[ Photo: newsletter cover ]</div>
-            <div class="body">
-              <span class="tag">Newsletter</span>
-              <h3>Community Connect — Winter 2026 edition</h3>
-              <span class="date">15 February 2026</span>
-            </div>
-          </a>
-        </article>
-        <article class="post">
-          <div class="img">[ Photo: Otter Café ]</div>
-          <div class="body">
-            <span class="tag">Community</span>
-            <h3>Our first ever Otter Café — a wonderful start</h3>
-            <span class="date">9 September 2025</span>
-          </div>
-        </article>
-        <article class="post">
-          <div class="img">[ Photo: family conversation ]</div>
-          <div class="body">
-            <span class="tag">Advice</span>
-            <h3>The benefits of personalised care plans — why one-size-fits-all doesn't work</h3>
-            <span class="date">3 September 2025</span>
-          </div>
-        </article>
-      </div>
-      <div style="text-align:center;margin-top:36px"><a href="/blog" class="cta ghost">Read more from the blog →</a></div>
-    </div>
-  </section>
-
-  <!-- ============ BIG CTA ============ -->
-  <section class="big-cta" id="contact">
-    <div class="wrap">
-      <h2>Wondering if home care could work?</h2>
-      <p>Have a free, no-pressure chat with someone local who knows what they're talking about. We'll listen first.</p>
-      <div class="row">
-        <a href="tel:01225690022" class="phone">📞 01225 690022</a>
-        <a href="/contact" class="cta large" style="background:#fff;color:var(--teal)">Book a free chat →</a>
-      </div>
-    </div>
-  </section>
-</BaseLayout>
+  <script is:inline>
+    const f = document.getElementById("bookForm");
+    if (f) f.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const btn = f.querySelector('button[type="submit"]');
+      const data = Object.fromEntries(new FormData(f).entries());
+      btn.disabled = true; btn.textContent = "Sending…";
+      try {
+        const res = await fetch("/api/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify(data),
+        });
+        const json = await res.json();
+        if (res.ok && json.ok) {
+          f.classList.add("hide");
+          document.getElementById("formSuccess").classList.add("show");
+        } else {
+          btn.disabled = false; btn.textContent = "Request my free assessment →";
+          alert(json.error || "Something went wrong — please call us on 01225 690022.");
+        }
+      } catch {
+        btn.disabled = false; btn.textContent = "Request my free assessment →";
+        alert("Something went wrong — please call us on 01225 690022.");
+      }
+    });
+  </script>
+</SiteLayout>

@@ -19,18 +19,27 @@ export default async function handler(req, res) {
   }
 
   // Vercel auto-parses JSON and urlencoded bodies into req.body.
+  // Handles both the simple contact form (firstName/lastName/message) and the
+  // booking form (name/phone/who/area/msg).
   const body = req.body || {};
-  const { firstName = "", lastName = "", email = "", phone = "", message = "", consent = "" } = body;
+  const {
+    firstName = "", lastName = "", name: nameField = "",
+    email = "", phone = "", consent = "",
+    who = "", area = "",
+  } = body;
+  const message = (body.message || body.msg || "").toString();
 
   // Spam honeypot: bots fill the hidden "company" field; humans never see it.
   if (body.company) return res.status(200).json({ ok: true }); // silently drop
 
-  // Minimal validation (email + message required, mirroring the Wix form).
-  if (!email || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email) || !message.trim()) {
-    return res.status(400).json({ ok: false, error: "Please add your email and a message." });
+  const name = (nameField || [firstName, lastName].filter(Boolean).join(" ")).trim();
+  const emailValid = /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email);
+
+  // Need a name and at least one way to reach them (valid email OR a phone number).
+  if (!name || (!emailValid && !phone.trim())) {
+    return res.status(400).json({ ok: false, error: "Please add your name and a phone number or email." });
   }
 
-  const name = [firstName, lastName].filter(Boolean).join(" ") || "(no name given)";
   const wantsFormRedirect = (req.headers["accept"] || "").includes("text/html");
 
   // If Resend isn't configured yet, accept the submission so the POC works,
@@ -50,16 +59,18 @@ export default async function handler(req, res) {
       body: JSON.stringify({
         from: CONTACT_FROM,
         to: [CONTACT_TO],
-        reply_to: email,
+        ...(emailValid ? { reply_to: email } : {}),
         subject: `Website enquiry from ${name}`,
         html: `
           <h2>New enquiry from the Otter Homecare website</h2>
           <p><strong>Name:</strong> ${esc(name)}</p>
-          <p><strong>Email:</strong> ${esc(email)}</p>
           <p><strong>Phone:</strong> ${esc(phone) || "—"}</p>
-          <p><strong>Marketing opt-in:</strong> ${consent ? "Yes" : "No"}</p>
+          <p><strong>Email:</strong> ${esc(email) || "—"}</p>
+          ${who ? `<p><strong>Care for:</strong> ${esc(who)}</p>` : ""}
+          ${area ? `<p><strong>Area:</strong> ${esc(area)}</p>` : ""}
+          ${consent ? `<p><strong>Marketing opt-in:</strong> Yes</p>` : ""}
           <hr>
-          <p style="white-space:pre-wrap">${esc(message)}</p>
+          <p style="white-space:pre-wrap">${esc(message) || "(no message)"}</p>
         `,
       }),
     });
