@@ -9,35 +9,21 @@ const img = (f: string) => `/img/${f}`;
   <!-- hero -->
   <header class="hero" id="top">
     <div class="wrap">
-      <div>
+      <div class="hero-copy">
         <span class="eyebrow">Local home care in Wiltshire &amp; Somerset</span>
         <h1 style="margin-top:18px">Care for a <span class="hl">kinder</span> future</h1>
         <p class="sub">Warm, flexible home care from a small, local team who treat your family like our own — from live-in support to a friendly visit and a cup of tea.</p>
-        <div class="hero-cta">
-          <a class="btn btn-primary btn-lg" href="#book">Book a free assessment</a>
-          <a class="btn btn-ghost btn-lg" href="tel:01225690022">Call 01225 690022</a>
-        </div>
-        <div class="chips">
-          <span class="chip">CQC regulated</span>
-          <span class="chip">Homecare Association member</span>
-          <span class="chip">★ Rated on homecare.co.uk</span>
-        </div>
       </div>
       <div class="hero-media">
-        <div class="main"><img src={img("ff72ba_82b85220c73d4bf3b00cc07f8605e8f0~mv2.jpg")} alt="Otter carer supporting a client outdoors" /></div>
-        <div class="bubble b1"><span class="em"><img src={img("ff72ba_6b697f1e4a3a41c1aecccee2682244ff~mv2.png")} alt="" /></span><div>Visits your way<small>from a quick call-in</small></div></div>
-        <div class="bubble b2"><span class="em"><img src={img("ff72ba_2bf82f37a4d848749064454cc8f0df2c~mv2.png")} alt="" /></span><div>Live updates<small>via the Care App</small></div></div>
+        <div class="main"><img src={img("ff72ba_82b85220c73d4bf3b00cc07f8605e8f0~mv2.jpg")} alt="An Otter carer sharing a warm moment with a client in the garden" /></div>
+        <div class="hero-badge"><span class="em">9.4</span><div><span class="stars">★★★★★</span><b>Rated by families</b><small>on homecare.co.uk</small></div></div>
+      </div>
+      <div class="hero-cta">
+        <a class="btn btn-primary btn-lg" href="#book">Book a free assessment</a>
+        <a class="btn btn-ghost btn-lg" href="tel:01225690022">Call 01225 690022</a>
       </div>
     </div>
   </header>
-
-  <!-- trust strip -->
-  <section class="trust"><div class="wrap">
-    <div class="item"><div class="ic">✓</div><div><small>Regulated by</small><b>Care Quality Commission</b></div></div>
-    <div class="item"><div class="ic">✓</div><div><small>Member of</small><b>The Homecare Association</b></div></div>
-    <div class="item"><div class="ic">✓</div><div><small>Reviewed on</small><b>homecare.co.uk</b></div></div>
-    <div class="item"><div class="ic">✓</div><div><small>Flexible</small><b>Visits to suit you</b></div></div>
-  </div></section>
 
   <!-- proof band -->
   <section class="proof"><div class="wrap">
@@ -59,39 +45,41 @@ const img = (f: string) => `/img/${f}`;
     </div>
   </section>
 
-  <!-- services (2+1 bento) -->
+  <!-- services -->
   <section class="section services" id="services">
     <div class="wrap">
       <div class="head-c reveal">
-        <h2>Care for your parents, partner, or yourself</h2>
+        <span class="dots-motif" aria-hidden="true"><img src="/assets/otter-tt.png" alt="" /></span>
+        <h2>Care for the people you love most</h2>
+        <p class="lede">Whether it's for a parent, a partner, or yourself, we'll wrap our care gently around the person — and the life they already love.</p>
       </div>
       <div class="svc-grid">
-        <a class="svc svc-feature reveal" href="/live-in-care"><div class="img"><span class="tag">Popular</span><img src={img("ff72ba_0aa05eb659ee4c64a5d410e57b21eff0~mv2.jpg")} alt="" /></div><div class="body"><h3>Live-in Care</h3><p>Expert round-the-clock care in the comfort of your own home — a warm, one-to-one alternative to a care home.</p><span class="more">Learn more →</span></div></a>
-        <a class="svc reveal" href="/care-services"><div class="img"><img src={img("ff72ba_3a8fe18215c24b3e9cb6884f0bf44228~mv2.jpg")} alt="" /></div><div class="body"><h3>Visiting Care</h3><p>Friendly carers visiting your home with flexible, tailored support.</p><span class="more">Learn more →</span></div></a>
+        <a class="svc svc-feature reveal" href="/live-in-care"><div class="img"><img src={img("ff72ba_0aa05eb659ee4c64a5d410e57b21eff0~mv2.jpg")} alt="" /></div><div class="body"><h3>Live-in Care</h3><p>Expert round-the-clock care in the comfort of your own home — a warm, one-to-one alternative to a care home.</p><span class="more">Learn more →</span></div></a>
+        <a class="svc reveal" href="/care-services"><div class="img"><img src={img("ff72ba_3a8fe18215c24b3e9cb6884f0bf44228~mv2.jpg")} alt="" /></div><div class="body"><h3>Visiting Care</h3><p>Friendly carers visiting your home — from personal care, washing and dressing to meals, medication and good company.</p><span class="more">Learn more →</span></div></a>
         <a class="svc reveal" href="/conditions"><div class="img"><img src={img("ff72ba_356da85da3114f4ea8c98fa716675d83~mv2.jpg")} alt="" /></div><div class="body"><h3>Conditions We Care For</h3><p>Specialist support for dementia, recovery and a range of conditions.</p><span class="more">Learn more →</span></div></a>
         <a class="svc svc-wide reveal" href="/companionship"><div class="img"><img src={img("ff72ba_82b85220c73d4bf3b00cc07f8605e8f0~mv2.jpg")} alt="" /></div><div class="body"><h3>Companionship</h3><p>A friendly face, shared hobbies and genuine connection, every visit — because good company is care too.</p><span class="more">Learn more →</span></div></a>
       </div>
     </div>
   </section>
 
-  <!-- different (asymmetric editorial split) -->
+  <!-- different -->
   <section class="section diff" id="diff">
     <div class="wrap diff-wrap">
       <div class="diff-intro reveal">
         <h2>What makes us different</h2>
         <p>We're one local team who answer the phone ourselves — not a branch of a national chain or a call centre.</p>
         <div class="diff-lead">
-          <div class="ic"><img src={img("ff72ba_5700a715dff44d6c8efc49ea98140c28~mv2.png")} alt="" /></div>
+          <div class="ic"><img src="/assets/icons/heart.svg" alt="" /></div>
           <h3>Good Enough for Dad</h3>
           <p>We only hire carers we'd trust with our own families. In fact, our carers support my own dad.</p>
         </div>
       </div>
       <div class="diff-list reveal">
-        <div class="dl"><div class="ic"><img src={img("ff72ba_fc3d57bfd4854541b312b420e82571e0~mv2.png")} alt="" /></div><div><h4>A small, dedicated team</h4><p>Tight-knit, so carers get to know each client and family properly.</p></div></div>
-        <div class="dl"><div class="ic"><img src={img("ff72ba_c1c4f601da794bc6883e08519553e393~mv2.png")} alt="" /></div><div><h4>Local &amp; personal</h4><p>Based in Trowbridge and just around the corner — always close by.</p></div></div>
-        <div class="dl"><div class="ic"><img src={img("ff72ba_2bf82f37a4d848749064454cc8f0df2c~mv2.png")} alt="" /></div><div><h4>Care App transparency</h4><p>Families see real-time updates from every visit, for total peace of mind.</p></div></div>
-        <div class="dl"><div class="ic"><img src={img("ff72ba_6b697f1e4a3a41c1aecccee2682244ff~mv2.png")} alt="" /></div><div><h4>Visits that suit you</h4><p>From a quick daily call-in to a full day together — care that flexes around life.</p></div></div>
-        <div class="dl"><div class="ic"><img src={img("ff72ba_1a0a055e1b314d97a1b43f988176b52d~mv2.png")} alt="" /></div><div><h4>Otter Happy Hour</h4><p>A free hour of care each month to enjoy something special.</p></div></div>
+        <div class="dl"><div class="ic"><img src="/assets/icons/team.svg" alt="" /></div><div><h4>A small, dedicated team</h4><p>Tight-knit, so carers get to know each client and family properly.</p></div></div>
+        <div class="dl"><div class="ic"><img src="/assets/icons/pin.svg" alt="" /></div><div><h4>Local &amp; personal</h4><p>Based in Trowbridge and just around the corner — always close by.</p></div></div>
+        <div class="dl"><div class="ic"><img src="/assets/icons/phone.svg" alt="" /></div><div><h4>Care App transparency</h4><p>Families see real-time updates from every visit, for total peace of mind.</p></div></div>
+        <div class="dl"><div class="ic"><img src="/assets/icons/clock.svg" alt="" /></div><div><h4>Visits that suit you</h4><p>From a quick daily call-in to a full day together — care that flexes around life.</p></div></div>
+        <div class="dl"><div class="ic"><img src="/assets/icons/mug.svg" alt="" /></div><div><h4>Otter Happy Hour</h4><p>A free hour of care each month to enjoy something special.</p></div></div>
       </div>
     </div>
   </section>
@@ -106,6 +94,7 @@ const img = (f: string) => `/img/${f}`;
   <section class="section trustwhy" id="trust-why">
     <div class="wrap">
       <div class="head-c reveal">
+        <span class="dots-motif" aria-hidden="true"><img src="/assets/otter-tt.png" alt="" /></span>
         <h2>Peace of mind, built in</h2>
       </div>
       <div class="trust3">
@@ -136,17 +125,17 @@ const img = (f: string) => `/img/${f}`;
     </div>
   </section>
 
-  <!-- steps (editorial) -->
+  <!-- steps (editorial big-number) -->
   <section class="section steps" id="steps">
     <div class="wrap">
       <div class="head-c reveal">
         <h2>A simple, reassuring process</h2>
       </div>
       <div class="steps-grid">
-        <div class="step reveal"><div class="shead"><span class="ic"><img src={img("ff72ba_042db41963494f38a129bc17b0ce576e~mv2.png")} alt="" /></span><span class="bignum">1</span></div><h3>Call us</h3><p>Complimentary, expert guidance tailored to your needs.</p></div>
-        <div class="step reveal"><div class="shead"><span class="ic"><img src={img("ff72ba_fe924b8c9a6a414181c34d43e5bd4f69~mv2.png")} alt="" /></span><span class="bignum">2</span></div><h3>Home visit</h3><p>Our qualified manager visits to create your tailored care plan.</p></div>
-        <div class="step reveal"><div class="shead"><span class="ic"><img src={img("ff72ba_0bbd91564fe4494ea87681e131d16a57~mv2.png")} alt="" /></span><span class="bignum">3</span></div><h3>Start care</h3><p>Your matched Care Professional begins support on your terms.</p></div>
-        <div class="step reveal"><div class="shead"><span class="ic"><img src={img("ff72ba_450bd4f5f0764d2ab2652a812a08121a~mv2.png")} alt="" /></span><span class="bignum">4</span></div><h3>Ongoing</h3><p>We review and adapt your care as your needs change.</p></div>
+        <div class="step reveal"><span class="bignum">1</span><h3>Call us</h3><p>Complimentary, expert guidance tailored to your needs.</p></div>
+        <div class="step reveal"><span class="bignum">2</span><h3>Home visit</h3><p>Our qualified manager visits to create your tailored care plan.</p></div>
+        <div class="step reveal"><span class="bignum">3</span><h3>Start care</h3><p>Your matched Care Professional begins support on your terms.</p></div>
+        <div class="step reveal"><span class="bignum">4</span><h3>Ongoing</h3><p>We review and adapt your care as your needs change.</p></div>
       </div>
       <div class="quizcard reveal">
         <div><h3>Not sure what care you need?</h3><p>Answer a few quick questions and we'll point you in the right direction — no pressure, no jargon.</p></div>
@@ -158,13 +147,24 @@ const img = (f: string) => `/img/${f}`;
   <!-- app -->
   <section class="section app" id="app">
     <div class="wrap">
-      <div class="panel reveal"><div class="phone"><img src={img("ff72ba_92c3196bddda4a5f87fda89ca88bb38b~mv2.png")} alt="Otter Care App" /></div></div>
       <div class="reveal">
         <h2>Stay connected to the moments that matter</h2>
+        <p class="lede" style="margin:10px 0 22px">Our Care App keeps the whole family gently in the loop — wherever they are.</p>
         <div class="fl"><span class="ix">01</span><div><h4>See who's visiting today</h4><p>Know exactly when your carer has been and when they're due.</p></div></div>
         <div class="fl"><span class="ix">02</span><div><h4>Read real visit notes</h4><p>From breakfast choices to how they're feeling — all recorded with care.</p></div></div>
         <div class="fl"><span class="ix">03</span><div><h4>Access care records anytime</h4><p>Easily view care plans, assessments and updates.</p></div></div>
         <div class="fl"><span class="ix">04</span><div><h4>Know medication's been taken</h4><p>Confidence that medication's been given and needs are met.</p></div></div>
+      </div>
+      <div class="app-stage reveal">
+        <div class="phone"><img src={img("ff72ba_92c3196bddda4a5f87fda89ca88bb38b~mv2.png")} alt="The Otter Care App showing a visit summary" /></div>
+        <figure class="app-note n-top">
+          <span class="ava"><img src={img("ff72ba_a006c15eb20c4eb1b0930b2825f55912~mv2.jpg")} alt="A daughter who uses the Otter Care App" /></span>
+          <figcaption>"Now I know Mum's OK<br>without having to call."</figcaption>
+        </figure>
+        <figure class="app-note n-bottom">
+          <span class="ava"><img src={img("ff72ba_82b85220c73d4bf3b00cc07f8605e8f0~mv2.jpg")} alt="A son who stays involved through the app" /></span>
+          <figcaption>"I can stay involved<br>from miles away."</figcaption>
+        </figure>
       </div>
     </div>
   </section>
@@ -225,11 +225,11 @@ const img = (f: string) => `/img/${f}`;
         <h2>Stay in the place you love</h2>
         <p class="lede">For many families, staying at home with the right support is the most comfortable — and most empowering — option.</p>
         <div class="blist">
-          <div class="b"><div class="ic">✓</div><div><b>Stay in the place you love</b><p>No need to leave home or uproot your life.</p></div></div>
-          <div class="b"><div class="ic">✓</div><div><b>Keep your independence</b><p>Care fits around your routine, not the other way around.</p></div></div>
-          <div class="b"><div class="ic">✓</div><div><b>Pay only for the time you need</b><p>Flexible, tailored support — never more than you use.</p></div></div>
-          <div class="b"><div class="ic">✓</div><div><b>One-to-one attention</b><p>Care that's personal, consistent and centred around you.</p></div></div>
-          <div class="b"><div class="ic">✓</div><div><b>Stay close to your pets</b><p>Keep the comfort of your companions by your side.</p></div></div>
+          <div class="b"><div class="ic"><img src="/assets/icons/home.svg" alt="" /></div><div><b>Stay in the place you love</b><p>No need to leave home or uproot your life.</p></div></div>
+          <div class="b"><div class="ic"><img src="/assets/icons/key.svg" alt="" /></div><div><b>Keep your independence</b><p>Care fits around your routine, not the other way around.</p></div></div>
+          <div class="b"><div class="ic"><img src="/assets/icons/pound.svg" alt="" /></div><div><b>Pay only for the time you need</b><p>Flexible, tailored support — never more than you use.</p></div></div>
+          <div class="b"><div class="ic"><img src="/assets/icons/heart.svg" alt="" /></div><div><b>One-to-one attention</b><p>Care that's personal, consistent and centred around you.</p></div></div>
+          <div class="b"><div class="ic"><img src="/assets/icons/paw.svg" alt="" /></div><div><b>Stay close to your pets</b><p>Keep the comfort of your companions by your side.</p></div></div>
         </div>
       </div>
       <div class="pic reveal"><img src={img("ff72ba_a006c15eb20c4eb1b0930b2825f55912~mv2.jpg")} alt="Client enjoying tea at home" /></div>
@@ -239,11 +239,13 @@ const img = (f: string) => `/img/${f}`;
   <!-- careers -->
   <section class="section careers" id="careers">
     <div class="wrap reveal">
-      <div>
+      <div class="careers-copy">
         <h2 style="margin-top:0">Become an Otter Care Professional</h2>
+        <p class="lede" style="color:#4a3408;margin:12px 0 0;max-width:34ch">Join a small, local team who genuinely look out for each other — with proper training, flexible hours and industry-leading pay.</p>
         <div class="perks"><span>Flexible hours</span><span>Industry-leading pay</span><span>Full training &amp; support</span><span>A supportive team</span></div>
+        <a class="btn btn-clay" href="/careers" style="margin-top:22px">Find out more →</a>
       </div>
-      <a class="btn btn-ghost" href="/careers">Find out more →</a>
+      <img class="careers-otter" src="/assets/otter-mascot.png" alt="Friendly Otter Homecare mascot waving" loading="lazy" />
     </div>
   </section>
 
