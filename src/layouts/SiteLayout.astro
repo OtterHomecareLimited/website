@@ -85,6 +85,22 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
       // FAQ accordion
       document.querySelectorAll(".faq > button").forEach((b) =>
         b.addEventListener("click", () => b.parentElement.classList.toggle("open")));
-    </script>
+      // Rotating promise line in the gold utility bar (disabled under reduced-motion)
+      const rot = document.getElementById("utilRot");
+      if (rot && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        const lines = [
+          'We treat your family <span class="em">like our own</span>',
+          'Care that feels <span class="em">like family</span>',
+          'A familiar face, <span class="em">every single visit</span>',
+          'A reliable team <span class="em">around your loved one</span>',
+        ];
+        let i = 0;
+        setInterval(() => {
+          i = (i + 1) % lines.length;
+          rot.classList.add("fade");
+          setTimeout(() => { rot.innerHTML = lines[i]; rot.classList.remove("fade"); }, 400);
+        }, 3800);
+      }
+</script>
   </body>
 </html>
