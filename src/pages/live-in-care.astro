@@ -1,0 +1,6 @@
+---
+import ServiceArticle from "../components/ServiceArticle.astro";
+import { services } from "../data/services";
+const service = services.find((s) => s.slug === "live-in-care")!;
+---
+<ServiceArticle service={service} />

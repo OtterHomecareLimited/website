@@ -1,41 +1,160 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import { services } from "../data/services";
+import SiteLayout from "../layouts/SiteLayout.astro";
+const img = (f: string) => `/img/${f}`;
 ---
-<BaseLayout
+<SiteLayout
   title="Care Services in Wiltshire & Somerset | Otter Homecare"
-  description="Explore our full range of home care services — from companionship and personal care to live-in support. Local, reliable and caring."
+  description="From a friendly weekly visit to round-the-clock live-in support, our home care is personal, flexible and built around you — across Trowbridge, Bradford-on-Avon, Melksham, Westbury and Frome."
 >
-  <div class="page-head">
+  <header class="phero">
     <div class="wrap">
-      <span class="eyebrow">What we do</span>
-      <h1>Our care services</h1>
-      <p>From an hour of companionship a week to full live-in support — care shaped around the person, not a task list.</p>
+      <div class="crumb"><a href="/">Home</a> · Care Services</div>
+      <h1>Care services that fit around your life</h1>
+      <p>From a friendly weekly visit to round-the-clock live-in support, our care is personal, flexible and built entirely around you — here in Wiltshire and Somerset.</p>
     </div>
-  </div>
+  </header>
 
-  <section class="services">
+  <section class="section" id="services">
     <div class="wrap">
-      <div class="cards" style="grid-template-columns:repeat(3,1fr)">
-        {services.map((service) => (
-          <a class="service" href={`/${service.slug}`}>
-            <h3>{service.name}</h3>
-            <p>{service.subtitle}</p>
-            <span class="more">Learn more →</span>
-          </a>
-        ))}
+      <div class="srow reveal">
+        <div class="srow-media"><img src={img("ff72ba_0aa05eb659ee4c64a5d410e57b21eff0~mv2.jpg")} alt="Live-in carer with client" /></div>
+        <div>
+          <span class="eyebrow">Live-in Care</span>
+          <h2>Round-the-clock care, at home</h2>
+          <p class="lede">Expert support day and night, from a dedicated carer who lives with you — a reassuring alternative to a care home.</p>
+          <ul>
+            <li>A dedicated carer living in your home, day and night</li>
+            <li>One-to-one support and genuine companionship</li>
+            <li>Help with personal care, meals, medication and routines</li>
+            <li>Keep your home, your pets and your independence</li>
+          </ul>
+          <a class="btn btn-primary" href="/live-in-care">Learn about live-in care →</a>
+        </div>
+      </div>
+
+      <div class="srow flip reveal">
+        <div class="srow-media"><img src={img("ff72ba_3a8fe18215c24b3e9cb6884f0bf44228~mv2.jpg")} alt="Carer visiting a client at home" /></div>
+        <div>
+          <span class="eyebrow">Visiting Care</span>
+          <h2>Flexible visits, on your terms</h2>
+          <p class="lede">From a quick daily call-in upward — friendly carers who help with everyday life and brighten the day.</p>
+          <ul>
+            <li>Flexible visit lengths to suit you (minimum one hour)</li>
+            <li>Help with washing, dressing, meals and medication</li>
+            <li>Support getting out to appointments and activities</li>
+            <li>The same familiar faces, building real relationships</li>
+          </ul>
+          <a class="btn btn-primary" href="/visiting-care">Learn about visiting care →</a>
+        </div>
+      </div>
+
+      <div class="srow reveal">
+        <div class="srow-media"><img src={img("ff72ba_7eaa85e28f2e4ec6a8802b501c002f18~mv2.jpg")} alt="Compassionate specialist care" /></div>
+        <div>
+          <span class="eyebrow">Specialist &amp; Condition-led Care</span>
+          <h2>Experienced, specialist support</h2>
+          <p class="lede">Care plans built around specific conditions and tailored to change with your needs over time.</p>
+          <ul>
+            <li>Experienced support for dementia, stroke and Parkinson's</li>
+            <li>Post-operative and fall recovery at home</li>
+            <li>Tailored care plans, reviewed as needs change</li>
+            <li>Care Professionals trained for complex needs</li>
+          </ul>
+          <a class="btn btn-primary" href="/conditions">Conditions we care for →</a>
+        </div>
+      </div>
+
+      <div class="srow flip reveal">
+        <div class="srow-media"><img src={img("ff72ba_82b85220c73d4bf3b00cc07f8605e8f0~mv2.jpg")} alt="Companionship and a friendly chat" /></div>
+        <div>
+          <span class="eyebrow">Companionship</span>
+          <h2>A friendly face and good company</h2>
+          <p class="lede">Sometimes the most valuable care is simply someone to share the day with.</p>
+          <ul>
+            <li>A friendly face and someone to talk to</li>
+            <li>Shared hobbies, walks and outings</li>
+            <li>Help around the home and with errands</li>
+            <li>Reassurance for families living further away</li>
+          </ul>
+          <a class="btn btn-primary" href="/companionship">Learn about companionship →</a>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="big-cta" style="padding:64px 0">
+  <section class="section trustwhy" id="conditions">
     <div class="wrap">
-      <h2>Not sure where to start?</h2>
-      <p>Tell us what's going on and we'll help you work out what would actually help. No pressure, no jargon.</p>
-      <div class="row">
-        <a href="tel:01225690022" class="phone">📞 01225 690022</a>
-        <a href="/contact" class="cta large" style="background:#fff;color:var(--teal)">Arrange a free chat →</a>
+      <div class="head-c reveal">
+        <span class="eyebrow">Conditions we care for</span>
+        <h2>Specialist support, close to home</h2>
+        <p class="lede">A few of the conditions our Care Professionals are experienced in supporting — if you don't see yours, just ask.</p>
+      </div>
+      <div class="conds reveal">
+        <span>Dementia &amp; Alzheimer's</span>
+        <span>Stroke recovery</span>
+        <span>Parkinson's</span>
+        <span>Arthritis &amp; mobility</span>
+        <span>Diabetes</span>
+        <span>Sensory loss</span>
+        <span>Post-operative recovery</span>
+        <span>Fall recovery</span>
+        <span>Palliative &amp; end-of-life</span>
+        <span>Continence support</span>
       </div>
     </div>
   </section>
-</BaseLayout>
+
+  <section class="section" id="trust-why">
+    <div class="wrap">
+      <div class="head-c reveal">
+        <span class="eyebrow">Care you can trust</span>
+        <h2>Peace of mind, built in</h2>
+      </div>
+      <div class="trust3">
+        <div class="t3 reveal"><span class="ix">01</span><h3>Fully CQC-regulated</h3><p>Independently inspected against the highest national standards — never an unregulated introductory agency.</p></div>
+        <div class="t3 reveal"><span class="ix">02</span><h3>Our own carers</h3><p>Directly employed and trained by us. No freelancers, no agency staff — just familiar, friendly faces.</p></div>
+        <div class="t3 reveal"><span class="ix">03</span><h3>Matched &amp; consistent</h3><p>The same small team of carers, who get to know you, your routine and the things that matter most.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section trustwhy" id="faqs">
+    <div class="wrap">
+      <div class="head-c reveal">
+        <span class="eyebrow">Good to know</span>
+        <h2>Frequently asked questions</h2>
+      </div>
+      <div class="faqs reveal">
+        <div class="faq"><button>How quickly can care start?<span class="tog">+</span></button><div class="ans"><p>After a free home visit we can usually begin within a few days — and sooner in urgent situations. We'll always be honest about what we can arrange and when.</p></div></div>
+        <div class="faq"><button>How much does home care cost?<span class="tog">+</span></button><div class="ans"><p>Visiting care starts from £36 per hour (minimum one hour); live-in care from £1,550 per week. You only ever pay for the time you use, with no travel or call-out fees. We'll talk you through clear pricing at your free assessment.</p></div></div>
+        <div class="faq"><button>Are you regulated?<span class="tog">+</span></button><div class="ans"><p>Yes — we're fully regulated by the Care Quality Commission (CQC) and a member of the Homecare Association. Our carers are directly employed and trained by us.</p></div></div>
+        <div class="faq"><button>Can we choose visit times and lengths?<span class="tog">+</span></button><div class="ans"><p>Absolutely. Care is built around your routine, with flexible visit lengths — from a short daily call-in through to live-in support.</p></div></div>
+        <div class="faq"><button>Will the same carers visit each time?<span class="tog">+</span></button><div class="ans"><p>We keep our team small and deliberately match consistent carers, so you see familiar faces who truly get to know you and your needs.</p></div></div>
+        <div class="faq"><button>Which areas do you cover?<span class="tog">+</span></button><div class="ans"><p>Trowbridge, Bradford-on-Avon, Melksham, Westbury, Frome and the surrounding villages. Not sure if you're in our area? Just give us a call.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section book" id="book-cta">
+    <div class="wrap" style="grid-template-columns:1fr;text-align:center;display:block">
+      <div class="reveal" style="max-width:36ch;margin:0 auto">
+        <span class="eyebrow" style="color:#9fc4bf">Free, no-obligation assessment</span>
+        <h2 style="margin:14px 0 12px">Let's find the right care, together</h2>
+        <p class="lede" style="margin-bottom:26px;color:#bfe0dc">Speak to a real, local person today — never a call centre. We'd love to help you or your loved one.</p>
+        <div style="display:flex;gap:13px;justify-content:center;flex-wrap:wrap">
+          <a class="btn btn-clay btn-lg" href="/contact">Book a free assessment</a>
+          <a class="btn btn-ghost btn-lg" href="tel:01225690022" style="background:transparent;color:#fff;border-color:rgba(255,255,255,.5)">Call 01225 690022</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="accred">
+    <div class="wrap">
+      <span class="lab">Regulated &amp; accredited</span>
+      <a href="https://www.cqc.org.uk" target="_blank" rel="noopener"><img src={img("ff72ba_1dd84e5fdfa54621847dc493095a773f~mv2.jpg")} alt="Regulated by the Care Quality Commission" /></a>
+      <a href="https://www.homecareassociation.org.uk" target="_blank" rel="noopener"><img src={img("ff72ba_91a56724044b4b7e9b3fcaf45212292b~mv2.png")} alt="Member of the Homecare Association" /></a>
+      <a class="wide" href="https://www.homecare.co.uk" target="_blank" rel="noopener"><img src={img("ff72ba_08d2912203b449fcb907fb6fa089403a~mv2.jpg")} alt="Reviewed on homecare.co.uk" /></a>
+    </div>
+  </section>
+</SiteLayout>

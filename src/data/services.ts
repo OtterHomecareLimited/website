@@ -1,29 +1,20 @@
-// ============================================================
-// Service data — single source of truth for the service pages.
-// ONE template (via src/pages/[slug].astro + ServiceArticle.astro)
-// renders ALL of these. Content reflects the live Wix pages
-// captured in the site audit, in Otter's plain-English voice.
-// "Care Professional" is the correct term (never "carer") in copy.
-// ============================================================
+// Service data — REAL content captured from the live Wix site (2026-06-06).
+// One template (ServiceArticle.astro) renders all of these.
 
 export interface Service {
   slug: string;
-  /** Short label for cards/nav. */
   name: string;
-  /** SEO <title> — standardised pattern. */
   title: string;
-  /** SEO meta description (carried/expanded from the live site). */
   description: string;
   h1: string;
-  /** Sub-heading under the H1. */
   subtitle: string;
-  /** Lede paragraph(s). */
+  heroImg: string;
   intro: string[];
-  /** "What's included" checklist. */
+  includedTitle?: string;
   included: string[];
-  /** Optional price callout (only live-in care quotes a price today). */
+  secondListTitle?: string;
+  secondList?: string[];
   price?: string;
-  /** Optional eligibility note (e.g. fall recovery is existing-clients only). */
   note?: string;
   testimonial?: { quote: string; who: string };
 }
@@ -32,27 +23,87 @@ export const services: Service[] = [
   {
     slug: "personal-care",
     name: "Personal Care",
-    title: "Personal Care at Home | Otter Homecare",
+    title: "Personal Care Services at Home | Otter Homecare",
     description:
       "Professional personal care at home, supporting dignity, independence and daily needs. Trusted Care Professionals across Wiltshire and Somerset.",
-    h1: "Dignified personal care that respects your independence",
-    subtitle: "Help with the everyday, delivered with warmth and respect",
+    h1: "Personal Care",
+    subtitle: "Dignified personal care that respects your independence",
+    heroImg: "ff72ba_8e19708f8dd7491cb1f934206e6b7fd2~mv2.jpg",
     intro: [
-      "Personal care covers the daily tasks that can become harder over time — and we deliver every one of them with patience, privacy and dignity. Our Care Professionals take the time to do things properly, the way you like them done.",
-      "Whether you need a hand first thing in the morning, support at bedtime, or help throughout the day, we build the routine around you — not the other way round.",
+      "We understand that accepting help with personal tasks can feel like a sensitive step. That's why our Care Professionals provide support with warmth, respect and calm reassurance — always protecting your dignity, privacy and independence.",
+      "We focus on building trust, taking time to understand your preferences and routines so that every visit feels comfortable and personal. Whether you need daily support or just occasional help, our care adapts around you.",
     ],
+    includedTitle: "What personal care can include",
     included: [
-      "Washing, bathing and showering",
-      "Dressing, grooming and personal hygiene",
-      "Help to the toilet and discreet continence care",
-      "Medication reminders and support",
-      "Meal preparation and help to eat and drink well",
-      "Mobility support and help to move safely",
+      "Bathing, showering or bed baths",
+      "Help with dressing and undressing",
+      "Oral hygiene and grooming (shaving, hair care, skin care)",
+      "Continence care and toileting support",
+      "Morning and bedtime routines",
+      "Medication prompting and reassurance",
     ],
     testimonial: {
       quote:
-        "They take time with Mum, they remember the little things, and I sleep better knowing they're there.",
-      who: "Sarah W. — Trowbridge",
+        "Everyone I have seen has gone the extra mile, and at this extremely difficult stage it has been a Godsend. I cannot recommend them highly enough.",
+      who: "J W · Wife of Client",
+    },
+  },
+  {
+    slug: "visiting-care",
+    name: "Visiting Care",
+    title: "Visiting Care in Wiltshire & Somerset | Otter Homecare",
+    description:
+      "Flexible visiting care at home across Trowbridge, Bradford-on-Avon, Melksham, Westbury and Frome — from a quick daily call-in to several visits a day. Minimum one-hour visits.",
+    h1: "Visiting Care",
+    subtitle: "Flexible visits, on your terms",
+    heroImg: "ff72ba_3a8fe18215c24b3e9cb6884f0bf44228~mv2.jpg",
+    intro: [
+      "From a friendly daily call-in upwards, our visiting care fits around your routine — never the other way round. Friendly Care Professionals help with everyday life and brighten the day, with the same familiar faces building real relationships.",
+      "Every visit is a minimum of one hour, because good care shouldn't be rushed.",
+    ],
+    includedTitle: "What visiting care can include",
+    included: [
+      "Flexible visit lengths to suit you (minimum one hour)",
+      "Help with washing, dressing, meals and medication",
+      "Support getting out to appointments and activities",
+      "Companionship and a friendly chat",
+      "Help around the home and with errands",
+      "The same familiar faces, every visit",
+    ],
+  },
+  {
+    slug: "companionship",
+    name: "Companionship",
+    title: "Companionship Care at Home | Otter Homecare",
+    description:
+      "Friendly companionship care at home in Wiltshire and Somerset — conversation, hobbies, outings and genuine connection that lifts the spirits and eases loneliness.",
+    h1: "Companionship Care",
+    subtitle: "Friendly faces, meaningful moments",
+    heroImg: "ff72ba_f2124d3e3abf4903ad29e1bbc13fab8e~mv2.jpg",
+    intro: [
+      "Sometimes the most powerful kind of care is simply being there. Our companionship care is all about connection — friendly, familiar faces to brighten the day, share in conversation and enjoy small but meaningful moments together.",
+      "Whether your loved one lives alone, feels isolated, or would just enjoy more company, our Care Professionals are here to lift spirits and create regular, genuine human contact.",
+    ],
+    includedTitle: "What companionship care can include",
+    included: [
+      "Friendly visits and conversation",
+      "Help with hobbies or activities",
+      "Walks in the garden or local area",
+      "Games, reading and reminiscing",
+      "Company for meals or outings",
+      "Support with appointments or errands",
+    ],
+    secondListTitle: "Why it matters",
+    secondList: [
+      "Improves mood and wellbeing",
+      "Reduces loneliness and isolation",
+      "Encourages gentle activity",
+      "Peace of mind for families",
+    ],
+    testimonial: {
+      quote:
+        "She is such a gentle and caring soul and has been a godsend for my parents. We all really appreciate having Pam in our lives.",
+      who: "Lyn E · Daughter of Client",
     },
   },
   {
@@ -60,52 +111,37 @@ export const services: Service[] = [
     name: "Live-in Care",
     title: "Live-in Care in Wiltshire & Somerset | Otter Homecare",
     description:
-      "24/7 live-in care for safety, comfort and peace of mind at home. Compassionate Care Professionals supporting independence and wellbeing.",
-    h1: "Live-in care",
-    subtitle: "A real alternative to a care home — in the home you love",
+      "Round-the-clock live-in care at home — a reassuring alternative to a care home. A dedicated Care Professional living with you, from £1,550 per week. Wiltshire & Somerset.",
+    h1: "Live-in Care",
+    subtitle: "Round-the-clock support, comfort and peace of mind in the place you call home",
+    heroImg: "ff72ba_356da85da3114f4ea8c98fa716675d83~mv2.jpg",
     intro: [
-      "With live-in care, a dedicated Care Professional lives in the home and is on hand around the clock. It's a genuine alternative to moving into residential care — keeping you in familiar surroundings, with your own routines, pets and memories all around you.",
-      "We match you carefully with someone you'll get on with, and plan everything from daily support to overnight reassurance.",
+      "Live-in care provides continuous support day and night, allowing you or your loved one to remain in the comfort and familiarity of home — with the reassurance of professional help always at hand.",
+      "Whether you're recovering from illness, managing a long-term condition, or simply want to feel safe and supported at home, we're here to help.",
     ],
+    includedTitle: "What we help with",
     included: [
-      "Help with washing, dressing and personal care",
-      "Medication support",
-      "Cooking, meals and shopping",
-      "Companionship and day-to-day company",
-      "Help around the house and with pets",
+      "Personal care (washing, dressing, toileting)",
+      "Medication support and health monitoring",
+      "Nutritious meal preparation",
+      "Household help (laundry, dishes, tidying)",
+      "Companionship and emotional support",
+      "Grocery shopping and appointments",
       "Overnight reassurance and peace of mind",
     ],
-    price: "From £1,395 per week",
+    secondListTitle: "Who is live-in care for?",
+    secondList: [
+      "Living alone and needing daily support",
+      "Recovering from a hospital stay, stroke or fall",
+      "Living with dementia or a long-term condition",
+      "Recently bereaved or seeking companionship",
+      "An alternative to residential care",
+    ],
+    price: "Live-in care starts from £1,550 per week, with a personalised quote after a free assessment. We can help you explore local authority funding or NHS continuing healthcare where applicable.",
     testimonial: {
       quote:
         "I didn't want to leave my home and I haven't had to. The carers are kind, professional, and feel like friends after a while.",
-      who: "David R. — Bradford-on-Avon",
-    },
-  },
-  {
-    slug: "companionship",
-    name: "Companionship",
-    title: "Companionship Care at Home | Otter Homecare",
-    description:
-      "Friendly companionship visits to reduce loneliness and bring joy. Meaningful support for daily living in Trowbridge, Frome and nearby towns.",
-    h1: "Companionship care",
-    subtitle: "Friendly faces, meaningful moments",
-    intro: [
-      "Sometimes the most important thing isn't a task — it's company. A familiar face, a proper chat over a cup of tea, a trip out to somewhere that matters. Companionship care is about lifting the week and keeping loneliness at bay.",
-      "It's often where families start, and it makes a bigger difference than people expect.",
-    ],
-    included: [
-      "Conversation and good company",
-      "Trips out, appointments and errands",
-      "Hobbies, activities and getting out and about",
-      "Help with letters, phone calls and admin",
-      "Light household tasks and a tidy-up",
-      "A reassuring check-in for peace of mind",
-    ],
-    testimonial: {
-      quote:
-        "The carers are kind, professional, and feel like friends after a while.",
-      who: "Client, Frome",
+      who: "Client · Bradford-on-Avon",
     },
   },
   {
@@ -113,39 +149,22 @@ export const services: Service[] = [
     name: "Fall Recovery",
     title: "Fall Recovery Support at Home | Otter Homecare",
     description:
-      "Specialised fall recovery support in Wiltshire and Somerset, helping clients get up safely and regain confidence after a fall.",
-    h1: "Fall recovery support",
-    subtitle: "Getting back on your feet, safely and with confidence",
+      "Swift, safe fall recovery support at home in Wiltshire and Somerset, using the Raizer lifting chair to help someone up safely and with dignity. Available to existing clients.",
+    h1: "Fall Recovery Support",
+    subtitle: "Swift, safe support if a fall happens",
+    heroImg: "ff72ba_4b05b1a5425d4810a639471b6c1f0d82~mv2.jpg",
     intro: [
-      "A fall can knock your confidence as much as anything else. Our Care Professionals are trained in safe moving and handling, and we use a Raizer lifting chair to help someone up from the floor safely, without strain or injury.",
-      "Beyond the moment itself, we carry out home risk assessments and work patiently to rebuild confidence so day-to-day life feels steady again.",
+      "Falls can shake a person's confidence — and a family's peace of mind. We're here to respond quickly and help gently, using the right tools and the right touch.",
+      "Our fall recovery support is delivered by trained professionals using the innovative Raizer Chair — a safe, dignified way to help someone up from the floor without risk of further injury.",
     ],
+    includedTitle: "How our fall recovery support works",
     included: [
-      "Safe, trained help to get up after a fall",
-      "Raizer lifting chair (no manual strain)",
-      "Home risk assessments to prevent future falls",
-      "Confidence-building support day to day",
+      "Raizer Chair lifting — a secure, seated lift from the floor",
+      "Rapid response — our team is on standby for urgent support",
+      "Dignified care — respectful assistance that protects privacy",
+      "Reduces A&E visits — easing pressure on local services",
+      "Peace of mind — knowing help is close when it's needed",
     ],
     note: "Fall recovery support is available to existing Otter Homecare clients.",
-  },
-  {
-    slug: "conditions",
-    name: "Specialist Support",
-    title: "Conditions We Support | Otter Homecare",
-    description:
-      "Tailored care for dementia, stroke, palliative needs and more. Personalised support to help people live safely and well at home.",
-    h1: "Conditions we support",
-    subtitle: "Experienced support for the conditions that need a steady hand",
-    intro: [
-      "Some situations need more than a kind heart — they need experience. Our Care Professionals are trained and supported to care for a range of conditions, always with a plan built around the individual rather than a label.",
-      "If you're not sure whether we can help with a particular condition, just ask — we'll be honest with you.",
-    ],
-    included: [
-      "Dementia and memory loss",
-      "Stroke recovery and rehabilitation",
-      "Physical disabilities and reduced mobility",
-      "End-of-life and palliative care",
-      "Frailty and complex daily needs",
-    ],
   },
 ];

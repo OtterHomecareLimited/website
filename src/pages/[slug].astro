@@ -1,27 +1,19 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import LocationArticle from "../components/LocationArticle.astro";
-import ServiceArticle from "../components/ServiceArticle.astro";
 import { towns } from "../data/locations";
-import { services } from "../data/services";
 
-// One root-level dynamic route owns ALL the data-driven slug pages —
-// both town pages (/trowbridge) and service pages (/personal-care).
-// Astro allows only one [param] file per directory, so they share this one.
+// Town pages (/trowbridge, …). Service pages are now their own routes on the
+// v4 design; towns are migrated to v4 in the next phase.
 export function getStaticPaths() {
-  const townPaths = towns.map((town) => ({
+  return towns.map((town) => ({
     params: { slug: town.slug },
-    props: { kind: "town" as const, town, title: town.title, description: town.description },
+    props: { town, title: town.title, description: town.description },
   }));
-  const servicePaths = services.map((service) => ({
-    params: { slug: service.slug },
-    props: { kind: "service" as const, service, title: service.title, description: service.description },
-  }));
-  return [...townPaths, ...servicePaths];
 }
 
-const { kind, town, service, title, description } = Astro.props;
+const { town, title, description } = Astro.props;
 ---
 <BaseLayout title={title} description={description}>
-  {kind === "town" ? <LocationArticle town={town} /> : <ServiceArticle service={service} />}
+  <LocationArticle town={town} />
 </BaseLayout>

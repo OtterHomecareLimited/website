@@ -1,71 +1,88 @@
 ---
+import SiteLayout from "../layouts/SiteLayout.astro";
 import type { Service } from "../data/services";
+import { services } from "../data/services";
+
 interface Props { service: Service }
 const { service } = Astro.props;
+const img = (f: string) => `/img/${f}`;
+const others = services.filter((s) => s.slug !== service.slug).slice(0, 3);
 ---
-<!-- Hero -->
-<section class="loc-hero">
-  <div class="wrap">
-    <span class="eyebrow">🦦 Our care · {service.name}</span>
-    <h1>{service.h1}</h1>
-    <p class="lede">{service.subtitle}</p>
-    <div class="hero-ctas">
-      <a href="/contact" class="cta large">Arrange a free chat →</a>
-      <a href="tel:01225690022" class="cta ghost large">Call 01225 690022</a>
+<SiteLayout title={service.title} description={service.description}>
+  <header class="phero">
+    <div class="wrap">
+      <div class="crumb"><a href="/">Home</a> · <a href="/care-services">Care Services</a> · {service.name}</div>
+      <h1>{service.h1}</h1>
+      <p>{service.subtitle}</p>
     </div>
-  </div>
-</section>
+  </header>
 
-<!-- Body: intro + "what's included" sidebar -->
-<section>
-  <div class="wrap">
-    <div class="loc-grid">
-      <div class="loc-intro">
-        {service.intro.map((para) => <p>{para}</p>)}
-
-        {service.note && (
-          <p style="background:var(--teal-soft);border-radius:var(--radius);padding:16px 20px;color:var(--teal-dark)">
-            <strong>{service.note}</strong>
-          </p>
-        )}
-
-        {service.testimonial && (
-          <div class="quote" style="margin-top:32px">
-            <p>{service.testimonial.quote}</p>
-            <div class="who">
-              <div class="avatar">{service.testimonial.who.slice(0, 1)}</div>
-              <div><div class="name">{service.testimonial.who}</div></div>
-            </div>
-          </div>
-        )}
-      </div>
-
-      <aside class="loc-side">
-        <h3>What's included</h3>
-        <ul>
-          {service.included.map((item) => (
-            <li><span class="dot" style="background:var(--sage)"></span>{item}</li>
-          ))}
-        </ul>
-        {service.price && (
-          <p style="font-size:18px;font-weight:700;color:var(--teal);margin:4px 0 18px">{service.price}</p>
-        )}
-        <a href="/contact" class="cta" style="width:100%;justify-content:center">Book a free assessment →</a>
-      </aside>
-    </div>
-  </div>
-</section>
-
-<!-- Cross-sell strip -->
-<section class="how" style="background:var(--cream)">
-  <div class="wrap">
-    <div class="big-cta" style="background:linear-gradient(135deg,var(--teal) 0%,var(--teal-dark) 100%);border-radius:var(--radius);padding:56px 24px">
-      <h2 style="font-size:30px">Not sure which kind of care you need?</h2>
-      <p>Have a free, no-pressure chat with someone local. We'll listen first and help you work it out.</p>
-      <div class="row">
-        <a href="tel:01225690022" class="phone">📞 01225 690022</a>
-        <a href="/contact" class="cta large" style="background:#fff;color:var(--teal)">Get in touch →</a>
+  <section class="section">
+    <div class="wrap">
+      <div class="srow reveal">
+        <div class="srow-media"><img src={img(service.heroImg)} alt={service.h1} /></div>
+        <div>
+          {service.intro.map((p) => <p class="lede" style="margin-bottom:14px">{p}</p>)}
+          <h3 style="font-size:22px;margin:20px 0 8px">{service.includedTitle ?? "What's included"}</h3>
+          <ul>{service.included.map((i) => <li>{i}</li>)}</ul>
+          {service.price && (
+            <p style="background:var(--sun-soft);border-radius:var(--r-sm);padding:14px 18px;margin-top:18px;font-size:15.5px"><strong>Cost &amp; funding.</strong> {service.price}</p>
+          )}
+          <a class="btn btn-primary" href="/#book" style="margin-top:20px">Book a free assessment →</a>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  {service.secondList && (
+    <section class="section trustwhy" style="padding-top:0">
+      <div class="wrap">
+        <div class="head-c reveal"><h2>{service.secondListTitle}</h2></div>
+        <div class="conds reveal">{service.secondList.map((i) => <span>{i}</span>)}</div>
+      </div>
+    </section>
+  )}
+
+  {service.note && (
+    <section class="section" style="padding:0 0 40px">
+      <div class="wrap"><p class="lede" style="background:var(--teal-soft);border-radius:var(--r);padding:18px 22px;max-width:none;color:var(--teal-d)"><strong>{service.note}</strong></p></div>
+    </section>
+  )}
+
+  {service.testimonial && (
+    <section class="section tmt">
+      <div class="wrap">
+        <div class="quote reveal" style="max-width:760px;margin:0 auto">
+          <div class="star">★★★★★</div>
+          <p>{service.testimonial.quote}</p>
+          <div class="by"><span class="av">{service.testimonial.who.slice(0, 1)}</span><div><b>{service.testimonial.who}</b></div></div>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="section">
+    <div class="wrap">
+      <div class="head-c reveal"><h2>Other ways we can help</h2></div>
+      <div class="svc-grid" style="grid-template-columns:repeat(3,1fr)">
+        {others.map((o) => (
+          <a class="svc reveal" href={`/${o.slug}`}><div class="body"><h3>{o.name}</h3><p>{o.subtitle}</p><span class="more">Learn more →</span></div></a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section book" id="book-cta">
+    <div class="wrap" style="grid-template-columns:1fr;display:block;text-align:center">
+      <div class="reveal" style="max-width:36ch;margin:0 auto">
+        <span class="eyebrow" style="color:#9fc4bf">Free, no-obligation assessment</span>
+        <h2 style="margin:14px 0 12px">Let's find the right care, together</h2>
+        <p class="lede" style="margin-bottom:26px;color:#bfe0dc">Speak to a real, local person today — never a call centre.</p>
+        <div style="display:flex;gap:13px;justify-content:center;flex-wrap:wrap">
+          <a class="btn btn-clay btn-lg" href="/contact">Book a free assessment</a>
+          <a class="btn btn-ghost btn-lg" href="tel:01225690022" style="background:transparent;color:#fff;border-color:rgba(255,255,255,.5)">Call 01225 690022</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</SiteLayout>
