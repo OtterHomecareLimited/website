@@ -15,7 +15,7 @@ const img = (f: string) => `/img/${f}`;
         <p class="sub">Warm, flexible home care from a small, local team who treat your family like our own — from live-in support to a friendly visit and a cup of tea.</p>
       </div>
       <div class="hero-media arch">
-        <span class="hero-note">like our own
+        <span class="hero-note">like family
           <svg viewBox="0 0 50 40" fill="none" aria-hidden="true"><path d="M4 6 C 20 2 34 10 40 28" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"></path><path d="M40 28 L 31 24 M40 28 L 38 18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"></path></svg>
         </span>
         <div class="main"><img src={img("ff72ba_82b85220c73d4bf3b00cc07f8605e8f0~mv2.jpg")} alt="An Otter carer sharing a warm moment with a client in the garden" /></div>
@@ -24,6 +24,10 @@ const img = (f: string) => `/img/${f}`;
       <div class="hero-cta">
         <a class="btn btn-primary btn-lg" href="#book">Book a free assessment <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
         <a class="btn btn-ghost btn-lg" href="tel:01225690022"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>Call 01225 690022</a>
+        <div class="hero-trust">
+          <div class="ht-avatars"><span style={`background-image:url('${img("ff72ba_a006c15eb20c4eb1b0930b2825f55912~mv2.jpg")}')`}></span><span style={`background-image:url('${img("ff72ba_82b85220c73d4bf3b00cc07f8605e8f0~mv2.jpg")}')`}></span><span style={`background-image:url('${img("ff72ba_937a9c9f723a4acbb4b07d6c06efc354~mv2.jpg")}')`}></span><span style={`background-image:url('${img("ff72ba_2b291b82c9c04a17b6b9a51f6953fd1f~mv2.jpg")}')`}></span></div>
+          <div class="ht-text"><span class="ht-stars">★★★★★</span><b>Loved by families across Wiltshire &amp; Somerset</b><small>Real reviews on homecare.co.uk</small></div>
+        </div>
       </div>
     </div>
   </header>
@@ -36,19 +40,23 @@ const img = (f: string) => `/img/${f}`;
     <div class="pf"><b>5 towns</b><small>Across Wiltshire &amp; Somerset</small></div>
   </div></section>
 
-  <!-- founder -->
+  <!-- founder + video -->
   <section class="section founder" id="founder">
     <div class="wrap">
-      <div class="pic reveal"><img src={img("ff72ba_a006c15eb20c4eb1b0930b2825f55912~mv2.jpg")} alt="Founder Jamie with his father" /></div>
+      <div class="video-embed reveal" data-yt="BFJ9QbUBr9I" role="button" tabindex="0" aria-label="Play: Hi, I'm Jamie — why I started Otter">
+        <img src="https://img.youtube.com/vi/BFJ9QbUBr9I/maxresdefault.jpg" alt="Jamie, founder of Otter Homecare, speaking to camera" />
+        <span class="playbtn"><span></span></span>
+        <span class="vlabel">Watch: Hi, I'm Jamie — why I started Otter</span>
+      </div>
       <div class="reveal">
-        <h2>Care that started at our own kitchen table</h2>
+        <h2>It started with caring for my own father</h2>
         <blockquote>Otter was born after my father had a stroke and I became his main carer. Combined with 20 years in Asia — where older generations are deeply respected — it inspired a kinder, more personal kind of care here in Wiltshire and Somerset.</blockquote>
         <div class="sig">Jamie Rowland-Jones<span>Founder, Otter Homecare</span></div>
       </div>
     </div>
   </section>
 
-  <!-- our promise (KILT values) -->
+  <!-- our promise (KILT) -->
   <section class="section promise" id="promise">
     <div class="wrap">
       <div class="head-c reveal">
@@ -58,11 +66,11 @@ const img = (f: string) => `/img/${f}`;
       <div class="promise-row">
         <div class="promise-otter reveal">
           <div class="promise-bubble">Four values — one proud kilt.</div>
-          <img src="/assets/otter-kilt.png" alt="The Otter Homecare mascot wearing a tartan kilt — a nod to our four values: Kindness, Initiative, Learning, Teamwork" loading="lazy" />
+          <img src="/assets/otter-kilt.png" alt="The Otter Homecare mascot wearing a tartan kilt — a nod to our four values: Kindness, Innovation, Learning, Teamwork" loading="lazy" />
         </div>
         <div class="promise-list reveal">
           <div class="pl"><span class="pl-val"><span class="ini">K</span>indness</span><div class="pl-body"><h3>Care that feels like family</h3><p>Carers matched to your loved one for genuine warmth and patience — every single visit.</p></div></div>
-          <div class="pl"><span class="pl-val"><span class="ini">I</span>nitiative</span><div class="pl-body"><h3>We spot what's needed before you ask</h3><p>We notice the small things and act on them early — before they ever become a worry.</p></div></div>
+          <div class="pl"><span class="pl-val"><span class="ini">I</span>nnovation</span><div class="pl-body"><h3>Always finding better ways to care</h3><p>We're constantly looking for new ways of doing things — like our real-time Care App — to bring about better outcomes for the people we care for.</p></div></div>
           <div class="pl"><span class="pl-val"><span class="ini">L</span>earning</span><div class="pl-body"><h3>A team that keeps getting better at caring for you</h3><p>Directly employed carers, properly trained and always improving how they support you.</p></div></div>
           <div class="pl"><span class="pl-val"><span class="ini">T</span>eamwork</span><div class="pl-body"><h3>A reliable team around your loved one</h3><p>A small, familiar group who know your routine — never just one person, never a stranger.</p></div></div>
         </div>
@@ -79,10 +87,10 @@ const img = (f: string) => `/img/${f}`;
         <p class="lede">Whether it's for a parent, a partner, or yourself, we'll wrap our care gently around the person — and the life they already love.</p>
       </div>
       <div class="svc-grid">
-        <a class="svc svc-feature reveal" href="/live-in-care"><div class="img"><img src={img("ff72ba_0aa05eb659ee4c64a5d410e57b21eff0~mv2.jpg")} alt="" /></div><div class="body"><h3>Live-in Care</h3><p>Expert round-the-clock care in the comfort of your own home — a warm, one-to-one alternative to a care home.</p><span class="more">Learn more →</span></div></a>
-        <a class="svc reveal" href="/care-services"><div class="img"><img src={img("ff72ba_3a8fe18215c24b3e9cb6884f0bf44228~mv2.jpg")} alt="" /></div><div class="body"><h3>Visiting Care</h3><p>Friendly carers visiting your home — from personal care, washing and dressing to meals, medication and good company.</p><span class="more">Learn more →</span></div></a>
-        <a class="svc reveal" href="/conditions"><div class="img"><img src={img("ff72ba_356da85da3114f4ea8c98fa716675d83~mv2.jpg")} alt="" /></div><div class="body"><h3>Conditions We Care For</h3><p>Specialist support for dementia, recovery and a range of conditions.</p><span class="more">Learn more →</span></div></a>
-        <a class="svc svc-wide reveal" href="/companionship"><div class="img"><img src={img("ff72ba_82b85220c73d4bf3b00cc07f8605e8f0~mv2.jpg")} alt="" /></div><div class="body"><h3>Companionship</h3><p>A friendly face, shared hobbies and genuine connection, every visit — because good company is care too.</p><span class="more">Learn more →</span></div></a>
+        <a class="svc svc-feature reveal" href="/live-in-care"><div class="img"><img src={img("ff72ba_0aa05eb659ee4c64a5d410e57b21eff0~mv2.jpg")} alt="" /></div><div class="body"><span class="svc-ic"><img src="/assets/icons/home.svg" alt="" /></span><h3>Live-in Care</h3><p>Expert round-the-clock care in the comfort of your own home — a warm, one-to-one alternative to a care home.</p><span class="more">Learn more →</span></div></a>
+        <a class="svc reveal" href="/visiting-care"><div class="img"><img src={img("ff72ba_3a8fe18215c24b3e9cb6884f0bf44228~mv2.jpg")} alt="" /></div><div class="body"><span class="svc-ic"><img src="/assets/icons/clock.svg" alt="" /></span><h3>Visiting Care</h3><p>Friendly carers visiting your home — from personal care, washing and dressing to meals, medication and good company.</p><span class="more">Learn more →</span></div></a>
+        <a class="svc reveal" href="/conditions"><div class="img"><img src={img("ff72ba_356da85da3114f4ea8c98fa716675d83~mv2.jpg")} alt="" /></div><div class="body"><span class="svc-ic"><img src="/assets/icons/heart.svg" alt="" /></span><h3>Conditions We Care For</h3><p>Specialist support for dementia, recovery and a range of conditions.</p><span class="more">Learn more →</span></div></a>
+        <a class="svc svc-wide reveal" href="/companionship"><div class="img"><img src={img("ff72ba_82b85220c73d4bf3b00cc07f8605e8f0~mv2.jpg")} alt="" /></div><div class="body"><span class="svc-ic"><img src="/assets/icons/mug.svg" alt="" /></span><h3>Companionship</h3><p>A friendly face, shared hobbies and genuine connection, every visit — because good company is care too.</p><span class="more">Learn more →</span></div></a>
       </div>
     </div>
   </section>
@@ -110,9 +118,11 @@ const img = (f: string) => `/img/${f}`;
     </div>
   </section>
 
-  <!-- full-bleed photo beat -->
-  <section class="fullbleed">
+  <!-- full-bleed photo beat (video placeholder) -->
+  <section class="fullbleed has-video soon">
     <img src={img("ff72ba_82b85220c73d4bf3b00cc07f8605e8f0~mv2.jpg")} alt="An Otter carer walking with a client outdoors" />
+    <span class="fb-play"><span></span></span>
+    <span class="soon-tag">Film: Good Enough for Dad</span>
     <div class="fb-quote"><div class="wrap"><p>“Care should feel like family — because for us, it started with family.”</p><cite>— Jamie, Founder of Otter Homecare</cite></div></div>
   </section>
 
@@ -169,9 +179,7 @@ const img = (f: string) => `/img/${f}`;
   <!-- steps -->
   <section class="section steps" id="steps">
     <div class="wrap">
-      <div class="head-c reveal">
-        <h2>A simple, reassuring process</h2>
-      </div>
+      <div class="head-c reveal"><h2>A simple, reassuring process</h2></div>
       <div class="steps-grid">
         <div class="step reveal"><span class="bignum">1</span><h3>Call us</h3><p>Complimentary, expert guidance tailored to your needs.</p></div>
         <div class="step reveal"><span class="bignum">2</span><h3>Home visit</h3><p>Our qualified manager visits to create your tailored care plan.</p></div>
@@ -195,6 +203,7 @@ const img = (f: string) => `/img/${f}`;
         <div class="fl"><span class="ix">02</span><div><h4>Read real visit notes</h4><p>From breakfast choices to how they're feeling — all recorded with care.</p></div></div>
         <div class="fl"><span class="ix">03</span><div><h4>Access care records anytime</h4><p>Easily view care plans, assessments and updates.</p></div></div>
         <div class="fl"><span class="ix">04</span><div><h4>Know medication's been taken</h4><p>Confidence that medication's been given and needs are met.</p></div></div>
+        <div class="video-embed soon reveal" style="margin-top:26px"><img src={img("ff72ba_937a9c9f723a4acbb4b07d6c06efc354~mv2.jpg")} alt="A family using the Otter Care App together" /><span class="playbtn"><span></span></span><span class="vlabel">See the Care App in action</span><span class="soon-tag">Film: Care App</span></div>
       </div>
       <div class="app-stage reveal">
         <div class="phone"><img src={img("ff72ba_92c3196bddda4a5f87fda89ca88bb38b~mv2.png")} alt="The Otter Care App showing a visit summary" /></div>
@@ -213,9 +222,7 @@ const img = (f: string) => `/img/${f}`;
   <!-- stories + homecare.co.uk reviews (SAMPLE — replace with official homecare.co.uk Review Widget) -->
   <section class="section tmt hcrev" id="stories">
     <div class="wrap">
-      <div class="head-c reveal">
-        <h2>The families we look after</h2>
-      </div>
+      <div class="head-c reveal"><h2>The families we look after</h2></div>
       <div class="story reveal">
         <div class="story-pic"><img src={img("ff72ba_a006c15eb20c4eb1b0930b2825f55912~mv2.jpg")} alt="A client at home" /></div>
         <div class="story-body">
@@ -232,30 +239,12 @@ const img = (f: string) => `/img/${f}`;
         <a class="hc-brand" href="https://www.homecare.co.uk" target="_blank" rel="noopener"><span class="dot"></span>homecare<i>.co.uk</i></a>
       </div>
       <div class="hc-grid">
-        <div class="hc-card reveal">
-          <div class="hc-top"><span class="hc-stars">★★★★☆</span><span class="hc-date">27 Mar 2026</span></div>
-          <p>"Otter staff are superb in every way. They are kind, and really understand what being caring carers is all about."</p>
-          <div class="hc-by">Frances W<span>Client</span></div>
-        </div>
-        <div class="hc-card reveal">
-          <div class="hc-top"><span class="hc-stars">★★★★★</span><span class="hc-date">12 Dec 2025</span></div>
-          <p>"All home care should be as good as this. Lovely carers, nothing is too much trouble — they don't just do the job, they care."</p>
-          <div class="hc-by">E S<span>Client</span></div>
-        </div>
-        <div class="hc-card reveal">
-          <div class="hc-top"><span class="hc-stars">★★★★★</span><span class="hc-date">14 Oct 2025</span></div>
-          <p>"The Otter Home Care staff were incredibly kind and considerate in all their dealings with me and my family."</p>
-          <div class="hc-by">J K<span>Stepson of Client</span></div>
-        </div>
-        <div class="hc-card reveal">
-          <div class="hc-top"><span class="hc-stars">★★★★★</span><span class="hc-date">30 Sep 2025</span></div>
-          <p>"I cannot recommend Otter Home Care highly enough. We used them to provide care for my elderly dad and they were wonderful."</p>
-          <div class="hc-by">Helen F<span>Daughter of Client</span></div>
-        </div>
+        <div class="hc-card reveal"><div class="hc-top"><span class="hc-stars">★★★★☆</span><span class="hc-date">27 Mar 2026</span></div><p>"Otter staff are superb in every way. They are kind, and really understand what being caring carers is all about."</p><div class="hc-by">Frances W<span>Client</span></div></div>
+        <div class="hc-card reveal"><div class="hc-top"><span class="hc-stars">★★★★★</span><span class="hc-date">12 Dec 2025</span></div><p>"All home care should be as good as this. Lovely carers, nothing is too much trouble — they don't just do the job, they care."</p><div class="hc-by">E S<span>Client</span></div></div>
+        <div class="hc-card reveal"><div class="hc-top"><span class="hc-stars">★★★★★</span><span class="hc-date">14 Oct 2025</span></div><p>"The Otter Home Care staff were incredibly kind and considerate in all their dealings with me and my family."</p><div class="hc-by">J K<span>Stepson of Client</span></div></div>
+        <div class="hc-card reveal"><div class="hc-top"><span class="hc-stars">★★★★★</span><span class="hc-date">30 Sep 2025</span></div><p>"I cannot recommend Otter Home Care highly enough. We used them to provide care for my elderly dad and they were wonderful."</p><div class="hc-by">Helen F<span>Daughter of Client</span></div></div>
       </div>
-      <div class="hc-foot reveal">
-        <a href="https://www.homecare.co.uk" target="_blank" rel="noopener">Read all 14 reviews on homecare.co.uk →</a>
-      </div>
+      <div class="hc-foot reveal"><a href="https://www.homecare.co.uk" target="_blank" rel="noopener">Read all 14 reviews on homecare.co.uk →</a></div>
     </div>
   </section>
 
@@ -336,7 +325,7 @@ const img = (f: string) => `/img/${f}`;
     </div>
   </section>
 
-  <!-- accreditation (logos re-hosted from Wix; swap for official artwork pre-launch) -->
+  <!-- accreditation -->
   <section class="accred">
     <div class="wrap">
       <span class="lab">Regulated &amp; accredited</span>
@@ -354,23 +343,11 @@ const img = (f: string) => `/img/${f}`;
       const data = Object.fromEntries(new FormData(f).entries());
       btn.disabled = true; btn.textContent = "Sending…";
       try {
-        const res = await fetch("/api/contact", {
-          method: "POST",
-          headers: { "Content-Type": "application/json", Accept: "application/json" },
-          body: JSON.stringify(data),
-        });
+        const res = await fetch("/api/contact", { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(data) });
         const json = await res.json();
-        if (res.ok && json.ok) {
-          f.classList.add("hide");
-          document.getElementById("formSuccess").classList.add("show");
-        } else {
-          btn.disabled = false; btn.textContent = "Request my free assessment →";
-          alert(json.error || "Something went wrong — please call us on 01225 690022.");
-        }
-      } catch {
-        btn.disabled = false; btn.textContent = "Request my free assessment →";
-        alert("Something went wrong — please call us on 01225 690022.");
-      }
+        if (res.ok && json.ok) { f.classList.add("hide"); document.getElementById("formSuccess").classList.add("show"); }
+        else { btn.disabled = false; btn.textContent = "Request my free assessment →"; alert(json.error || "Something went wrong — please call us on 01225 690022."); }
+      } catch { btn.disabled = false; btn.textContent = "Request my free assessment →"; alert("Something went wrong — please call us on 01225 690022."); }
     });
   </script>
 </SiteLayout>

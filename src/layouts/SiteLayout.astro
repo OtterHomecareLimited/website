@@ -29,7 +29,7 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
     <!-- Fonts (self-host before launch for GDPR/perf — flagged) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Hanken+Grotesk:wght@400;500;600;700;800;900&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Spectral:ital,wght@0,400;0,500;0,600;1,500;1,600&family=Hanken+Grotesk:wght@400;500;600;700;800;900&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet" />
 
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
@@ -101,6 +101,21 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
           setTimeout(() => { rot.innerHTML = lines[i]; rot.classList.remove("fade"); }, 400);
         }, 3800);
       }
+      // Inline video blocks — click a .video-embed[data-yt] to play a YouTube film in place
+      document.querySelectorAll(".video-embed[data-yt]").forEach((el) => {
+        const play = () => {
+          if (el.classList.contains("playing")) return;
+          const f = document.createElement("iframe");
+          f.src = "https://www.youtube-nocookie.com/embed/" + el.getAttribute("data-yt") + "?autoplay=1&rel=0&playsinline=1";
+          f.title = "Otter Homecare video";
+          f.setAttribute("allow", "autoplay; encrypted-media; fullscreen");
+          f.setAttribute("allowfullscreen", "");
+          el.appendChild(f);
+          el.classList.add("playing");
+        };
+        el.addEventListener("click", play);
+        el.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); play(); } });
+      });
 </script>
   </body>
 </html>
