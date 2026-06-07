@@ -53,17 +53,17 @@ export const services: Service[] = [
     name: "Visiting Care",
     title: "Visiting Care in Wiltshire & Somerset | Otter Homecare",
     description:
-      "Flexible visiting care at home across Trowbridge, Bradford-on-Avon, Melksham, Westbury and Frome — from a quick daily call-in to several visits a day. Minimum one-hour visits.",
+      "Flexible visiting care at home across Trowbridge, Bradford-on-Avon, Melksham, Westbury and Frome — from a quick daily call-in to several visits a day. Visit lengths to suit you.",
     h1: "Visiting Care",
     subtitle: "Flexible visits, on your terms",
     heroImg: "ff72ba_3a8fe18215c24b3e9cb6884f0bf44228~mv2.jpg",
     intro: [
       "From a friendly daily call-in upwards, our visiting care fits around your routine — never the other way round. Friendly Care Professionals help with everyday life and brighten the day, with the same familiar faces building real relationships.",
-      "Every visit is a minimum of one hour, because good care shouldn't be rushed.",
+      "Visit lengths flex to suit you, from a short call-in upwards, because good care shouldn't be rushed.",
     ],
     includedTitle: "What visiting care can include",
     included: [
-      "Flexible visit lengths to suit you (minimum one hour)",
+      "Flexible visit lengths to suit you",
       "Help with washing, dressing, meals and medication",
       "Support getting out to appointments and activities",
       "Companionship and a friendly chat",
