@@ -69,13 +69,20 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
     </div>
 
     <script is:inline>
-      // nav toggle
+      // nav toggle — slide-in drawer: tap-outside and tap-a-link both close it
       const t = document.getElementById("navToggle"), m = document.getElementById("mobileMenu");
-      if (t && m) t.addEventListener("click", () => {
-        const open = m.classList.toggle("show");
-        t.classList.toggle("open", open);
-        t.setAttribute("aria-expanded", String(open));
-      });
+      if (t && m) {
+        const setMenu = (o) => {
+          m.classList.toggle("show", o);
+          t.classList.toggle("open", o);
+          t.setAttribute("aria-expanded", String(o));
+        };
+        t.addEventListener("click", (e) => { e.stopPropagation(); setMenu(!m.classList.contains("show")); });
+        document.addEventListener("click", (e) => {
+          if (m.classList.contains("show") && !m.contains(e.target) && !t.contains(e.target)) setMenu(false);
+        });
+        m.querySelectorAll("a[href]").forEach((a) => a.addEventListener("click", () => setMenu(false)));
+      }
       // reveal on scroll
       const io = new IntersectionObserver((es) => {
         es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
