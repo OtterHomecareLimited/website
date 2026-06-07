@@ -1,19 +1,90 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import LocationArticle from "../components/LocationArticle.astro";
-import { towns } from "../data/locations";
+import SiteLayout from "../layouts/SiteLayout.astro";
+import { towns, helpCards } from "../data/towns";
 
-// Town pages (/trowbridge, …). Service pages are now their own routes on the
-// v4 design; towns are migrated to v4 in the next phase.
 export function getStaticPaths() {
-  return towns.map((town) => ({
-    params: { slug: town.slug },
-    props: { town, title: town.title, description: town.description },
-  }));
+  return towns.map((town) => ({ params: { slug: town.slug }, props: { town } }));
 }
 
-const { town, title, description } = Astro.props;
+const { town } = Astro.props;
+const initial = town.testimonial.author.trim().charAt(0);
 ---
-<BaseLayout title={title} description={description}>
-  <LocationArticle town={town} />
-</BaseLayout>
+<SiteLayout title={town.title} description={town.description} ogImage={town.photo}>
+  <header class="phero"><div class="wrap">
+    <div class="crumb"><a href="/">Home</a> · <a href="/areas-we-cover">Areas We Cover</a> · {town.name}</div>
+    <h1>{town.h1}</h1>
+    <p>{town.intro}</p>
+  </div></header>
+
+  <!-- genuinely local -->
+  <section class="section"><div class="wrap" style="max-width:760px">
+    <div class="reveal">
+      <span class="eyebrow">Genuinely local</span>
+      <h2 style="font-size:clamp(26px,3.2vw,38px);margin:10px 0 12px">{town.locHeadline}</h2>
+      <p class="lede" style="max-width:none" set:html={town.locBody}></p>
+    </div>
+  </div></section>
+
+  <!-- local trust panel -->
+  <section class="section tmt"><div class="wrap" style="max-width:980px">
+    <div class="head-c reveal" style="margin-bottom:24px"><h2>Your local Otter team</h2></div>
+    <div class="localtrust reveal">
+      <img class="lt-photo" src={town.photo} alt={town.name} />
+      <div class="lt-facts">
+        <div class="lt-fact"><span class="k">homecare.co.uk</span><span class="v">9.4 / 10</span></div>
+        <div class="lt-fact"><span class="k">Local office</span><span class="v sm">01225 690022</span></div>
+        <div class="lt-fact"><span class="k">Based at</span><span class="v sm">Arlington House, 72 Fore Street, Trowbridge</span></div>
+        <div class="lt-villages">{town.chips.map((c) => <span>{c}</span>)}</div>
+      </div>
+    </div>
+  </div></section>
+
+  <!-- how we can help -->
+  <section class="section"><div class="wrap">
+    <div class="head-c reveal"><h2>How we can help in {town.name}</h2></div>
+    <div class="svc-grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
+      {helpCards.map((c) => (
+        <a class="svc reveal" href={c.href}>
+          <div class="img"><img src={c.img} alt="" /></div>
+          <div class="body"><h3>{c.title}</h3><p>{c.blurb}</p><span class="more">Learn more →</span></div>
+        </a>
+      ))}
+    </div>
+  </div></section>
+
+  <!-- founder video -->
+  <section class="section tmt"><div class="wrap" style="max-width:820px">
+    <div class="head-c reveal"><span class="eyebrow">Meet our founder</span><h2>Hi, I'm Jamie</h2><p class="lede">A bit about why I started Otter Homecare — and the one-to-one care we bring to families across Wiltshire and Somerset.</p></div>
+    <div class="video-embed reveal" data-yt="BFJ9QbUBr9I" role="button" tabindex="0" aria-label="Play: Hi, I'm Jamie">
+      <img src="https://img.youtube.com/vi/BFJ9QbUBr9I/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/BFJ9QbUBr9I/hqdefault.jpg'" alt="Jamie, founder of Otter Homecare" />
+      <span class="playbtn"><span></span></span>
+      <span class="vlabel">Watch: Hi, I'm Jamie</span>
+    </div>
+  </div></section>
+
+  <!-- local testimonial -->
+  <section class="section tmt"><div class="wrap">
+    <div class="quote reveal" style="max-width:760px;margin:0 auto">
+      <div class="star">★★★★★</div>
+      <p>"{town.testimonial.quote}"</p>
+      <div class="by"><span class="av">{initial}</span><div><b>{town.testimonial.author}</b><span>{town.testimonial.role}</span></div></div>
+    </div>
+  </div></section>
+
+  <!-- booking band -->
+  <section class="section book"><div class="wrap" style="grid-template-columns:1fr;display:block;text-align:center">
+    <div class="reveal" style="max-width:36ch;margin:0 auto">
+      <span class="eyebrow" style="color:#9fc4bf">Free, no-obligation assessment</span>
+      <h2 style="margin:14px 0 12px">Let's find the right care, together</h2>
+      <p class="lede" style="margin-bottom:26px;color:#bfe0dc">Speak to a real, local person today — never a call centre.</p>
+      <div style="display:flex;gap:13px;justify-content:center;flex-wrap:wrap">
+        <a class="btn btn-clay btn-lg" href="/#book">Book a free assessment</a>
+        <a class="btn btn-ghost btn-lg" href="tel:01225690022" style="background:transparent;color:#fff;border-color:rgba(255,255,255,.5)">Call 01225 690022</a>
+      </div>
+    </div>
+    <div class="book-trust reveal">
+      <div class="bt-ticks"><span>Free, no-obligation home visit</span><span>A care plan built around you</span><span>We usually reply the same day</span></div>
+      <div class="bt-stars"><span class="s">★★★★★</span> Rated <b>9.4</b> by families on homecare.co.uk</div>
+    </div>
+  </div></section>
+</SiteLayout>

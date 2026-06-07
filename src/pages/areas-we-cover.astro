@@ -1,0 +1,46 @@
+---
+import SiteLayout from "../layouts/SiteLayout.astro";
+import { towns } from "../data/towns";
+---
+<SiteLayout
+  title="Areas We Cover | Otter Homecare Wiltshire & Somerset"
+  description="Home care in Trowbridge, Bradford-on-Avon, Melksham, Westbury, Frome and the surrounding villages. Local Care Professionals, local support. Minimum 1-hour visits."
+>
+  <header class="phero"><div class="wrap">
+    <div class="crumb"><a href="/">Home</a> · Areas We Cover</div>
+    <h1>Areas we cover</h1>
+    <p>We're proud to support families right across Wiltshire and Somerset — in the main towns and in the many villages and rural communities around them. Find your area below, and if you're not sure whether we reach you, just ask. Wherever you are, we bring the same small-team, one-to-one care to your door.</p>
+  </div></header>
+
+  <section class="section"><div class="wrap">
+    <div class="areas-grid">
+      {towns.map((t) => (
+        <div class="area-card reveal">
+          <img class="area-img" src={t.photo} alt={t.name} />
+          <div class="area-body">
+            <h3><a href={`/${t.slug}`}>{t.name}</a></h3>
+            <p>{t.cardBlurb}</p>
+            <a class="more" href={`/${t.slug}`}>View {t.name} →</a>
+          </div>
+        </div>
+      ))}
+    </div>
+    <p class="lede reveal" style="text-align:center;margin:42px auto 0;max-width:none">Not sure if we cover your village? Give us a call on <a href="tel:01225690022" style="color:var(--teal);font-weight:700">01225 690022</a> — we'd be glad to help.</p>
+  </div></section>
+
+  <section class="section book"><div class="wrap" style="grid-template-columns:1fr;display:block;text-align:center">
+    <div class="reveal" style="max-width:36ch;margin:0 auto">
+      <span class="eyebrow" style="color:#9fc4bf">Free, no-obligation assessment</span>
+      <h2 style="margin:14px 0 12px">Let's find the right care, together</h2>
+      <p class="lede" style="margin-bottom:26px;color:#bfe0dc">Speak to a real, local person today — never a call centre.</p>
+      <div style="display:flex;gap:13px;justify-content:center;flex-wrap:wrap">
+        <a class="btn btn-clay btn-lg" href="/#book">Book a free assessment</a>
+        <a class="btn btn-ghost btn-lg" href="tel:01225690022" style="background:transparent;color:#fff;border-color:rgba(255,255,255,.5)">Call 01225 690022</a>
+      </div>
+    </div>
+    <div class="book-trust reveal">
+      <div class="bt-ticks"><span>Free, no-obligation home visit</span><span>A care plan built around you</span><span>We usually reply the same day</span></div>
+      <div class="bt-stars"><span class="s">★★★★★</span> Rated <b>9.4</b> by families on homecare.co.uk</div>
+    </div>
+  </div></section>
+</SiteLayout>
