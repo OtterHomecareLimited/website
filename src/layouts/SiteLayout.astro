@@ -108,8 +108,8 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
           setTimeout(() => { rot.innerHTML = lines[i]; rot.classList.remove("fade"); }, 400);
         }, 3800);
       }
-      // Inline video blocks — click a .video-embed[data-yt] to play a YouTube film in place
-      document.querySelectorAll(".video-embed[data-yt]").forEach((el) => {
+      // Inline video blocks — click a [data-yt] block to play a YouTube film in place
+      document.querySelectorAll(".video-embed[data-yt], .fullbleed[data-yt]").forEach((el) => {
         const play = () => {
           if (el.classList.contains("playing")) return;
           const f = document.createElement("iframe");

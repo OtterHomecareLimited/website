@@ -1,0 +1,157 @@
+---
+import SiteLayout from "../layouts/SiteLayout.astro";
+
+const general = [
+  {
+    q: "What types of home care do you provide?",
+    a: ["We offer visiting care, live-in care, and specialist support for conditions such as dementia, stroke recovery, and Parkinson’s. Care is always tailored to individual needs."],
+  },
+  {
+    q: "How do visiting care and live-in care differ?",
+    a: ["Visiting care involves our Care Professionals coming to your home at scheduled times to assist with daily tasks. Live-in care provides round-the-clock support with a Care Professional living in your home, offering continuous care and companionship."],
+  },
+  {
+    q: "Why do you have a minimum 1-hour visit time?",
+    a: ["We believe quality care takes time. A full hour ensures we never rush, allowing our Care Professionals to provide meaningful support and build genuine relationships with clients."],
+  },
+  {
+    q: "What services do you offer?",
+    a: ["We offer a range of services including personal care, medication assistance, meal preparation, mobility support, companionship, help with hobbies, transportation, and household tasks. All services are tailored to meet your individual needs and preferences."],
+  },
+  {
+    q: "How much does home care cost?",
+    a: ["Visiting care starts at £36 per hour with a minimum of one-hour visits. Live-in care begins at £1,550 per week. Costs can vary based on your specific needs and the level of support required. We’ll provide a personalised quote after a free home assessment to ensure you get the best care plan."],
+  },
+  {
+    q: "Are your services available 24/7?",
+    a: ["Yes, our services are available 24/7. We offer flexible support ranging from a few hours a week to full-time live-in care, including evenings, weekends, and overnight care, to meet your needs whenever you need us."],
+  },
+  {
+    q: "How do you select and train your Care Professionals?",
+    a: ["All Care Professionals are carefully recruited, DBS-checked, fully trained, and supported with ongoing training that goes beyond CQC requirements."],
+  },
+  {
+    q: "Are you regulated?",
+    a: ["Yes. Otter Homecare is regulated by the Care Quality Commission (CQC) and is a member of the Homecare Association, ensuring we meet the highest standards."],
+  },
+  {
+    q: "How do I arrange care for myself or a loved one?",
+    a: ["Call us directly on 01225 690022 and we’ll arrange a free home visit to create a personalised care plan. We’ll guide you through every step."],
+  },
+];
+
+const careers = [
+  {
+    q: "How much do you pay?",
+    a: ["The starting pay for a Care Professional at Otter Homecare is £15 per hour."],
+  },
+  {
+    q: "What qualifications do I need to become a Care Professional?",
+    a: ["No previous care experience is required — just compassion, reliability, and a desire to help others. We provide full training and support."],
+  },
+  {
+    q: "What does the role of a Care Professional involve?",
+    a: ["You’ll support clients with daily living — from personal care, medication, and meals to companionship, hobbies, and helping them stay independent."],
+  },
+  {
+    q: "What training do you provide for your Care Professionals?",
+    a: ["We offer comprehensive training, starting with a full induction and practical skills training. Our continuous professional development includes advanced dementia training and opportunities for career progression, ensuring our Care Professionals are always growing and improving."],
+  },
+  {
+    q: "What are the working hours like?",
+    a: ["We offer flexible shifts to fit your lifestyle, including full-time, part-time, evenings, and weekends."],
+  },
+  {
+    q: "What pay and benefits do you offer?",
+    tall: true,
+    a: ["Our Care Professionals earn a basic weekday rate of £15 per hour, with enhanced pay for weekends and live-in roles. We also offer:"],
+    list: [
+      "Paid induction and ongoing training",
+      "Paid mileage between visits",
+      "Regular support and supervisions",
+      "Career progression opportunities into senior and management roles",
+      "Access to employee initiatives such as our “Otter Happy Hour” programme, where you can deliver something special for clients",
+      "The reassurance of minimum one-hour visits — giving you time to provide real care without feeling rushed",
+    ],
+    after: ["We believe in valuing our Care Professionals with fair pay, meaningful benefits, and genuine career growth."],
+  },
+  {
+    q: "Do I need my own transport?",
+    a: ["A driving licence and access to a car are preferred, as most roles involve travelling between clients. In some areas, walking or cycling rounds may be possible."],
+  },
+  {
+    q: "Are there opportunities for career progression?",
+    a: ["Yes. Many of our team move into senior roles such as Senior Care Professional, Care Supervisor, or even management positions."],
+  },
+  {
+    q: "What makes Otter Homecare different as an employer?",
+    a: ["We believe in care with time. That means minimum one-hour visits, extra training beyond industry standards, and treating our staff as valued professionals, not rushed workers."],
+  },
+  {
+    q: "What is the application process?",
+    a: ["Apply online or call us. We’ll arrange an informal chat, followed by an interview and checks. If successful, you’ll complete training and shadowing before starting with clients."],
+  },
+];
+---
+<SiteLayout
+  title="Frequently asked questions | Otter Homecare"
+  description="Honest answers about Otter Homecare's care, costs, and joining the team — visiting and live-in care across Wiltshire & Somerset. Minimum 1-hour visits, CQC regulated."
+>
+  <header class="phero">
+    <div class="wrap">
+      <div class="crumb"><a href="/">Home</a> · About · FAQs</div>
+      <h1>Frequently asked questions</h1>
+      <p>Honest answers about our care, costs and joining the team. Can’t find what you need? Just call us on 01225&nbsp;690022.</p>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="head-c reveal"><span class="eyebrow">About our care</span><h2>General questions</h2></div>
+      <div class="faqs reveal">
+        {general.map((f) => (
+          <div class="faq">
+            <button type="button">{f.q}<span class="tog">+</span></button>
+            <div class="ans">{f.a.map((p) => <p>{p}</p>)}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="head-c reveal"><span class="eyebrow">Joining the team</span><h2>Careers questions</h2></div>
+      <div class="faqs reveal">
+        {careers.map((f) => (
+          <div class={f.tall ? "faq tall" : "faq"}>
+            <button type="button">{f.q}<span class="tog">+</span></button>
+            <div class="ans">
+              {f.a.map((p) => <p>{p}</p>)}
+              {f.list && <ul>{f.list.map((li) => <li>{li}</li>)}</ul>}
+              {f.after && f.after.map((p) => <p>{p}</p>)}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section book">
+    <div class="wrap" style="grid-template-columns:1fr;display:block;text-align:center">
+      <div class="reveal" style="max-width:36ch;margin:0 auto">
+        <span class="eyebrow" style="color:#9fc4bf">Free, no-obligation assessment</span>
+        <h2 style="margin:14px 0 12px">Let’s find the right care, together</h2>
+        <p class="lede" style="margin-bottom:26px;color:#bfe0dc">Speak to a real, local person today — never a call centre.</p>
+        <div style="display:flex;gap:13px;justify-content:center;flex-wrap:wrap">
+          <a class="btn btn-clay btn-lg" href="/#book">Book a free assessment</a>
+          <a class="btn btn-ghost btn-lg" href="tel:01225690022" style="background:transparent;color:#fff;border-color:rgba(255,255,255,.5)">Call 01225 690022</a>
+        </div>
+      </div>
+      <div class="book-trust reveal">
+        <div class="bt-ticks"><span>Free, no-obligation home visit</span><span>A care plan built around you</span><span>We usually reply the same day</span></div>
+        <div class="bt-stars"><span class="s">★★★★★</span> Rated <b>9.4</b> by families on homecare.co.uk</div>
+      </div>
+    </div>
+  </section>
+</SiteLayout>

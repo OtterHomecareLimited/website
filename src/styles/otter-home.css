@@ -668,3 +668,8 @@ footer .legal{border-top:1px solid rgba(255,255,255,.14);padding:20px 28px;text-
 .area-card .more{margin-top:12px;font-weight:800;color:var(--teal);font-size:14px;display:inline-block}
 @media(max-width:760px){.areas-grid{grid-template-columns:1fr}}
 .step .bignum{font-family:"Spectral",serif;font-size:52px;font-weight:800;color:var(--teal);line-height:1;display:block;margin-bottom:12px;letter-spacing:-.02em}
+
+/* FAQ: taller open state for long answers with lists */
+.faq.tall.open .ans{max-height:760px}
+.faq .ans ul{margin:0 0 4px;padding:2px 24px 16px 44px}
+.faq .ans ul li{color:var(--muted);font-size:15px;margin:4px 0}
