@@ -1,8 +1,10 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
+import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
+  integrations: [sitemap()],
   // Canonical domain — drives <link rel="canonical"> and og:url in BaseLayout,
   // and the generated sitemap. Set to the live domain we'd cut over to.
   site: 'https://www.otterhomecare.co.uk',
