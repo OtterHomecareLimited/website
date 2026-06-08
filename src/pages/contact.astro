@@ -1,121 +1,70 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
+import SiteLayout from "../layouts/SiteLayout.astro";
 ---
-<BaseLayout
+<SiteLayout
   title="Contact Otter Homecare | Home Care in Wiltshire & Somerset"
   description="Get in touch with Otter Homecare for a free, no-pressure chat about home care in Trowbridge, Melksham, Frome, Bradford-on-Avon and Westbury. Call 01225 690022."
 >
-  <div class="page-head">
-    <div class="wrap">
-      <span class="eyebrow">Get in touch</span>
-      <h1>Need a helping hand for Mum, Dad or yourself?</h1>
-      <p>Have a free, no-pressure chat with someone local. We'll listen first.</p>
-    </div>
-  </div>
+  <header class="phero"><div class="wrap"><div class="crumb"><a href="/">Home</a> · Contact</div><h1>Get in touch</h1><p>Speak to a real, local person — never a call centre. We're here to answer your questions, with no pressure and no obligation.</p></div></header>
 
-  <section>
-    <div class="wrap">
-      <div class="contact-grid">
-        <div class="contact-info">
-          <h2>Talk to a real person</h2>
-          <p>No call centres, no pressure. Just honest advice about whether home care could help — and how it works.</p>
-          <div class="line">
-            <span class="ic">📞</span>
-            <div><strong>01225 690022</strong><br><span style="color:var(--muted);font-size:14px">Mon–Fri 8:30–17:00</span></div>
+  <section class="section"><div class="wrap">
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <div class="ci"><span class="ic"><img src="/assets/icons/phone.svg" alt="" /></span><div><b>Call us</b><a href="tel:01225690022">01225 690022</a></div></div>
+        <div class="ci"><span class="ic"><img src="/assets/icons/heart.svg" alt="" /></span><div><b>Email</b><a href="mailto:hello@otterhomecare.co.uk">hello@otterhomecare.co.uk</a></div></div>
+        <div class="ci"><span class="ic"><img src="/assets/icons/pin.svg" alt="" /></span><div><b>Visit / write to us</b><span>Arlington House, 72 Fore Street,<br>Trowbridge, Wiltshire BA14 8HQ</span></div></div>
+        <div class="ci"><span class="ic"><img src="/assets/icons/clock.svg" alt="" /></span><div><b>Office hours</b><span>Mon–Fri 9am–5pm · care delivered 24/7</span></div></div>
+      </div>
+      <div class="reveal">
+        <form class="form" id="contactForm" action="/api/contact" method="POST" novalidate>
+          <input type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none" />
+          <div class="frow">
+            <div class="field"><label for="n">Your name</label><input id="n" name="name" type="text" required placeholder="Jane Smith" /></div>
+            <div class="field"><label for="p">Phone</label><input id="p" name="phone" type="tel" required placeholder="07700 900000" /></div>
           </div>
-          <div class="line">
-            <span class="ic">✉️</span>
-            <div><a href="mailto:hello@otterhomecare.co.uk">hello@otterhomecare.co.uk</a></div>
-          </div>
-          <div class="line">
-            <span class="ic">📍</span>
-            <div>Arlington House, 72 Fore Street<br>Trowbridge, BA14 8HQ</div>
-          </div>
-        </div>
-
-        <div class="form-card">
-          <form id="contactForm" action="/api/contact" method="POST" novalidate>
-            <div class="form-msg" id="formMsg" role="status" aria-live="polite"></div>
-
-            <!-- Honeypot: hidden from people, tempting to bots -->
-            <div class="hp" aria-hidden="true">
-              <label>Company<input type="text" name="company" tabindex="-1" autocomplete="off" /></label>
-            </div>
-
-            <div class="form-row">
-              <div class="field">
-                <label for="firstName">First name</label>
-                <input id="firstName" name="firstName" type="text" autocomplete="given-name" />
-              </div>
-              <div class="field">
-                <label for="lastName">Last name</label>
-                <input id="lastName" name="lastName" type="text" autocomplete="family-name" />
-              </div>
-            </div>
-
-            <div class="field">
-              <label for="email">Email <span class="req">*</span></label>
-              <input id="email" name="email" type="email" required autocomplete="email" />
-            </div>
-
-            <div class="field">
-              <label for="phone">Phone</label>
-              <input id="phone" name="phone" type="tel" autocomplete="tel" />
-            </div>
-
-            <div class="field">
-              <label for="message">How can we help? <span class="req">*</span></label>
-              <textarea id="message" name="message" required placeholder="Tell us a little about who needs support and what's going on…"></textarea>
-            </div>
-
-            <div class="field checkbox">
-              <input id="consent" name="consent" type="checkbox" value="yes" />
-              <label for="consent">I'm happy to receive occasional updates from Otter Homecare. (Optional)</label>
-            </div>
-
-            <button type="submit" class="cta large" style="width:100%;justify-content:center">Send message →</button>
-          </form>
+          <div class="field"><label for="e">Email</label><input id="e" name="email" type="email" placeholder="jane@example.com" /></div>
+          <div class="field"><label for="m">How can we help?</label><textarea id="m" name="msg" placeholder="Tell us a little about what you're looking for…"></textarea></div>
+          <button class="btn btn-primary" type="submit">Send message →</button>
+          <p class="privacy">We'll only use your details to respond to your enquiry. See our <a href="/privacy" style="text-decoration:underline">privacy policy</a>.</p>
+        </form>
+        <div class="form-success" id="contactOk" style="display:none">
+          <div class="tick">✓</div>
+          <h3>Thank you — message received</h3>
+          <p>We'll be in touch very soon. If it's urgent, please call <strong>01225 690022</strong>.</p>
         </div>
       </div>
     </div>
-  </section>
-</BaseLayout>
+  </div></section>
 
-<script>
-  // Progressive enhancement: submit via fetch for inline feedback.
-  // If JS is off, the form posts natively and the function redirects to /thank-you.
-  const form = document.getElementById("contactForm") as HTMLFormElement | null;
-  const msg = document.getElementById("formMsg");
-  if (form && msg) {
-    form.addEventListener("submit", async (e) => {
+  <section class="section book"><div class="wrap" style="grid-template-columns:1fr;display:block;text-align:center">
+    <div class="reveal" style="max-width:36ch;margin:0 auto">
+      <span class="eyebrow" style="color:#9fc4bf">Free, no-obligation assessment</span>
+      <h2 style="margin:14px 0 12px">Let's find the right care, together</h2>
+      <p class="lede" style="margin-bottom:26px;color:#bfe0dc">Speak to a real, local person today — never a call centre.</p>
+      <div style="display:flex;gap:13px;justify-content:center;flex-wrap:wrap">
+        <a class="btn btn-clay btn-lg" href="/#book">Book a free assessment</a>
+        <a class="btn btn-ghost btn-lg" href="tel:01225690022" style="background:transparent;color:#fff;border-color:rgba(255,255,255,.5)">Call 01225 690022</a>
+      </div>
+    </div>
+    <div class="book-trust reveal">
+      <div class="bt-ticks"><span>Free, no-obligation home visit</span><span>A care plan built around you</span><span>We usually reply the same day</span></div>
+      <div class="bt-stars"><span class="s">★★★★★</span> Rated <b>9.4</b> by families on homecare.co.uk</div>
+    </div>
+  </div></section>
+
+  <script is:inline>
+    const cf = document.getElementById("contactForm");
+    if (cf) cf.addEventListener("submit", async (e) => {
       e.preventDefault();
-      const btn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
-      const data = Object.fromEntries(new FormData(form).entries());
-      msg.className = "form-msg";
-      btn.disabled = true;
-      btn.textContent = "Sending…";
+      const btn = cf.querySelector('button[type="submit"]');
+      const data = Object.fromEntries(new FormData(cf).entries());
+      btn.disabled = true; btn.textContent = "Sending…";
       try {
-        const res = await fetch("/api/contact", {
-          method: "POST",
-          headers: { "Content-Type": "application/json", Accept: "application/json" },
-          body: JSON.stringify(data),
-        });
+        const res = await fetch("/api/contact", { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(data) });
         const json = await res.json();
-        if (res.ok && json.ok) {
-          msg.className = "form-msg ok";
-          msg.textContent = "Thank you — we've got your message and will be in touch very soon.";
-          form.reset();
-        } else {
-          msg.className = "form-msg err";
-          msg.textContent = json.error || "Something went wrong — please call us on 01225 690022.";
-        }
-      } catch {
-        msg.className = "form-msg err";
-        msg.textContent = "Something went wrong — please call us on 01225 690022.";
-      } finally {
-        btn.disabled = false;
-        btn.textContent = "Send message →";
-      }
+        if (res.ok && json.ok) { cf.style.display = "none"; document.getElementById("contactOk").style.display = "block"; }
+        else { btn.disabled = false; btn.textContent = "Send message →"; alert(json.error || "Something went wrong — please call us on 01225 690022."); }
+      } catch { btn.disabled = false; btn.textContent = "Send message →"; alert("Something went wrong — please call us on 01225 690022."); }
     });
-  }
-</script>
+  </script>
+</SiteLayout>
