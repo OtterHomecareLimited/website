@@ -1,42 +1,37 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
+import SiteLayout from "../../layouts/SiteLayout.astro";
 import { getCollection } from "astro:content";
 
 const posts = (await getCollection("blog", ({ data }) => !data.draft)).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
-
 const fmt = (d: Date) =>
-  d.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
+  d.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" });
+const readMins = (body: string) => Math.max(2, Math.round((body ?? "").split(/\s+/).filter(Boolean).length / 200));
 ---
-<BaseLayout
-  title="Blog | Otter Homecare"
-  description="Care insights, client stories and community news from Otter Homecare across Wiltshire and Somerset."
+<SiteLayout
+  title="The Otterly Caring Blog | Otter Homecare"
+  description="Community news, care advice and stories from the Otter Homecare team across Wiltshire & Somerset."
 >
-  <div class="page-head">
-    <div class="wrap">
-      <span class="eyebrow">From the blog</span>
-      <h1>The Otterly Caring Blog</h1>
-      <p>Helpful reads for families thinking about care — plus what we're up to locally.</p>
-    </div>
-  </div>
+  <header class="phero"><div class="wrap">
+    <div class="crumb"><a href="/">Home</a> · About · Blog</div>
+    <h1>The Otterly Caring Blog</h1>
+    <p>Community news, care advice and stories from the Otter Homecare team across Wiltshire &amp; Somerset.</p>
+  </div></header>
 
-  <section class="blog">
-    <div class="wrap">
-      <div class="cards">
-        {posts.map((post) => (
-          <article class="post">
-            <a href={`/post/${post.id}`}>
-              <div class="img">{post.data.category}</div>
-              <div class="body">
-                <span class="tag">{post.data.category}</span>
-                <h3>{post.data.title}</h3>
-                <span class="date">{fmt(post.data.pubDate)}</span>
-              </div>
-            </a>
-          </article>
-        ))}
-      </div>
+  <section class="section"><div class="wrap">
+    <div class="blog-grid">
+      {posts.map((post) => (
+        <a class="post-card reveal" href={`/post/${post.id}`}>
+          <div class="img">{post.data.heroImage ? <img src={post.data.heroImage} alt="" /> : null}</div>
+          <div class="body">
+            <span class="cat">{post.data.category}</span>
+            <h3>{post.data.title}</h3>
+            <p>{post.data.description}</p>
+            <div class="meta">{fmt(post.data.pubDate)} · {readMins(post.body)} min read</div>
+          </div>
+        </a>
+      ))}
     </div>
-  </section>
-</BaseLayout>
+  </div></section>
+</SiteLayout>

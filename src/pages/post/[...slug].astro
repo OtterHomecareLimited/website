@@ -1,14 +1,11 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
+import SiteLayout from "../../layouts/SiteLayout.astro";
 import { getCollection, render } from "astro:content";
 
 // Posts published at /post/<slug> to match the existing Wix URLs (SEO parity).
 export async function getStaticPaths() {
   const posts = await getCollection("blog", ({ data }) => !data.draft);
-  return posts.map((post) => ({
-    params: { slug: post.id },
-    props: { post },
-  }));
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
 }
 
 const { post } = Astro.props;
@@ -16,12 +13,40 @@ const { Content } = await render(post);
 
 const fmt = (d: Date) =>
   d.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
+// rough reading time from the raw markdown body
+const words = (post.body ?? "").split(/\s+/).filter(Boolean).length;
+const mins = Math.max(2, Math.round(words / 200));
 ---
-<BaseLayout title={`${post.data.title} | Otter Homecare`} description={post.data.description}>
-  <article class="article">
-    <div class="meta">{post.data.category} · {fmt(post.data.pubDate)}</div>
-    <h1>{post.data.title}</h1>
-    <Content />
-    <a href="/blog" class="back">← Back to the blog</a>
-  </article>
-</BaseLayout>
+<SiteLayout title={`${post.data.title} | Otter Homecare`} description={post.data.description} ogImage={post.data.heroImage}>
+  <header class="phero"><div class="wrap">
+    <div class="crumb"><a href="/">Home</a> · <a href="/blog">Blog</a> · {post.data.category}</div>
+    <h1 style="max-width:24ch">{post.data.title}</h1>
+  </div></header>
+
+  <section class="section"><div class="wrap">
+    {post.data.heroImage && (
+      <div class="post-hero-img reveal"><img src={post.data.heroImage} alt={post.data.title} /></div>
+    )}
+    <div class="prose">
+      <p class="updated">By the Otter Homecare team · {fmt(post.data.pubDate)} · {mins} min read</p>
+      <Content />
+    </div>
+    <p style="max-width:760px;margin:32px auto 0"><a href="/blog" style="color:var(--teal);font-weight:700">← Back to the blog</a></p>
+  </div></section>
+
+  <section class="section book"><div class="wrap" style="grid-template-columns:1fr;display:block;text-align:center">
+    <div class="reveal" style="max-width:36ch;margin:0 auto">
+      <span class="eyebrow" style="color:#9fc4bf">Free, no-obligation assessment</span>
+      <h2 style="margin:14px 0 12px">Let's find the right care, together</h2>
+      <p class="lede" style="margin-bottom:26px;color:#bfe0dc">Speak to a real, local person today — never a call centre.</p>
+      <div style="display:flex;gap:13px;justify-content:center;flex-wrap:wrap">
+        <a class="btn btn-clay btn-lg" href="/#book">Book a free assessment</a>
+        <a class="btn btn-ghost btn-lg" href="tel:01225690022" style="background:transparent;color:#fff;border-color:rgba(255,255,255,.5)">Call 01225 690022</a>
+      </div>
+    </div>
+    <div class="book-trust reveal">
+      <div class="bt-ticks"><span>Free, no-obligation home visit</span><span>A care plan built around you</span><span>We usually reply the same day</span></div>
+      <div class="bt-stars"><span class="s">★★★★★</span> Rated <b>9.4</b> by families on homecare.co.uk</div>
+    </div>
+  </div></section>
+</SiteLayout>
