@@ -769,3 +769,20 @@ html.a11y-easy-font p,html.a11y-easy-font li,html.a11y-easy-font .lede,html.a11y
 /* manual reduce-motion (in addition to the OS preference) */
 html.a11y-reduce-motion *,html.a11y-reduce-motion *::before,html.a11y-reduce-motion *::after{animation-duration:0s!important;animation-delay:0s!important;transition-duration:0s!important;scroll-behavior:auto!important}
 html.a11y-reduce-motion .reveal{opacity:1!important;transform:none!important}
+
+/* ===== "Talk to us" launcher — functional baseline; design to refine the look ===== */
+.talk-toggle{position:fixed;right:14px;bottom:14px;z-index:60;display:inline-flex;align-items:center;gap:8px;background:var(--clay);color:#fff;border:2px solid #fff;border-radius:999px;padding:11px 18px;font-family:"Hanken Grotesk";font-weight:800;font-size:15px;cursor:pointer;box-shadow:0 12px 28px -12px rgba(0,0,0,.55)}
+.talk-toggle svg{width:20px;height:20px}
+.talk-toggle:hover{background:var(--clay-d)}
+.talk-panel{position:fixed;right:14px;bottom:66px;z-index:61;width:300px;max-width:calc(100vw - 28px);background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 22px 50px -20px rgba(0,0,0,.5);padding:18px}
+.talk-panel[hidden]{display:none}
+.talk-panel h2{font-family:"Spectral",serif;font-size:21px;margin-bottom:6px}
+.talk-note{font-size:14px;color:var(--muted);line-height:1.55;margin-bottom:14px}
+.talk-opt{display:flex;align-items:center;gap:12px;padding:11px 12px;margin-top:8px;border:1px solid var(--line);border-radius:11px;text-decoration:none;color:var(--ink)}
+.talk-opt:hover{background:var(--cream);border-color:var(--sun)}
+.talk-opt b{display:block;font-size:15.5px}
+.talk-opt small{color:var(--muted);font-size:13px}
+.talk-ic{flex:none;width:40px;height:40px;border-radius:10px;display:grid;place-items:center;background:var(--cream-2);font-size:19px}
+.talk-ic.talk-wa{background:#25D366;color:#fff}.talk-ic.talk-wa svg{width:24px;height:24px}
+.talk-toggle:focus-visible,.talk-panel a:focus-visible{outline:3px solid var(--teal-d);outline-offset:2px}
+@media(max-width:1000px){.talk-toggle{bottom:88px}.talk-panel{bottom:138px}}
