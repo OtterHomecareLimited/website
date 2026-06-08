@@ -1,25 +1,48 @@
 ---
-// "Adjust this site" accessibility control. Behaviour + persistence here (Code);
-// final visual styling of the button/panel is design's to refine (functional baseline below).
+// "Make this easier to use" accessibility control. Markup + look = design (otter-a11y-talk).
+// Behaviour + persistence = Code. Hooks: #a11yToggle, #a11yPanel, data-a11y="…".
 ---
-<button id="a11yToggle" class="a11y-toggle" aria-expanded="false" aria-controls="a11yPanel">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="4" r="1.6" fill="currentColor" stroke="none"></circle><path d="M4 8h16M12 8v6m0 0l-3.5 5M12 14l3.5 5" stroke-linecap="round"></path></svg>
-  <span>Adjust this site</span>
+<button id="a11yToggle" class="otter-fab" aria-expanded="false" aria-controls="a11yPanel" aria-haspopup="dialog">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="4.2" r="2"></circle><path d="M3.5 8.2c2.8 1 5.3 1.4 8.5 1.4s5.7-.4 8.5-1.4"></path><path d="M12 9.6V15m0 0-2.6 6.4M12 15l2.6 6.4"></path></svg>
+  <span class="fab-label">Make this easier to use</span>
 </button>
 
-<div id="a11yPanel" class="a11y-panel" role="dialog" aria-label="Accessibility options" hidden>
-  <h2>Make this site easier to use</h2>
+<div id="a11yPanel" class="otter-pop" role="dialog" aria-label="Make this easier to use" hidden>
+  <div class="pop-head">
+    <div><h2>Make this easier to use</h2><p>Your choices are remembered next time.</p></div>
+    <button class="pop-close" data-a11y-close type="button" aria-label="Close">✕</button>
+  </div>
+
   <div class="a11y-row">
-    <span>Text size</span>
-    <div class="a11y-seg">
-      <button type="button" data-a11y="text-down" aria-label="Smaller text">A&minus;</button>
-      <button type="button" data-a11y="text-up" aria-label="Larger text">A+</button>
+    <span class="a11y-row-label">Text size</span>
+    <div class="a11y-stepper">
+      <button data-a11y="text-down" type="button" aria-label="Smaller text">A</button>
+      <span class="a11y-pips" aria-hidden="true"><i></i><i></i><i></i></span>
+      <button data-a11y="text-up" type="button" aria-label="Larger text">A</button>
     </div>
   </div>
-  <button type="button" class="a11y-opt" data-a11y="font" aria-pressed="false">Easy-read spacing</button>
-  <button type="button" class="a11y-opt" data-a11y="motion" aria-pressed="false">Reduce motion</button>
-  <button type="button" class="a11y-opt" data-a11y="read" aria-pressed="false">Read this page aloud</button>
-  <button type="button" class="a11y-reset" data-a11y="reset">Reset</button>
+
+  <div class="a11y-row">
+    <span class="a11y-row-label">High contrast</span>
+    <button class="a11y-switch" data-a11y="contrast" type="button" role="switch" aria-checked="false" aria-label="High contrast"><span class="knob"></span></button>
+  </div>
+
+  <div class="a11y-row">
+    <span class="a11y-row-label">Reduce motion<small>Stop things moving on screen</small></span>
+    <button class="a11y-switch" data-a11y="motion" type="button" role="switch" aria-checked="false" aria-label="Reduce motion"><span class="knob"></span></button>
+  </div>
+
+  <div class="a11y-row">
+    <span class="a11y-row-label">Easy-read font<small>Clearer letters for tired eyes</small></span>
+    <button class="a11y-switch" data-a11y="font" type="button" role="switch" aria-checked="false" aria-label="Easy-read font"><span class="knob"></span></button>
+  </div>
+
+  <button class="a11y-read" data-a11y="read" type="button">
+    <svg class="ico-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg>
+    <svg class="ico-stop" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"></rect></svg>
+    <span class="read-label">Read this page aloud</span>
+  </button>
+  <button class="a11y-reset" data-a11y="reset" type="button">Reset everything</button>
 </div>
 
 <script is:inline>
@@ -27,45 +50,50 @@
     var root = document.documentElement, KEY = "otterA11y";
     var state = {};
     try { state = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch (e) {}
+    var panel = document.getElementById("a11yPanel"), toggle = document.getElementById("a11yToggle");
+    if (!panel || !toggle) return;
+
+    function setSwitch(name) { var b = panel.querySelector('[data-a11y="' + name + '"]'); if (b) b.setAttribute("aria-checked", String(!!state[name])); }
     function apply() {
       root.classList.toggle("a11y-text-1", state.text === 1);
       root.classList.toggle("a11y-text-2", state.text >= 2);
-      root.classList.toggle("a11y-easy-font", !!state.font);
+      root.classList.toggle("a11y-contrast", !!state.contrast);
       root.classList.toggle("a11y-reduce-motion", !!state.motion);
-      var f = document.querySelector('[data-a11y="font"]'); if (f) f.setAttribute("aria-pressed", String(!!state.font));
-      var m = document.querySelector('[data-a11y="motion"]'); if (m) m.setAttribute("aria-pressed", String(!!state.motion));
+      root.classList.toggle("a11y-easy-font", !!state.font);
+      setSwitch("contrast"); setSwitch("motion"); setSwitch("font");
       try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {}
     }
     apply();
 
-    var toggle = document.getElementById("a11yToggle"), panel = document.getElementById("a11yPanel");
-    function setOpen(o) { if (o) panel.removeAttribute("hidden"); else panel.setAttribute("hidden", ""); toggle.setAttribute("aria-expanded", String(o)); }
+    function setOpen(o) {
+      if (o) { panel.removeAttribute("hidden"); var tp = document.getElementById("talkPanel"); if (tp) tp.setAttribute("hidden", ""); var tt = document.getElementById("talkToggle"); if (tt) tt.setAttribute("aria-expanded", "false"); }
+      else panel.setAttribute("hidden", "");
+      toggle.setAttribute("aria-expanded", String(o));
+    }
     toggle.addEventListener("click", function (e) { e.stopPropagation(); setOpen(panel.hasAttribute("hidden")); });
     document.addEventListener("click", function (e) { if (!panel.hasAttribute("hidden") && !panel.contains(e.target) && !toggle.contains(e.target)) setOpen(false); });
     document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !panel.hasAttribute("hidden")) { setOpen(false); toggle.focus(); } });
+    var closeBtn = panel.querySelector("[data-a11y-close]"); if (closeBtn) closeBtn.addEventListener("click", function () { setOpen(false); toggle.focus(); });
 
-    // read-aloud (browser SpeechSynthesis)
-    var reading = false;
-    function stopRead() { reading = false; try { window.speechSynthesis.cancel(); } catch (e) {} var r = document.querySelector('[data-a11y="read"]'); if (r) { r.setAttribute("aria-pressed", "false"); r.textContent = "Read this page aloud"; } }
+    var readBtn = panel.querySelector('[data-a11y="read"]');
+    function stopRead() { try { window.speechSynthesis.cancel(); } catch (e) {} if (readBtn) { readBtn.classList.remove("is-playing"); var l = readBtn.querySelector(".read-label"); if (l) l.textContent = "Read this page aloud"; } }
     function startRead() {
       if (!("speechSynthesis" in window)) { alert("Sorry — read-aloud isn't supported in this browser."); return; }
       var main = document.getElementById("main") || document.body;
       var text = (main.innerText || main.textContent || "").replace(/\s+/g, " ").trim().slice(0, 6000);
-      var u = new SpeechSynthesisUtterance(text); u.rate = 0.95; u.lang = "en-GB";
-      u.onend = stopRead;
+      var u = new SpeechSynthesisUtterance(text); u.rate = 0.95; u.lang = "en-GB"; u.onend = stopRead;
       window.speechSynthesis.cancel(); window.speechSynthesis.speak(u);
-      reading = true; var r = document.querySelector('[data-a11y="read"]'); if (r) { r.setAttribute("aria-pressed", "true"); r.textContent = "Stop reading"; }
+      if (readBtn) { readBtn.classList.add("is-playing"); var l = readBtn.querySelector(".read-label"); if (l) l.textContent = "Stop reading"; }
     }
 
-    document.querySelectorAll("[data-a11y]").forEach(function (b) {
+    panel.querySelectorAll("[data-a11y]").forEach(function (b) {
       b.addEventListener("click", function () {
         var a = b.getAttribute("data-a11y");
         if (a === "text-up") state.text = Math.min(2, (state.text || 0) + 1);
         else if (a === "text-down") state.text = Math.max(0, (state.text || 0) - 1);
-        else if (a === "font") state.font = !state.font;
-        else if (a === "motion") state.motion = !state.motion;
+        else if (a === "contrast" || a === "motion" || a === "font") state[a] = !state[a];
         else if (a === "reset") { state = {}; stopRead(); }
-        else if (a === "read") { reading ? stopRead() : startRead(); return; }
+        else if (a === "read") { readBtn && readBtn.classList.contains("is-playing") ? stopRead() : startRead(); return; }
         apply();
       });
     });
