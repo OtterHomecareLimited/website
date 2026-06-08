@@ -722,3 +722,12 @@ footer .legal{border-top:1px solid rgba(255,255,255,.14);padding:20px 28px;text-
 .faq.tall.open .ans{max-height:760px}
 .faq .ans ul{margin:0 0 4px;padding:2px 24px 16px 44px}
 .faq .ans ul li{color:var(--muted);font-size:15px;margin:4px 0}
+
+/* Reviews Google bar — STOPGAP neutral layout only; design owns final .gbar/.g-* styling */
+.gbar{display:flex;align-items:center;gap:16px;flex-wrap:wrap;justify-content:center;max-width:760px;margin:0 auto 22px;padding:14px 18px;border:1px solid var(--line);border-radius:var(--r);background:var(--paper)}
+.gbar .g-logo{height:30px;width:auto;flex:none}
+.gbar .g-meta{display:flex;flex-direction:column;text-align:left}
+.gbar .g-stars{color:#f5b301;letter-spacing:2px}
+.gbar .g-meta small{color:var(--muted)}
+.gbar .g-link{margin-left:auto;color:var(--teal);font-weight:700;white-space:nowrap}
+@media(max-width:560px){.gbar .g-link{margin-left:0}}
