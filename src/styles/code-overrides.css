@@ -74,3 +74,8 @@ html.a11y-reduce-motion .reveal{opacity:1!important;transform:none!important}
 
 /* Global visible keyboard focus (accessibility) — gold ring works on light + dark sections */
 a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible,[tabindex]:focus-visible,.video-embed:focus-visible,.fullbleed:focus-visible{outline:3px solid var(--sun);outline-offset:2px;border-radius:4px}
+
+/* Atkinson Hyperlegible — self-hosted (OFL) for the easy-read toggle. Applied by design's
+   html.a11y-easy-font rule once their control CSS is lifted in. */
+@font-face{font-family:"Atkinson Hyperlegible";font-style:normal;font-weight:400;font-display:swap;src:url("/fonts/atkinson-hyperlegible-400.woff2") format("woff2")}
+@font-face{font-family:"Atkinson Hyperlegible";font-style:normal;font-weight:700;font-display:swap;src:url("/fonts/atkinson-hyperlegible-700.woff2") format("woff2")}
