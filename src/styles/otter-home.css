@@ -735,3 +735,37 @@ footer .legal{border-top:1px solid rgba(255,255,255,.14);padding:20px 28px;text-
 /* Skip-to-content link (accessibility) */
 .skip-link{position:absolute;left:-9999px;top:0;z-index:100;background:var(--teal-d);color:#fff;padding:12px 18px;border-radius:0 0 8px 0;font-weight:800;text-decoration:none}
 .skip-link:focus{left:0}
+
+/* ===== Accessibility control ("Adjust this site") — functional baseline; design to refine the look ===== */
+.a11y-toggle{position:fixed;left:14px;bottom:14px;z-index:60;display:inline-flex;align-items:center;gap:8px;background:var(--teal-d);color:#fff;border:2px solid #fff;border-radius:999px;padding:9px 15px;font-family:"Hanken Grotesk";font-weight:800;font-size:14px;cursor:pointer;box-shadow:0 10px 26px -12px rgba(0,0,0,.5)}
+.a11y-toggle svg{width:20px;height:20px}
+.a11y-toggle:hover{background:var(--teal)}
+.a11y-panel{position:fixed;left:14px;bottom:64px;z-index:61;width:280px;max-width:calc(100vw - 28px);background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 22px 50px -20px rgba(0,0,0,.5);padding:16px}
+.a11y-panel[hidden]{display:none}
+.a11y-panel h2{font-family:"Hanken Grotesk";font-size:14px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--teal-d);margin-bottom:12px}
+.a11y-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;font-weight:700;font-size:15px}
+.a11y-seg{display:flex;gap:6px}
+.a11y-seg button{min-width:44px;min-height:40px;border:1px solid var(--line);background:var(--cream);border-radius:9px;font-weight:800;cursor:pointer;font-size:16px}
+.a11y-seg button:hover{background:var(--cream-2)}
+.a11y-opt{display:block;width:100%;text-align:left;min-height:44px;padding:10px 12px;margin-bottom:8px;border:1px solid var(--line);background:#fff;border-radius:9px;font-family:"Hanken Grotesk";font-weight:700;font-size:15px;cursor:pointer}
+.a11y-opt:hover{background:var(--cream)}
+.a11y-opt[aria-pressed="true"]{background:var(--teal);color:#fff;border-color:var(--teal)}
+.a11y-reset{display:block;width:100%;min-height:40px;margin-top:4px;background:none;border:none;color:var(--teal);font-weight:800;cursor:pointer;text-decoration:underline}
+.a11y-toggle:focus-visible,.a11y-panel button:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+@media(max-width:1000px){.a11y-toggle{bottom:88px}.a11y-panel{bottom:138px}} /* clear the mobile action bar */
+
+/* text scaling */
+html.a11y-text-1 body{font-size:20px}
+html.a11y-text-2 body{font-size:22.5px}
+html.a11y-text-1 .lede,html.a11y-text-1 .sub{font-size:22px}
+html.a11y-text-2 .lede,html.a11y-text-2 .sub{font-size:24px}
+html.a11y-text-1 .faq>button,html.a11y-text-1 .faq .ans p,html.a11y-text-1 .prose p,html.a11y-text-1 nav .navlinks a,html.a11y-text-1 .mobile-menu a{font-size:17px}
+html.a11y-text-2 .faq>button,html.a11y-text-2 .faq .ans p,html.a11y-text-2 .prose p,html.a11y-text-2 nav .navlinks a,html.a11y-text-2 .mobile-menu a{font-size:18.5px}
+
+/* easy-read spacing (dyslexia-friendly) */
+html.a11y-easy-font body{letter-spacing:.02em;word-spacing:.12em;line-height:1.85}
+html.a11y-easy-font p,html.a11y-easy-font li,html.a11y-easy-font .lede,html.a11y-easy-font .sub{max-width:62ch}
+
+/* manual reduce-motion (in addition to the OS preference) */
+html.a11y-reduce-motion *,html.a11y-reduce-motion *::before,html.a11y-reduce-motion *::after{animation-duration:0s!important;animation-delay:0s!important;transition-duration:0s!important;scroll-behavior:auto!important}
+html.a11y-reduce-motion .reveal{opacity:1!important;transform:none!important}

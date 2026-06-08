@@ -2,6 +2,7 @@
 import "../styles/otter-home.css";
 import SiteNav from "../components/SiteNav.astro";
 import SiteFooter from "../components/SiteFooter.astro";
+import AccessibilityControl from "../components/AccessibilityControl.astro";
 
 interface Props {
   title: string;
@@ -62,6 +63,7 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
     <SiteNav />
     <main id="main"><slot /></main>
     <SiteFooter />
+    <AccessibilityControl />
 
     <!-- sticky mobile action bar -->
     <div class="mbar">
