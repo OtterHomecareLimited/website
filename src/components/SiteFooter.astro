@@ -35,7 +35,7 @@ const year = new Date().getFullYear();
       <form class="news" id="newsForm" action="/api/contact" method="POST">
         <input type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none" />
         <input name="email" type="email" placeholder="Your email" aria-label="Your email" required />
-        <button type="submit">Submit</button>
+        <button type="submit">Subscribe</button>
       </form>
       <p id="newsOk" style="display:none;margin-top:10px;color:#bcd6d2;font-weight:700">Thanks — you're on the list.</p>
       <script is:inline>
@@ -50,8 +50,8 @@ const year = new Date().getFullYear();
               var r = await fetch("/api/contact", { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify({ name: "Newsletter subscriber", email: email, msg: "Newsletter signup (footer)", company: (f.querySelector("[name=company]") || {}).value || "" }) });
               var j = await r.json();
               if (r.ok && j.ok) { f.style.display = "none"; document.getElementById("newsOk").style.display = "block"; }
-              else { btn.disabled = false; btn.textContent = "Submit"; alert(j.error || "Something went wrong — please email hello@otterhomecare.co.uk."); }
-            } catch (_) { btn.disabled = false; btn.textContent = "Submit"; alert("Something went wrong — please email hello@otterhomecare.co.uk."); }
+              else { btn.disabled = false; btn.textContent = "Subscribe"; alert(j.error || "Something went wrong — please email hello@otterhomecare.co.uk."); }
+            } catch (_) { btn.disabled = false; btn.textContent = "Subscribe"; alert("Something went wrong — please email hello@otterhomecare.co.uk."); }
           });
         })();
       </script>
