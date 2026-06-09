@@ -42,7 +42,7 @@ const initial = town.testimonial.author.trim().charAt(0);
   <!-- how we can help -->
   <section class="section"><div class="wrap">
     <div class="head-c reveal"><h2>How we can help in {town.name}</h2></div>
-    <div class="svc-grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
+    <div class="svc-grid town-svc">
       {helpCards.map((c) => (
         <a class="svc reveal" href={c.href}>
           <div class="img"><img src={c.img} alt="" /></div>
