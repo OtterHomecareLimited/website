@@ -3,7 +3,7 @@ title: "Understanding Dementia: How Otter Homecare Provides Essential Support"
 description: "Dementia presents a challenging landscape not only for those diagnosed but also for their loved ones. Otter Homecare is at the forefront"
 pubDate: 2023-06-01
 category: "Dementia"
-heroImage: "/img/blog/ff72ba_464fbd7c9bac40889f338dc763ccc6b2.jpg"
+heroImage: "/img/cond-dementia.jpg"
 ---
 
 Dementia presents a challenging landscape not only for those diagnosed but also for their loved ones. Otter Homecare is at the forefront of providing compassionate, personalised dementia homecare services, offering invaluable support for individuals navigating this complex condition.
