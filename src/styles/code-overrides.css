@@ -29,6 +29,12 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
    and viewport-scaled so it fits the narrow column. Design to refine exact mobile placement. */
 @media(max-width:760px){.hero-like{display:block;text-align:left;padding-left:4px;padding-right:0;font-size:clamp(30px,8.5vw,42px);margin-top:6px}}
 
+/* Happy Hour emblem holding a real photo (Jamie-approved minimal plumb-in 2026-06-09;
+   design to refine framing/size). Fill the existing cream disc as a circular photo, keeping a
+   slim cream ring. Two-class selector beats design's base .hh-emblem img{width:54%}. */
+.hh-emblem.has-photo{padding:7px}
+.hh-emblem.has-photo img{width:100%;aspect-ratio:1;height:auto;object-fit:cover;border-radius:50%}
+
 /* Atkinson Hyperlegible — self-hosted (OFL) for the easy-read toggle. Applied by design's
    html.a11y-easy-font rule once their control CSS is lifted in. */
 @font-face{font-family:"Atkinson Hyperlegible";font-style:normal;font-weight:400;font-display:swap;src:url("/fonts/atkinson-hyperlegible-400.woff2") format("woff2")}
