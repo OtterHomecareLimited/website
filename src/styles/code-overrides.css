@@ -50,6 +50,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .cafe-gallery{display:flex;flex-wrap:wrap;gap:18px;justify-content:center}
 .cafe-gallery img{max-height:420px;max-width:100%;border-radius:var(--r);box-shadow:var(--shadow-sm)}
 
+/* Care-services condition chips are now links (slide 7) — mirror the .conds span chip style
+   so they stay pills, plus a hover affordance. */
+.conds a{background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:9px 18px;font-weight:700;font-size:14.5px;color:var(--teal-d);text-decoration:none;transition:border-color .15s,background .15s}
+.conds a:hover,.conds a:focus-visible{border-color:var(--teal);background:#fff}
+
 /* Atkinson Hyperlegible — self-hosted (OFL) for the easy-read toggle. Applied by design's
    html.a11y-easy-font rule once their control CSS is lifted in. */
 @font-face{font-family:"Atkinson Hyperlegible";font-style:normal;font-weight:400;font-display:swap;src:url("/fonts/atkinson-hyperlegible-400.woff2") format("woff2")}
