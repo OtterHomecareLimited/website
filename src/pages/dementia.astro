@@ -69,7 +69,7 @@ import SiteLayout from "../layouts/SiteLayout.astro";
 
 <section class="section" style="background:var(--cream-2)"><div class="wrap">
 <div class="mgroup-head reveal"><span class="eyebrow">Day to day</span><h2>How we help</h2></div>
-<ul class="checklist reveal" style="margin-top:24px;max-width:none">
+<ul class="checklist dem-help reveal" style="margin-top:24px;max-width:none">
 <li>Personal care, washing and dressing — gently and with dignity</li>
 <li>Medication support and prompts</li>
 <li>Meals and encouragement to eat and drink</li>
@@ -86,7 +86,7 @@ import SiteLayout from "../layouts/SiteLayout.astro";
 <span class="eyebrow on-clay">For the family</span>
 <h2 style="font-size:clamp(28px,3.4vw,40px);margin:10px 0 14px">You're never facing it alone</h2>
 <p class="lede" style="margin-bottom:14px">Dementia affects everyone around the person, not only the individual.</p>
-<p style="color:var(--muted)">We keep families close and informed, offer honest, jargon-free guidance, and adapt the care as things change — so you always know what's happening, and why.</p>
+<p style="color:var(--muted)">We keep families close and informed, and offer honest, jargon-free guidance every step of the way. We share what we've learned from supporting other families living with dementia — and where someone else could help, whether a local group, a charity or a specialist, we'll gladly point you their way or help make the introduction. As things change we adapt the care, so you always know what's happening, and why.</p>
 <a class="btn btn-primary" href="#book" style="margin-top:20px">Book a free assessment →</a>
 </div>
 <div class="srow-media"><img src="/img/personal-care-real.jpg" alt="An Otter Care Professional sharing a warm moment with a client"></div>
@@ -106,6 +106,9 @@ import SiteLayout from "../layouts/SiteLayout.astro";
 .note-clay .mn-ic{background:var(--clay);color:#fff}
 .note-sun .mn-ic{background:var(--sun);color:#3a2a06}
 .moment-note .mn-ic svg{width:26px;height:26px}
+/* "How we help" — even 2-column grid so the list reads tidily, not skewy across the full width */
+.checklist.dem-help{display:grid;grid-template-columns:1fr 1fr;gap:10px 40px;align-items:start}
+@media(max-width:680px){.checklist.dem-help{grid-template-columns:1fr}}
 .dem-quote{position:relative;background:var(--teal-d);color:#fff;border-radius:var(--r-lg);padding:30px 30px 26px;overflow:hidden}
 .dem-quote .dq-mark{position:absolute;top:2px;right:20px;font-family:"Spectral",Georgia,serif;font-size:150px;line-height:1;color:var(--sun);opacity:.26;pointer-events:none}
 .dem-quote blockquote{margin:0;max-width:22ch;font-family:"Spectral",Georgia,serif;font-style:italic;font-size:25px;line-height:1.36;position:relative}
