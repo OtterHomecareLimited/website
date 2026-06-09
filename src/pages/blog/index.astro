@@ -2,12 +2,33 @@
 import SiteLayout from "../../layouts/SiteLayout.astro";
 import { getCollection } from "astro:content";
 
-const posts = (await getCollection("blog", ({ data }) => !data.draft)).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-);
 const fmt = (d: Date) =>
   d.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" });
 const readMins = (body: string) => Math.max(2, Math.round((body ?? "").split(/\s+/).filter(Boolean).length / 200));
+
+// Markdown collection posts
+const collection = (await getCollection("blog", ({ data }) => !data.draft)).map((p) => ({
+  href: `/post/${p.id}`,
+  heroImage: p.data.heroImage,
+  category: p.data.category,
+  title: p.data.title,
+  description: p.data.description,
+  date: p.data.pubDate,
+  mins: readMins(p.body),
+}));
+// Standalone, design-styled posts (not markdown) — slotted into the feed manually
+const standalone = [
+  {
+    href: "/post/mental-capacity-act",
+    heroImage: "/img/personal-care-real.jpg",
+    category: "For Families",
+    title: "Your decisions, your way: the Mental Capacity Act, explained simply",
+    description: "A plain-English guide to the Mental Capacity Act — what it means for you or your loved one, and how Otter Homecare protects everyone's right to make their own decisions.",
+    date: new Date("2026-06-08"),
+    mins: 4,
+  },
+];
+const feed = [...collection, ...standalone].sort((a, b) => b.date.valueOf() - a.date.valueOf());
 ---
 <SiteLayout
   title="The Otterly Caring Blog | Otter Homecare"
@@ -21,14 +42,14 @@ const readMins = (body: string) => Math.max(2, Math.round((body ?? "").split(/\s
 
   <section class="section"><div class="wrap">
     <div class="blog-grid">
-      {posts.map((post) => (
-        <a class="post-card reveal" href={`/post/${post.id}`}>
-          <div class="img">{post.data.heroImage ? <img src={post.data.heroImage} alt="" /> : null}</div>
+      {feed.map((post) => (
+        <a class="post-card reveal" href={post.href}>
+          <div class="img">{post.heroImage ? <img src={post.heroImage} alt="" /> : null}</div>
           <div class="body">
-            <span class="cat">{post.data.category}</span>
-            <h3>{post.data.title}</h3>
-            <p>{post.data.description}</p>
-            <div class="meta">{fmt(post.data.pubDate)} · {readMins(post.body)} min read</div>
+            <span class="cat">{post.category}</span>
+            <h3>{post.title}</h3>
+            <p>{post.description}</p>
+            <div class="meta">{fmt(post.date)} · {post.mins} min read</div>
           </div>
         </a>
       ))}
