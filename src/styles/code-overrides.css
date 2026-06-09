@@ -55,6 +55,21 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .conds a{background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:9px 18px;font-weight:700;font-size:14.5px;color:var(--teal-d);text-decoration:none;transition:border-color .15s,background .15s}
 .conds a:hover,.conds a:focus-visible{border-color:var(--teal);background:#fff}
 
+/* Presentation #2 fixes (2026-06-09) */
+/* Happy Hour photo circle was lost in the wide gold card on desktop — enlarge it (mobile unchanged). */
+@media(min-width:768px){.hh-emblem{width:164px;height:164px}}
+/* KILT value descriptions were too small to read comfortably — bump from 14.5px. */
+.pl-body p{font-size:16.5px}
+/* Thin horizontal line under the wavy section dividers — close the sub-pixel seam by
+   overlapping the following section by 1px. */
+.wave{margin-bottom:-1px}
+/* Legal-page "On this page" TOC is collapsible so it can't dominate / hide content on mobile. */
+.legal-toc summary{font-weight:800;font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between}
+.legal-toc summary::-webkit-details-marker{display:none}
+.legal-toc summary::after{content:"▾";font-size:14px;transition:transform .2s}
+.legal-toc[open] summary::after{transform:rotate(180deg)}
+.legal-toc[open] summary{margin-bottom:10px}
+
 /* Atkinson Hyperlegible — self-hosted (OFL) for the easy-read toggle. Applied by design's
    html.a11y-easy-font rule once their control CSS is lifted in. */
 @font-face{font-family:"Atkinson Hyperlegible";font-style:normal;font-weight:400;font-display:swap;src:url("/fonts/atkinson-hyperlegible-400.woff2") format("woff2")}
