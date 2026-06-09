@@ -114,7 +114,7 @@ export const services: Service[] = [
       "Round-the-clock live-in care at home — a reassuring alternative to a care home. A dedicated Care Professional living with you, from £1,550 per week. Wiltshire & Somerset.",
     h1: "Live-in Care",
     subtitle: "Round-the-clock support, comfort and peace of mind in the place you call home",
-    heroImg: "ff72ba_356da85da3114f4ea8c98fa716675d83~mv2.jpg",
+    heroImg: "live-in-who.jpg",
     intro: [
       "Live-in care provides continuous support day and night, allowing you or your loved one to remain in the comfort and familiarity of home — with the reassurance of professional help always at hand.",
       "Whether you're recovering from illness, managing a long-term condition, or simply want to feel safe and supported at home, we're here to help.",
@@ -152,7 +152,7 @@ export const services: Service[] = [
       "Swift, safe fall recovery support at home in Wiltshire and Somerset, using the Raizer lifting chair to help someone up safely and with dignity. Available to existing clients.",
     h1: "Fall Recovery Support",
     subtitle: "Swift, safe support if a fall happens",
-    heroImg: "ff72ba_4b05b1a5425d4810a639471b6c1f0d82~mv2.jpg",
+    heroImg: "fall-recovery-photo.jpg",
     intro: [
       "Falls can shake a person's confidence — and a family's peace of mind. We're here to respond quickly and help gently, using the right tools and the right touch.",
       "Our fall recovery support is delivered by trained professionals using the innovative Raizer Chair — a safe, dignified way to help someone up from the floor without risk of further injury.",
