@@ -35,8 +35,8 @@
     var panel = document.getElementById("talkPanel"), toggle = document.getElementById("talkToggle");
     if (!panel || !toggle) return;
     function setOpen(o) {
-      if (o) { panel.removeAttribute("hidden"); var ap = document.getElementById("a11yPanel"); if (ap) ap.setAttribute("hidden", ""); var at = document.getElementById("a11yToggle"); if (at) at.setAttribute("aria-expanded", "false"); }
-      else panel.setAttribute("hidden", "");
+      if (o) { panel.removeAttribute("hidden"); void panel.offsetWidth; panel.classList.add("open"); var ap = document.getElementById("a11yPanel"); if (ap) { ap.classList.remove("open"); ap.setAttribute("hidden", ""); } var at = document.getElementById("a11yToggle"); if (at) at.setAttribute("aria-expanded", "false"); }
+      else { panel.classList.remove("open"); panel.setAttribute("hidden", ""); }
       toggle.setAttribute("aria-expanded", String(o));
     }
     toggle.addEventListener("click", function (e) { e.stopPropagation(); setOpen(panel.hasAttribute("hidden")); });

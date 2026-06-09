@@ -66,8 +66,8 @@
     apply();
 
     function setOpen(o) {
-      if (o) { panel.removeAttribute("hidden"); var tp = document.getElementById("talkPanel"); if (tp) tp.setAttribute("hidden", ""); var tt = document.getElementById("talkToggle"); if (tt) tt.setAttribute("aria-expanded", "false"); }
-      else panel.setAttribute("hidden", "");
+      if (o) { panel.removeAttribute("hidden"); void panel.offsetWidth; panel.classList.add("open"); var tp = document.getElementById("talkPanel"); if (tp) { tp.classList.remove("open"); tp.setAttribute("hidden", ""); } var tt = document.getElementById("talkToggle"); if (tt) tt.setAttribute("aria-expanded", "false"); }
+      else { panel.classList.remove("open"); panel.setAttribute("hidden", ""); }
       toggle.setAttribute("aria-expanded", String(o));
     }
     toggle.addEventListener("click", function (e) { e.stopPropagation(); setOpen(panel.hasAttribute("hidden")); });
