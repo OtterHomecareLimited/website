@@ -31,11 +31,29 @@ const year = new Date().getFullYear();
     <div>
       <h4>Stay connected</h4>
       <p>Subscribe to our newsletter for community news.</p>
-      <form class="news" action="/api/contact" method="POST">
-        <input name="email" type="email" placeholder="Your email" aria-label="Your email" />
-        <input type="hidden" name="message" value="Newsletter signup" />
+      <form class="news" id="newsForm" action="/api/contact" method="POST">
+        <input type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none" />
+        <input name="email" type="email" placeholder="Your email" aria-label="Your email" required />
         <button type="submit">Submit</button>
       </form>
+      <p id="newsOk" style="display:none;margin-top:10px;color:#bcd6d2;font-weight:700">Thanks — you're on the list.</p>
+      <script is:inline>
+        (function () {
+          var f = document.getElementById("newsForm"); if (!f) return;
+          f.addEventListener("submit", async function (e) {
+            e.preventDefault();
+            var email = (f.querySelector("[name=email]") || {}).value || "";
+            if (!email) return;
+            var btn = f.querySelector("button"); btn.disabled = true; btn.textContent = "…";
+            try {
+              var r = await fetch("/api/contact", { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify({ name: "Newsletter subscriber", email: email, msg: "Newsletter signup (footer)", company: (f.querySelector("[name=company]") || {}).value || "" }) });
+              var j = await r.json();
+              if (r.ok && j.ok) { f.style.display = "none"; document.getElementById("newsOk").style.display = "block"; }
+              else { btn.disabled = false; btn.textContent = "Submit"; alert(j.error || "Something went wrong — please email hello@otterhomecare.co.uk."); }
+            } catch (_) { btn.disabled = false; btn.textContent = "Submit"; alert("Something went wrong — please email hello@otterhomecare.co.uk."); }
+          });
+        })();
+      </script>
       <p style="margin-top:14px">01225 690022 · hello@otterhomecare.co.uk</p>
     </div>
   </div>

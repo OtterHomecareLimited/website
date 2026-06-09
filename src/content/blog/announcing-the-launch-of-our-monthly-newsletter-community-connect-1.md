@@ -26,6 +26,6 @@ Thank you for being a part of the Otter Homecare community. We look forward to c
 
 Best regards,
 
-Jamie Rowland Jones
+Jamie Rowland-Jones
 
 Founder, Otter Homecare

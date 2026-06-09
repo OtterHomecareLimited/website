@@ -1,6 +1,5 @@
 ---
 import "../styles/global.css";
-import UtilityBar from "../components/UtilityBar.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 
@@ -62,7 +61,6 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
     })} />
   </head>
   <body>
-    <UtilityBar />
     <Header />
     <slot />
     <Footer />
