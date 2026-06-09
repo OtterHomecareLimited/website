@@ -28,6 +28,9 @@ const others = services.filter((s) => s.slug !== service.slug).slice(0, 3);
           {service.price && (
             <p style="background:var(--sun-soft);border-radius:var(--r-sm);padding:14px 18px;margin-top:18px;font-size:15.5px"><strong>Cost &amp; funding.</strong> {service.price}</p>
           )}
+          {service.note && (
+            <p style="background:var(--teal-soft);border-radius:var(--r-sm);padding:12px 16px;margin-top:14px;font-size:15px;color:var(--teal-d)"><strong>{service.note}</strong></p>
+          )}
           <a class="btn btn-primary" href="/#book" style="margin-top:20px">Book a free assessment →</a>
         </div>
       </div>
@@ -35,17 +38,11 @@ const others = services.filter((s) => s.slug !== service.slug).slice(0, 3);
   </section>
 
   {service.secondList && (
-    <section class="section trustwhy" style="padding-top:0">
+    <section class="section trustwhy">
       <div class="wrap">
         <div class="head-c reveal"><h2>{service.secondListTitle}</h2></div>
         <div class="conds reveal">{service.secondList.map((i) => <span>{i}</span>)}</div>
       </div>
-    </section>
-  )}
-
-  {service.note && (
-    <section class="section" style="padding:0 0 40px">
-      <div class="wrap"><p class="lede" style="background:var(--teal-soft);border-radius:var(--r);padding:18px 22px;max-width:none;color:var(--teal-d)"><strong>{service.note}</strong></p></div>
     </section>
   )}
 
