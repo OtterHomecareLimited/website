@@ -70,6 +70,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .legal-toc[open] summary::after{transform:rotate(180deg)}
 .legal-toc[open] summary{margin-bottom:10px}
 
+/* Conditions cards: the forced 2-column grid + nowrap "See our … →" links overflowed the
+   viewport on phones (min-width wouldn't shrink). Stack to one column on small screens. */
+@media(max-width:600px){.trust3.cond-grid{grid-template-columns:1fr !important}}
+
 /* Atkinson Hyperlegible — self-hosted (OFL) for the easy-read toggle. Applied by design's
    html.a11y-easy-font rule once their control CSS is lifted in. */
 @font-face{font-family:"Atkinson Hyperlegible";font-style:normal;font-weight:400;font-display:swap;src:url("/fonts/atkinson-hyperlegible-400.woff2") format("woff2")}
