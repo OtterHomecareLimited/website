@@ -33,4 +33,31 @@ import SiteLayout from "../layouts/SiteLayout.astro";
       }
     });
   </script>
+
+  <!-- KILT promise bubble — rotating value catchphrases (design's otter speech bubble) -->
+  <script is:inline>
+    (function () {
+      var kb = document.getElementById("kiltBubble");
+      if (!kb || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      var kq = [
+        ["", "That's why I wear the kilt!"],
+        ["Kindness", "We keep each other warm."],
+        ["Innovation", "We find clever ways to care."],
+        ["Learning", "We never stop getting better."],
+        ["Teamwork", "No otter floats alone."],
+      ];
+      var ki = 0;
+      setInterval(function () {
+        ki = (ki + 1) % kq.length;
+        kb.classList.add("fade");
+        setTimeout(function () {
+          var lab = kb.querySelector(".kb-label");
+          lab.textContent = kq[ki][0];
+          lab.style.display = kq[ki][0] ? "block" : "none";
+          kb.querySelector(".kb-quote").textContent = kq[ki][1];
+          kb.classList.remove("fade");
+        }, 360);
+      }, 4200);
+    })();
+  </script>
 </SiteLayout>
