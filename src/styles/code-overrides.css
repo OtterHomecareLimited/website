@@ -45,6 +45,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 @media(max-width:880px){.svc-grid.town-svc{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:520px){.svc-grid.town-svc{grid-template-columns:1fr}}
 
+/* Otter Café photo strip (real event photos, Jamie-provided 2026-06-09; design may refine).
+   Equal-height flex row so the portrait Staverton shot isn't cropped to match the landscape one. */
+.cafe-gallery{display:flex;flex-wrap:wrap;gap:18px;justify-content:center}
+.cafe-gallery img{max-height:420px;max-width:100%;border-radius:var(--r);box-shadow:var(--shadow-sm)}
+
 /* Atkinson Hyperlegible — self-hosted (OFL) for the easy-read toggle. Applied by design's
    html.a11y-easy-font rule once their control CSS is lifted in. */
 @font-face{font-family:"Atkinson Hyperlegible";font-style:normal;font-weight:400;font-display:swap;src:url("/fonts/atkinson-hyperlegible-400.woff2") format("woff2")}
