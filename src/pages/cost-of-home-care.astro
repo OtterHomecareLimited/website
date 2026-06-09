@@ -1,70 +1,34 @@
 ---
 import SiteLayout from "../layouts/SiteLayout.astro";
 ---
-<SiteLayout
-  title="Costs & Funding | Otter Homecare"
-  description="Clear, honest home-care pricing from Otter Homecare — visiting care from £36/hour, live-in from £1,550/week — plus the funding routes that may help towards it. No hidden fees."
->
-  <header class="phero"><div class="wrap"><div class="crumb"><a href="/">Home</a> · Costs &amp; Funding</div><h1>Clear, honest pricing</h1><p>No hidden fees, no hard sell — an honest guide to what home care costs with Otter, and the funding that may help towards it.</p></div></header>
-
-  <section class="section"><div class="wrap">
-    <div class="head-c reveal"><span class="eyebrow">Indicative rates</span><h2>What home care costs</h2><p class="lede">Final pricing depends on the support you need — you'll get a clear, personalised quote at your free assessment.</p></div>
-    <div class="rates reveal">
-      <div class="rate"><span class="rtag">Visiting Care</span><span class="from">from</span><div class="amt">£36<small>/ hour</small></div><p>Flexible visits for help with daily life.</p></div>
-      <div class="rate"><span class="rtag">Live-in Care</span><span class="from">from</span><div class="amt">£1,550<small>/ week</small></div><p>Round-the-clock, one-to-one care in your own home.</p></div>
-      <div class="rate"><span class="rtag">Free assessment</span><span class="from">always</span><div class="amt">£0</div><p>A no-obligation home visit and tailored care plan.</p></div>
-    </div>
-
-    <div class="reveal" style="margin-top:34px">
-      <h3 style="font-size:22px;margin-bottom:12px">Visiting care — full rates</h3>
-      <table class="ratetable">
-        <thead><tr><th>Visit length</th><th>Mon–Fri</th><th>Weekend</th><th>Bank holiday</th></tr></thead>
-        <tbody>
-          <tr><td>1 hour</td><td>£36.00</td><td>£40.00</td><td>£48.00</td></tr>
-          <tr><td>45 minutes</td><td>£31.75</td><td>£34.75</td><td>£41.75</td></tr>
-          <tr><td>30 minutes</td><td>£27.50</td><td>£29.50</td><td>£35.50</td></tr>
-        </tbody>
-      </table>
-      <p style="font-size:14px;color:var(--muted);margin-top:10px">No travel or call-out fees · VAT-exempt · Mileage for client outings charged at 55p/mile.</p>
-    </div>
-
-    <div class="reveal" style="margin-top:34px">
-      <h3 style="font-size:22px;margin-bottom:12px">Live-in &amp; overnight care</h3>
-      <table class="ratetable">
-        <thead><tr><th>Care type</th><th>Weekday</th><th>Weekend</th><th>Bank holiday</th></tr></thead>
-        <tbody>
-          <tr><td>Live-in (per week) — from</td><td colspan="3" style="text-align:right">£1,550 · £1,650 · £1,800 by dependency</td></tr>
-          <tr><td>Sleeping night (9 hrs)</td><td>£240</td><td>£260</td><td>£280</td></tr>
-          <tr><td>Waking night (9 hrs)</td><td>£290</td><td>£320</td><td>£350</td></tr>
-        </tbody>
-      </table>
-      <p style="font-size:14px;color:var(--muted);margin-top:10px">Live-in dependency rate (A / B / C) is set after your free assessment.</p>
-    </div>
-  </div></section>
-
-  <section class="section tmt"><div class="wrap">
-    <div class="head-c reveal"><h2>Help paying for care</h2></div>
-    <div class="funding reveal">
-      <div class="fund"><h3>Local Authority funding</h3><p>Your council may fund some or all of your care after a needs and means assessment.</p><a href="https://www.gov.uk/apply-needs-assessment-social-services" target="_blank" rel="noopener">Apply for an assessment →</a></div>
-      <div class="fund"><h3>Attendance Allowance</h3><p>A non-means-tested benefit for those over State Pension age who need help with personal care.</p><a href="https://www.gov.uk/attendance-allowance" target="_blank" rel="noopener">Check eligibility →</a></div>
-      <div class="fund"><h3>Self-funding</h3><p>Many families pay privately for the flexibility and choice it brings. We keep pricing transparent.</p></div>
-      <div class="fund"><h3>NHS Continuing Healthcare</h3><p>If care is needed mainly for health reasons, the NHS may fully fund it.</p><a href="https://www.nhs.uk/conditions/social-care-and-support-guide/money-work-and-benefits/nhs-continuing-healthcare/" target="_blank" rel="noopener">Read the NHS guide →</a></div>
-    </div>
-  </div></section>
-
-  <section class="section book"><div class="wrap" style="grid-template-columns:1fr;display:block;text-align:center">
-    <div class="reveal" style="max-width:36ch;margin:0 auto">
-      <span class="eyebrow" style="color:#9fc4bf">Free, no-obligation assessment</span>
-      <h2 style="margin:14px 0 12px">Let's find the right care, together</h2>
-      <p class="lede" style="margin-bottom:26px;color:#bfe0dc">Speak to a real, local person today — never a call centre.</p>
-      <div style="display:flex;gap:13px;justify-content:center;flex-wrap:wrap">
-        <a class="btn btn-clay btn-lg" href="/#book">Book a free assessment</a>
-        <a class="btn btn-ghost btn-lg" href="tel:01225690022" style="background:transparent;color:#fff;border-color:rgba(255,255,255,.5)">Call 01225 690022</a>
-      </div>
-    </div>
-    <div class="book-trust reveal">
-      <div class="bt-ticks"><span>Free, no-obligation home visit</span><span>A care plan built around you</span><span>We usually reply the same day</span></div>
-      <div class="bt-stars"><span class="s">★★★★★</span> Rated <b>9.4</b> by families on homecare.co.uk</div>
-    </div>
-  </div></section>
+<SiteLayout title="Costs & Funding | Otter Homecare" description="Clear, honest home care pricing and the funding that may help.">
+<header class="phero"><div class="wrap"><div class="crumb"><a href="/">Home</a> · Costs & Funding</div><h1>Clear, honest pricing</h1><p>No hidden fees, no hard sell — an honest guide to what home care costs with Otter, and the funding that may help towards it.</p></div></header>
+<section class="section"><div class="wrap"><div class="head-c reveal"><span class="eyebrow">Indicative rates</span><h2>What home care costs</h2><p class="lede">Final pricing depends on the support you need — you'll get a clear, personalised quote at your free assessment.</p></div><div class="rates reveal">
+<div class="rate"><span class="rtag">Visiting Care</span><span class="from">from</span><div class="amt">£36<small>/ hour</small></div><p>Flexible visits for help with daily life.</p></div>
+<div class="rate"><span class="rtag">Live-in Care</span><span class="from">from</span><div class="amt">£1,550<small>/ week</small></div><p>Round-the-clock, one-to-one care in your own home.</p></div>
+<div class="rate"><span class="rtag">Free assessment</span><span class="from">always</span><div class="amt">£0</div><p>A no-obligation home visit and tailored care plan.</p></div>
+</div>
+<div class="reveal" style="margin-top:34px"><h3 style="font-size:22px;margin-bottom:12px">Visiting care — full rates</h3>
+<table class="ratetable"><thead><tr><th>Visit length</th><th>Mon–Fri</th><th>Weekend</th><th>Bank holiday</th></tr></thead><tbody>
+<tr><td>1 hour</td><td>£36.00</td><td>£40.00</td><td>£48.00</td></tr>
+<tr><td>45 minutes</td><td>£31.75</td><td>£34.75</td><td>£41.75</td></tr>
+<tr><td>30 minutes</td><td>£27.50</td><td>£29.50</td><td>£35.50</td></tr>
+</tbody></table>
+<p style="font-size:14px;color:var(--muted);margin-top:10px">No travel or call-out fees · VAT-exempt · Mileage for client outings charged at 55p/mile.</p></div>
+<div class="reveal" style="margin-top:34px"><h3 style="font-size:22px;margin-bottom:6px">Live-in care</h3>
+<p style="font-size:14.5px;color:var(--muted);margin-bottom:16px;max-width:60ch">Round-the-clock, one-to-one care in your own home — a genuine alternative to a care home. The weekly rate depends on how much support is needed.</p>
+<div class="livein-bands">
+<div class="lb"><span class="lb-band">Band A</span><span class="lb-rate">£1,550<small>/wk</small></span><span class="lb-note">Lower dependency</span></div>
+<div class="lb"><span class="lb-band">Band B</span><span class="lb-rate">£1,650<small>/wk</small></span><span class="lb-note">Medium dependency</span></div>
+<div class="lb"><span class="lb-band">Band C</span><span class="lb-rate">£1,800<small>/wk</small></span><span class="lb-note">Higher dependency</span></div>
+</div>
+<p style="font-size:14px;color:var(--muted);margin-top:12px">Your dependency band (A / B / C) is set after your free assessment.</p></div>
+<div class="reveal" style="margin-top:34px"><h3 style="font-size:22px;margin-bottom:12px">Overnight care</h3>
+<table class="ratetable"><thead><tr><th>Care type</th><th>Weekday</th><th>Weekend</th><th>Bank holiday</th></tr></thead><tbody>
+<tr><td>Sleeping night (9 hrs)</td><td>£240</td><td>£260</td><td>£280</td></tr>
+<tr><td>Waking night (9 hrs)</td><td>£290</td><td>£320</td><td>£350</td></tr>
+</tbody></table>
+<p style="font-size:14px;color:var(--muted);margin-top:10px">A sleeping night covers occasional support; a waking night is for active care through the night.</p></div></div></section>
+<section class="section bg-sky tmt"><div class="wrap"><div class="head-c reveal"><h2>Help paying for care</h2></div><div class="funding reveal"><div class="fund"><h3>Local Authority funding</h3><p>Your council may fund some or all of your care after a needs and means assessment.</p><a href="https://www.gov.uk/apply-needs-assessment-social-services" target="_blank" rel="noopener">Apply for an assessment →</a></div><div class="fund"><h3>Attendance Allowance</h3><p>A non-means-tested benefit for those over State Pension age who need help with personal care.</p><a href="https://www.gov.uk/attendance-allowance" target="_blank" rel="noopener">Check eligibility →</a></div><div class="fund"><h3>Self-funding</h3><p>Many families pay privately for the flexibility and choice it brings. We keep pricing transparent.</p></div><div class="fund"><h3>NHS Continuing Healthcare</h3><p>If care is needed mainly for health reasons, the NHS may fully fund it.</p><a href="https://www.nhs.uk/conditions/social-care-and-support-guide/money-work-and-benefits/nhs-continuing-healthcare/" target="_blank" rel="noopener">Read the NHS guide →</a></div></div></div></section>
+<section class="section book"><div class="wrap" style="grid-template-columns:1fr;display:block;text-align:center"><div class="reveal" style="max-width:36ch;margin:0 auto"><span class="eyebrow" style="color:#9fc4bf">Free, no-obligation assessment</span><h2 style="margin:14px 0 12px">Let's find the right care, together</h2><p class="lede" style="margin-bottom:26px;color:#bfe0dc">Speak to a real, local person today — never a call centre.</p><div style="display:flex;gap:13px;justify-content:center;flex-wrap:wrap"><a class="btn btn-clay btn-lg" href="/#book">Book a free assessment</a><a class="btn btn-ghost btn-lg" href="tel:01225690022" style="background:transparent;color:#fff;border-color:rgba(255,255,255,.5)">Call 01225 690022</a></div></div><div class="book-trust reveal"><div class="bt-ticks"><span>Free, no-obligation home visit</span><span>A care plan built around you</span><span>We usually reply the same day</span></div><div class="bt-stars"><span class="s">★★★★★</span> Rated <b>9.4</b> by families on homecare.co.uk</div></div></div></section>
 </SiteLayout>
