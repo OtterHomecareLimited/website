@@ -167,4 +167,36 @@ export const services: Service[] = [
     ],
     note: "Fall recovery support is available to existing Otter Homecare clients.",
   },
+  {
+    slug: "respite-care",
+    name: "Respite Care",
+    title: "Respite Care in Wiltshire & Somerset | Otter Homecare",
+    description:
+      "Planned short-term respite care at home in Wiltshire and Somerset — so family carers can rest, travel or recover, knowing their loved one is in kind, capable hands.",
+    h1: "Respite Care",
+    subtitle: "A proper break for family carers — with your loved one safe at home",
+    heroImg: "out-and-about.jpg",
+    intro: [
+      "Caring for someone you love is one of the most important things a person can do — and one of the most tiring. Respite care gives family carers a planned break, from a single afternoon to a few weeks, while your loved one stays comfortable in their own home.",
+      "Whether you need cover for a holiday, time to recover from your own illness or operation, or simply a regular breather each week, we step in gently — following the routines your loved one already knows.",
+    ],
+    includedTitle: "What respite care can cover",
+    included: [
+      "Everything your loved one usually receives — personal care, medication, meals",
+      "Companionship and reassurance while you're away",
+      "Regular visits or full live-in cover, depending on what you need",
+      "A handover with you before you go, so routines carry on seamlessly",
+      "Updates through our Care App, so you can truly switch off",
+    ],
+    secondListTitle: "When families use respite care",
+    secondList: [
+      "A holiday or a few days away",
+      "Recovering from your own illness or operation",
+      "A regular weekly break to recharge",
+      "Covering a family carer's work or other commitments",
+      "Trying out home care before a longer arrangement",
+    ],
+    price:
+      "Respite visits start from £36 per hour, with live-in respite from £1,550 per week — you only pay for the cover you need, with no joining fees. We'll talk it through at a free assessment.",
+  },
 ];
