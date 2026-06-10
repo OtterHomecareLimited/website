@@ -85,6 +85,12 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
    square from the column width instead of the row height. */
 @media(min-width:821px){.story-pic{width:100%;min-width:0;height:auto}}
 
+/* Form success panel on the dark-teal booking band: design's .form-success p uses var(--muted)
+   (a grey for cream backgrounds) — barely legible on teal. Use the band's light lede tone, with
+   the phone number in white. */
+.book .form-success p{color:#bfe0dc}
+.book .form-success p strong{color:#fff}
+
 /* Atkinson Hyperlegible — self-hosted (OFL) for the easy-read toggle. Applied by design's
    html.a11y-easy-font rule once their control CSS is lifted in. */
 @font-face{font-family:"Atkinson Hyperlegible";font-style:normal;font-weight:400;font-display:swap;src:url("/fonts/atkinson-hyperlegible-400.woff2") format("woff2")}
