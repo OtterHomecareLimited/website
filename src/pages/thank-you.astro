@@ -1,19 +1,21 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
+import SiteLayout from "../layouts/SiteLayout.astro";
 ---
-<BaseLayout
+<SiteLayout
   title="Thank you | Otter Homecare"
   description="Thank you for getting in touch with Otter Homecare. We'll be in touch very soon."
 >
-  <section class="big-cta" style="padding:120px 0">
-    <div class="wrap">
-      <div style="font-size:56px;margin-bottom:12px">🦦</div>
-      <h2>Thank you — message received.</h2>
-      <p>We've got your enquiry and someone local will be in touch very soon. If it's urgent, you're always welcome to call us directly.</p>
-      <div class="row">
-        <a href="tel:01225690022" class="phone">📞 01225 690022</a>
-        <a href="/" class="cta large" style="background:#fff;color:var(--teal)">Back to home →</a>
+  <section class="section" style="text-align:center;padding:110px 0">
+    <div class="wrap" style="max-width:56ch">
+      <div class="reveal in">
+        <span class="eyebrow">Message received</span>
+        <h1 style="margin:14px 0 14px">Thank you — we've got it</h1>
+        <p class="lede" style="max-width:none">Someone local will be in touch very soon. If it's urgent, you're always welcome to call us directly.</p>
+        <div style="display:flex;gap:13px;justify-content:center;flex-wrap:wrap;margin-top:26px">
+          <a class="btn btn-ghost btn-lg" href="tel:01225690022">Call 01225 690022</a>
+          <a class="btn btn-primary btn-lg" href="/">Back to home →</a>
+        </div>
       </div>
     </div>
   </section>
-</BaseLayout>
+</SiteLayout>
