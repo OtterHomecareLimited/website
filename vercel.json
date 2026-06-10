@@ -8,7 +8,7 @@
     { "source": "/the-otterly-caring-blog", "destination": "/blog", "permanent": true },
     { "source": "/blank-21", "destination": "/", "permanent": true },
     { "source": "/blank-21-1-1", "destination": "/", "permanent": true },
-    { "source": "/post/our-first-ever-otter-café-a-wonderful-start", "destination": "/post/our-first-ever-otter-cafe-a-wonderful-start", "permanent": true },
-    { "source": "/post/otter-café-returns-a-spooktacular-afternoon-at-staverton-village-hall", "destination": "/post/otter-cafe-returns-a-spooktacular-afternoon-at-staverton-village-hall", "permanent": true }
+    { "source": "/post/our-first-ever-otter-caf%C3%A9-a-wonderful-start", "destination": "/post/our-first-ever-otter-cafe-a-wonderful-start", "permanent": true },
+    { "source": "/post/otter-caf%C3%A9-returns-a-spooktacular-afternoon-at-staverton-village-hall", "destination": "/post/otter-cafe-returns-a-spooktacular-afternoon-at-staverton-village-hall", "permanent": true }
   ]
 }
