@@ -118,6 +118,12 @@ button,summary,.btn,.otter-fab,.talk-opt,[role="switch"]{touch-action:manipulati
 .a11y-reset{font-size:16px}
 .a11y-read{font-size:16px}
 
+/* Checklist items: design's li{display:flex} splits text nodes around inline <strong> into
+   separate flex items ("Overnight and | live-in care | as needs grow" rendered as columns —
+   Jamie's dementia-page report). Tick becomes absolutely positioned; text flows normally. */
+.checklist li{display:block;position:relative;padding-left:26px}
+.checklist li::before{position:absolute;left:0;top:0}
+
 /* Atkinson Hyperlegible — self-hosted (OFL) for the easy-read toggle. Applied by design's
    html.a11y-easy-font rule once their control CSS is lifted in. */
 @font-face{font-family:"Atkinson Hyperlegible";font-style:normal;font-weight:400;font-display:swap;src:url("/fonts/atkinson-hyperlegible-400.woff2") format("woff2")}
