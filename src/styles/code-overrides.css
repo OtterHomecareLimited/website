@@ -96,6 +96,13 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
    (.lefty tables — cookies page — keep everything left-aligned, so they're excluded.) */
 .ratetable:not(.lefty) thead th:not(:first-child){text-align:right}
 
+/* Meet the Team — the 1:1 full-width photos at a 24px gap read as an overwhelming wall of
+   faces (Jamie, 10 Jun). Calm it: shorter 4:3 portraits (the ratio design uses for photos
+   elsewhere) and real breathing room between members. */
+.team-grid{gap:56px 40px}
+.team-card img{aspect-ratio:4/3;object-position:50% 22%}
+@media(max-width:760px){.team-grid{gap:44px}}
+
 /* Atkinson Hyperlegible — self-hosted (OFL) for the easy-read toggle. Applied by design's
    html.a11y-easy-font rule once their control CSS is lifted in. */
 @font-face{font-family:"Atkinson Hyperlegible";font-style:normal;font-weight:400;font-display:swap;src:url("/fonts/atkinson-hyperlegible-400.woff2") format("woff2")}
