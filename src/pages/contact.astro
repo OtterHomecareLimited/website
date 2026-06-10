@@ -62,7 +62,11 @@ import SiteLayout from "../layouts/SiteLayout.astro";
       try {
         const res = await fetch("/api/contact", { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(data) });
         const json = await res.json();
-        if (res.ok && json.ok) { cf.style.display = "none"; document.getElementById("contactOk").style.display = "block"; }
+        if (res.ok && json.ok) {
+          cf.style.display = "none"; document.getElementById("contactOk").style.display = "block";
+          // Google Ads: count the successful send as a "Contact form submission" conversion (cookieless — see SiteLayout head)
+          if (typeof gtag === "function") gtag("event", "conversion", { send_to: "AW-11233030388/uXnICMDw5bwcEPThqewp" });
+        }
         else { btn.disabled = false; btn.textContent = "Send message →"; alert(json.error || "Something went wrong — please call us on 01225 690022."); }
       } catch { btn.disabled = false; btn.textContent = "Send message →"; alert("Something went wrong — please call us on 01225 690022."); }
     });

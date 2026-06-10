@@ -25,6 +25,28 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script is:inline>document.documentElement.classList.add("js");</script>
+
+    <!-- Google Ads conversion measurement (gtag.js) in strict COOKIELESS mode: Consent Mode v2
+         defaults are all DENIED and there is no banner, so no cookies are ever set — that keeps
+         the /cookies "not a single cookie" promise true. Attribution relies on the ad-click ID
+         in the landing URL (url_passthrough carries it across internal links) plus Google's
+         aggregate modelling. Do NOT add analytics_storage/ad_storage grants or any other
+         analytics here without updating /cookies and /privacy first. -->
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag("consent", "default", {
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        ad_personalization: "denied",
+        analytics_storage: "denied",
+      });
+      gtag("set", "url_passthrough", true);
+      gtag("set", "ads_data_redaction", true);
+      gtag("js", new Date());
+      gtag("config", "AW-11233030388");
+    </script>
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=AW-11233030388"></script>
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
@@ -118,6 +140,11 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
           }, 400);
         }, 3800);
       }
+      // Google Ads: a tap on any phone link counts as a "Phone click" conversion (cookieless — see head)
+      document.addEventListener("click", (e) => {
+        if (e.target.closest && e.target.closest('a[href^="tel:"]') && typeof gtag === "function")
+          gtag("event", "conversion", { send_to: "AW-11233030388/CSi8CMPw5bwcEPThqewp" });
+      });
       // Inline video blocks — click a [data-yt] block to play a YouTube film in place
       document.querySelectorAll(".video-embed[data-yt], .fullbleed[data-yt]").forEach((el) => {
         const play = () => {
