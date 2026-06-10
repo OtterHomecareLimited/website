@@ -92,11 +92,25 @@ const careers = [
     a: ["Apply online or call us. We’ll arrange an informal chat, followed by an interview and checks. If successful, you’ll complete training and shadowing before starting with clients."],
   },
 ];
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [...general, ...careers].map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: [...f.a, ...(f.list ?? []), ...(f.after ?? [])].join(" "),
+    },
+  })),
+};
+
 ---
 <SiteLayout
   title="Frequently asked questions | Otter Homecare"
   description="Honest answers about Otter Homecare's care, costs, and joining the team — visiting and live-in care across Wiltshire & Somerset. Flexible visits, CQC regulated."
 >
+<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <header class="phero">
     <div class="wrap">
       <div class="crumb"><a href="/">Home</a> · About · FAQs</div>

@@ -16,8 +16,21 @@ const fmt = (d: Date) =>
 // rough reading time from the raw markdown body
 const words = (post.body ?? "").split(/\s+/).filter(Boolean).length;
 const mins = Math.max(2, Math.round(words / 200));
+const postSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline: post.data.title,
+  description: post.data.description,
+  image: new URL(post.data.heroImage, Astro.site).href,
+  datePublished: post.data.pubDate.toISOString().slice(0, 10),
+  author: { "@type": "Organization", name: "Otter Homecare" },
+  publisher: { "@type": "Organization", name: "Otter Homecare", url: "https://www.otterhomecare.co.uk" },
+  mainEntityOfPage: new URL(`/post/${post.id}`, Astro.site).href,
+};
+
 ---
 <SiteLayout title={`${post.data.title} | Otter Homecare`} description={post.data.description} ogImage={post.data.heroImage}>
+<script type="application/ld+json" set:html={JSON.stringify(postSchema)} />
   <header class="phero"><div class="wrap">
     <div class="crumb"><a href="/">Home</a> · <a href="/blog">Blog</a> · {post.data.category}</div>
     <h1 style="max-width:24ch">{post.data.title}</h1>
