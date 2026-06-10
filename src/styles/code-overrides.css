@@ -74,6 +74,12 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
    viewport on phones (min-width wouldn't shrink). Stack to one column on small screens. */
 @media(max-width:600px){.trust3.cond-grid{grid-template-columns:1fr !important}}
 
+/* Families "story" image: on phones the full-width 1:1 square (design's .story-pic) dominates
+   the screen — it reads as an oversized block, not a photo beside a quote. Use the photo's
+   natural 3:2 landscape ratio so it's a calm banner above the quote on mobile. (Desktop keeps
+   the 2-column layout untouched.) */
+@media(max-width:820px){.story-pic{aspect-ratio:3/2;height:auto;min-height:0}}
+
 /* Atkinson Hyperlegible — self-hosted (OFL) for the easy-read toggle. Applied by design's
    html.a11y-easy-font rule once their control CSS is lifted in. */
 @font-face{font-family:"Atkinson Hyperlegible";font-style:normal;font-weight:400;font-display:swap;src:url("/fonts/atkinson-hyperlegible-400.woff2") format("woff2")}
