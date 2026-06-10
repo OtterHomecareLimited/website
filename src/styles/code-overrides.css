@@ -91,6 +91,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .book .form-success p{color:#bfe0dc}
 .book .form-success p strong{color:#fff}
 
+/* Rate tables: price cells are right-aligned but design's headers were left-aligned, so on
+   wide columns the £ values sat far from their headers. Right-align headers to match.
+   (.lefty tables — cookies page — keep everything left-aligned, so they're excluded.) */
+.ratetable:not(.lefty) thead th:not(:first-child){text-align:right}
+
 /* Atkinson Hyperlegible — self-hosted (OFL) for the easy-read toggle. Applied by design's
    html.a11y-easy-font rule once their control CSS is lifted in. */
 @font-face{font-family:"Atkinson Hyperlegible";font-style:normal;font-weight:400;font-display:swap;src:url("/fonts/atkinson-hyperlegible-400.woff2") format("woff2")}
