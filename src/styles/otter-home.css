@@ -3,7 +3,7 @@
    Warm editorial (serif headings, cream, photography)
    + friendly rounded UI, pill nav, sunny accents
    ============================================================ */
-@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap');
+/* Atkinson Hyperlegible is self-hosted — @font-face in code-overrides.css / fonts.css (no Google CDN). */
 :root{
   --cream:#FAF6EC; --cream-2:#F2E9D7; --paper:#FFFFFF;
   --ink:#3B2E1E; --muted:#6A5F4C; --line:#E8DECB; --head:#3B2E1E;
