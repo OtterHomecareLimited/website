@@ -7,7 +7,7 @@
 :root{
   --cream:#FAF6EC; --cream-2:#F2E9D7; --paper:#FFFFFF;
   --ink:#3B2E1E; --muted:#6A5F4C; --line:#E8DECB; --head:#3B2E1E;
-  --teal:#17687D; --teal-d:#0F4F60; --teal-soft:#E2EDF1;
+  --teal:#136B7D; --teal-d:#0F4F60; --teal-soft:#E2EDF1;
   --clay:#C8643C; --clay-d:#A94F2D; --clay-soft:#F7E7DD;
   --sun:#D8B65E; --sun-d:#B98A1E; --sun-soft:#F5E9CC;
   /* accessibility colour-fix tokens (audit, 8 Jun) — small text on cream */
@@ -35,7 +35,7 @@ section[id]{scroll-margin-top:96px}
 /* buttons */
 .btn{display:inline-flex;align-items:center;gap:9px;font-family:"Hanken Grotesk";font-weight:800;font-size:15px;line-height:1.1;padding:11px 20px;border-radius:13px;cursor:pointer;border:2px solid transparent;transition:.2s;white-space:nowrap}
 .btn svg{width:17px;height:17px;flex:none}
-.btn-primary{background:var(--teal);color:#fff;box-shadow:0 12px 24px -12px rgba(23,104,125,.7)}
+.btn-primary{background:var(--teal);color:#fff;box-shadow:0 12px 24px -12px rgba(19,107,125,.7)}
 .btn-primary:hover{background:var(--teal-d);transform:translateY(-2px)}
 .btn-clay{background:var(--teal);color:#fff}
 .btn-clay:hover{background:var(--teal-d);transform:translateY(-2px)}
@@ -338,7 +338,7 @@ body:has(.mobile-menu.show){overflow:hidden}
 .quote .by small{color:var(--muted)}
 
 /* homecare.co.uk verified reviews */
-.hcrev{--hc-green:#17687D;--hc-navy:#0F4F60}
+.hcrev{--hc-green:#136B7D;--hc-navy:#0F4F60}
 .hc-bar{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:18px 24px;margin-bottom:20px}
 .hc-score{display:flex;align-items:center;gap:15px}
 .hc-badge{width:54px;height:54px;border-radius:50%;border:3px solid var(--hc-green);color:var(--hc-navy);display:grid;place-items:center;font-weight:900;font-size:20px;flex:none}
