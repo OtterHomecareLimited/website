@@ -56,6 +56,11 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
 
     <!-- Fonts are self-hosted (src/styles/fonts.css + /fonts/*.woff2) — no Google CDN calls. -->
 
+    <!-- Vercel Web Analytics — cookieless, anonymous visit counting, served first-party from
+         this domain. No-ops (404s silently) until Web Analytics is enabled in the Vercel
+         dashboard. Disclosed on /cookies. -->
+    <script defer src="/_vercel/insights/script.js"></script>
+
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
