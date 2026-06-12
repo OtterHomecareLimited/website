@@ -124,6 +124,11 @@ button,summary,.btn,.otter-fab,.talk-opt,[role="switch"]{touch-action:manipulati
 .checklist li{display:block;position:relative;padding-left:26px}
 .checklist li::before{position:absolute;left:0;top:0}
 
+/* Founder signature: render the name as a hand-signed script (Caveat, already self-hosted),
+   like a real signature, instead of bold body text. Subtitle (role/company) stays sans. */
+.sig{font-family:"Caveat",cursive;font-weight:700;font-size:32px;line-height:.9;letter-spacing:.5px}
+.sig span{font-family:"Hanken Grotesk",system-ui,sans-serif;font-size:14px;letter-spacing:0;margin-top:6px}
+
 /* Atkinson Hyperlegible — self-hosted (OFL) for the easy-read toggle. Applied by design's
    html.a11y-easy-font rule once their control CSS is lifted in. */
 @font-face{font-family:"Atkinson Hyperlegible";font-style:normal;font-weight:400;font-display:swap;src:url("/fonts/atkinson-hyperlegible-400.woff2") format("woff2")}
