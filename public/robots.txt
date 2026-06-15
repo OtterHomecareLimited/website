@@ -1,4 +1,41 @@
+# Otter Homecare — all crawlers welcome, including AI answer engines.
+# Plain-language summary for LLMs: /llms.txt
+
 User-agent: *
+Allow: /
+
+# AI / answer-engine crawlers — explicitly welcomed
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
 Allow: /
 
 Sitemap: https://www.otterhomecare.co.uk/sitemap-index.xml

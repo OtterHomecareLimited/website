@@ -72,19 +72,47 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "HomeHealthCareService",
+      "@id": "https://www.otterhomecare.co.uk/#organization",
       "name": "Otter Homecare",
+      "alternateName": "Otter Homecare Ltd",
+      "description": "Family-run, CQC-registered home care provider in Trowbridge offering visiting care, live-in care, overnight and 24-hour care, companionship, respite and dementia care across West Wiltshire and Somerset.",
       "image": ogImageUrl,
+      "logo": "https://www.otterhomecare.co.uk/assets/apple-touch-icon.png",
       "telephone": "+441225690022",
       "email": "hello@otterhomecare.co.uk",
       "url": "https://www.otterhomecare.co.uk",
+      "priceRange": "££",
+      "currenciesAccepted": "GBP",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Arlington House, 72 Fore Street",
         "addressLocality": "Trowbridge",
+        "addressRegion": "Wiltshire",
         "postalCode": "BA14 8HQ",
         "addressCountry": "GB"
       },
-      "areaServed": ["Trowbridge", "Melksham", "Frome", "Bradford-on-Avon", "Westbury"]
+      "areaServed": [
+        "Trowbridge", "Melksham", "Frome", "Bradford-on-Avon", "Westbury",
+        "West Wiltshire", "Somerset"
+      ],
+      "founder": { "@type": "Person", "name": "Jamie Rowland-Jones" },
+      "openingHoursSpecification": [{
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "09:00",
+        "closes": "17:00"
+      }],
+      "knowsAbout": [
+        "Home care", "Visiting care", "Live-in care", "Overnight care",
+        "24-hour care", "Companionship care", "Respite care", "Dementia care",
+        "Parkinson's care", "Stroke recovery", "Palliative care", "Fall recovery"
+      ],
+      "sameAs": [
+        "https://www.facebook.com/otterhomecare",
+        "https://www.cqc.org.uk/provider/1-16037123435",
+        "https://www.nhs.uk/services/care-provider/otter-homecare-limited/1-18269081969",
+        "https://www.homecare.co.uk/homecare/agency.cfm/id/65432251370"
+      ]
     })} />
   </head>
   <body>

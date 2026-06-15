@@ -1,7 +1,37 @@
 ---
 import SiteLayout from "../layouts/SiteLayout.astro";
+
+// aggregateRating + reviews mirror what is genuinely displayed on this page
+// (homecare.co.uk score 9.4/10 from 14 verified reviews, plus named excerpts).
+// Attached by @id to the same organisation entity declared in SiteLayout.
+const reviewsSchema = {
+  "@context": "https://schema.org",
+  "@type": "HomeHealthCareService",
+  "@id": "https://www.otterhomecare.co.uk/#organization",
+  "name": "Otter Homecare",
+  "url": "https://www.otterhomecare.co.uk",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "9.4",
+    "bestRating": "10",
+    "worstRating": "1",
+    "reviewCount": "14"
+  },
+  "review": [
+    { "@type": "Review", "author": { "@type": "Person", "name": "Frances W" },
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "reviewBody": "Otter staff are superb in every way. Kind, and they really understand what caring is about." },
+    { "@type": "Review", "author": { "@type": "Person", "name": "Helen F" },
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "reviewBody": "I cannot recommend Otter highly enough. They cared for my elderly dad and were wonderful." },
+    { "@type": "Review", "author": { "@type": "Person", "name": "Anna B" },
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "reviewBody": "I cannot recommend the Otter team highly enough if you're considering care for a loved one with dementia. We've gone from thinking our mum would be going into a care home, to having her safe, supported and happy in her own home." }
+  ]
+};
 ---
 <SiteLayout title="Reviews | Otter Homecare" description="Real words from the families who trust Otter Homecare — rated 9.4 on homecare.co.uk, plus five-star reviews on Google.">
+<script type="application/ld+json" set:html={JSON.stringify(reviewsSchema)} />
 <header class="phero"><div class="wrap"><div class="crumb"><a href="/">Home</a> · About · Reviews</div><h1>The families we look after</h1><p>Real words from the families who trust us with the people they love.</p></div></header>
 <section class="section tmt hcrev"><div class="wrap"><div class="hc-bar reveal"><div class="hc-score"><div class="hc-badge">9.4</div><div><b>homecare.co.uk Review Score for Otter Homecare</b><small>Based on 14 verified reviews</small></div></div><a class="hc-brand" href="https://www.homecare.co.uk" target="_blank" rel="noopener"><img src="/assets/homecare-logo.png" alt="homecare.co.uk"></a></div><div class="hc-grid"><div class="hc-card reveal"><div class="hc-top"><span class="hc-stars">★★★★★</span></div><p>"Otter staff are superb in every way. Kind, and they really understand what caring is about."</p><div class="hc-by">Frances W<span>Client</span></div></div><div class="hc-card reveal"><div class="hc-top"><span class="hc-stars">★★★★★</span></div><p>"I cannot recommend Otter highly enough. They cared for my elderly dad and were wonderful."</p><div class="hc-by">Helen F<span>Daughter of Client</span></div></div><div class="hc-card reveal"><div class="hc-top"><span class="hc-stars">★★★★★</span></div><p>"All home care should be as good as this. Nothing is too much trouble — they care."</p><div class="hc-by">E S<span>Client</span></div></div><div class="hc-card reveal"><div class="hc-top"><span class="hc-stars">★★★★★</span></div><p>"Incredibly kind and considerate in all their dealings with me and my family."</p><div class="hc-by">J K<span>Stepson of Client</span></div></div></div></div></section>
 <section class="section tmt"><div class="wrap"><div class="gbar reveal"><img class="g-logo" src="/assets/google-logo.svg" alt="Google" loading="lazy" /><div class="g-meta"><span class="g-stars">★★★★★</span><small>A few of our recent five-star reviews from families on Google</small></div><a class="g-link" href="https://www.google.com/search?q=Otter+Homecare+Trowbridge+reviews" target="_blank" rel="noopener">Read more on Google →</a></div><div class="hc-grid" style="grid-template-columns:repeat(auto-fit,minmax(250px,1fr))"><div class="hc-card reveal"><div class="hc-top"><span class="hc-stars">★★★★★</span></div><p>"I cannot recommend the Otter team highly enough if you’re considering care for a loved one with dementia. We’ve gone from thinking our mum would be going into a care home imminently, to having her safe, supported and — most of all — happy in her own home. They listen, they communicate brilliantly, and they’re so adaptable to all the changes dementia care brings."</p><div class="hc-by">Anna B<span>Google review</span></div></div><div class="hc-card reveal"><div class="hc-top"><span class="hc-stars">★★★★★</span></div><p>"Otter offers flexible, high-quality care at an affordable price. The carers are all top notch and I cannot recommend this company highly enough."</p><div class="hc-by">Frances C<span>Google review</span></div></div><div class="hc-card reveal"><div class="hc-top"><span class="hc-stars">★★★★★</span></div><p>"Jamie and his team have done an excellent job looking after a dear family friend. I really recommend his company."</p><div class="hc-by">Fiona D<span>Google review</span></div></div></div></div></section>
