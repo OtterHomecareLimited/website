@@ -61,6 +61,11 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
          dashboard. Disclosed on /cookies. -->
     <script defer src="/_vercel/insights/script.js"></script>
 
+    <!-- Vercel Speed Insights — real-visitor Core Web Vitals (the metric Google ranks on),
+         cookieless, first-party. The queue stub captures metrics fired before the script loads. -->
+    <script is:inline>window.si=window.si||function(){(window.siq=window.siq||[]).push(arguments)};</script>
+    <script defer src="/_vercel/speed-insights/script.js"></script>
+
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
