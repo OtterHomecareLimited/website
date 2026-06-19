@@ -9,6 +9,16 @@
     { "source": "/blank-21", "destination": "/", "permanent": true },
     { "source": "/blank-21-1-1", "destination": "/", "permanent": true },
     { "source": "/post/our-first-ever-otter-caf%C3%A9-a-wonderful-start", "destination": "/post/our-first-ever-otter-cafe-a-wonderful-start", "permanent": true },
-    { "source": "/post/otter-caf%C3%A9-returns-a-spooktacular-afternoon-at-staverton-village-hall", "destination": "/post/otter-cafe-returns-a-spooktacular-afternoon-at-staverton-village-hall", "permanent": true }
+    { "source": "/post/otter-caf%C3%A9-returns-a-spooktacular-afternoon-at-staverton-village-hall", "destination": "/post/otter-cafe-returns-a-spooktacular-afternoon-at-staverton-village-hall", "permanent": true },
+    { "source": "/visitingcare", "destination": "/visiting-care", "permanent": true },
+    { "source": "/companionshipcare", "destination": "/companionship", "permanent": true },
+    { "source": "/liveincare", "destination": "/live-in-care", "permanent": true },
+    { "source": "/costofliveincare", "destination": "/cost-of-home-care", "permanent": true },
+    { "source": "/areas", "destination": "/areas-we-cover", "permanent": true },
+    { "source": "/about", "destination": "/our-story", "permanent": true },
+    { "source": "/strokecare", "destination": "/conditions", "permanent": true },
+    { "source": "/physicaldisabilities", "destination": "/conditions", "permanent": true },
+    { "source": "/learningdisabilities", "destination": "/conditions", "permanent": true },
+    { "source": "/domestichelp", "destination": "/personal-care", "permanent": true }
   ]
 }
