@@ -7,8 +7,56 @@ interface Props { service: Service }
 const { service } = Astro.props;
 const img = (f: string) => `/img/${f}`;
 const others = services.filter((s) => s.slug !== service.slug).slice(0, 3);
+
+// schema.org Service — emitted only when the service entry opts in via serviceType.
+const canonicalUrl = new URL(`/${service.slug}`, Astro.site).href;
+const serviceSchema = service.serviceType
+  ? {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      serviceType: service.serviceType,
+      name: service.name,
+      description: service.description,
+      url: canonicalUrl,
+      provider: {
+        "@type": "HomeHealthCareService",
+        "@id": "https://www.otterhomecare.co.uk/#organization",
+        name: "Otter Homecare",
+      },
+      areaServed: (service.areaServed ?? []).map((a) => ({ "@type": "Place", name: a })),
+      ...(service.priceFrom
+        ? {
+            offers: {
+              "@type": "Offer",
+              priceCurrency: "GBP",
+              price: service.priceFrom.amount,
+              priceSpecification: {
+                "@type": "UnitPriceSpecification",
+                priceCurrency: "GBP",
+                price: service.priceFrom.amount,
+                unitText: service.priceFrom.unit,
+              },
+            },
+          }
+        : {}),
+    }
+  : null;
+// schema.org FAQPage — emitted only when the service entry supplies FAQs.
+const faqSchema = service.faqs?.length
+  ? {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: service.faqs.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a.join(" ") },
+      })),
+    }
+  : null;
 ---
 <SiteLayout title={service.title} description={service.description}>
+  {serviceSchema && <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />}
+  {faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
   <header class="phero">
     <div class="wrap">
       <div class="crumb"><a href="/">Home</a> · <a href="/care-services">Care Services</a> · {service.name}</div>
@@ -42,6 +90,35 @@ const others = services.filter((s) => s.slug !== service.slug).slice(0, 3);
       <div class="wrap">
         <div class="head-c reveal"><h2>{service.secondListTitle}</h2></div>
         <div class="conds reveal">{service.secondList.map((i) => <span>{i}</span>)}</div>
+      </div>
+    </section>
+  )}
+
+  {service.sections && service.sections.map((sec) => (
+    <section class="section">
+      <div class="wrap" style="max-width:760px">
+        <div class="reveal">
+          {sec.eyebrow && <span class="eyebrow">{sec.eyebrow}</span>}
+          <h2 style="font-size:clamp(24px,3vw,32px);margin:8px 0 14px">{sec.h2}</h2>
+          {sec.body && sec.body.map((p) => <p class="lede" style="max-width:none;margin-bottom:14px" set:html={p}></p>)}
+          {sec.list && <ul style="margin-top:6px">{sec.list.map((li) => <li>{li}</li>)}</ul>}
+        </div>
+      </div>
+    </section>
+  ))}
+
+  {service.faqs && service.faqs.length > 0 && (
+    <section class="section trustwhy">
+      <div class="wrap">
+        <div class="head-c reveal"><span class="eyebrow">Good to know</span><h2>{service.name} questions</h2></div>
+        <div class="faqs reveal">
+          {service.faqs.map((f) => (
+            <div class="faq">
+              <button type="button">{f.q}<span class="tog">+</span></button>
+              <div class="ans">{f.a.map((p) => <p>{p}</p>)}</div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   )}
