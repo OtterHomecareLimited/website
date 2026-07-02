@@ -86,15 +86,16 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
    Gold flood retired; bar now matches the footer teal. Mustard survives only as the
    phone number and the tt figure's mustard heads (otter-tt-white.png — new reversed cut).
    Overrides design's .util gold rules; loads after otter-home.css so these win. */
-.util{background:var(--teal-d, #0B3F49);color:#fff}
+.util{background:var(--teal-d, #0B3F49);color:#fff;font-size:13.5px}
 .util a{color:#D4AC4F}
 .util a:hover{color:#E4C36F}
-.util .util-rot,.util-rot .em{color:#fff}
+.util .util-rot,.util-rot .em{color:#fff;font-size:13.5px}
 .util .areas{color:#bfe0dc}
 /* mobile: warm label + number, centered — replaces the lone phone number.
+   White (not the muted #bfe0dc) so the reassurance line stands out on the teal.
    (Also re-shows the bar: design's base rule collapses it to an empty 8px strip
    and hides .util a below 1000px.) */
-.util-mobile{display:none;color:#bfe0dc;font-weight:600;white-space:nowrap}
+.util-mobile{display:none;color:#fff;font-weight:600;white-space:nowrap}
 @media(max-width:1000px){
   .util .wrap{height:34px;justify-content:center;gap:8px}
   .util-promise{display:none}
