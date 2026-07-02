@@ -39,6 +39,25 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
    (e.g. "Limpley Stoke", "Monkton Farleigh") don't break mid-name. The row still wraps. */
 .lt-villages span{white-space:nowrap}
 
+/* ——— Conversion & mobile fixes (2026-07-02 review) ——— */
+
+/* Mobile hero: put the CTAs directly under the headline. The tall arch photo was pushing
+   the primary action (and the phone number) nearly two screens down on phones. */
+@media(max-width:880px){.hero .wrap{grid-template-areas:"copy" "cta" "media"}.hero-cta{margin-top:4px}}
+
+/* Utility bar: phone and email are now separate, correctly-typed links (was one combined
+   tel: link — the email address wasn't clickable). */
+.util-links{display:flex;align-items:center;gap:14px;white-space:nowrap}
+
+/* Mobile utility bar: was collapsing to an empty 8px gold strip. Show the phone number
+   instead, so a tappable number is the very first thing on the screen. */
+@media(max-width:1000px){
+  .util .wrap{height:32px;justify-content:center}
+  .util .util-links{display:flex}
+  .util a{display:inline-flex}
+  .util .util-mail{display:none}
+}
+
 /* Town pages — "How we can help" grid: 4 cards. auto-fit produced an uneven 3+1 row at some
    widths; force a clean 4-up → 2×2 → 1-col so there's never a lone orphan card. */
 .svc-grid.town-svc{grid-template-columns:repeat(4,1fr)}

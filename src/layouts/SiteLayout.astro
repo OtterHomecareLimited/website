@@ -158,26 +158,8 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
       // FAQ accordion
       document.querySelectorAll(".faq > button").forEach((b) =>
         b.addEventListener("click", () => b.parentElement.classList.toggle("open")));
-      // Rotating promise line in the gold utility bar (disabled under reduced-motion)
-      const rot = document.getElementById("utilRot");
-      if (rot && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-        const lines = [
-          'We treat your family <span class="em">like our own</span>',
-          'Care that feels <span class="em">like family</span>',
-          'A familiar face, <span class="em">every single visit</span>',
-          'A reliable team <span class="em">around your loved one</span>',
-        ];
-        const tt = document.getElementById("utilTT");
-        let i = 0;
-        setInterval(() => {
-          i = (i + 1) % lines.length;
-          rot.classList.add("fade");
-          setTimeout(() => {
-            rot.innerHTML = lines[i]; rot.classList.remove("fade");
-            if (tt) tt.src = "/assets/otter-tt-" + ((i % 3) + 1) + ".png";
-          }, 400);
-        }, 3800);
-      }
+      // Utility-bar promise line is static — the rotating carousel was distracting and
+      // violated the "no infinite loops" motion rule.
       // Google Ads: a tap on any phone link counts as a "Phone click" conversion (cookieless — see head)
       document.addEventListener("click", (e) => {
         if (e.target.closest && e.target.closest('a[href^="tel:"]') && typeof gtag === "function")

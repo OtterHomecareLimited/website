@@ -17,12 +17,18 @@ import SiteLayout from "../layouts/SiteLayout.astro";
       </div>
       <div class="reveal">
         <form class="form" id="contactForm" action="/api/contact" method="POST" novalidate>
+          <h3>Tell us a little about what you need</h3>
+          <p class="fhint">We usually reply the same day — and there's no obligation at all.</p>
           <input type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none" />
           <div class="frow">
             <div class="field"><label for="n">Your name</label><input id="n" name="name" type="text" required placeholder="Jane Smith" /></div>
             <div class="field"><label for="p">Phone</label><input id="p" name="phone" type="tel" required placeholder="07700 900000" /></div>
           </div>
           <div class="field"><label for="e">Email</label><input id="e" name="email" type="email" placeholder="jane@example.com" /></div>
+          <div class="frow">
+            <div class="field"><label for="who">Who is the care for?</label><select id="who" name="who"><option>My parent</option><option>My partner</option><option>Myself</option><option>Another relative</option><option>Someone else</option></select></div>
+            <div class="field"><label for="area">Your area</label><select id="area" name="area"><option>Trowbridge</option><option>Bradford-on-Avon</option><option>Melksham</option><option>Westbury</option><option>Frome</option><option>Elsewhere nearby</option></select></div>
+          </div>
           <div class="field"><label for="m">How can we help?</label><textarea id="m" name="msg" placeholder="Tell us a little about what you're looking for…"></textarea></div>
           <button class="btn btn-primary" type="submit">Send message →</button>
           <p class="privacy">We'll only use your details to respond to your enquiry. See our <a href="/privacy" style="text-decoration:underline">privacy policy</a>.</p>
@@ -38,12 +44,12 @@ import SiteLayout from "../layouts/SiteLayout.astro";
 
   <section class="section book"><div class="wrap" style="grid-template-columns:1fr;display:block;text-align:center">
     <div class="reveal" style="max-width:36ch;margin:0 auto">
-      <span class="eyebrow" style="color:#9fc4bf">Free, no-obligation assessment</span>
-      <h2 style="margin:14px 0 12px">Let's find the right care, together</h2>
-      <p class="lede" style="margin-bottom:26px;color:#bfe0dc">Speak to a real, local person today — never a call centre.</p>
+      <span class="eyebrow" style="color:#9fc4bf">Mon–Fri 9am–5pm · care delivered 24/7</span>
+      <h2 style="margin:14px 0 12px">Prefer to talk it through?</h2>
+      <p class="lede" style="margin-bottom:26px;color:#bfe0dc">Call us — you'll always reach a real, local person, never a call centre.</p>
       <div style="display:flex;gap:13px;justify-content:center;flex-wrap:wrap">
-        <a class="btn btn-clay btn-lg" href="/#book">Book a free assessment</a>
-        <a class="btn btn-ghost btn-lg" href="tel:01225690022" style="background:transparent;color:#fff;border-color:rgba(255,255,255,.5)">Call 01225 690022</a>
+        <a class="btn btn-clay btn-lg" href="tel:01225690022">Call 01225 690022</a>
+        <a class="btn btn-ghost btn-lg" href="https://wa.me/447564842728" target="_blank" rel="noopener" style="background:transparent;color:#fff;border-color:rgba(255,255,255,.5)">WhatsApp us</a>
       </div>
     </div>
     <div class="book-trust reveal">
