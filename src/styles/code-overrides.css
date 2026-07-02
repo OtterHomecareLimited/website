@@ -129,6 +129,12 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 @media(max-width:880px){.svc-grid.town-svc{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:520px){.svc-grid.town-svc{grid-template-columns:1fr}}
 
+/* Service pages — "Other ways we can help": 3 related cards. Was an inline
+   repeat(3,1fr) that stayed 3-up on phones and clipped the titles ("Compan…").
+   3-up → 1-col below 720px (2-up would orphan one of three). */
+.svc-grid.svc-others{grid-template-columns:repeat(3,1fr)}
+@media(max-width:720px){.svc-grid.svc-others{grid-template-columns:1fr}}
+
 /* Otter Café photo strip (real event photos, Jamie-provided 2026-06-09; design may refine).
    Equal-height flex row so the portrait Staverton shot isn't cropped to match the landscape one. */
 .cafe-gallery{display:flex;flex-wrap:wrap;gap:18px;justify-content:center}
