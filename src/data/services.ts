@@ -53,7 +53,7 @@ export const services: Service[] = [
     ],
     testimonial: {
       quote:
-        "Everyone I have seen has gone the extra mile, and at this extremely difficult stage it has been a Godsend. I cannot recommend them highly enough.",
+        "Everyone I have seen has gone the extra mile and for me at this extremely difficult stage of his quickly diminishing control it has been a God send. I cannot recommend them highly enough.",
       who: "J W · Wife of Client",
     },
   },
@@ -149,8 +149,8 @@ export const services: Service[] = [
     price: "Live-in care starts from £1,550 per week, with a personalised quote after a free assessment. We can help you explore local authority funding or NHS continuing healthcare where applicable.",
     testimonial: {
       quote:
-        "I didn't want to leave my home and I haven't had to. The carers are kind, professional, and feel like friends after a while.",
-      who: "Client · Bradford-on-Avon",
+        "We have gone from thinking our mum would be going into a care home imminently, to having mum safe, supported and most of all happy in her own home now.",
+      who: "Anna B · Family of a client, via Google",
     },
     serviceType: "Live-in care",
     areaServed: [

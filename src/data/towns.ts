@@ -44,7 +44,7 @@ export const towns: Town[] = [
     photo: "/img/town-bradford-on-avon.jpg",
     chips: ["Winsley","Turleigh","Westwood","Avoncliff","Limpley Stoke","Monkton Farleigh","Iford"],
     cardBlurb: "Care across Bradford-on-Avon, Winsley, Westwood, Limpley Stoke and nearby.",
-    testimonial: { quote: "Otter staff are superb in every way. They are kind, and really understand what being caring carers is all about.", author: "Frances W", role: "Client" },
+    testimonial: { quote: "Otter staff are superb in every way. They are kind, and really understand what being caring carers means.", author: "Frances W", role: "Client" },
   },
   {
     slug: "melksham",
@@ -58,7 +58,7 @@ export const towns: Town[] = [
     photo: "/img/town-melksham.jpg",
     chips: ["Broughton Gifford","Whitley","Atworth","Shaw","Bowerhill","Beanacre","Seend","Seend Cleeve"],
     cardBlurb: "Supporting Melksham and the villages including Atworth, Shaw, Seend and Beanacre.",
-    testimonial: { quote: "All home care should be as good as this. Lovely carers, nothing is too much trouble — they don't just do the job, they care.", author: "E S", role: "Client" },
+    testimonial: { quote: "All home care should be as good as this, lovely carers, nothing too much trouble, they don't just do the basics, but will help out with anything…", author: "E S", role: "Client" },
   },
   {
     slug: "westbury",
@@ -72,7 +72,7 @@ export const towns: Town[] = [
     photo: "/img/town-westbury.jpg",
     chips: ["Dilton Marsh","Bratton","Edington","Heywood","Hawkeridge","Chapmanslade","Upton Scudamore"],
     cardBlurb: "Care in Westbury and the villages including Dilton Marsh, Bratton and Edington.",
-    testimonial: { quote: "The Otter Home Care staff were incredibly kind and considerate in all their dealings with me and my family.", author: "J K", role: "Stepson of Client" },
+    testimonial: { quote: "The Otter Home Care staff were incredibly kind and considerate in all their dealings with me and my stepmother.", author: "J K", role: "Stepson of Client" },
   },
   {
     slug: "frome",
@@ -86,7 +86,7 @@ export const towns: Town[] = [
     photo: "/img/town-frome.jpg",
     chips: ["Beckington","Nunney","Mells","Rode","Norton St Philip","Woolverton","Tellisford","Chantry","Great Elm","Feltham"],
     cardBlurb: "Our Somerset town. Care across Frome and villages including Beckington, Rode and Norton St Philip.",
-    testimonial: { quote: "I cannot recommend Otter Home Care highly enough. We used them to provide care for my elderly dad and they were wonderful.", author: "Helen F", role: "Daughter of Client" },
+    testimonial: { quote: "I cannot recommend Otter Home Care highly enough: we used them to provide care for my elderly dad. Their level of care was excellent, the carers were always on time and were very attentive.", author: "Helen F", role: "Daughter of Client" },
   },
 ];
 
