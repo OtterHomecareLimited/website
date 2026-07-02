@@ -48,7 +48,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 /* Care App phone mock — an HTML recreation of the real family app's visit-note screen.
    Replaces the old Wix screenshot PNG. All names and note content are fictional:
    real app screenshots contain client-identifiable data and must never be published. */
-.phone-app{background:#f4f6f8;width:270px;font-family:"Hanken Grotesk",sans-serif;display:flex;flex-direction:column}
+.phone-app{background:#f4f6f8;width:270px;height:612px;font-family:"Hanken Grotesk",sans-serif;display:flex;flex-direction:column;overflow:hidden}
 /* dark device bezel so it reads instantly as a phone */
 .app-stage .phone.phone-app{border:8px solid #23343c;border-radius:36px;box-shadow:0 30px 60px -28px rgba(15,79,96,.6)}
 .pa-status{display:flex;align-items:center;justify-content:space-between;padding:9px 16px 5px;background:#fff;color:#22333b;font-size:11px;font-weight:700}
@@ -58,7 +58,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .pa-bar b{font-size:14px;font-weight:700}
 .pa-back,.pa-sync{width:20px;height:20px;color:#5d6e76}
 .pa-back svg,.pa-sync svg{width:100%;height:100%}
-.pa-body{padding:12px;display:flex;flex-direction:column;gap:10px}
+.pa-body{padding:12px;display:flex;flex-direction:column;gap:8px;flex:1;min-height:0}
 .pa-card{background:#fff;border:1px solid #e6eaec;border-radius:10px;padding:12px 14px;display:flex;flex-direction:column;gap:3px}
 .pa-card small{font-size:10.5px;color:#8a969c}
 .pa-card b{font-size:15px;color:#22333b}
