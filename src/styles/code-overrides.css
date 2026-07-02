@@ -82,18 +82,32 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .pa-tabs svg{width:17px;height:17px}
 .pa-tabs .on{background:#e5f0f2;color:var(--teal)}
 
-/* Utility bar: phone and email are now separate, correctly-typed links (was one combined
-   tel: link — the email address wasn't clickable). */
-.util-links{display:flex;align-items:center;gap:14px;white-space:nowrap}
-
-/* Mobile utility bar: was collapsing to an empty 8px gold strip. Show the phone number
-   instead, so a tappable number is the very first thing on the screen. */
+/* ——— Utility bar v6: deep teal (Jamie, 2026-07-02 — "black in the gold isn't attractive") ———
+   Gold flood retired; bar now matches the footer teal. Mustard survives only as the
+   phone number and the tt figure's mustard heads (otter-tt-white.png — new reversed cut).
+   Overrides design's .util gold rules; loads after otter-home.css so these win. */
+.util{background:var(--teal-d, #0B3F49);color:#fff}
+.util a{color:#D4AC4F}
+.util a:hover{color:#E4C36F}
+.util .util-rot,.util-rot .em{color:#fff}
+.util .areas{color:#bfe0dc}
+/* mobile: warm label + number, centered — replaces the lone phone number.
+   (Also re-shows the bar: design's base rule collapses it to an empty 8px strip
+   and hides .util a below 1000px.) */
+.util-mobile{display:none;color:#bfe0dc;font-weight:600;white-space:nowrap}
 @media(max-width:1000px){
-  .util .wrap{height:32px;justify-content:center}
+  .util .wrap{height:34px;justify-content:center;gap:8px}
+  .util-promise{display:none}
+  .util-mobile{display:inline}
   .util .util-links{display:flex}
   .util a{display:inline-flex}
   .util .util-mail{display:none}
 }
+/* high-contrast mode already forces .util black/white — unaffected */
+
+/* Utility bar: phone and email are separate, correctly-typed links (was one combined
+   tel: link — the email address wasn't clickable). */
+.util-links{display:flex;align-items:center;gap:14px;white-space:nowrap}
 
 /* Town pages — "How we can help" grid: 4 cards. auto-fit produced an uneven 3+1 row at some
    widths; force a clean 4-up → 2×2 → 1-col so there's never a lone orphan card. */
