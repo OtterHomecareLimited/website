@@ -45,6 +45,19 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
    the primary action (and the phone number) nearly two screens down on phones. */
 @media(max-width:880px){.hero .wrap{grid-template-areas:"copy" "cta" "media"}.hero-cta{margin-top:4px}}
 
+/* Mobile hero, part 2 (2026-07-02): CTA-first (above) had a side effect — the photo landed
+   entirely below the fold, and the on-photo 9.5 badge duplicated the .hero-trust avatar row.
+   Drop the avatar row on mobile (reclaims ~110px so the photo's faces peek above the fold;
+   the 9.5 badge carries the social proof), and tuck the badge tighter into the flat bottom-left
+   corner so it sits over the cardigan/background, not the shared moment. */
+@media(max-width:880px){
+  .hero-trust{display:none}
+  .hero-badge{left:10px;bottom:10px;padding:9px 13px 9px 11px;gap:9px}
+  .hero-badge .em{width:34px;height:34px;font-size:14px}
+  .hero-badge b{font-size:12.5px}
+  .hero-badge .hc-logo{height:14px;margin-top:5px}
+}
+
 /* Care App phone mock — an HTML recreation of the real family app's visit-note screen.
    Replaces the old Wix screenshot PNG. All names and note content are fictional:
    real app screenshots contain client-identifiable data and must never be published. */
