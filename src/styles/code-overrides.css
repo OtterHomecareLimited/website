@@ -48,9 +48,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 /* Care App phone mock — an HTML recreation of the real family app's visit-note screen.
    Replaces the old Wix screenshot PNG. All names and note content are fictional:
    real app screenshots contain client-identifiable data and must never be published. */
-.phone-app{background:#f4f6f8;width:270px;height:612px;font-family:"Hanken Grotesk",sans-serif;display:flex;flex-direction:column;overflow:hidden}
+.phone-app{background:#f4f6f8;width:292px;height:598px;font-family:"Hanken Grotesk",sans-serif;display:flex;flex-direction:column;overflow:hidden}
 /* dark device bezel so it reads instantly as a phone */
-.app-stage .phone.phone-app{border:8px solid #23343c;border-radius:36px;box-shadow:0 30px 60px -28px rgba(15,79,96,.6)}
+.app-stage .phone.phone-app{max-width:none;border:8px solid #23343c;border-radius:36px;box-shadow:0 30px 60px -28px rgba(15,79,96,.6)}
+/* widen the cream slab behind to match the wider device */
+.app-stage::before{width:340px}
 .pa-status{display:flex;align-items:center;justify-content:space-between;padding:9px 16px 5px;background:#fff;color:#22333b;font-size:11px;font-weight:700}
 .pa-sicons{display:flex;align-items:center;gap:4px;color:#22333b}
 .pa-sicons svg{width:15px;height:11px}
@@ -63,10 +65,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .pa-card small{font-size:10.5px;color:#8a969c}
 .pa-card b{font-size:15px;color:#22333b}
 .pa-meta{font-size:11.5px;color:#5d6e76}
-.pa-done{display:inline-flex;align-items:center;gap:5px;margin-top:7px;background:#e5f3ee;color:#1f7a5c;font-size:10.5px;font-weight:700;border-radius:999px;padding:4px 9px;align-self:flex-start}
+.pa-done{display:inline-flex;align-items:center;gap:5px;margin-top:5px;background:#e5f3ee;color:#1f7a5c;font-size:10.5px;font-weight:700;border-radius:999px;padding:4px 9px;align-self:flex-start}
 .pa-done svg{width:11px;height:11px}
 .pa-sec{font-size:9.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#8a969c;margin:2px 2px -4px}
-.pa-med{background:#fff;border:1px solid #e6eaec;border-radius:10px;padding:9px 12px;display:flex;align-items:center;gap:10px}
+.pa-med{background:#fff;border:1px solid #e6eaec;border-radius:10px;padding:8px 12px;display:flex;align-items:center;gap:10px}
 .pa-med b{font-size:12px;color:#22333b;display:block;line-height:1.25}
 .pa-med small{font-size:10px;color:#8a969c}
 .pa-pill{width:26px;height:26px;flex:none;display:grid;place-items:center;color:var(--teal)}
@@ -74,7 +76,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .pa-tick{margin-left:auto;width:19px;height:19px;color:#2e9e77}
 .pa-tick svg{width:100%;height:100%}
 .pa-note{background:#fff;border:1px solid #e6eaec;border-radius:10px;padding:10px 13px;font-size:11.5px;line-height:1.55;color:#43535b;margin:0}
-.pa-foot{margin-top:auto;text-align:center;font-size:9.5px;color:#9aa6ab;padding:8px 0 10px}
+.pa-foot{margin-top:auto;text-align:center;font-size:9.5px;color:#9aa6ab;padding:5px 0 7px}
 .pa-tabs{display:flex;justify-content:space-around;align-items:center;background:#fff;border-top:1px solid #e6eaec;padding:8px 6px 12px}
 .pa-tabs span{display:flex;flex-direction:column;align-items:center;gap:3px;font-size:8.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#5d6e76;padding:5px 10px;border-radius:999px}
 .pa-tabs svg{width:17px;height:17px}
