@@ -1,7 +1,7 @@
 ---
 title: "7 gentle signs an elderly parent might need a little help at home"
 description: "The small, easy-to-miss signs that an older parent may need some support at home, and how to start that first conversation kindly."
-pubDate: 2026-06-15
+pubDate: 2026-07-03
 category: "Support for Families"
 heroImage: "/img/blog/ff72ba_0bac9616228a49c2b84b941073c096ba.jpg"
 ---
