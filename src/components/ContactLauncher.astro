@@ -21,9 +21,10 @@
   </a>
 
   <form class="talk-form" id="talkForm" novalidate>
-    <p class="tf-lead">Prefer we call you? Leave your number and we'll ring you back — add a note if it helps.</p>
+    <p class="tf-lead">Leave your details and we'll get back to you shortly — a phone number's usually quickest.</p>
     <input type="text" name="name" autocomplete="name" placeholder="Your name" aria-label="Your name" required>
-    <input type="tel" name="phone" autocomplete="tel" placeholder="Phone number" aria-label="Phone number" required>
+    <input type="tel" name="phone" autocomplete="tel" placeholder="Phone number" aria-label="Phone number">
+    <input type="email" name="email" autocomplete="email" placeholder="Email address" aria-label="Email address">
     <textarea name="msg" rows="2" placeholder="How can we help? (optional)" aria-label="How can we help?"></textarea>
     <input class="talk-hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
     <button type="submit">Send message →</button>
@@ -56,6 +57,7 @@
       e.preventDefault();
       var btn = form.querySelector('button[type="submit"]'), label = btn.textContent;
       var data = Object.fromEntries(new FormData(form).entries());
+      if (!(data.phone || "").trim() && !(data.email || "").trim()) { alert("Please leave a phone number or an email so we can reach you."); return; }
       btn.disabled = true; btn.textContent = "Sending…";
       try {
         var res = await fetch("/api/contact", { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(data) });
