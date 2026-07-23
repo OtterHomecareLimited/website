@@ -1,6 +1,7 @@
 ---
 // "Talk to us" launcher. Markup + look = design (otter-a11y-talk). Behaviour = Code.
-// Hooks: #talkToggle, #talkPanel, .talk-opt. WhatsApp = public office hotline.
+// Hooks: #talkToggle, #talkPanel, .talk-opt, #talkForm. Channels: phone + inline
+// message form (posts to /api/contact, same handler as the Contact page).
 ---
 <button id="talkToggle" class="otter-fab" aria-expanded="false" aria-controls="talkPanel" aria-haspopup="dialog">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.1 7.6L3 21l1.9-5.9A8.4 8.4 0 1 1 21 11.5z"></path></svg>
@@ -19,15 +20,19 @@
     <span><b>Call us</b><small>01225 690022 · usually the quickest</small></span>
   </a>
 
-  <a class="talk-opt talk-opt-wa" href="https://wa.me/447564842728" target="_blank" rel="noopener">
-    <span class="ti"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.4A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-2.9.8.8-2.8-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-2-1.2 7.4 7.4 0 0 1-1.4-1.7c-.1-.3 0-.4.1-.5l.4-.5.3-.4v-.4l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 2.9 2.9 0 0 0-.9 2.2 5 5 0 0 0 1.1 2.7 11.5 11.5 0 0 0 4.4 3.9c2.1.8 2.1.6 2.5.5a2.5 2.5 0 0 0 1.6-1.2 2 2 0 0 0 .2-1.2c-.1-.1-.3-.2-.6-.3z"></path></svg></span>
-    <span><b>WhatsApp</b><small>+44 7564 842728 · message us anytime</small></span>
-  </a>
+  <form class="talk-form" id="talkForm" novalidate>
+    <p class="tf-lead">Prefer we call you? Leave your number and we'll ring you back — add a note if it helps.</p>
+    <input type="text" name="name" autocomplete="name" placeholder="Your name" aria-label="Your name" required>
+    <input type="tel" name="phone" autocomplete="tel" placeholder="Phone number" aria-label="Phone number" required>
+    <textarea name="msg" rows="2" placeholder="How can we help? (optional)" aria-label="How can we help?"></textarea>
+    <input class="talk-hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <button type="submit">Send message →</button>
+  </form>
 
-  <a class="talk-opt" href="/contact">
-    <span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18M3 12h18M3 19h12"></path><circle cx="19" cy="19" r="2.4" fill="currentColor" stroke="none"></circle></svg></span>
-    <span><b>Request a callback</b><small>Leave your number — we'll ring you back</small></span>
-  </a>
+  <div class="talk-form-ok" id="talkFormOk" role="status" hidden>
+    <b>Thank you — message received.</b>
+    We'll be in touch very soon. If it's urgent, please call <b style="display:inline">01225 690022</b>.
+  </div>
 </div>
 
 <script is:inline>
@@ -44,5 +49,24 @@
     document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !panel.hasAttribute("hidden")) { setOpen(false); toggle.focus(); } });
     var closeBtn = panel.querySelector("[data-talk-close]"); if (closeBtn) closeBtn.addEventListener("click", function () { setOpen(false); toggle.focus(); });
     panel.querySelectorAll("a[href]").forEach(function (a) { a.addEventListener("click", function () { setOpen(false); }); });
+
+    // Inline message form → same /api/contact handler as the Contact page (emails the team via Resend).
+    var form = document.getElementById("talkForm");
+    if (form) form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+      var btn = form.querySelector('button[type="submit"]'), label = btn.textContent;
+      var data = Object.fromEntries(new FormData(form).entries());
+      btn.disabled = true; btn.textContent = "Sending…";
+      try {
+        var res = await fetch("/api/contact", { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(data) });
+        var json = await res.json();
+        if (res.ok && json.ok) {
+          form.hidden = true;
+          var ok = document.getElementById("talkFormOk"); if (ok) ok.hidden = false;
+          // Google Ads: count a successful send as a Contact conversion (cookieless — see SiteLayout head).
+          if (typeof gtag === "function") gtag("event", "conversion", { send_to: "AW-11233030388/uXnICMDw5bwcEPThqewp" });
+        } else { btn.disabled = false; btn.textContent = label; alert(json.error || "Something went wrong — please call us on 01225 690022."); }
+      } catch (err) { btn.disabled = false; btn.textContent = label; alert("Something went wrong — please call us on 01225 690022."); }
+    });
   })();
 </script>

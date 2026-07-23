@@ -801,7 +801,21 @@ html.a11y-text-1 .a11y-pips i:nth-child(-n+2),html.a11y-text-2 .a11y-pips i{back
 .talk-opt-call:hover{background:var(--teal-d);color:#fff}
 .talk-opt-call .ti{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.3);color:#fff}
 .talk-opt-call small{color:rgba(255,255,255,.85)}
-.talk-opt-wa .ti{color:#128C7E}
+.talk-form{margin-top:11px;padding:14px;border:1px solid var(--line);border-radius:13px;background:var(--cream);display:grid;gap:9px}
+.talk-form[hidden]{display:none}
+.talk-form .tf-lead{font-size:13.5px;line-height:1.45;color:var(--muted);margin:0}
+.talk-form input,.talk-form textarea{width:100%;font-family:inherit;font-size:15px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink)}
+.talk-form textarea{resize:vertical;min-height:46px}
+.talk-form input:focus-visible,.talk-form textarea:focus-visible{outline:2px solid var(--teal);outline-offset:1px;border-color:var(--teal)}
+.talk-form button{width:100%;padding:11px 14px;border:0;border-radius:10px;background:var(--teal);color:#fff;font-family:inherit;font-weight:800;font-size:15px;cursor:pointer;transition:.15s}
+.talk-form button:hover{background:var(--teal-d)}
+.talk-form button:disabled{opacity:.6;cursor:default}
+.talk-hp{position:absolute!important;left:-9999px;width:1px;height:1px;overflow:hidden}
+.talk-form-ok{margin-top:11px;padding:14px;border:1px solid var(--teal);border-radius:13px;background:var(--teal-soft);color:var(--ink);font-size:13.5px;line-height:1.5}
+.talk-form-ok[hidden]{display:none}
+.talk-form-ok b{font-size:15px}
+html.a11y-contrast .talk-form,html.a11y-contrast .talk-form input,html.a11y-contrast .talk-form textarea,html.a11y-contrast .talk-form-ok{border-width:2px;border-color:#000}
+html.a11y-contrast .talk-form button{background:#000;color:#fff}
 /* mobile: raise above sticky .mbar (shows <=1000px); icon-only; Talk-to-us lives in the bar (Option A) */
 @media(max-width:1000px){.otter-fab{bottom:90px;width:56px;padding:0;justify-content:center}.otter-fab .fab-label{display:none}.otter-pop{bottom:158px}#talkToggle{display:none}}
 /* reduce motion */
