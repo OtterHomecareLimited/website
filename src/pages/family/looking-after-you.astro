@@ -1,0 +1,314 @@
+---
+// Otter Alongside — Stage 5, "Looking after you".
+// The family-carer page. Audience is the relative doing the caring, not the
+// person being cared for — the only stage where that's true.
+//
+// Tone rules that matter more here than anywhere else:
+//  - No clinical claims and no diagnosing. Nothing on this page tells a reader
+//    they are burnt out, depressed or ill. It reports what carers tell us and
+//    lets them recognise themselves.
+//  - No instruction. "You should take a break" lands as another demand on
+//    someone who already has too many.
+//  - Signposting is to organisations that certainly exist. Helpline numbers are
+//    only quoted where the number is stable and well known (Samaritans 116 123);
+//    everything else links to the organisation rather than risking a wrong
+//    number on a live page.
+import SiteLayout from "../../layouts/SiteLayout.astro";
+import "../../styles/otter-alongside-tokens.css";
+import "../../styles/otter-alongside.css";
+---
+
+<SiteLayout
+  title="Looking after you | Otter Alongside | Otter Homecare"
+  description="For the family member doing the caring: the help you're entitled to, how to get a break, and where to find people who understand it."
+>
+<section class="als-hero">
+  <div class="als-wrap">
+    <nav class="als-crumbs" aria-label="Breadcrumb">
+      <a href="/">Home</a><span>·</span><a href="/support-for-families">For families</a><span>·</span><span class="is-current">Otter Alongside</span>
+    </nav>
+  </div>
+  <div class="als-hero__inner">
+    <div class="als-hero__body">
+      <p class="eyebrow eyebrow--on-teal">Otter Alongside · Stage 5 of 6</p>
+      <h1 class="als-hero__title">Looking after you</h1>
+      <p class="als-hero__lede">Every other page here is about the person you're caring for. This one is about you.</p>
+      <div class="als-hero__actions">
+        <a class="btn btn-primary btn-lg" href="tel:01225690022">Ring us — 01225 690022</a>
+        <a class="als-hero__skip" href="#today">If today is a bad day</a>
+      </div>
+    </div>
+    <div class="als-hero__media">
+      <img src="/img/alongside/photos/together.jpg" alt="People gathered round a long table at an Otter Café session, tea and cake in front of them.">
+      <div class="als-hero__aside"><p>Nobody does this well on their own.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Stage rail ======================================================= -->
+<nav class="als-stages" aria-label="Otter Alongside stages" data-print="hide">
+  <div class="als-stages__inner">
+    <a class="als-stage" href="/family/before-we-start">
+      <span class="als-stage__num">1</span>
+      <span class="als-stage__label">Before we start</span>
+    </a>
+    <a class="als-stage" href="/family/your-first-month">
+      <span class="als-stage__num">2</span>
+      <span class="als-stage__label">Your first month</span>
+    </a>
+    <span class="als-stage als-stage--future"><span class="als-stage__num">3</span><span class="als-stage__label">Living with it<span class="als-stage__soon">Coming soon</span></span></span>
+    <span class="als-stage als-stage--future"><span class="als-stage__num">4</span><span class="als-stage__label">When things change<span class="als-stage__soon">Coming soon</span></span></span>
+    <span class="als-stage als-stage--current" aria-current="page">
+      <span class="als-stage__num">5</span>
+      <span class="als-stage__label">Looking after you<span class="als-stage__here">You are here</span></span>
+    </span>
+    <span class="als-stage als-stage--future"><span class="als-stage__num">6</span><span class="als-stage__label">The last part<span class="als-stage__soon">Coming soon</span></span></span>
+  </div>
+</nav>
+
+<div class="als-layout">
+
+  <!-- ===== Contents rail ================================================== -->
+  <nav class="als-toc" aria-label="On this page" data-print="hide">
+    <p class="als-toc__title">On this page</p>
+    <ul class="als-toc__list">
+      <li><a class="als-toc__link" data-als-nav="you-are" href="#you-are">You're a carer</a></li>
+      <li><a class="als-toc__link" data-als-nav="hard" href="#hard">The part nobody warns you about</a></li>
+      <li><a class="als-toc__link" data-als-nav="assessment" href="#assessment">Your Carer's Assessment</a></li>
+      <li><a class="als-toc__link" data-als-nav="respite" href="#respite">Getting a proper break</a></li>
+      <li><a class="als-toc__link" data-als-nav="money" href="#money">Money you may be owed</a></li>
+      <li><a class="als-toc__link" data-als-nav="support" href="#support">People who understand it</a></li>
+      <li><a class="als-toc__link" data-als-nav="today" href="#today">If today is a bad day</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===== Body =========================================================== -->
+  <main class="als-body">
+
+    <div class="als-section">
+      <p class="als-p als-p--lede">Caring for someone you love is one of the few jobs where nobody asks how you're getting on.</p>
+      <p class="als-p als-p--muted">This page won't tell you to practise self-care or take a bubble bath. It's the practical things — money you may be owed, a break you're entitled to, and people who've done this before you.</p>
+
+      <div class="als-callout">
+        <div class="als-callout__main">
+          <span class="als-card__chip"><img src="/img/alongside/icons/phone.svg" alt=""></span>
+          <div class="als-callout__text">
+            <strong>You can ring us about you</strong>
+            <p>Not only about your relative. If you're struggling with the arrangement, or with how you're doing, that's a legitimate reason to call us. <strong>8:30am – 5pm</strong>, and on-call outside those hours.</p>
+          </div>
+        </div>
+        <a class="btn btn-primary btn-lg" href="tel:01225690022">01225 690022</a>
+      </div>
+    </div>
+
+    <!-- ===== You're a carer =============================================== -->
+    <section class="als-section" id="you-are">
+      <h2 class="als-h2">You're a carer, even if you'd never use the word</h2>
+      <p class="als-p">Most people helping a parent or partner don't think of themselves as a carer. They think of themselves as a daughter, a son, a husband. The word sounds like a job title belonging to someone in a uniform.</p>
+      <p class="als-p">It matters, though, because almost everything on this page — the assessment, the allowance, the support groups — is written for "carers". People miss out on all of it for years because they didn't think it meant them.</p>
+
+      <div class="als-note als-note--lg">
+        <strong class="als-note__title">If any of this is you, it means you</strong>
+        <p>Doing their shopping. Sorting the medication. Ringing the GP. Managing money or paperwork. Popping in to check. Lying awake wondering whether they're alright. It doesn't have to be personal care, and it doesn't have to be every day.</p>
+      </div>
+    </section>
+
+    <!-- ===== The part nobody warns you about ============================== -->
+    <section class="als-section" id="hard">
+      <h2 class="als-h2">The part nobody warns you about</h2>
+      <p class="als-p">Families tell us the practical side is rarely the hardest bit. These are the things people say quietly, usually after saying "this probably sounds awful, but…"</p>
+
+      <div class="als-cards als-cards--2">
+        <div class="als-card">
+          <div class="als-card__head">
+            <span class="als-card__chip"><img src="/img/alongside/icons/heart.svg" alt=""></span>
+          </div>
+          <strong class="als-card__title">Feeling resentful, then guilty about it</strong>
+          <p>Loving someone and resenting what their care has taken from your life are not opposites. Almost every long-term carer feels both. It doesn't make you a bad daughter or a bad husband.</p>
+        </div>
+        <div class="als-card">
+          <div class="als-card__head">
+            <span class="als-card__chip"><img src="/img/alongside/icons/clock.svg" alt=""></span>
+          </div>
+          <strong class="als-card__title">Grieving someone still here</strong>
+          <p>When a person changes — with dementia especially — people describe missing them while sitting next to them. That's a real kind of grief and it catches people out because nobody has died.</p>
+        </div>
+        <div class="als-card">
+          <div class="als-card__head">
+            <span class="als-card__chip"><img src="/img/alongside/icons/team.svg" alt=""></span>
+          </div>
+          <strong class="als-card__title">The relationship changing shape</strong>
+          <p>Helping a parent wash, or taking over their money, quietly rearranges who you both are to each other. Most people find that harder than the task itself.</p>
+        </div>
+        <div class="als-card">
+          <div class="als-card__head">
+            <span class="als-card__chip"><img src="/img/alongside/icons/home.svg" alt=""></span>
+          </div>
+          <strong class="als-card__title">Everyone else getting on with it</strong>
+          <p>One person usually ends up doing most of it, often the one who lives nearest. The unfairness of that is real, and it wears people down more than the driving does.</p>
+        </div>
+      </div>
+
+      <p class="als-quote">None of this is a sign you're doing it badly. It's a sign you're doing it.</p>
+    </section>
+
+    <!-- ===== Carer's Assessment ========================================== -->
+    <section class="als-panel" id="assessment">
+      <div class="als-panel__head">
+        <div class="als-panel__headtext">
+          <span class="als-panel__cond">Free, and it's your legal right</span>
+          <h2 class="als-h2">Your Carer's Assessment</h2>
+        </div>
+      </div>
+
+      <div class="als-panel__block">
+        <p class="als-p">Your council has to assess <em>your</em> needs as a carer, separately from your relative's care. Not their needs. Yours. You're entitled to one whether or not they get any council support, and whether or not you live with them.</p>
+        <p class="als-p">It's free, it doesn't depend on savings, and hardly anyone asks for one — which is why it's the single most useful thing on this page.</p>
+
+        <div class="als-steps">
+          <div class="als-step">
+            <span class="als-step__num">1</span>
+            <strong>Ask</strong>
+            <p>Contact adult social care at your council and ask for a Carer's Assessment. That's the whole trigger.</p>
+          </div>
+          <div class="als-step">
+            <span class="als-step__num">2</span>
+            <strong>Talk it through</strong>
+            <p>A conversation about what you do, what it's costing you, and what you'd like to still be able to do.</p>
+          </div>
+          <div class="als-step">
+            <span class="als-step__num">3</span>
+            <strong>Be honest</strong>
+            <p>The commonest mistake is playing it down. Describe your worst week, not your best one.</p>
+          </div>
+          <div class="als-step">
+            <span class="als-step__num">4</span>
+            <strong>See what's offered</strong>
+            <p>It might be respite, equipment, a payment, training, or a route to a support group.</p>
+          </div>
+        </div>
+
+        <p class="als-p">If you don't know which council you're under or where to start, ring us and we'll point you at the right team.</p>
+      </div>
+    </section>
+
+    <!-- ===== Respite ====================================================== -->
+    <section class="als-section" id="respite">
+      <h2 class="als-h2">Getting a proper break</h2>
+      <p class="als-p">A break isn't a reward for coping badly, and taking one doesn't mean handing them over. It usually looks smaller than people imagine: a few hours a week that are reliably yours, so you can go to your own appointments, see your own friends, or sleep.</p>
+      <p class="als-p">It can be regular visits so you get the same afternoon off every week, a longer block so you can go away, overnight or waking-night support so you get a run of proper sleep, or someone sitting with them while you're at a hospital appointment of your own.</p>
+
+      <div class="als-note als-note--lg">
+        <strong class="als-note__title">The bit people don't say out loud</strong>
+        <p>Plenty of carers avoid arranging a break because they're afraid their relative will settle with someone else, or that asking looks like giving up. Neither is true — and a carer who gets a break is usually the reason someone stays at home longer.</p>
+      </div>
+    </section>
+
+    <!-- ===== Money ======================================================== -->
+    <section class="als-section" id="money">
+      <h2 class="als-h2">Money you may be owed</h2>
+      <p class="als-p"><strong>None of this comes to us.</strong> Carers are among the most likely people to be missing money they're entitled to, usually because nobody ever told them to look.</p>
+
+      <div class="als-cards als-cards--4">
+        <div class="als-card">
+          <div class="als-card__head">
+            <span class="als-card__chip als-card__chip--sun"><img src="/img/alongside/icons/heart.svg" alt=""></span>
+          </div>
+          <strong class="als-card__title">Carer's Allowance</strong>
+          <p>If you care for someone 35 hours a week or more and earn under the limit. Worth checking even if you're not sure you qualify.</p>
+        </div>
+        <div class="als-card">
+          <div class="als-card__head">
+            <span class="als-card__chip als-card__chip--sun"><img src="/img/alongside/icons/clock.svg" alt=""></span>
+          </div>
+          <strong class="als-card__title">Carer's Credit</strong>
+          <p>Protects your State Pension for the years you spend caring. Easy to miss, and it can't always be claimed retrospectively.</p>
+        </div>
+        <div class="als-card">
+          <div class="als-card__head">
+            <span class="als-card__chip als-card__chip--sun"><img src="/img/alongside/icons/pound.svg" alt=""></span>
+          </div>
+          <strong class="als-card__title">Attendance Allowance</strong>
+          <p>Theirs rather than yours, but it's money into the household and it isn't means-tested. Often unclaimed for years.</p>
+        </div>
+        <div class="als-card">
+          <div class="als-card__head">
+            <span class="als-card__chip als-card__chip--sun"><img src="/img/alongside/icons/home.svg" alt=""></span>
+          </div>
+          <strong class="als-card__title">Council Tax reductions</strong>
+          <p>Several apply, including where someone has a severe cognitive impairment. Sometimes backdatable.</p>
+        </div>
+      </div>
+
+      <p class="als-p">A free benefits check through <a href="https://www.carersuk.org" rel="noopener">Carers UK</a> or your local Citizens Advice will usually find anything you've missed in one go.</p>
+    </section>
+
+    <!-- ===== Support ====================================================== -->
+    <section class="als-section" id="support">
+      <h2 class="als-h2">People who understand it</h2>
+      <p class="als-p">The thing carers say helps most isn't advice. It's five minutes with somebody who doesn't need it explained.</p>
+      <ul class="als-p">
+        <li><a href="https://www.carersuk.org" rel="noopener">Carers UK</a> — a free helpline, an online forum that's active at 2am, and clear guides to every benefit above.</li>
+        <li><strong>Your local carers' service.</strong> Every county has one, running groups, courses and one-to-one support. Ask us and we'll tell you which covers you.</li>
+        <li><a href="https://www.alzheimers.org.uk" rel="noopener">Alzheimer's Society</a> — if it's dementia, their support line and local groups are worth the call.</li>
+        <li><strong>Otter Café.</strong> Ours, free, and open to families as well as clients. Some people come for the company and some come to sit quietly with a cup of tea. Both are fine.</li>
+      </ul>
+    </section>
+
+    <!-- ===== If today is a bad day ======================================= -->
+    <section class="als-section" id="today">
+      <h2 class="als-h2">If today is a bad day</h2>
+      <p class="als-p">If you're at the end of what you can manage, that's worth saying out loud to somebody today rather than next month.</p>
+      <ul class="als-p">
+        <li><strong>Ring us on 01225 690022.</strong> If something needs to change with the care, it usually can — often faster than people expect.</li>
+        <li><strong>Your GP.</strong> Tell them you're a carer. It goes on your record and it changes what support you're offered.</li>
+        <li><strong>Samaritans, free on 116 123</strong>, any time of day or night, if you need to talk to someone who isn't involved.</li>
+      </ul>
+
+      <div class="als-close">
+        <div class="als-close__text">
+          <strong>Still here?</strong>
+          <p>Then you're doing better than you think. Ring us when you need to — about them, or about you.</p>
+          <div class="als-close__actions"><a class="btn btn-primary btn-lg" href="tel:01225690022">01225 690022</a></div>
+        </div>
+        <img class="als-close__mascot" src="/img/alongside/brand/otter-mascot.png" alt="">
+      </div>
+    </section>
+
+    <!-- ===== Prev / next ================================================== -->
+    <nav class="als-prevnext" aria-label="Programme navigation" data-print="hide">
+      <a class="als-prevnext__item" href="/family/your-first-month">
+        <span class="als-prevnext__eyebrow">← Stage 2</span>
+        <span class="als-prevnext__title">Your first month</span>
+      </a>
+      <span class="als-prevnext__item als-prevnext__item--future">
+        <span class="als-prevnext__eyebrow">Stage 6 →</span>
+        <span class="als-prevnext__title">The last part</span>
+      </span>
+    </nav>
+  </main>
+</div>
+
+<script is:inline>
+/* Contents-rail current-section highlight — same script as the other stages. */
+(function () {
+  var links = Array.prototype.slice.call(document.querySelectorAll('[data-als-nav]'));
+  if (!links.length) return;
+  var sections = links.map(function (l) { return document.getElementById(l.getAttribute('data-als-nav')); }).filter(Boolean);
+  if (!sections.length) return;
+  var raf = null;
+  function pick() {
+    var current = sections[0];
+    sections.forEach(function (s) { if (s.getBoundingClientRect().top <= 200) current = s; });
+    links.forEach(function (l) {
+      l.classList.toggle('is-current', l.getAttribute('data-als-nav') === current.id);
+    });
+  }
+  window.addEventListener('scroll', function () {
+    if (raf) return;
+    raf = requestAnimationFrame(function () { raf = null; pick(); });
+  }, { passive: true });
+  pick();
+})();
+</script>
+</SiteLayout>
