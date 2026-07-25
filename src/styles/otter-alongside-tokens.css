@@ -200,3 +200,15 @@ section.als-hero { background: var(--teal-deep); }
   background: var(--mustard-dark);
   color: var(--ink);
 }
+
+/* ---------------------------------------------------------------------------
+   Stage rail / prev-next hidden while only one stage exists (Jamie,
+   2026-07-25). A single "you are here" chip is not navigation, and five
+   "Coming soon" chips advertise the gap. Both come back when stage 2+ ships —
+   remove the `hidden` attribute in the markup.
+
+   Needs an explicit rule: otter-alongside.css sets display on both, which
+   beats the UA default for [hidden].
+   --------------------------------------------------------------------------- */
+.als-stages[hidden],
+.als-prevnext[hidden] { display: none; }

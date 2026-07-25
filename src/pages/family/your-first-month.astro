@@ -39,8 +39,9 @@ import "../../styles/otter-alongside.css";
   </div>
 </section>
 
-<!-- ===== Stage rail ======================================================= -->
-<nav class="als-stages" aria-label="Otter Alongside stages" data-print="hide">
+<!-- ===== Stage rail — hidden until a second stage ships. Unhide by
+     removing hidden + the comment markers. ================================ -->
+<nav class="als-stages" hidden aria-label="Otter Alongside stages" data-print="hide">
   <div class="als-stages__inner">
     <div class="als-stage als-stage--future">
       <span class="als-stage__num">1</span>
@@ -72,10 +73,6 @@ import "../../styles/otter-alongside.css";
       <li><a class="als-toc__link" data-als-nav="money" href="#money">Money, and help beyond us</a></li>
       <li><a class="als-toc__link" data-als-nav="wrong" href="#wrong">If something isn't right</a></li>
     </ul>
-    <div class="als-toc__foot">
-      <img src="/img/alongside/brand/otter-head.png" alt="">
-      <p>Or skip all of it and <a href="tel:01225690022">ring us</a>.</p>
-    </div>
   </nav>
 
   <!-- ===== Body =========================================================== -->
@@ -363,7 +360,7 @@ import "../../styles/otter-alongside.css";
     </section>
 
     <!-- ===== Prev / next ================================================== -->
-    <nav class="als-prevnext" aria-label="Programme navigation" data-print="hide">
+    <nav class="als-prevnext" hidden aria-label="Programme navigation" data-print="hide">
       <span class="als-prevnext__item als-prevnext__item--future">
         <span class="als-prevnext__eyebrow">← Stage 1</span>
         <span class="als-prevnext__title">Before we start</span>
