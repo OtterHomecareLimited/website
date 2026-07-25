@@ -152,6 +152,35 @@
 }
 
 /* ---------------------------------------------------------------------------
+   Hero ground — Jamie, 2026-07-25: the hero and the site header were the same
+   colour, so they read as one flat teal block with no separation.
+
+   Both were var(--teal) #136B7D — literally identical. Dropping the hero to
+   --teal-deep #0B3F49 separates them (1.88:1 against the header) and improves
+   everything sitting on it: white text 6.13 -> 11.53, the mustard CTA
+   3.14 -> 5.91. The header is site-wide so the hero is the one to move.
+
+   Selector is `section.als-hero` (0,1,1), not `.als-hero` (0,1,0):
+   otter-alongside.css loads after this file and sets the hero to var(--teal),
+   so a same-specificity rule here would lose. Reordering the imports would
+   contradict the load order design's README pins, so raise specificity.
+   --------------------------------------------------------------------------- */
+section.als-hero { background: var(--teal-deep); }
+
+/* ---------------------------------------------------------------------------
+   Unwritten stages — Jamie: "these tabs on the top don't seem to work".
+   Correct: stages 1 and 3-6 don't exist yet, so they're deliberately not
+   links. The problem was that they still LOOKED like tabs. A "Coming soon"
+   label plus a default cursor makes the rail read as a roadmap.
+   --------------------------------------------------------------------------- */
+.als-stage--future { cursor: default; }
+.als-stage__soon {
+  display: block; margin-top: 2px; font-size: 11.5px; font-weight: 600;
+  letter-spacing: .08em; text-transform: uppercase; color: var(--muted);
+  opacity: .85;
+}
+
+/* ---------------------------------------------------------------------------
    Hero CTA — port fix, send back to design.
    The handoff markup uses the SITE's `btn btn-primary`, assuming it's mustard.
    On otter-home.css `.btn-primary` is TEAL (#136B7D) — the same colour as the
