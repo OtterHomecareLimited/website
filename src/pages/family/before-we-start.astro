@@ -1,0 +1,301 @@
+---
+// Otter Alongside — Stage 1, "Before we start".
+// Written directly in design's Alongside vocabulary (Jamie, 2026-07-25: no
+// design round-trip needed now the component set exists). Same three
+// stylesheets, same load order — see otter-alongside-tokens.css.
+//
+// Audience differs from Stage 2: this one is for people still deciding, so it
+// is public-facing and the only stage aimed at prospective families.
+// Deliberately does NOT restate the rate card or the full funding detail —
+// /cost-of-home-care owns those. This page covers what those pages don't:
+// how to raise it with a parent, and when you might not need us yet.
+import SiteLayout from "../../layouts/SiteLayout.astro";
+import "../../styles/otter-alongside-tokens.css";
+import "../../styles/otter-alongside.css";
+---
+
+<SiteLayout
+  title="Before we start | Otter Alongside | Otter Homecare"
+  description="Thinking about care for someone you love: how to raise it with them, what happens when you ring us, what it costs, and the help you may be entitled to."
+>
+<section class="als-hero">
+  <div class="als-wrap">
+    <nav class="als-crumbs" aria-label="Breadcrumb">
+      <a href="/">Home</a><span>·</span><a href="/support-for-families">For families</a><span>·</span><span class="is-current">Otter Alongside</span>
+    </nav>
+  </div>
+  <div class="als-hero__inner">
+    <div class="als-hero__body">
+      <p class="eyebrow eyebrow--on-teal">Otter Alongside · Stage 1 of 6</p>
+      <h1 class="als-hero__title">Before we start</h1>
+      <p class="als-hero__lede">Thinking about care for someone you love — how to raise it with them, what actually happens when you ring, and what it costs.</p>
+      <div class="als-hero__actions">
+        <a class="btn btn-primary btn-lg" href="tel:01225690022">Ring us — 01225 690022</a>
+        <a class="als-hero__skip" href="#not-yet">You might not need us yet</a>
+      </div>
+    </div>
+    <div class="als-hero__media">
+      <img src="/img/alongside/photos/deciding.jpg" alt="An Otter Care Professional painting a client's nails in his own front room, both of them smiling.">
+      <div class="als-hero__aside"><p>Ringing us doesn't commit you to anything.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Stage rail ======================================================= -->
+<nav class="als-stages" aria-label="Otter Alongside stages" data-print="hide">
+  <div class="als-stages__inner">
+    <span class="als-stage als-stage--current" aria-current="page">
+      <span class="als-stage__num">1</span>
+      <span class="als-stage__label">Before we start<span class="als-stage__here">You are here</span></span>
+    </span>
+    <a class="als-stage" href="/family/your-first-month">
+      <span class="als-stage__num">2</span>
+      <span class="als-stage__label">Your first month</span>
+    </a>
+    <span class="als-stage als-stage--future"><span class="als-stage__num">3</span><span class="als-stage__label">Living with it<span class="als-stage__soon">Coming soon</span></span></span>
+    <span class="als-stage als-stage--future"><span class="als-stage__num">4</span><span class="als-stage__label">When things change<span class="als-stage__soon">Coming soon</span></span></span>
+    <span class="als-stage als-stage--future"><span class="als-stage__num">5</span><span class="als-stage__label">Looking after you<span class="als-stage__soon">Coming soon</span></span></span>
+    <span class="als-stage als-stage--future"><span class="als-stage__num">6</span><span class="als-stage__label">The last part<span class="als-stage__soon">Coming soon</span></span></span>
+  </div>
+</nav>
+
+<div class="als-layout">
+
+  <!-- ===== Contents rail ================================================== -->
+  <nav class="als-toc" aria-label="On this page" data-print="hide">
+    <p class="als-toc__title">On this page</p>
+    <ul class="als-toc__list">
+      <li><a class="als-toc__link" data-als-nav="talking" href="#talking">Raising it with them</a></li>
+      <li><a class="als-toc__link" data-als-nav="what-happens" href="#what-happens">What happens when you ring</a></li>
+      <li><a class="als-toc__link" data-als-nav="cost" href="#cost">What it costs</a></li>
+      <li><a class="als-toc__link" data-als-nav="funding" href="#funding">Help you may be entitled to</a></li>
+      <li><a class="als-toc__link" data-als-nav="not-yet" href="#not-yet">You might not need us yet</a></li>
+      <li><a class="als-toc__link" data-als-nav="ready" href="#ready">What to have ready</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===== Body =========================================================== -->
+  <main class="als-body">
+
+    <div class="als-section">
+      <p class="als-p als-p--lede">Most people arrive here worried, and often after something has happened — a fall, a hospital stay, or just a slow feeling that things aren't managing as well as they were.</p>
+      <p class="als-p als-p--muted">Nothing on this page commits you to anything. Plenty of the families who ring us don't end up needing care yet, and we'd far rather tell you that than sell you something.</p>
+
+      <div class="als-callout">
+        <div class="als-callout__main">
+          <span class="als-card__chip"><img src="/img/alongside/icons/phone.svg" alt=""></span>
+          <div class="als-callout__text">
+            <strong>Talk to us</strong>
+            <p>Office open <strong>8:30am – 5pm</strong>, Monday to Friday. Outside those hours you'll get through to our on-call team. You'll speak to someone local who knows the area — never a call centre.</p>
+          </div>
+        </div>
+        <a class="btn btn-primary btn-lg" href="tel:01225690022">01225 690022</a>
+      </div>
+    </div>
+
+    <!-- ===== Raising it with them ========================================= -->
+    <section class="als-section" id="talking">
+      <h2 class="als-h2">Raising it with them</h2>
+      <p class="als-p">Families tell us the hard part wasn't choosing a care company. It was the conversation with Mum or Dad beforehand.</p>
+      <p class="als-p">There's no script that makes it easy, but a few things genuinely help.</p>
+
+      <div class="als-cards als-cards--2">
+        <div class="als-card">
+          <div class="als-card__head">
+            <span class="als-card__chip"><img src="/img/alongside/icons/home.svg" alt=""></span>
+          </div>
+          <strong class="als-card__title">Start with the task, not the label</strong>
+          <p>"Shall we get someone in to help with the shopping?" lands very differently from "you need carers." Most people will accept help with a job long before they'll accept being someone who needs help.</p>
+        </div>
+        <div class="als-card">
+          <div class="als-card__head">
+            <span class="als-card__chip"><img src="/img/alongside/icons/clock.svg" alt=""></span>
+          </div>
+          <strong class="als-card__title">Pick the moment</strong>
+          <p>Not straight after a fall, not in the middle of a disagreement, and not when everyone's tired. A quiet afternoon with no decision required at the end of it works far better.</p>
+        </div>
+        <div class="als-card">
+          <div class="als-card__head">
+            <span class="als-card__chip"><img src="/img/alongside/icons/team.svg" alt=""></span>
+          </div>
+          <strong class="als-card__title">Make it theirs</strong>
+          <p>Let them meet us and ask their own questions. People accept care they chose far more readily than care that was arranged for them — and it's their home, so it should be their call.</p>
+        </div>
+        <div class="als-card">
+          <div class="als-card__head">
+            <span class="als-card__chip"><img src="/img/alongside/icons/heart.svg" alt=""></span>
+          </div>
+          <strong class="als-card__title">Expect a no first</strong>
+          <p>A first no is normal and it's rarely the final answer. Leave it, come back to it. Starting with something small and practical is often what shifts it.</p>
+        </div>
+      </div>
+
+      <div class="als-note als-note--lg">
+        <strong class="als-note__title">If they say no and they mean it</strong>
+        <p>If your relative can make their own decisions, that choice is theirs — even if you disagree with it, and even if you're the one who'd be picking up the pieces. Being their son or daughter doesn't, by itself, give you the right to decide for them. We've explained how that works in <a href="/post/mental-capacity-act">the Mental Capacity Act, explained simply</a>.</p>
+      </div>
+    </section>
+
+    <!-- ===== What happens when you ring =================================== -->
+    <section class="als-section" id="what-happens">
+      <h2 class="als-h2">What happens when you ring</h2>
+      <p class="als-p">Four steps, and you can stop at any of them.</p>
+
+      <div class="als-steps">
+        <div class="als-step">
+          <span class="als-step__num">1</span>
+          <strong>You ring us</strong>
+          <p>A conversation, not an assessment. What's going on, what's hardest right now.</p>
+        </div>
+        <div class="als-step">
+          <span class="als-step__num">2</span>
+          <strong>We visit</strong>
+          <p>At home, free and with no obligation. We meet the person the care is for, not just the family.</p>
+        </div>
+        <div class="als-step">
+          <span class="als-step__num">3</span>
+          <strong>Care starts</strong>
+          <p>A plan built round the day they actually want, with the same small team of faces.</p>
+        </div>
+        <div class="als-step">
+          <span class="als-step__num">4</span>
+          <strong>We keep checking</strong>
+          <p>Reviews, and changes whenever things change. Nothing is fixed for good.</p>
+        </div>
+      </div>
+
+      <p class="als-p">There's more detail on <a href="/how-we-work">how we work</a>, including what happens at the home visit.</p>
+    </section>
+
+    <!-- ===== What it costs ================================================ -->
+    <section class="als-section" id="cost">
+      <h2 class="als-h2">What it costs</h2>
+      <p class="als-p">We publish our full rates rather than making you ask — hourly visiting care, live-in and overnight, all on <a href="/cost-of-home-care">the cost of home care</a>.</p>
+      <p class="als-p">The honest headline: the home visit is free and carries no obligation, and what you pay after that depends on how much help is needed and when. Nights and weekends cost more than weekday mornings. We'd rather talk it through properly than quote you a number that turns out to be wrong.</p>
+
+      <p class="als-quote">If we can't help, or you don't need us yet, we'll say so.</p>
+    </section>
+
+    <!-- ===== Funding ====================================================== -->
+    <section class="als-section" id="funding">
+      <h2 class="als-h2">Help you may be entitled to</h2>
+      <p class="als-p"><strong>None of this comes to us.</strong> We'd just rather you knew about it — a lot of families don't, and go without money they're owed for years.</p>
+
+      <div class="als-cards als-cards--4">
+        <div class="als-card">
+          <div class="als-card__head">
+            <span class="als-card__chip als-card__chip--sun"><img src="/img/alongside/icons/pound.svg" alt=""></span>
+          </div>
+          <strong class="als-card__title">Attendance Allowance</strong>
+          <p>For people over State Pension age who need help with personal care. Not means-tested — savings and income don't count against it.</p>
+        </div>
+        <div class="als-card">
+          <div class="als-card__head">
+            <span class="als-card__chip als-card__chip--sun"><img src="/img/alongside/icons/heart.svg" alt=""></span>
+          </div>
+          <strong class="als-card__title">Carer's Allowance</strong>
+          <p>If you're the one doing the caring, 35 hours a week or more. Worth checking even if you don't think of yourself as a carer.</p>
+        </div>
+        <div class="als-card">
+          <div class="als-card__head">
+            <span class="als-card__chip als-card__chip--sun"><img src="/img/alongside/icons/team.svg" alt=""></span>
+          </div>
+          <strong class="als-card__title">A Carer's Assessment</strong>
+          <p>Your council will assess <em>your</em> needs, separately from your relative's. It's free, and hardly anyone asks for one.</p>
+        </div>
+        <div class="als-card">
+          <div class="als-card__head">
+            <span class="als-card__chip als-card__chip--sun"><img src="/img/alongside/icons/home.svg" alt=""></span>
+          </div>
+          <strong class="als-card__title">Council Tax reductions</strong>
+          <p>Several apply, including where someone has a severe cognitive impairment. Often backdatable.</p>
+        </div>
+      </div>
+
+      <p class="als-p">Local Authority funding and NHS Continuing Healthcare are covered on <a href="/cost-of-home-care">our costs and funding page</a>. If you're not sure where to start, ring us and we'll point you at the right place — even where it isn't us.</p>
+    </section>
+
+    <!-- ===== You might not need us yet ==================================== -->
+    <section class="als-panel" id="not-yet">
+      <div class="als-panel__head">
+        <div class="als-panel__headtext">
+          <span class="als-panel__cond">The bit most care companies leave out</span>
+          <h2 class="als-h2">You might not need us yet</h2>
+        </div>
+      </div>
+
+      <div class="als-panel__block">
+        <p class="als-p">Sometimes people ring us and, once we've talked it through, homecare isn't the answer — or isn't the answer <em>yet</em>. When that's the case we say so.</p>
+        <p class="als-p">Things that solve the problem more often than people expect:</p>
+        <ul class="als-p">
+          <li>A cleaner or a gardener, where the real problem is the house rather than the person.</li>
+          <li>A pendant alarm or key safe, where the worry is mainly about falls.</li>
+          <li>Meals delivered, or a weekly shop set up online.</li>
+          <li>A day centre or a lunch club — often the loneliness is the thing, not the washing.</li>
+          <li>A Carer's Assessment for <em>you</em>, if you're the one running on empty.</li>
+          <li>Your GP or the council's adult social care team, if something has changed medically.</li>
+        </ul>
+        <p class="als-p">Ring us anyway. We'd rather spend twenty minutes pointing you somewhere better than start care nobody needed.</p>
+      </div>
+    </section>
+
+    <!-- ===== What to have ready =========================================== -->
+    <section class="als-section" id="ready">
+      <h2 class="als-h2">What to have ready</h2>
+      <p class="als-p">You don't need any of this to ring us. It just makes the first conversation quicker.</p>
+      <ul class="als-p">
+        <li>Who the care is for, and whether they know you're ringing.</li>
+        <li>What a normal day looks like now, and which bits have got hard.</li>
+        <li>Anything medical we should know — diagnoses, medication, recent hospital stays.</li>
+        <li>Who else is involved: family nearby, a GP, a social worker, anyone already helping.</li>
+        <li>Roughly when help would be most useful. Mornings? Evenings? Weekends?</li>
+      </ul>
+
+      <div class="als-close">
+        <div class="als-close__text">
+          <strong>Not sure it's time yet?</strong>
+          <p>That's the most common reason people ring. Ask us anyway — there's no cost and no obligation, and we'll be straight with you.</p>
+          <div class="als-close__actions"><a class="btn btn-primary btn-lg" href="tel:01225690022">01225 690022</a></div>
+        </div>
+        <img class="als-close__mascot" src="/img/alongside/brand/otter-mascot.png" alt="">
+      </div>
+    </section>
+
+    <!-- ===== Prev / next ================================================== -->
+    <nav class="als-prevnext" aria-label="Programme navigation" data-print="hide">
+      <span class="als-prevnext__item als-prevnext__item--future">
+        <span class="als-prevnext__eyebrow">Stage 1 of 6</span>
+        <span class="als-prevnext__title">You're at the start</span>
+      </span>
+      <a class="als-prevnext__item" href="/family/your-first-month">
+        <span class="als-prevnext__eyebrow">Stage 2 →</span>
+        <span class="als-prevnext__title">Your first month</span>
+      </a>
+    </nav>
+  </main>
+</div>
+
+<script is:inline>
+/* Contents-rail current-section highlight. Same progressive-enhancement
+   script design shipped with Stage 2 — without JS the rail is still jump links. */
+(function () {
+  var links = Array.prototype.slice.call(document.querySelectorAll('[data-als-nav]'));
+  if (!links.length) return;
+  var sections = links.map(function (l) { return document.getElementById(l.getAttribute('data-als-nav')); }).filter(Boolean);
+  if (!sections.length) return;
+  var raf = null;
+  function pick() {
+    var current = sections[0];
+    sections.forEach(function (s) { if (s.getBoundingClientRect().top <= 200) current = s; });
+    links.forEach(function (l) {
+      l.classList.toggle('is-current', l.getAttribute('data-als-nav') === current.id);
+    });
+  }
+  window.addEventListener('scroll', function () {
+    if (raf) return;
+    raf = requestAnimationFrame(function () { raf = null; pick(); });
+  }, { passive: true });
+  pick();
+})();
+</script>
+</SiteLayout>
