@@ -22,6 +22,8 @@
   /* ---- Page setup ---- */
   @page { size: A4; margin: 18mm 16mm 20mm; }
   html, body { background: #fff !important; }
+  /* Without this most browsers drop background fills when printing. */
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 
   /* ---- Site chrome. `.mbar` is the sticky mobile call/book bar, which
        otherwise prints across the foot of page one. ---- */
@@ -56,25 +58,50 @@
     box-shadow: none !important;
     color: var(--ink) !important;
   }
-  .als-card, .als-note, .als-callout, .als-download, .als-panel {
-    border: 1px solid #bbb !important;
+  .als-card, .als-download { border: 1px solid var(--hairline) !important; }
+  .als-callout, .als-panel {
+    border: 1px solid var(--hairline) !important;
+    border-left: 4px solid var(--teal) !important;
+    border-radius: 0 var(--radius) var(--radius) 0 !important;
   }
-  .als-quote { border-left: 3px solid #bbb !important; font-style: italic; }
+  .als-note {
+    border: 1px solid var(--hairline) !important;
+    border-left: 4px solid var(--mustard) !important;
+    border-radius: 0 var(--radius) var(--radius) 0 !important;
+  }
+  .als-quote {
+    border-left: 3px solid var(--mustard) !important;
+    color: var(--teal-dark) !important; font-style: italic;
+  }
 
-  /* Mustard-ink headings print as olive. Fine on screen, muddy on paper. */
-  .als-note__title, .als-panel__cond, .als-person__role,
-  .als-card__title, .als-stage__here { color: var(--ink) !important; }
+  /* Brand colour, selectively. Headings and accents carry it; large fills
+     don't. On a mono printer these fall back to grey, which is fine. */
+  .als-hero__title, .als-h2, h2 { color: var(--teal) !important; }
+  .als-h3, h3 { color: var(--teal-dark) !important; }
+  .eyebrow, .eyebrow--on-teal, .als-panel__cond { color: var(--mustard-ink) !important; }
+  .als-note__title { color: var(--mustard-ink) !important; }
+  .als-person__role { color: var(--mustard-ink) !important; }
+  .als-card__title { color: var(--ink) !important; }
 
   /* ---- Decoration that carries no information in print ---- */
-  .als-card__chip, .als-card__chip--sun, .als-card__pill, .als-card__head,
-  .als-close__mascot, .als-person__photo, .als-step__num,
+  .als-card__pill, .als-close__mascot, .als-person__photo,
   .als-toc__foot { display: none !important; }
+  /* Chips and step numbers stay — small, low-ink, and they're the brand. */
+  .als-card__chip, .als-card__chip--sun {
+    background: var(--teal-soft) !important; width: 30px; height: 30px;
+  }
+  .als-card__chip img { width: 17px; height: 17px; }
+  .als-card__chip--sun { background: var(--mustard-soft) !important; }
+  .als-step__num {
+    background: var(--teal) !important; color: #fff !important;
+    width: 22px; height: 22px; font-size: 11pt;
+  }
 
   /* ---- The .btn pills print as filled blocks; make them plain text ---- */
   .btn, .als-close__actions .btn {
     background: none !important; color: var(--ink) !important;
     box-shadow: none !important; border: none !important;
-    padding: 0 !important; font-weight: 700;
+    padding: 0 !important; font-weight: 700; color: var(--teal) !important;
   }
 
   /* ---- Grids collapse. Two or four columns at 11pt is unreadable on A4. ---- */
@@ -99,6 +126,8 @@
   .als-body a[href^="#"]::after { content: "" !important; }
 
   /* ---- Page breaks ---- */
+  /* Keep headings with the text that follows. Tested against relaxing this:
+     removing it made every stage LONGER, not shorter. */
   h1, h2, h3, .als-h2, .als-h3 { break-after: avoid; }
   .als-card, .als-step, .als-note, .als-callout, .als-download,
   .als-person, .als-shot { break-inside: avoid; }
