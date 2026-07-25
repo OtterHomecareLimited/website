@@ -1,0 +1,234 @@
+---
+// Otter Alongside — Stage 6, "The last part".
+//
+// ⚠ DRAFT. Not linked from any stage rail and must not go live until Cherie has
+//   read it (Jamie, 2026-07-25: "draft 6 for now, we'll review later").
+//
+// Editorial decisions worth keeping if this is revised:
+//
+//  1. NO HERO PHOTOGRAPH. Stock images of dying people are intrusive and the
+//     site's existing one (cond-eol.jpg) shows a cannula and a hospital bed —
+//     wrong for a page about dying at home. A real photo would mean asking a
+//     family for consent at the worst possible moment. Words alone are more
+//     dignified, and design's hero grid handles a single column cleanly.
+//
+//  2. NO DESCRIPTION OF WHAT DYING LOOKS LIKE. Families badly want to know,
+//     but it is a clinical conversation and belongs to the district nurse,
+//     the GP or the hospice team. The page tells people to ask them, and says
+//     it helps to ask before you need to know. That is the honest limit of
+//     what a care company should write down.
+//
+//  3. The page opens by giving the reader permission to close it.
+import SiteLayout from "../../layouts/SiteLayout.astro";
+import "../../styles/otter-alongside-tokens.css";
+import "../../styles/otter-alongside.css";
+---
+
+<SiteLayout
+  title="The last part | Otter Alongside | Otter Homecare"
+  description="For families nearing the end: who else gets involved, what's worth sorting early, what we do, and what happens afterwards."
+>
+<section class="als-hero">
+  <div class="als-wrap">
+    <nav class="als-crumbs" aria-label="Breadcrumb">
+      <a href="/">Home</a><span>·</span><a href="/support-for-families">For families</a><span>·</span><span class="is-current">Otter Alongside</span>
+    </nav>
+  </div>
+  <div class="als-hero__inner">
+    <div class="als-hero__body">
+      <p class="eyebrow eyebrow--on-teal">Otter Alongside · Stage 6 of 6</p>
+      <h1 class="als-hero__title">The last part</h1>
+      <p class="als-hero__lede">If you're reading this because someone you love is nearing the end of their life, we're sorry. This page is here when you want it, and there's no need to read it before you do.</p>
+      <div class="als-hero__actions">
+        <a class="btn btn-primary btn-lg" href="tel:01225690022">Ring us — 01225 690022</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="als-layout">
+
+  <!-- ===== Contents rail ================================================== -->
+  <nav class="als-toc" aria-label="On this page" data-print="hide">
+    <p class="als-toc__title">On this page</p>
+    <ul class="als-toc__list">
+      <li><a class="als-toc__link" data-als-nav="at-home" href="#at-home">Staying at home</a></li>
+      <li><a class="als-toc__link" data-als-nav="who" href="#who">Who else gets involved</a></li>
+      <li><a class="als-toc__link" data-als-nav="early" href="#early">Worth sorting early</a></li>
+      <li><a class="als-toc__link" data-als-nav="us" href="#us">What changes with us</a></li>
+      <li><a class="als-toc__link" data-als-nav="being-there" href="#being-there">Being there</a></li>
+      <li><a class="als-toc__link" data-als-nav="after" href="#after">Afterwards</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===== Body =========================================================== -->
+  <main class="als-body">
+
+    <div class="als-section">
+      <p class="als-p als-p--lede">Most families tell us afterwards that the hardest part was not knowing what was supposed to happen next.</p>
+      <p class="als-p als-p--muted">So this is the practical side: who gets involved, what's worth deciding while there's time, and what happens afterwards. It's short on purpose.</p>
+
+      <div class="als-callout">
+        <div class="als-callout__main">
+          <span class="als-card__chip"><img src="/img/alongside/icons/phone.svg" alt=""></span>
+          <div class="als-callout__text">
+            <strong>You can ring at any hour</strong>
+            <p>The office is open <strong>8:30am – 5pm</strong>, and outside those hours the on-call team can always reach a manager. At this stage, ring us about anything at all — including if you just want to talk it through.</p>
+          </div>
+        </div>
+        <a class="btn btn-primary btn-lg" href="tel:01225690022">01225 690022</a>
+      </div>
+    </div>
+
+    <!-- ===== Staying at home ============================================= -->
+    <section class="als-section" id="at-home">
+      <h2 class="als-h2">Staying at home</h2>
+      <p class="als-p">Most people, asked where they'd want to be, say home. It's usually possible, and more often than families expect — but it takes arranging, and it's easier to arrange early than in a crisis at 3am.</p>
+      <p class="als-p">Being at home doesn't mean managing alone. It normally means more people involved, not fewer: nurses coming in, equipment delivered, medication kept in the house ready, and care visits stepped up. Your relative stays in their own bed, in their own room, with their own things.</p>
+
+      <div class="als-note als-note--lg">
+        <strong class="als-note__title">What to expect, and who to ask</strong>
+        <p>Families very often want to know what the last days and hours actually look like. That's a conversation to have with the district nurse, the GP or the hospice team — they know your relative, and they'll be straight with you. It's worth asking <em>before</em> you feel you need to know. Almost nobody regrets having asked early; plenty of people regret not having.</p>
+      </div>
+    </section>
+
+    <!-- ===== Who else gets involved ====================================== -->
+    <section class="als-section" id="who">
+      <h2 class="als-h2">Who else gets involved</h2>
+      <p class="als-p">At this stage we're one part of a bigger team, and not the clinical part.</p>
+
+      <div class="als-cards als-cards--2">
+        <div class="als-card">
+          <div class="als-card__head">
+            <span class="als-card__chip"><img src="/img/alongside/icons/heart.svg" alt=""></span>
+          </div>
+          <strong class="als-card__title">District nurses</strong>
+          <p>They lead the nursing side at home — symptom control, medication, equipment. Usually the people to ring first with anything clinical.</p>
+        </div>
+        <div class="als-card">
+          <div class="als-card__head">
+            <span class="als-card__chip"><img src="/img/alongside/icons/team.svg" alt=""></span>
+          </div>
+          <strong class="als-card__title">The GP</strong>
+          <p>Oversees care and prescribing, and can arrange medication to be kept in the house so nothing waits on a pharmacy.</p>
+        </div>
+        <div class="als-card">
+          <div class="als-card__head">
+            <span class="als-card__chip"><img src="/img/alongside/icons/home.svg" alt=""></span>
+          </div>
+          <strong class="als-card__title">Hospice at home</strong>
+          <p>Hospice care mostly happens in people's houses, not in a building. Specialist nurses, sometimes overnight sitting, and support for you as well.</p>
+        </div>
+        <div class="als-card">
+          <div class="als-card__head">
+            <span class="als-card__chip"><img src="/img/alongside/icons/clock.svg" alt=""></span>
+          </div>
+          <strong class="als-card__title">Out of hours</strong>
+          <p>Make sure you know who to ring at night, and that the number is written down somewhere findable — not only in someone's phone.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Worth sorting early ========================================= -->
+    <section class="als-panel" id="early">
+      <div class="als-panel__head">
+        <div class="als-panel__headtext">
+          <span class="als-panel__cond">Easier now than later</span>
+          <h2 class="als-h2">Worth sorting early</h2>
+        </div>
+      </div>
+
+      <div class="als-panel__block">
+        <p class="als-p">None of this is urgent until suddenly it is. Having it settled means nobody is making decisions in a hurry, or guessing at what your relative would have wanted.</p>
+        <ul class="als-p">
+          <li><strong>Where they want to be.</strong> Home, hospice, hospital. Say it out loud to the GP and to us, and get it written down.</li>
+          <li><strong>A ReSPECT form or DNAR, if there is one.</strong> Keep it where it can be found — the front of the care folder, not a drawer upstairs. Ambulance crews will look for it.</li>
+          <li><strong>Who has authority.</strong> Lasting Power of Attorney for health and welfare, if it exists. Tell us and send us a copy so it's on file.</li>
+          <li><strong>Who to ring, in order.</strong> Night numbers especially. Written down, by the phone.</li>
+          <li><strong>Who they'd want there</strong>, and who they'd rather not have there. People have strong feelings about this and often haven't said.</li>
+          <li><strong>A funeral director,</strong> even just a name. It's a hard call to make from scratch on the day.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== What changes with us ======================================== -->
+    <section class="als-section" id="us">
+      <h2 class="als-h2">What changes with us</h2>
+      <p class="als-p">Practically: usually more visits, often longer ones, sometimes overnight or waking-night support. We'll work around the nurses rather than across them.</p>
+      <p class="als-p">What we try hard not to change is who comes. Familiar faces matter more now than at any other point, and this is the stage where we'll go furthest to keep the same small team coming through the door.</p>
+
+      <p class="als-quote">You will not have to explain your family to a stranger.</p>
+
+      <p class="als-p">If you want us there more, or less, say so. Some families want the house full; others want quiet and just enough help to manage. Both are right, and you can change your mind.</p>
+    </section>
+
+    <!-- ===== Being there ================================================= -->
+    <section class="als-section" id="being-there">
+      <h2 class="als-h2">Being there</h2>
+      <p class="als-p">People sit with someone for days, go home for a shower, and it happens while they're out. It happens often — often enough that hospice nurses will tell you some people seem to wait until the room is empty.</p>
+      <p class="als-p">If that happens to you, it is not a failure of love and it is not something you'll be able to reason yourself out of quickly. It's worth knowing in advance that it's common, because the people it happens to almost always believe they're the only one.</p>
+      <p class="als-p">And if you can't be there at all — distance, work, your own health — that isn't abandonment either. The care your relative gets doesn't change based on who's in the room.</p>
+    </section>
+
+    <!-- ===== Afterwards ================================================== -->
+    <section class="als-section" id="after">
+      <h2 class="als-h2">Afterwards</h2>
+      <p class="als-p">In the first hours there's less to do than people fear, and no rush at all. If it was expected and at home, ring the district nurse or GP surgery — out of hours, the number you were given. They'll take it from there. There's no need to ring 999, and no need to move anyone or tidy anything.</p>
+      <p class="als-p">You can sit with them for as long as you want. Nobody is waiting.</p>
+
+      <div class="als-note als-note--lg">
+        <strong class="als-note__title">Our part doesn't stop that day</strong>
+        <p>We'll stop the visits and sort out the account without you having to ask, and we'll come and collect our equipment whenever suits — not the same week unless you'd rather. If there are things to return or paperwork to sign, it can wait.</p>
+      </div>
+
+      <p class="als-p">Some families want to hear from us afterwards and some would rather not, and we'd rather ask than assume. The Care Professionals who looked after your relative will have their own feelings about it, and often appreciate being told about the funeral — but that's entirely your call.</p>
+
+      <p class="als-p"><a href="https://www.cruse.org.uk" rel="noopener">Cruse Bereavement Support</a> is free, national, and doesn't mind how long ago it was — plenty of people ring them months later. If it's easier to talk to someone you already know, ring us.</p>
+
+      <div class="als-close">
+        <div class="als-close__text">
+          <strong>We don't disappear</strong>
+          <p>Our relationships tend to outlast the arrangement. If you want to talk, months later or years later, the number still works.</p>
+          <div class="als-close__actions"><a class="btn btn-primary btn-lg" href="tel:01225690022">01225 690022</a></div>
+        </div>
+        <img class="als-close__mascot" src="/img/alongside/brand/otter-mascot.png" alt="">
+      </div>
+    </section>
+
+    <!-- ===== Prev / next ================================================== -->
+    <nav class="als-prevnext" aria-label="Programme navigation" data-print="hide">
+      <a class="als-prevnext__item" href="/family/looking-after-you">
+        <span class="als-prevnext__eyebrow">← Stage 5</span>
+        <span class="als-prevnext__title">Looking after you</span>
+      </a>
+      <span class="als-prevnext__item als-prevnext__item--future">
+        <span class="als-prevnext__eyebrow">Stage 6 of 6</span>
+        <span class="als-prevnext__title">You're at the end of the guide</span>
+      </span>
+    </nav>
+  </main>
+</div>
+
+<script is:inline>
+/* Contents-rail current-section highlight — same script as the other stages. */
+(function () {
+  var links = Array.prototype.slice.call(document.querySelectorAll('[data-als-nav]'));
+  if (!links.length) return;
+  var sections = links.map(function (l) { return document.getElementById(l.getAttribute('data-als-nav')); }).filter(Boolean);
+  if (!sections.length) return;
+  var raf = null;
+  function pick() {
+    var current = sections[0];
+    sections.forEach(function (s) { if (s.getBoundingClientRect().top <= 200) current = s; });
+    links.forEach(function (l) {
+      l.classList.toggle('is-current', l.getAttribute('data-als-nav') === current.id);
+    });
+  }
+  window.addEventListener('scroll', function () {
+    if (raf) return;
+    raf = requestAnimationFrame(function () { raf = null; pick(); });
+  }, { passive: true });
+  pick();
+})();
+</script>
+</SiteLayout>
