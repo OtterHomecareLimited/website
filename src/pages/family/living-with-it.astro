@@ -1,0 +1,223 @@
+---
+// Otter Alongside — Stage 3, "Living with it". The settled middle: care is
+// running, and this is how you keep it fitting.
+//
+// NB deliberately does NOT quote notice periods, cancellation windows or
+// charging rules. Those live in the client's own Service Agreement, and the
+// one CSA figure we checked this week (a £150 assessment fee) turned out to be
+// wrong — so quoting the rest on a public page would risk publishing something
+// else that isn't true. The page describes the principle and points at their
+// agreement instead.
+import SiteLayout from "../../layouts/SiteLayout.astro";
+import "../../styles/otter-alongside-tokens.css";
+import "../../styles/otter-alongside.css";
+---
+
+<SiteLayout
+  title="Living with it | Otter Alongside | Otter Homecare"
+  description="Care that's up and running: reviews, changing the plan when it stops fitting, telling us things, and what else we can help with."
+>
+<section class="als-hero">
+  <div class="als-wrap">
+    <nav class="als-crumbs" aria-label="Breadcrumb">
+      <a href="/">Home</a><span>·</span><a href="/support-for-families">For families</a><span>·</span><span class="is-current">Otter Alongside</span>
+    </nav>
+  </div>
+  <div class="als-hero__inner">
+    <div class="als-hero__body">
+      <p class="eyebrow eyebrow--on-teal">Otter Alongside · Stage 3 of 6</p>
+      <h1 class="als-hero__title">Living with it</h1>
+      <p class="als-hero__lede">Once care is running properly you shouldn't have to think about it much. This is how to keep it that way — and how to change it when it stops fitting.</p>
+      <div class="als-hero__actions">
+        <a class="btn btn-primary btn-lg" href="tel:01225690022">Ring us — 01225 690022</a>
+        <a class="als-hero__skip" href="#changing">Changing the plan</a>
+      </div>
+    </div>
+    <div class="als-hero__media">
+      <img src="/img/alongside/photos/outing.jpg" alt="An Otter Care Professional and a client smiling together at a stables, with two horses looking over the doors behind them.">
+      <div class="als-hero__aside"><p>Good care should feel like less to think about.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Stage rail ======================================================= -->
+<nav class="als-stages" aria-label="Otter Alongside stages" data-print="hide">
+  <div class="als-stages__inner">
+    <a class="als-stage" href="/family/before-we-start"><span class="als-stage__num">1</span><span class="als-stage__label">Before we start</span></a>
+    <a class="als-stage" href="/family/your-first-month"><span class="als-stage__num">2</span><span class="als-stage__label">Your first month</span></a>
+    <span class="als-stage als-stage--current" aria-current="page">
+      <span class="als-stage__num">3</span>
+      <span class="als-stage__label">Living with it<span class="als-stage__here">You are here</span></span>
+    </span>
+    <a class="als-stage" href="/family/when-things-change"><span class="als-stage__num">4</span><span class="als-stage__label">When things change</span></a>
+    <a class="als-stage" href="/family/looking-after-you"><span class="als-stage__num">5</span><span class="als-stage__label">Looking after you</span></a>
+    <span class="als-stage als-stage--future"><span class="als-stage__num">6</span><span class="als-stage__label">The last part<span class="als-stage__soon">Coming soon</span></span></span>
+  </div>
+</nav>
+
+<div class="als-layout">
+
+  <!-- ===== Contents rail ================================================== -->
+  <nav class="als-toc" aria-label="On this page" data-print="hide">
+    <p class="als-toc__title">On this page</p>
+    <ul class="als-toc__list">
+      <li><a class="als-toc__link" data-als-nav="reviews" href="#reviews">Care reviews</a></li>
+      <li><a class="als-toc__link" data-als-nav="changing" href="#changing">Changing the plan</a></li>
+      <li><a class="als-toc__link" data-als-nav="telling" href="#telling">Telling us something</a></li>
+      <li><a class="als-toc__link" data-als-nav="keep-us" href="#keep-us">What to keep us posted on</a></li>
+      <li><a class="als-toc__link" data-als-nav="more" href="#more">What else we can do</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===== Body =========================================================== -->
+  <main class="als-body">
+
+    <div class="als-section">
+      <p class="als-p als-p--lede">This is the longest stage, and with any luck the quietest.</p>
+      <p class="als-p als-p--muted">Care that's working shouldn't need managing. But nothing stays the same for long, so the useful thing to know is how to change it — and how little fuss that takes.</p>
+
+      <div class="als-callout">
+        <div class="als-callout__main">
+          <span class="als-card__chip"><img src="/img/alongside/icons/phone.svg" alt=""></span>
+          <div class="als-callout__text">
+            <strong>One number, for anything</strong>
+            <p>Changing a visit time, asking a question, telling us something isn't right — all the same number. <strong>8:30am – 5pm</strong>, on-call outside those hours.</p>
+          </div>
+        </div>
+        <a class="btn btn-primary btn-lg" href="tel:01225690022">01225 690022</a>
+      </div>
+    </div>
+
+    <!-- ===== Reviews ===================================================== -->
+    <section class="als-section" id="reviews">
+      <h2 class="als-h2">Care reviews</h2>
+      <p class="als-p">A review is a proper sit-down about whether the care still fits — not a form-filling exercise, though there is a form. We'll arrange them, and you're welcome at any of them.</p>
+      <p class="als-p">What's genuinely worth doing beforehand is thinking about the small irritations. The things nobody mentions because they don't feel big enough are usually exactly what a review is for.</p>
+
+      <div class="als-cards als-cards--2">
+        <div class="als-card">
+          <div class="als-card__head">
+            <span class="als-card__chip"><img src="/img/alongside/icons/clock.svg" alt=""></span>
+          </div>
+          <strong class="als-card__title">Worth raising</strong>
+          <p>Visit times that don't suit any more. Tasks that get rushed. Something in the plan that's been overtaken. A time of day that's got harder.</p>
+        </div>
+        <div class="als-card">
+          <div class="als-card__head">
+            <span class="als-card__chip"><img src="/img/alongside/icons/team.svg" alt=""></span>
+          </div>
+          <strong class="als-card__title">Also worth saying</strong>
+          <p>What's working. Which Care Professionals your relative particularly gets on with — we use that when we build the rota, and it's the sort of thing families assume we already know.</p>
+        </div>
+      </div>
+
+      <p class="als-p">You don't have to wait for a review. If something needs changing in March, ring us in March.</p>
+    </section>
+
+    <!-- ===== Changing the plan =========================================== -->
+    <section class="als-section" id="changing">
+      <h2 class="als-h2">Changing the plan</h2>
+      <p class="als-p">The care plan isn't fixed and changing it isn't a big deal. Most changes are a phone call: a different time, an extra visit, a task added or dropped, a week's break while family are staying.</p>
+      <p class="als-p">Two things make it go smoothly. Tell us as early as you can — the rota is built ahead, so more notice means more chance of keeping the same faces. And tell us the <em>problem</em>, not just the fix you've thought of; there's often an easier answer once we know what's actually going wrong.</p>
+
+      <div class="als-note als-note--lg">
+        <strong class="als-note__title">Notice periods and charges</strong>
+        <p>Cancelling visits, pausing care and ending care all have notice periods, and they're set out in your Service Agreement rather than here — that document is the one that counts. If you're not sure what applies, ring and ask. We'd much rather tell you than have you guess.</p>
+      </div>
+    </section>
+
+    <!-- ===== Telling us something ======================================== -->
+    <section class="als-section" id="telling">
+      <h2 class="als-h2">Telling us something</h2>
+      <p class="als-p">Early and small is much easier to put right than late and large. Almost everything families hesitate over turns out to be a five-minute fix, and the hesitating is the expensive part.</p>
+
+      <p class="als-quote">A complaint is a gift. We mean that fairly literally — it's the only way we find out.</p>
+
+      <p class="als-p">You will not cause trouble, and it will never affect the care your relative receives. If something is serious we'll come and see you in person, including at a weekend. And we'll close the loop by telling you what changed as a result, which is the bit most people never get.</p>
+      <p class="als-p">If you'd rather not raise it with the person who visits, ring the office and ask for the Registered Manager. That's a normal thing to ask for.</p>
+    </section>
+
+    <!-- ===== Keep us posted ============================================== -->
+    <section class="als-panel" id="keep-us">
+      <div class="als-panel__head">
+        <div class="als-panel__headtext">
+          <span class="als-panel__cond">Small things that save trouble later</span>
+          <h2 class="als-h2">What to keep us posted on</h2>
+        </div>
+      </div>
+
+      <div class="als-panel__block">
+        <p class="als-p">None of these are urgent on their own. Together they're most of the reason a visit occasionally goes wrong.</p>
+        <ul class="als-p">
+          <li><strong>Medication changes.</strong> Anything the GP or hospital has started, stopped or altered — even if it seems minor.</li>
+          <li><strong>Hospital or GP appointments,</strong> especially if they clash with a visit.</li>
+          <li><strong>Key safe codes and door locks.</strong> If the code changes and we don't know, we're stood outside.</li>
+          <li><strong>Who to contact,</strong> if a phone number changes or someone else takes over the day-to-day.</li>
+          <li><strong>Holidays</strong> — theirs or yours. Tell us early and we'll work round it.</li>
+          <li><strong>Anything that's frightened them.</strong> A fall, a scam call, a bad night. We may not hear about it otherwise.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== What else we can do ========================================= -->
+    <section class="als-section" id="more">
+      <h2 class="als-h2">What else we can do</h2>
+      <p class="als-p">Families often don't realise how much sits outside "personal care". If it would make the week easier and it's legal and safe, ask — the answer is usually yes.</p>
+      <ul class="als-p">
+        <li>Meal preparation, shopping, and collecting prescriptions.</li>
+        <li>Light housekeeping, laundry and getting on top of paperwork.</li>
+        <li>Getting to appointments, or just getting out for a bit.</li>
+        <li>Company — a walk, a cup of tea, a hand with a hobby that's got harder.</li>
+        <li>Help with a phone or tablet, so video calls with family actually happen.</li>
+        <li>Gardening and pet care. Both keep people at home longer than you'd think.</li>
+      </ul>
+
+      <p class="als-p">There's also <strong>Otter Café</strong> — free, and open to families as well as clients. Some people come for the company, some for the cake.</p>
+
+      <div class="als-close">
+        <div class="als-close__text">
+          <strong>Not sure it's worth mentioning?</strong>
+          <p>Mention it. The small things are exactly what we'd rather hear about early.</p>
+          <div class="als-close__actions"><a class="btn btn-primary btn-lg" href="tel:01225690022">01225 690022</a></div>
+        </div>
+        <img class="als-close__mascot" src="/img/alongside/brand/otter-mascot.png" alt="">
+      </div>
+    </section>
+
+    <!-- ===== Prev / next ================================================== -->
+    <nav class="als-prevnext" aria-label="Programme navigation" data-print="hide">
+      <a class="als-prevnext__item" href="/family/your-first-month">
+        <span class="als-prevnext__eyebrow">← Stage 2</span>
+        <span class="als-prevnext__title">Your first month</span>
+      </a>
+      <a class="als-prevnext__item" href="/family/when-things-change">
+        <span class="als-prevnext__eyebrow">Stage 4 →</span>
+        <span class="als-prevnext__title">When things change</span>
+      </a>
+    </nav>
+  </main>
+</div>
+
+<script is:inline>
+/* Contents-rail current-section highlight — same script as the other stages. */
+(function () {
+  var links = Array.prototype.slice.call(document.querySelectorAll('[data-als-nav]'));
+  if (!links.length) return;
+  var sections = links.map(function (l) { return document.getElementById(l.getAttribute('data-als-nav')); }).filter(Boolean);
+  if (!sections.length) return;
+  var raf = null;
+  function pick() {
+    var current = sections[0];
+    sections.forEach(function (s) { if (s.getBoundingClientRect().top <= 200) current = s; });
+    links.forEach(function (l) {
+      l.classList.toggle('is-current', l.getAttribute('data-als-nav') === current.id);
+    });
+  }
+  window.addEventListener('scroll', function () {
+    if (raf) return;
+    raf = requestAnimationFrame(function () { raf = null; pick(); });
+  }, { passive: true });
+  pick();
+})();
+</script>
+</SiteLayout>

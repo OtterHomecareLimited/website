@@ -1,0 +1,253 @@
+---
+// Otter Alongside — Stage 4, "When things change". Needs increasing, hospital
+// admissions, dementia progressing, and the honest conversation about when home
+// stops being the right answer.
+//
+// Two constraints held:
+//  - Nothing clinical. The "signs" section is deliberately practical — visits
+//    running over, you topping up, nights getting hard — not symptoms. It never
+//    tells a reader their relative is declining.
+//  - No charging policy quoted. Same reasoning as Stage 3: the CSA is the
+//    document that counts, and one figure in our record of it was wrong.
+import SiteLayout from "../../layouts/SiteLayout.astro";
+import "../../styles/otter-alongside-tokens.css";
+import "../../styles/otter-alongside.css";
+---
+
+<SiteLayout
+  title="When things change | Otter Alongside | Otter Homecare"
+  description="When needs increase: getting more help, hospital admissions and coming home, dementia progressing, and how to think about whether home is still right."
+>
+<section class="als-hero">
+  <div class="als-wrap">
+    <nav class="als-crumbs" aria-label="Breadcrumb">
+      <a href="/">Home</a><span>·</span><a href="/support-for-families">For families</a><span>·</span><span class="is-current">Otter Alongside</span>
+    </nav>
+  </div>
+  <div class="als-hero__inner">
+    <div class="als-hero__body">
+      <p class="eyebrow eyebrow--on-teal">Otter Alongside · Stage 4 of 6</p>
+      <h1 class="als-hero__title">When things change</h1>
+      <p class="als-hero__lede">Needs rarely stay still. This is what to do when the care that suited last year has stopped fitting.</p>
+      <div class="als-hero__actions">
+        <a class="btn btn-primary btn-lg" href="tel:01225690022">Ring us — 01225 690022</a>
+        <a class="als-hero__skip" href="#hospital">Hospital admissions</a>
+      </div>
+    </div>
+    <div class="als-hero__media">
+      <img src="/img/alongside/photos/changing.jpg" alt="An Otter Care Professional and a client smiling together after a haircut at home.">
+      <div class="als-hero__aside"><p>Changing the care isn't losing ground.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Stage rail ======================================================= -->
+<nav class="als-stages" aria-label="Otter Alongside stages" data-print="hide">
+  <div class="als-stages__inner">
+    <a class="als-stage" href="/family/before-we-start"><span class="als-stage__num">1</span><span class="als-stage__label">Before we start</span></a>
+    <a class="als-stage" href="/family/your-first-month"><span class="als-stage__num">2</span><span class="als-stage__label">Your first month</span></a>
+    <a class="als-stage" href="/family/living-with-it"><span class="als-stage__num">3</span><span class="als-stage__label">Living with it</span></a>
+    <span class="als-stage als-stage--current" aria-current="page">
+      <span class="als-stage__num">4</span>
+      <span class="als-stage__label">When things change<span class="als-stage__here">You are here</span></span>
+    </span>
+    <a class="als-stage" href="/family/looking-after-you"><span class="als-stage__num">5</span><span class="als-stage__label">Looking after you</span></a>
+    <span class="als-stage als-stage--future"><span class="als-stage__num">6</span><span class="als-stage__label">The last part<span class="als-stage__soon">Coming soon</span></span></span>
+  </div>
+</nav>
+
+<div class="als-layout">
+
+  <!-- ===== Contents rail ================================================== -->
+  <nav class="als-toc" aria-label="On this page" data-print="hide">
+    <p class="als-toc__title">On this page</p>
+    <ul class="als-toc__list">
+      <li><a class="als-toc__link" data-als-nav="signs" href="#signs">When the plan stops fitting</a></li>
+      <li><a class="als-toc__link" data-als-nav="more" href="#more">Getting more help</a></li>
+      <li><a class="als-toc__link" data-als-nav="hospital" href="#hospital">Hospital</a></li>
+      <li><a class="als-toc__link" data-als-nav="dementia" href="#dementia">When dementia changes things</a></li>
+      <li><a class="als-toc__link" data-als-nav="home" href="#home">If home stops being right</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===== Body =========================================================== -->
+  <main class="als-body">
+
+    <div class="als-section">
+      <p class="als-p als-p--lede">Care that fitted perfectly a year ago can stop fitting without anyone deciding it has.</p>
+      <p class="als-p als-p--muted">It usually shows up as a series of small workarounds rather than one obvious moment — which is why it's worth naming when you notice it, rather than waiting for something to go wrong.</p>
+
+      <div class="als-callout">
+        <div class="als-callout__main">
+          <span class="als-card__chip"><img src="/img/alongside/icons/phone.svg" alt=""></span>
+          <div class="als-callout__text">
+            <strong>Ring us before it's a crisis</strong>
+            <p>Changes are far easier to arrange with a bit of notice than at 9pm on a Friday. <strong>8:30am – 5pm</strong>, on-call outside those hours.</p>
+          </div>
+        </div>
+        <a class="btn btn-primary btn-lg" href="tel:01225690022">01225 690022</a>
+      </div>
+    </div>
+
+    <!-- ===== When the plan stops fitting ================================== -->
+    <section class="als-section" id="signs">
+      <h2 class="als-h2">When the plan stops fitting</h2>
+      <p class="als-p">These aren't medical signs and this isn't a checklist about your relative. They're the practical things families and Care Professionals notice first.</p>
+
+      <div class="als-cards als-cards--2">
+        <div class="als-card">
+          <div class="als-card__head">
+            <span class="als-card__chip"><img src="/img/alongside/icons/clock.svg" alt=""></span>
+          </div>
+          <strong class="als-card__title">Visits keep running over</strong>
+          <p>If what used to fit in half an hour now doesn't, the visit length is wrong — not the person, and not the Care Professional.</p>
+        </div>
+        <div class="als-card">
+          <div class="als-card__head">
+            <span class="als-card__chip"><img src="/img/alongside/icons/heart.svg" alt=""></span>
+          </div>
+          <strong class="als-card__title">You're topping up more</strong>
+          <p>Extra trips, more phone calls, popping in "just to check". If your own week has quietly filled up, that's the clearest signal there is.</p>
+        </div>
+        <div class="als-card">
+          <div class="als-card__head">
+            <span class="als-card__chip"><img src="/img/alongside/icons/home.svg" alt=""></span>
+          </div>
+          <strong class="als-card__title">The gaps are the problem</strong>
+          <p>Care goes fine while someone's there, and the trouble happens in between. Usually means more frequent visits rather than longer ones.</p>
+        </div>
+        <div class="als-card">
+          <div class="als-card__head">
+            <span class="als-card__chip"><img src="/img/alongside/icons/team.svg" alt=""></span>
+          </div>
+          <strong class="als-card__title">Nights have got hard</strong>
+          <p>Broken sleep — theirs or yours — is what tips most families over, and it's one of the most fixable things on this list.</p>
+        </div>
+      </div>
+
+      <p class="als-p">If any of that sounds familiar, ring us and ask for a review. You don't need to have worked out what the answer should be.</p>
+    </section>
+
+    <!-- ===== Getting more help =========================================== -->
+    <section class="als-section" id="more">
+      <h2 class="als-h2">Getting more help</h2>
+      <p class="als-p">More care doesn't have to mean a lot more care. In order of how big a step they are:</p>
+
+      <div class="als-steps">
+        <div class="als-step">
+          <span class="als-step__num">1</span>
+          <strong>Longer visits</strong>
+          <p>Same pattern, more time. Often enough on its own.</p>
+        </div>
+        <div class="als-step">
+          <span class="als-step__num">2</span>
+          <strong>More visits</strong>
+          <p>An extra call in the day, or a teatime one, to close the gaps.</p>
+        </div>
+        <div class="als-step">
+          <span class="als-step__num">3</span>
+          <strong>Nights</strong>
+          <p>A sleeping night or a waking night, so someone is there until morning.</p>
+        </div>
+        <div class="als-step">
+          <span class="als-step__num">4</span>
+          <strong>Live-in care</strong>
+          <p>Someone in the house full time — often cheaper than families expect.</p>
+        </div>
+      </div>
+
+      <p class="als-p">There's more on <a href="/live-in-care">live-in care</a>, and the rates for all of it are on <a href="/cost-of-home-care">the cost of home care</a>.</p>
+    </section>
+
+    <!-- ===== Hospital ==================================================== -->
+    <section class="als-panel" id="hospital">
+      <div class="als-panel__head">
+        <div class="als-panel__headtext">
+          <span class="als-panel__cond">Coming home is the risky bit, not going in</span>
+          <h2 class="als-h2">Hospital</h2>
+        </div>
+      </div>
+
+      <div class="als-panel__block">
+        <p class="als-p"><strong>Tell us as soon as they go in.</strong> We'll pause the visits so nobody turns up to an empty house — and ask us about charges while they're in, because that's not something we'd leave a family guessing about.</p>
+        <p class="als-p">Send us the ward and the expected discharge date if you have them. It helps us hold the rota rather than fill their slots.</p>
+
+        <p class="als-quote">Discharge is where things go wrong. Almost never the admission.</p>
+
+        <p class="als-p">People are often sent home needing noticeably more help than when they went in, sometimes at short notice and occasionally in the evening. What makes that go smoothly:</p>
+        <ul class="als-p">
+          <li><strong>Ring us the moment you hear a discharge date</strong> — even a vague one. Restarting care takes a little arranging.</li>
+          <li><strong>Ask the ward for the discharge summary</strong> and send it to us. Medication very often changes in hospital.</li>
+          <li><strong>Ask what's been arranged</strong> — reablement, equipment, district nurses. Sometimes a lot has been, and nobody has told the family.</li>
+          <li><strong>Say if home isn't ready.</strong> A bed downstairs, a key safe, food in. You're allowed to say the discharge is too early.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== Dementia ==================================================== -->
+    <section class="als-section" id="dementia">
+      <h2 class="als-h2">When dementia changes things</h2>
+      <p class="als-p">Dementia tends to change what care needs to look like more than how much of it there is. We've written about our approach on <a href="/dementia">our dementia care page</a>; this is the practical side of adjusting an existing package.</p>
+      <p class="als-p">What usually helps is consistency over efficiency: the same faces, the same times, the same order of doing things. It's why we'll work harder to protect the rota for a client with dementia than to optimise it.</p>
+      <p class="als-p">Tell us what's changed at home, even the small things — a new anxiety about the bathroom, sundowning in the late afternoon, refusing something they were happy with last month. Our Care Professionals can plan round almost anything if they know it's coming.</p>
+
+      <div class="als-note als-note--lg">
+        <strong class="als-note__title">If they start refusing care</strong>
+        <p>It happens, it's rarely personal, and it usually has a reason — pain, embarrassment, not recognising someone, or simply being asked at the wrong moment. Ring us rather than pushing through it. Changing who comes, or when, fixes it more often than anything else.</p>
+      </div>
+    </section>
+
+    <!-- ===== If home stops being right =================================== -->
+    <section class="als-section" id="home">
+      <h2 class="als-h2">If home stops being right</h2>
+      <p class="als-p">Sometimes it does. Not often, and later than most families fear — but it happens, and we'd rather say so than keep quiet because we're the ones being paid to keep someone at home.</p>
+      <p class="als-p">Usually it's about safety at the times nobody is there, or needs that have become genuinely nursing rather than care. If we think you're near that point we'll tell you plainly, and we'll help you think it through rather than hand you a leaflet.</p>
+      <p class="als-p">Choosing a care home isn't a failure of anything. Plenty of families get there having done more, for longer, than anyone could reasonably have asked.</p>
+
+      <div class="als-close">
+        <div class="als-close__text">
+          <strong>Our care outlasts the contract</strong>
+          <p>Our founder still visits former clients who've moved into care homes. Ending the arrangement doesn't end the relationship.</p>
+          <div class="als-close__actions"><a class="btn btn-primary btn-lg" href="tel:01225690022">01225 690022</a></div>
+        </div>
+        <img class="als-close__mascot" src="/img/alongside/brand/otter-mascot.png" alt="">
+      </div>
+    </section>
+
+    <!-- ===== Prev / next ================================================== -->
+    <nav class="als-prevnext" aria-label="Programme navigation" data-print="hide">
+      <a class="als-prevnext__item" href="/family/living-with-it">
+        <span class="als-prevnext__eyebrow">← Stage 3</span>
+        <span class="als-prevnext__title">Living with it</span>
+      </a>
+      <a class="als-prevnext__item" href="/family/looking-after-you">
+        <span class="als-prevnext__eyebrow">Stage 5 →</span>
+        <span class="als-prevnext__title">Looking after you</span>
+      </a>
+    </nav>
+  </main>
+</div>
+
+<script is:inline>
+/* Contents-rail current-section highlight — same script as the other stages. */
+(function () {
+  var links = Array.prototype.slice.call(document.querySelectorAll('[data-als-nav]'));
+  if (!links.length) return;
+  var sections = links.map(function (l) { return document.getElementById(l.getAttribute('data-als-nav')); }).filter(Boolean);
+  if (!sections.length) return;
+  var raf = null;
+  function pick() {
+    var current = sections[0];
+    sections.forEach(function (s) { if (s.getBoundingClientRect().top <= 200) current = s; });
+    links.forEach(function (l) {
+      l.classList.toggle('is-current', l.getAttribute('data-als-nav') === current.id);
+    });
+  }
+  window.addEventListener('scroll', function () {
+    if (raf) return;
+    raf = requestAnimationFrame(function () { raf = null; pick(); });
+  }, { passive: true });
+  pick();
+})();
+</script>
+</SiteLayout>

@@ -304,3 +304,17 @@ button,summary,.btn,.otter-fab,.talk-opt,[role="switch"]{touch-action:manipulati
   .als-callout,.als-download{flex-direction:column;align-items:flex-start}
   .als-shot--single{max-width:100%}
 }
+
+/* ---------------------------------------------------------------------------
+   Header block — Jamie, 2026-07-25: "the colour of the header area should be
+   the same as the top bar strip".
+
+   otter-home.css sets nav{background:var(--teal)} #136B7D, while .util is
+   overridden above to --teal-d #0F4F60. That left the nav as a lighter stripe
+   sandwiched between the dark utility bar and (on most pages) a dark hero.
+   Matching them makes the whole header read as one block.
+
+   Legibility improves too: the nav's own link colour #d3e8e5 goes from 5.5:1
+   on --teal to 7.13:1 on --teal-d.
+   --------------------------------------------------------------------------- */
+nav { background: var(--teal-d, #0F4F60); }
