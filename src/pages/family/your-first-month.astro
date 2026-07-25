@@ -1,0 +1,411 @@
+---
+// Otter Alongside — Stage 2. Markup ported from design's handoff
+// (Desktop/handoff/your-first-month.html, 2026-07-25). Design notes stripped,
+// asset paths repointed to /img/alongside/, stand-in header/footer replaced by
+// the real SiteLayout.
+//
+// CSS load order matters: SiteLayout imports otter-home.css, then the bridge
+// maps DS token names onto the site's, then the page styles consume DS names
+// only. See the header of otter-alongside-tokens.css.
+import SiteLayout from "../../layouts/SiteLayout.astro";
+import "../../styles/otter-alongside-tokens.css";
+import "../../styles/otter-alongside.css";
+---
+
+<SiteLayout
+  title="Your first month | Otter Alongside | Otter Homecare"
+  description="How to stay in touch, who you'll speak to, and the things families most often ask in the first few weeks."
+>
+<section class="als-hero">
+  <div class="als-wrap">
+    <nav class="als-crumbs" aria-label="Breadcrumb">
+      <a href="/">Home</a><span>·</span><a href="/family">For families</a><span>·</span><span class="is-current">Otter Alongside</span>
+    </nav>
+  </div>
+  <div class="als-hero__inner">
+    <div class="als-hero__body">
+      <p class="eyebrow eyebrow--on-teal">Otter Alongside · Stage 2 of 6</p>
+      <h1 class="als-hero__title">Your first month</h1>
+      <p class="als-hero__lede">How to stay in touch, who you'll speak to, and the things families most often ask in the first few weeks.</p>
+      <div class="als-hero__actions">
+        <a class="btn btn-primary btn-lg" href="tel:01225690022">Ring us — 01225 690022</a>
+        <a class="als-hero__skip" href="#app">Skip to setting up the app</a>
+      </div>
+    </div>
+    <div class="als-hero__media">
+      <!-- ⚠ CONSENT: see the note in chat. Swap for a cleared image before ship. -->
+      <img src="/img/alongside/photos/greeting.jpg" alt="A Care Professional greeting a client at her front door.">
+      <div class="als-hero__aside"><p>None of this is compulsory reading.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Stage rail ======================================================= -->
+<nav class="als-stages" aria-label="Otter Alongside stages" data-print="hide">
+  <div class="als-stages__inner">
+    <a class="als-stage" href="/family/before-we-start">
+      <span class="als-stage__num">1</span>
+      <span class="als-stage__label">Before we start</span>
+    </a>
+    <span class="als-stage als-stage--current" aria-current="page">
+      <span class="als-stage__num">2</span>
+      <span class="als-stage__label">Your first month<span class="als-stage__here">You are here</span></span>
+    </span>
+    <span class="als-stage als-stage--future"><span class="als-stage__num">3</span><span class="als-stage__label">Living with it</span></span>
+    <span class="als-stage als-stage--future"><span class="als-stage__num">4</span><span class="als-stage__label">When things change</span></span>
+    <span class="als-stage als-stage--future"><span class="als-stage__num">5</span><span class="als-stage__label">Looking after you</span></span>
+    <span class="als-stage als-stage--future"><span class="als-stage__num">6</span><span class="als-stage__label">The last part</span></span>
+  </div>
+</nav>
+
+<div class="als-layout">
+
+  <!-- ===== Contents rail ================================================== -->
+  <nav class="als-toc" aria-label="On this page" data-print="hide">
+    <p class="als-toc__title">On this page</p>
+    <ul class="als-toc__list">
+      <li><a class="als-toc__link" data-als-nav="choice" href="#choice">How much you'd like to see</a></li>
+      <li><a class="als-toc__link" data-als-nav="app" href="#app">Setting up the app</a></li>
+      <li><a class="als-toc__link als-toc__link--sub" data-als-nav="stuck" href="#stuck">The bit everyone gets stuck on</a></li>
+      <li><a class="als-toc__link" data-als-nav="see" href="#see">What you'll be able to see</a></li>
+      <li><a class="als-toc__link" data-als-nav="team" href="#team">Who you'll actually speak to</a></li>
+      <li><a class="als-toc__link" data-als-nav="share" href="#share">What we can and can't share</a></li>
+      <li><a class="als-toc__link" data-als-nav="money" href="#money">Money, and help beyond us</a></li>
+      <li><a class="als-toc__link" data-als-nav="wrong" href="#wrong">If something isn't right</a></li>
+    </ul>
+    <div class="als-toc__foot">
+      <img src="/img/alongside/brand/otter-head.png" alt="">
+      <p>Or skip all of it and <a href="tel:01225690022">ring us</a>.</p>
+    </div>
+  </nav>
+
+  <!-- ===== Body =========================================================== -->
+  <main class="als-body">
+
+    <div class="als-section">
+      <p class="als-p als-p--lede">The first few weeks are the ones with the most questions in them. Here are the answers families ask us for most often.</p>
+      <p class="als-p als-p--muted">None of it is compulsory reading. If you'd rather just ask a person, that's completely fine — and often quicker.</p>
+
+      <div class="als-callout">
+        <div class="als-callout__main">
+          <span class="als-card__chip"><img src="/img/alongside/icons/phone.svg" alt=""></span>
+          <div class="als-callout__text">
+            <strong>Talk to us</strong>
+            <p>Office open <strong>8:30am – 5pm</strong>, Monday to Friday. Outside those hours you'll get through to our on-call team, who can always reach a manager.</p>
+          </div>
+        </div>
+        <a class="btn btn-primary btn-lg" href="tel:01225690022">01225 690022</a>
+      </div>
+    </div>
+
+    <!-- ===== How much you'd like to see =================================== -->
+    <section class="als-section" id="choice">
+      <div class="als-section__dots"><span></span><span></span></div>
+      <h2 class="als-h2">How much you'd like to see</h2>
+      <p class="als-p">Families are different, and we'd rather ask than assume.</p>
+      <p class="als-p">Some want to read every visit note the same evening. Others would far rather we simply picked up the phone when something needed saying, and otherwise got on with it. <strong>Both are completely fine, and neither is the "right" answer.</strong></p>
+
+      <div class="als-cards als-cards--2">
+        <div class="als-card als-card--top-sun">
+          <div class="als-card__head">
+            <span class="als-card__chip als-card__chip--sun"><img src="/img/alongside/icons/phone.svg" alt=""></span>
+            <span class="als-card__pill">Most families</span>
+          </div>
+          <strong class="als-card__title">A phone call when it matters</strong>
+          <p>We ring you when something changes, and at your relative's reviews. No app, no logins, nothing to set up. This is what most families choose, and it works perfectly well.</p>
+        </div>
+        <div class="als-card als-card--top-teal">
+          <div class="als-card__head">
+            <span class="als-card__chip"><img src="/img/alongside/icons/key.svg" alt=""></span>
+            <span class="als-card__pill als-card__pill--teal">Ask us for it</span>
+          </div>
+          <strong class="als-card__title">See everything, any time</strong>
+          <p>Access to the care app, where you can read each visit's notes, times and completed tasks as they happen. Good if you live away, or if several of you want to stay in the loop.</p>
+        </div>
+      </div>
+
+      <div class="als-note als-note--lg">
+        <strong class="als-note__title">Want the app? Just tell us.</strong>
+        <p>App access isn't set up automatically — you need to ask, and your relative (or their representative) needs to agree to it. Ring the office or mention it to whoever's next at the door, and we'll get it started.</p>
+      </div>
+    </section>
+
+    <!-- ===== App setup ==================================================== -->
+    <section class="als-panel" id="app">
+      <div class="als-panel__head">
+        <div class="als-panel__headtext">
+          <span class="als-panel__cond">Only if you've asked for app access</span>
+          <h2 class="als-h2">Getting set up</h2>
+          <p class="als-p als-p--muted als-panel__sub">It takes two short emails and usually about a day. It isn't instant, and that's normal.</p>
+        </div>
+        <a class="als-panel__skip" href="#see">Not using the app? Skip ahead →</a>
+      </div>
+
+      <div class="als-steps">
+        <div class="als-step">
+          <span class="als-step__num">1</span>
+          <strong>Tell us</strong>
+          <p>Let the office know you'd like access, and who for.</p>
+        </div>
+        <div class="als-step">
+          <span class="als-step__num">2</span>
+          <strong>Download it</strong>
+          <p>Search for <strong>Access Care Planning</strong> and install it.</p>
+        </div>
+        <div class="als-step">
+          <span class="als-step__num">3</span>
+          <strong>Send us a screenshot</strong>
+          <p>Open the app and email us a photo of the first screen.</p>
+        </div>
+        <div class="als-step">
+          <span class="als-step__num">4</span>
+          <strong>We send your login</strong>
+          <p>Usually the same day. Then you're in.</p>
+        </div>
+      </div>
+
+      <div class="als-panel__block">
+        <h3 class="als-h3">It isn't called Otter</h3>
+        <p class="als-p als-p--sm">The app you need is called <strong>Access Care Planning</strong> — look for the red circle. Searching the app store for "Otter" won't find it.</p>
+        <div class="als-search">
+          <div class="als-search__field">
+            <span class="als-search__label">Type this into the app store</span>
+            <div class="als-search__box"><span>Access Care Planning</span></div>
+          </div>
+          <p>It's the care system we use rather than something we built ourselves, so it carries their name, not ours. That trips up almost everyone, so if you've already gone hunting and given up, that's why.</p>
+        </div>
+      </div>
+
+      <div class="als-panel__block">
+        <h3 class="als-h3">Finding your device ID</h3>
+        <div class="als-shots als-shots--wide">
+          <figure class="als-shot als-shot--single">
+            <div class="als-device als-device--lg">
+              <div class="als-device__screen">
+                <img src="/img/alongside/app/app-login.png" alt="The Access Care Planning login screen. A line of small text at the very top holds the device ID. Below the logo are three boxes: server, username and PIN.">
+                <span class="als-pin als-pin--box als-pin--thin" style="left:6%;top:8.2%;right:5%;height:5.6%"></span>
+                <span class="als-pin__label" style="left:6%;top:14.6%">This bit</span>
+              </div>
+            </div>
+            <figcaption>The login screen. We fill in the three boxes for you, by email.</figcaption>
+          </figure>
+          <div class="als-shot__aside">
+            <p class="als-p als-p--sm als-p--tight">Open the app and look at the very top of the login screen — there's a line of small text there. That's your <strong>device ID</strong>, and we can't register you without it. Screenshot that whole screen and email it over.</p>
+            <div class="als-note">
+              <p><strong>Don't tap the red button.</strong> Newer versions show a red <em>"Login with your Access account"</em> button above the boxes. That one's for staff at other organisations — yours are the three boxes underneath.</p>
+            </div>
+            <p class="als-p als-p--fine als-p--muted">We never publish login details on this page. They only ever come to you directly, by email.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="als-panel__block als-panel__block--divided" id="stuck">
+        <h3 class="als-h3">The bit everyone gets stuck on</h3>
+        <p class="als-p als-p--sm">Once you're logged in, <strong>the app will look empty.</strong> That's expected — nothing has gone wrong. You have to follow your relative's records before anything appears.</p>
+        <div class="als-shots">
+          <figure class="als-shot">
+            <div class="als-device">
+              <div class="als-device__screen">
+                <img src="/img/alongside/app/app-step1-empty.png" alt="The app's Cases screen, empty, with a prompt pointing at the three-dot menu in the top right corner.">
+                <span class="als-pin als-pin--circle" style="left:82%;top:4.4%;width:15%"></span>
+              </div>
+            </div>
+            <figcaption><strong>1.</strong> Tap the three-dot menu, top right.</figcaption>
+          </figure>
+          <figure class="als-shot">
+            <div class="als-device">
+              <div class="als-device__screen">
+                <img src="/img/alongside/app/app-step2-follow.png" alt="The menu open, showing Follow Cases at the top and Unfollow Cases below it.">
+                <span class="als-pin als-pin--box" style="left:4%;right:4%;top:10.9%;height:6.4%"></span>
+              </div>
+            </div>
+            <figcaption><strong>2.</strong> Choose <strong>Follow Cases</strong>.</figcaption>
+          </figure>
+          <figure class="als-shot">
+            <div class="als-device">
+              <div class="als-device__screen">
+                <img src="/img/alongside/app/app-step3-search.png" alt="A search box with a keyboard, ready for you to type a name.">
+              </div>
+            </div>
+            <figcaption><strong>3.</strong> Type your relative's first name and pick them.</figcaption>
+          </figure>
+        </div>
+        <p class="als-p als-p--sm">Now you'll see everything. If you've logged in fine and the screen is still blank, it's almost always this step.</p>
+      </div>
+    </section>
+
+    <!-- ===== What you'll see ============================================== -->
+    <section class="als-section" id="see">
+      <div class="als-section__dots"><span></span><span></span></div>
+      <h2 class="als-h2">What you'll be able to see</h2>
+      <div class="als-cards als-cards--2">
+        <div class="als-card als-card--top-teal">
+          <span class="als-card__chip"><img src="/img/alongside/icons/clock.svg" alt=""></span>
+          <strong class="als-card__title">Visits</strong>
+          <p>Every visit — when your Care Professional arrived and left, which tasks were done, and the notes they wrote afterwards. This is the part most families read day to day. It's written by the person who was actually there, in their own words.</p>
+        </div>
+        <div class="als-card als-card--top-teal">
+          <span class="als-card__chip"><img src="/img/alongside/icons/home.svg" alt=""></span>
+          <strong class="als-card__title">Case forms</strong>
+          <p>The fuller picture: the care plan, key contacts, risk assessments, medication changes and notes from reviews.</p>
+        </div>
+      </div>
+      <div class="als-access">
+        <span class="als-access__chip"><img src="/img/alongside/icons/key.svg" alt=""></span>
+        <p>You'll have <strong>view-only access</strong> — you can see everything recorded, but not change it. If something looks wrong, tell us and we'll correct it properly, so there's a clear record of what changed and why.</p>
+      </div>
+      <p class="als-p">Access is set up for up to three people, chosen by your relative or their representative, and can be removed at any time by asking any of us. You don't need to give a reason.</p>
+    </section>
+
+    <!-- ===== Team ========================================================= -->
+    <section class="als-section" id="team">
+      <div class="als-section__dots"><span></span><span></span></div>
+      <h2 class="als-h2">Who you'll actually speak to</h2>
+      <p class="als-p">No call centre, no ticket number. The same small team every time.</p>
+      <div class="als-cards als-cards--team">
+        <div class="als-person">
+          <img class="als-person__photo" src="/img/alongside/team/cherie.jpg" alt="" loading="lazy" width="88" height="88">
+          <div class="als-person__id"><strong class="als-person__name">Cherie</strong><span class="als-person__role">Registered Manager</span></div>
+          <p>Accountable for the quality and safety of your relative's care.</p>
+        </div>
+        <div class="als-person">
+          <img class="als-person__photo" src="/img/alongside/team/maria.jpg" alt="" loading="lazy" width="88" height="88">
+          <div class="als-person__id"><strong class="als-person__name">Maria</strong><span class="als-person__role">Care Coordinator</span></div>
+          <p>Visit times, rotas and scheduling.</p>
+        </div>
+        <div class="als-person">
+          <img class="als-person__photo" src="/img/alongside/team/brad.jpg" alt="" loading="lazy" width="88" height="88">
+          <div class="als-person__id"><strong class="als-person__name">Brad</strong><span class="als-person__role">Care Supervisor</span></div>
+          <p>Out visiting, checking how care is going.</p>
+        </div>
+        <div class="als-person">
+          <img class="als-person__photo" src="/img/alongside/team/abbey.jpg" alt="" loading="lazy" width="88" height="88">
+          <div class="als-person__id"><strong class="als-person__name">Abbey</strong><span class="als-person__role">Training Coordinator</span></div>
+          <p>Looks after our Care Professionals' training.</p>
+        </div>
+        <div class="als-person">
+          <img class="als-person__photo" src="/img/alongside/team/jamie.jpg" alt="" loading="lazy" width="88" height="88">
+          <div class="als-person__id"><strong class="als-person__name">Jamie</strong><span class="als-person__role">Our founder</span></div>
+          <p>Started Otter after caring for his own dad.</p>
+        </div>
+      </div>
+      <p class="als-p">Whoever picks up will know who you are. If they can't answer something there and then, they'll find out and come back to you.</p>
+    </section>
+
+    <!-- ===== What we can and can't share ================================== -->
+    <section class="als-section" id="share">
+      <div class="als-section__dots"><span></span><span></span></div>
+      <h2 class="als-h2">What we can and can't share</h2>
+      <p class="als-p">This is the one that causes the most upset early on, so we'd rather explain it now than have it come as a surprise.</p>
+      <p class="als-p">If your relative can make their own decisions, then legally those decisions are <strong>theirs</strong> — including what gets shared with you, and what care they'll accept. Being their son or daughter doesn't by itself give you the right to decide for them. When we check with them first, that isn't us being obstructive. It's the law, and it exists to protect them.</p>
+      <p class="als-quote">It cuts both ways: the same rules mean nobody can make decisions about your relative without proper reason either.</p>
+
+      <div class="als-download">
+        <img src="/img/alongside/app/mca-guide-cover.png" alt="Cover of Otter Homecare's two-page Mental Capacity Act guide for clients and families.">
+        <div class="als-download__text">
+          <h3>The Mental Capacity Act — a simple guide</h3>
+          <p>Our own two-page guide, written for clients and families. The five principles, the three misunderstandings we hear most, and what we can and can't do. Print it and keep it with the care plan.</p>
+        </div>
+        <a class="btn btn-primary" href="/downloads/otter-mental-capacity-act-guide.pdf">Download (PDF)</a>
+      </div>
+
+      <p class="als-p">There's also a longer, plain-English version on our blog: <a href="/post/mental-capacity-act">the Mental Capacity Act, explained simply</a> — it covers the specific situations families run into most.</p>
+      <p class="als-p">If you hold Lasting Power of Attorney, tell us and send us a copy, and we'll record it.</p>
+    </section>
+
+    <!-- ===== Money ======================================================== -->
+    <section class="als-section" id="money">
+      <div class="als-section__dots"><span></span><span></span></div>
+      <h2 class="als-h2">Money, and help beyond us</h2>
+      <p class="als-p">Things families often don't realise they can claim. <strong>None of these come to us</strong> — we'd just rather you knew about them.</p>
+      <div class="als-cards als-cards--4">
+        <div class="als-card als-card--row">
+          <span class="als-card__chip als-card__chip--sun"><img src="/img/alongside/icons/pound.svg" alt=""></span>
+          <div class="als-card__body">
+            <strong class="als-card__title">Attendance Allowance</strong>
+            <p>For people over State Pension age who need help with personal care. Not means-tested, and savings don't count against it.</p>
+          </div>
+        </div>
+        <div class="als-card als-card--row">
+          <span class="als-card__chip als-card__chip--sun"><img src="/img/alongside/icons/heart.svg" alt=""></span>
+          <div class="als-card__body">
+            <strong class="als-card__title">Carer's Allowance</strong>
+            <p>If you're caring for someone yourself for 35 hours a week or more.</p>
+          </div>
+        </div>
+        <div class="als-card als-card--row">
+          <span class="als-card__chip als-card__chip--sun"><img src="/img/alongside/icons/team.svg" alt=""></span>
+          <div class="als-card__body">
+            <strong class="als-card__title">A Carer's Assessment</strong>
+            <p>Your council assesses <em>your</em> needs as a carer, separately from your relative's. Free, and rarely asked for.</p>
+          </div>
+        </div>
+        <div class="als-card als-card--row">
+          <span class="als-card__chip als-card__chip--sun"><img src="/img/alongside/icons/home.svg" alt=""></span>
+          <div class="als-card__body">
+            <strong class="als-card__title">Council Tax reductions</strong>
+            <p>Several apply, including where someone has a severe cognitive impairment.</p>
+          </div>
+        </div>
+      </div>
+      <p class="als-p">There's more going on locally than most people expect, too — day centres, memory cafés, carer support groups, befriending and community transport. Ask us and we'll point you at what's running near you.</p>
+      <p class="als-p">For what our own care costs, see <a href="/cost-of-home-care">the cost of home care</a>.</p>
+    </section>
+
+    <!-- ===== If something isn't right ===================================== -->
+    <section class="als-section" id="wrong">
+      <div class="als-section__dots"><span></span><span></span></div>
+      <h2 class="als-h2">If something isn't right</h2>
+      <p class="als-p">Tell us. Early and small is far easier to put right than late and large.</p>
+      <p class="als-p">You won't cause trouble by raising something, and it will never affect the care your relative receives. If it's serious we'll come out and see you in person, including at weekends. And we'll tell you what changed as a result — that last part is the bit most people never get.</p>
+
+      <div class="als-close">
+        <div class="als-close__text">
+          <strong>Anything at all</strong>
+          <p>Ring the office, or say it to whoever's next at the door. Both reach the same place.</p>
+          <div class="als-close__actions"><a class="btn btn-primary btn-lg" href="tel:01225690022">01225 690022</a></div>
+        </div>
+        <img class="als-close__mascot" src="/img/alongside/brand/otter-mascot.png" alt="">
+      </div>
+    </section>
+
+    <!-- ===== Prev / next ================================================== -->
+    <nav class="als-prevnext" aria-label="Programme navigation" data-print="hide">
+      <a class="als-prevnext__item" href="/family/before-we-start">
+        <span class="als-prevnext__eyebrow">← Stage 1</span>
+        <span class="als-prevnext__title">Before we start</span>
+      </a>
+      <span class="als-prevnext__item als-prevnext__item--future">
+        <span class="als-prevnext__eyebrow">Stage 3 →</span>
+        <span class="als-prevnext__title">Living with it</span>
+      </span>
+    </nav>
+  </main>
+</div>
+
+<!-- ===== Site footer — stand-in. Use the real Astro partial. ============== -->
+
+<script is:inline>
+/* Contents-rail current-section highlight. ~20 lines, no dependencies.
+   Progressive enhancement: without JS the rail still works as jump links. */
+(function () {
+  var links = Array.prototype.slice.call(document.querySelectorAll('[data-als-nav]'));
+  if (!links.length) return;
+  var sections = links.map(function (l) { return document.getElementById(l.getAttribute('data-als-nav')); }).filter(Boolean);
+  if (!sections.length) return;
+  var raf = null;
+  function pick() {
+    var current = sections[0];
+    sections.forEach(function (s) { if (s.getBoundingClientRect().top <= 200) current = s; });
+    links.forEach(function (l) {
+      l.classList.toggle('is-current', l.getAttribute('data-als-nav') === current.id);
+    });
+  }
+  window.addEventListener('scroll', function () {
+    if (raf) return;
+    raf = requestAnimationFrame(function () { raf = null; pick(); });
+  }, { passive: true });
+  pick();
+})();
+</script>
+</SiteLayout>

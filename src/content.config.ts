@@ -15,4 +15,18 @@ const blog = defineCollection({
   }),
 });
 
-export const collections = { blog };
+// Otter Alongside — the family support programme. One markdown file per stage,
+// in src/content/family/. The same source drives the web pages and the printed
+// pack, so content is maintained once. Defaults to draft: true — a stage only
+// goes live when it's explicitly set to false.
+const family = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/family" }),
+  schema: z.object({
+    title: z.string(),
+    stage: z.number(),
+    summary: z.string(),
+    draft: z.boolean().default(true),
+  }),
+});
+
+export const collections = { blog, family };

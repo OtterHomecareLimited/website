@@ -225,3 +225,82 @@ button,summary,.btn,.otter-fab,.talk-opt,[role="switch"]{touch-action:manipulati
 @font-face{font-family:"Atkinson Hyperlegible";font-style:normal;font-weight:700;font-display:swap;src:url("/fonts/atkinson-hyperlegible-700.woff2") format("woff2")}
 @font-face{font-family:"Atkinson Hyperlegible";font-style:italic;font-weight:400;font-display:swap;src:url("/fonts/atkinson-hyperlegible-italic-400.woff2") format("woff2")}
 
+
+/* ---------------------------------------------------------------------------
+   Otter Alongside — family support programme stage pages (/family/*).
+   Code-side only: everything here composes design's existing components
+   (.hc-grid/.hc-card, .steps-grid/.step, .quizcard, .btn) rather than
+   introducing a new visual language. If /design lifts these into
+   otter-home.css, delete this block.
+   Accent edges are squared on the coloured side — never curved round the
+   corner (standing Otter rule).
+   --------------------------------------------------------------------------- */
+
+/* Buttons inside .prose. design's `.prose a{color:var(--teal-d);underline}` is
+   specificity (0,1,1) and beats `.btn-primary{color:#fff}` (0,1,0), so any button
+   placed in prose renders dark-teal underlined text on a teal fill — illegible.
+   Not Alongside-specific: this would hit a .btn in any prose block on the site.
+   Worth lifting into otter-home.css. */
+.prose a.btn{text-decoration:none}
+.prose a.btn-primary,.prose a.btn-clay{color:#fff}
+.prose a.btn-ghost{color:var(--teal-d)}
+
+/* Callout: a talk-to-us / key-point bar with a square teal accent edge. */
+.als-callout{display:flex;align-items:center;justify-content:space-between;gap:22px;
+  flex-wrap:wrap;background:var(--paper);border:1px solid var(--line);
+  border-left:6px solid var(--teal);border-radius:0 var(--r) var(--r) 0;
+  padding:22px 26px;margin:26px 0}
+/* Direct child only. A bare `.als-callout strong` also hits inline <strong> inside
+   the paragraph and forces it onto its own line — the same class of bug as the
+   .checklist li flex issue above. */
+.als-callout>div>strong:first-child{display:block;font-size:18px;color:var(--ink);margin-bottom:4px}
+.als-callout p{margin:0;font-size:15.5px;color:var(--muted);max-width:62ch}
+.als-callout p strong{font-weight:700;color:var(--ink)}
+.als-callout .btn{flex:none;white-space:nowrap}
+.als-callout--sun{border-left-color:var(--sun-d);background:#FBF6E7}
+
+/* Inline note — lighter than a callout, for a single caution. */
+.als-note{background:#FBF6E7;border-left:6px solid var(--sun-d);border-radius:0 var(--r) var(--r) 0;
+  padding:16px 20px;margin:22px 0;font-size:15.5px;color:var(--ink)}
+.als-note strong{color:var(--ink)}
+
+/* Wide blocks. .prose caps at ~706px, which squeezes 4- and 5-up grids down to
+   110–165px cards; these components are designed for full page width. Breaks
+   out symmetrically, clamped so it can never cause horizontal overflow. */
+.als-wide{position:relative;left:50%;transform:translateX(-50%);
+  width:min(980px,calc(100vw - 3rem))}
+
+/* Card grids — column-count variants on design's .hc-grid.
+   minmax(0,1fr), not 1fr: bare 1fr means minmax(auto,1fr), so a long word in
+   one card widens its column and the row goes uneven. */
+.als-grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.als-grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.als-grid-team{grid-template-columns:repeat(5,minmax(0,1fr))}
+.hc-card>strong:first-child{font-size:17.5px;color:var(--ink);margin-bottom:8px;display:block}
+
+/* Phone screenshots. Bordered so the light app chrome doesn't bleed into cream. */
+.als-shots-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin:26px 0}
+.als-shot{margin:0}
+.als-shot img{width:100%;height:auto;display:block;border:1px solid var(--line);
+  border-radius:var(--r);box-shadow:var(--shadow-sm);background:#fff}
+.als-shot figcaption{font-size:14.5px;color:var(--muted);margin-top:10px;line-height:1.5}
+.als-shot--single{max-width:300px;margin:26px 0}
+
+/* Download card — cover thumbnail beside the button. */
+.als-download{align-items:center;gap:26px}
+.als-download img{width:110px;height:auto;flex:none;border:1px solid var(--line);
+  border-radius:6px;box-shadow:var(--shadow-sm)}
+.als-download h3{margin-bottom:6px}
+.als-download p{margin:0;color:var(--muted);font-size:15.5px}
+
+@media(max-width:900px){
+  .als-grid-4,.als-grid-team{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .als-shots-3{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:600px){
+  /* Stop breaking out once the column is the whole screen. */
+  .als-wide{left:auto;transform:none;width:100%}
+  .als-grid-2,.als-grid-4,.als-grid-team,.als-shots-3{grid-template-columns:minmax(0,1fr)}
+  .als-callout,.als-download{flex-direction:column;align-items:flex-start}
+  .als-shot--single{max-width:100%}
+}

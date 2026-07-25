@@ -1,0 +1,140 @@
+/* ---------------------------------------------------------------------------
+   otter-alongside-tokens.css — the BRIDGE.
+
+   Lets a page authored against Design System token names run on otter-home.css.
+   This is the ONLY file that knows the site's token names. otter-alongside.css
+   uses DS names exclusively — so when otter-home.css migrates to the DS token
+   layer, DELETE this file and nothing else changes.
+
+   Load order:  otter-home.css  ->  this file  ->  otter-alongside.css
+
+   ⚠ THE CYCLE TRAP (design's note, kept — it is exactly the "renders wrong
+   rather than failing visibly" class). Where a DS name and a site name are
+   IDENTICAL (--teal, --ink, --muted, --cream, --teal-soft, --shadow,
+   --shadow-sm) you cannot write:
+
+       --ink: var(--ink, #3B2E1E);        <- WRONG, cyclic, computes to nothing
+
+   Loading otter-home.css first does not save you — this declaration wins the
+   cascade on :root, so it still self-references. Those seven are LITERALS
+   below. Don't "tidy" them into var() form.
+
+   ---------------------------------------------------------------------------
+   SIX CONFIRMs — RESOLVED 2026-07-25 against the real otter-home.css :root.
+   Design guessed these names; five of the tokens that DO exist hold different
+   values from the literal fallbacks, so this file now pins the site's values.
+
+     --teal-dd     does NOT exist            -> literal #0B3F49
+     --sun-soft    EXISTS  #F5E9CC           (design guessed #FBF6E7 — site wins)
+     --sand        does NOT exist. The site's page ground is --cream #FAF6EC,
+                   NOT the brand doc's #F5F1E8 -> --beige maps to --cream
+     --line-strong does NOT exist            -> literal
+     --wrap        real name is --maxw (1200px, design guessed 1180)
+     --mustard-ink the site ALREADY solves this: --sun-text #8A6410, which
+                   measures better than the proposed #8A6D1F everywhere
+                   (5.37 vs 4.90 on white, 4.98 vs 4.54 on the page ground)
+
+   Also resolving to site values, deliberately — these differ from design's
+   fallback literals and the site is correct:
+     --mustard      --sun    #D8B65E  (design literal was #D4AC4F)
+     --mustard-dark --sun-d  #B98A1E  (design literal was #B5902F)
+     --teal-dark    --teal-d #0F4F60  (design literal was #0E5260)
+     --hairline     --line   #E8DECB  (design literal was a translucent brown)
+
+   ⚠ NEITHER mustard text token is AA-safe on --cream-2 (#F2E9D7): --sun-text
+   measures 4.45, --mustard-ink 4.06. Don't put small mustard labels on a
+   raised cream-2 panel.
+   --------------------------------------------------------------------------- */
+
+:root {
+  /* ---- Name-collision set: LITERALS, never var(--self). ----------------
+     These seven share a name with a site token. Values are the site's. If
+     otter-home.css ever changes one, change it here too — or migrate and
+     delete this file.
+     -------------------------------------------------------------------- */
+  --teal: #136B7D;
+  --teal-soft: #E2EDF1;
+  --cream: #FAF6EC;
+  --ink: #3B2E1E;                     /* site warm brown wins */
+  --muted: #6A5F4C;                   /* site warm taupe wins */
+  --shadow-sm: 0 8px 22px -18px rgba(39, 34, 25, .20);
+  --shadow: 0 16px 40px -30px rgba(39, 34, 25, .30);
+
+  /* ---- Mapped from distinct site names — var() is safe here ---- */
+  --teal-dark: var(--teal-d, #0F4F60);
+  --teal-deep: #0B3F49;                        /* no site token */
+  --mustard: var(--sun, #D8B65E);
+  --mustard-dark: var(--sun-d, #B98A1E);       /* fill only — 3.13:1 on white */
+  --mustard-soft: var(--sun-soft, #F5E9CC);
+  --mustard-ink: var(--sun-text, #8A6410);     /* mustard that WRITES */
+  --beige: var(--cream, #FAF6EC);              /* site page ground */
+  --white: var(--paper, #FFFFFF);
+  --hairline: var(--line, #E8DECB);
+  --hairline-strong: rgba(59, 46, 30, 0.22);   /* no site token */
+  --radius: var(--r, 14px);
+  --radius-sm: var(--r-sm, 8px);
+  --radius-lg: var(--r-lg, 24px);
+  --max-width: var(--maxw, 1200px);
+
+  /* ---- No site equivalent — literals ---- */
+  --radius-pill: 999px;
+  --shadow-lg: 0 24px 60px -28px rgba(19, 107, 125, .45);
+
+  /* ---- Type families. All five faces ARE self-hosted and @font-face'd:
+     fonts.css declares Spectral, Hanken Grotesk, Newsreader and Caveat;
+     code-overrides.css declares Atkinson Hyperlegible. No CDN calls.
+     NB Spectral has no 700 — display type must stay at 600 or it synthesises.
+     -------------------------------------------------------------------- */
+  --font-display: "Spectral", Georgia, "Times New Roman", serif;
+  --font-body: "Hanken Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-ui: var(--font-body);
+  --font-legible: "Atkinson Hyperlegible", "Hanken Grotesk", system-ui, sans-serif;
+  --font-quote: "Newsreader", Georgia, serif;
+  --font-hand: "Caveat", "Segoe Script", cursive;
+
+  /* ---- Spacing / layout — no site equivalents ---- */
+  --space-1: 4px;  --space-2: 8px;   --space-3: 12px; --space-4: 16px;
+  --space-5: 20px; --space-6: 24px;  --space-8: 32px; --space-10: 40px;
+  --space-12: 48px; --space-16: 64px; --space-20: 80px;
+  --section-y: 80px;
+  --gap-card: 20px;
+  --gutter: 24px;
+
+  /* ---- Motion ---- */
+  --ease: cubic-bezier(.4, 0, .2, 1);
+  --dur-fast: .15s;
+  --dur: .25s;
+}
+
+/* ---------------------------------------------------------------------------
+   The .prose / .btn specificity bug. `.prose a` is (0,1,1) and beats
+   `.btn-primary` (0,1,0), so any button inside a prose block renders as
+   dark-teal underlined text on a teal fill. NOT Alongside-specific — belongs
+   in otter-home.css. Kept here so this page is correct standalone; delete
+   once it's upstream. (Also still present in code-overrides.css.)
+   --------------------------------------------------------------------------- */
+.prose a.btn { text-decoration: none; }
+.prose a.btn-primary,
+.prose a.btn-clay { color: #fff; }
+.prose a.btn-ghost { color: var(--teal-dark); }
+
+/* ---------------------------------------------------------------------------
+   Hero CTA — port fix, send back to design.
+   The handoff markup uses the SITE's `btn btn-primary`, assuming it's mustard.
+   On otter-home.css `.btn-primary` is TEAL (#136B7D) — the same colour as the
+   hero panel behind it, so the button rendered at 1.00:1 against its own
+   background: invisible shape, floating white text. Design's own screenshot
+   shows a mustard pill, so this restores the intent.
+
+   Scoped to .als-hero__actions so the site's buttons are untouched.
+   White on mustard is 1.95:1 — must be --ink (6.75:1).
+   --------------------------------------------------------------------------- */
+.als-hero__actions .btn-primary {
+  background: var(--mustard);
+  color: var(--ink);
+  box-shadow: 0 12px 24px -12px rgba(59, 46, 30, .45);
+}
+.als-hero__actions .btn-primary:hover {
+  background: var(--mustard-dark);
+  color: var(--ink);
+}

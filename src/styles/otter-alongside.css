@@ -1,0 +1,464 @@
+/* ---------------------------------------------------------------------------
+   otter-alongside.css — Otter Alongside stage pages (/family/*).
+
+   Uses DS token names ONLY. otter-alongside-tokens.css maps them to reality.
+   Extends the existing .als-* vocabulary from alongside-code-css.css rather
+   than inventing a parallel one; .als-callout / .als-note / .als-download /
+   .als-shot keep their existing names and behaviour.
+
+   WHAT THIS REPLACES from alongside-code-css.css:
+     .als-wide        — DELETE. The 50%/translateX breakout existed because
+                        .prose caps at ~706px and squeezed 4-up grids to
+                        ~110px. This page uses .als-layout instead: an
+                        explicit two-column grid where the text column caps
+                        prose at 64ch by element, and grids get the full
+                        column width natively. No breakout, no overflow risk,
+                        no viewport maths.
+     .als-grid-2/-4/-team — superseded by .als-cards--2/--4/--team, same
+                        minmax(0,1fr) fix, auto-fit so the 900px/600px
+                        breakpoints are no longer needed for them.
+
+   Accent edges stay squared on the coloured side (standing Otter rule) —
+   including the 4px top accents on cards: radius 0 0 14px 14px, never 14px.
+   --------------------------------------------------------------------------- */
+
+/* ===== Shell =============================================================== */
+
+.als-wrap { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--gutter); }
+
+.als-crumbs { padding-top: var(--space-4); font-size: 13.5px; color: rgba(255,255,255,.68); }
+.als-crumbs a { color: rgba(255,255,255,.75); text-decoration: none; }
+.als-crumbs a:hover { color: #fff; }
+.als-crumbs span { padding: 0 var(--space-2); }
+.als-crumbs .is-current { color: #fff; }
+
+/* ===== Eyebrow ==============================================================
+   The DC used the DS <Eyebrow> component; this is its class equivalent.
+   CONFIRM whether otter-home.css already has .eyebrow — if it does, delete
+   this block rather than risk two definitions.
+   ========================================================================== */
+
+.eyebrow {
+  display: inline-block; margin: 0;
+  font-family: var(--font-body); font-size: 12px; font-weight: 700;
+  letter-spacing: .04em; text-transform: uppercase; color: var(--teal);
+}
+.eyebrow--on-teal {
+  color: #fff; background: rgba(255, 255, 255, .14);
+  border-radius: var(--radius-pill); padding: 6px 14px;
+}
+
+/* ===== Hero ================================================================ */
+
+.als-hero { background: var(--teal); color: #fff; }
+.als-hero__inner {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+  gap: var(--space-16) 56px; align-items: center;
+  padding: 26px var(--gutter) var(--space-16);
+  max-width: var(--max-width); margin: 0 auto;
+}
+.als-hero__body { display: flex; flex-direction: column; align-items: flex-start; gap: 22px; }
+.als-hero__title {
+  font-family: var(--font-display); font-weight: 600; margin: 0; color: #fff;
+  font-size: clamp(40px, 5.2vw, 62px); line-height: 1.06; letter-spacing: -.6px;
+}
+.als-hero__lede {
+  font-size: clamp(18px, 1.5vw, 21px); line-height: 1.62;
+  color: rgba(255,255,255,.88); max-width: 34ch; margin: 0;
+}
+.als-hero__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 18px; padding-top: var(--space-1); }
+.als-hero__skip {
+  color: #fff; text-decoration: none; font-size: 16px; font-weight: 600;
+  border-bottom: 1.5px solid rgba(255,255,255,.4); padding-bottom: 3px;
+}
+.als-hero__skip:hover { border-bottom-color: var(--mustard); }
+.als-hero__media { position: relative; }
+.als-hero__media img {
+  width: 100%; aspect-ratio: 5 / 4; object-fit: cover;
+  border-radius: var(--radius-lg); box-shadow: 0 28px 64px -28px rgba(0,0,0,.55);
+}
+/* Handwritten aside. Squared on the mustard edge. */
+.als-hero__aside {
+  position: absolute; left: -14px; bottom: 26px; max-width: 255px;
+  background: var(--white); border-left: 6px solid var(--mustard);
+  border-radius: 0 var(--radius) var(--radius) 0; padding: 14px 20px;
+  box-shadow: 0 12px 30px -14px rgba(11,63,73,.5);
+}
+.als-hero__aside p {
+  margin: 0; font-family: var(--font-hand); font-weight: 500; font-size: 24px;
+  line-height: 1.25; color: var(--teal-dark);
+}
+
+/* ===== Stage rail (1 of 6) ================================================= */
+
+.als-stages { background: var(--cream); border-bottom: 1px solid var(--hairline); }
+.als-stages__inner {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(158px, 1fr));
+  gap: 10px; max-width: var(--max-width); margin: 0 auto; padding: var(--space-5) var(--gutter);
+}
+.als-stage {
+  display: flex; align-items: center; gap: var(--space-3);
+  padding: var(--space-3) 14px; border-radius: var(--radius-sm);
+  border: 1px solid var(--hairline); text-decoration: none;
+  transition: box-shadow var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+a.als-stage:hover { transform: translateY(-2px); box-shadow: var(--shadow-sm); }
+.als-stage__num {
+  flex: none; width: 28px; height: 28px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 700; background: var(--teal-soft); color: var(--teal);
+}
+.als-stage__label { font-size: 14.5px; font-weight: 600; color: var(--teal); line-height: 1.25; }
+.als-stage--current { background: var(--white); box-shadow: 0 3px 12px -6px rgba(19,107,125,.35); }
+.als-stage--current .als-stage__num { background: var(--mustard); color: var(--ink); }
+.als-stage--current .als-stage__label { color: var(--ink); font-weight: 700; }
+/* --mustard-ink, not --mustard-dark: 11.5px text needs 4.5:1 and the hover
+   fill only reaches 3.00:1. See the note in otter-alongside-tokens.css. */
+.als-stage__here {
+  display: block; margin-top: 2px; font-size: 11.5px; font-weight: 600;
+  letter-spacing: .08em; text-transform: uppercase; color: var(--mustard-ink);
+}
+/* Stages 3-6 are named and dated, not filler — dashed border says "not built
+   yet", but no opacity dimming: the titles need to be readable. */
+.als-stage--future { border-style: dashed; border-color: var(--hairline-strong); }
+.als-stage--future .als-stage__num { background: rgba(59,46,30,.06); color: var(--muted); }
+.als-stage--future .als-stage__label { color: var(--muted); }
+
+/* ===== Layout: contents rail + body ======================================== */
+
+.als-layout {
+  max-width: var(--max-width); margin: 0 auto;
+  padding: 60px var(--gutter) var(--space-10);
+  display: flex; flex-wrap: wrap; gap: 56px; align-items: flex-start;
+}
+.als-toc {
+  flex: 1 1 218px; max-width: 252px; position: sticky; top: 112px;
+  display: flex; flex-direction: column; gap: 18px;
+}
+.als-toc__title {
+  margin: 0; font-size: 11.5px; font-weight: 700;
+  letter-spacing: .11em; text-transform: uppercase; color: var(--muted);
+}
+.als-toc__list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 2px; }
+.als-toc__link {
+  display: block; padding: var(--space-2) var(--space-3);
+  border-left: 3px solid transparent; border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  font-size: 14.5px; line-height: 1.4; font-weight: 500;
+  color: var(--muted); text-decoration: none;
+  transition: color var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
+}
+.als-toc__link:hover { color: var(--teal-dark); }
+.als-toc__link--sub { padding-left: 26px; font-size: 14px; }
+.als-toc__link.is-current {
+  color: var(--teal-dark); font-weight: 700;
+  border-left-color: var(--mustard); background: var(--cream);
+}
+.als-toc__foot {
+  border-top: 1px solid var(--hairline); padding-top: 18px;
+  display: flex; align-items: center; gap: var(--space-3);
+}
+.als-toc__foot img { width: 42px; height: auto; flex: none; }
+.als-toc__foot p { margin: 0; font-size: 13.5px; line-height: 1.5; color: var(--muted); }
+
+/* Body column. --als-scale / --als-font are the large-print hooks; everything
+   inside sizes in em so one variable moves the whole page. */
+.als-body {
+  flex: 999 1 560px; min-width: 0;
+  font-family: var(--als-font, var(--font-body));
+  font-size: calc(18.5px * var(--als-scale, 1));
+  color: var(--ink);
+  display: flex; flex-direction: column; gap: 66px;
+}
+.als-body--legible { --als-font: var(--font-legible); }
+
+/* ===== Sections & text ===================================================== */
+
+.als-section { scroll-margin-top: 118px; display: flex; flex-direction: column; gap: 22px; }
+.als-section__dots { display: flex; align-items: center; gap: 7px; }
+.als-section__dots span { width: 8px; height: 8px; border-radius: 50%; background: var(--mustard); }
+.als-h2 {
+  margin: 0; font-family: var(--font-display); font-weight: 600;
+  font-size: 1.68em; line-height: 1.14; letter-spacing: -.4px; color: var(--ink);
+}
+.als-h3 { margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 1.24em; color: var(--teal-dark); }
+.als-p { margin: 0; font-size: 1em; line-height: 1.72; max-width: 64ch; }
+.als-p--lede { font-size: 1.14em; line-height: 1.62; max-width: 62ch; }
+.als-p--muted { color: var(--muted); }
+.als-p--sm { font-size: .96em; line-height: 1.7; max-width: 60ch; }
+.als-p--fine { font-size: .9em; line-height: 1.65; max-width: 52ch; }
+.als-p--tight { max-width: 52ch; }
+.als-quote {
+  margin: 0; font-family: var(--font-quote); font-style: italic;
+  font-size: 1.22em; line-height: 1.5; color: var(--teal-dark);
+  border-left: 3px solid var(--mustard); padding-left: 22px; max-width: 52ch;
+}
+/* Design notes — DELETE before ship. */
+.als-devnote { margin: 0; font-size: .78em; line-height: 1.5; color: var(--muted); font-style: italic; }
+
+/* ===== Callout / note (existing names kept) ================================ */
+
+.als-callout {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 22px; flex-wrap: wrap; background: var(--white);
+  border: 1px solid var(--hairline); border-left: 6px solid var(--teal);
+  border-radius: 0 var(--radius) var(--radius) 0; padding: 24px 28px;
+  box-shadow: 0 3px 14px -8px rgba(19,107,125,.4);
+}
+.als-callout__main { display: flex; align-items: flex-start; gap: 18px; flex: 1 1 320px; min-width: min(100%, 260px); }
+.als-callout__text { display: flex; flex-direction: column; gap: 5px; }
+.als-callout__text strong { font-family: var(--font-display); font-size: 1.06em; font-weight: 600; color: var(--ink); }
+.als-callout p { margin: 0; font-size: .88em; line-height: 1.6; color: var(--muted); max-width: 46ch; }
+.als-callout p strong { font-weight: 700; color: var(--ink); }
+.als-callout .btn { flex: none; white-space: nowrap; }
+
+.als-note {
+  background: var(--mustard-soft); border-left: 6px solid var(--mustard-dark);
+  border-radius: 0 var(--radius) var(--radius) 0; padding: 18px 22px;
+}
+.als-note p, .als-note__title { margin: 0; }
+.als-note p { font-size: .9em; line-height: 1.65; color: #5C4A20; max-width: 58ch; }
+.als-note p strong, .als-note__title { color: var(--ink); font-weight: 700; }
+.als-note__title { display: block; font-family: var(--font-display); font-size: 1.04em; font-weight: 600; margin-bottom: 6px; }
+.als-note--lg { padding: 22px 26px; }
+
+/* ===== Cards =============================================================== */
+
+.als-cards { display: grid; gap: 22px; }
+.als-cards--2 { grid-template-columns: repeat(auto-fit, minmax(272px, 1fr)); }
+.als-cards--4 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
+.als-cards--team { grid-template-columns: repeat(auto-fit, minmax(218px, 1fr)); gap: 18px; }
+
+.als-card {
+  background: var(--white); border: 1px solid var(--hairline);
+  border-radius: var(--radius); padding: 26px;
+  display: flex; flex-direction: column; gap: 14px;
+  box-shadow: 0 3px 14px -8px rgba(19,107,125,.4);
+}
+/* Squared on the coloured edge — top accent must not curve round. */
+.als-card--top-sun  { border-top: 4px solid var(--mustard); border-radius: 0 0 var(--radius) var(--radius); }
+.als-card--top-teal { border-top: 4px solid var(--teal);    border-radius: 0 0 var(--radius) var(--radius); }
+.als-card__head { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); }
+.als-card__chip {
+  display: inline-flex; align-items: center; justify-content: center; flex: none;
+  width: 44px; height: 44px; border-radius: var(--radius-sm); background: var(--teal-soft);
+}
+.als-card__chip img { width: 24px; height: 24px; }
+.als-card__chip--sun { background: var(--mustard-soft); }
+.als-card__pill {
+  font-size: 11.5px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase;
+  padding: 5px var(--space-3); border-radius: var(--radius-pill);
+  background: var(--mustard); color: var(--ink);
+}
+.als-card__pill--teal { background: var(--teal-soft); color: var(--teal); }
+.als-card__title { font-family: var(--font-display); font-size: 1.12em; font-weight: 600; color: var(--ink); }
+.als-card p { margin: 0; font-size: .9em; line-height: 1.66; color: var(--muted); }
+.als-card--row { flex-direction: row; align-items: flex-start; gap: var(--space-4); padding: 22px; }
+.als-card--row .als-card__body { display: flex; flex-direction: column; gap: 7px; min-width: 0; }
+.als-card--row .als-card__title { font-size: 1.05em; }
+.als-card--row p { font-size: .85em; line-height: 1.6; }
+
+/* ===== App-setup panel ===================================================== */
+
+.als-panel {
+  scroll-margin-top: 118px; background: var(--cream);
+  border: 1px solid var(--hairline); border-radius: var(--radius);
+  padding: clamp(24px, 3.4vw, 40px);
+  display: flex; flex-direction: column; gap: 26px;
+}
+.als-panel__head {
+  display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between;
+  gap: var(--space-4); border-bottom: 1px solid var(--hairline); padding-bottom: 22px;
+}
+.als-panel__headtext { display: flex; flex-direction: column; gap: 10px; flex: 1 1 300px; }
+.als-panel__cond {
+  display: inline-flex; align-items: center; gap: var(--space-2);
+  font-size: 11.5px; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--teal);
+}
+.als-panel__cond::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--mustard); }
+.als-panel__skip {
+  flex: none; display: inline-flex; align-items: center; gap: var(--space-2);
+  font-size: 14px; font-weight: 600; color: var(--teal); text-decoration: none;
+  border: 1.5px solid var(--hairline-strong); border-radius: var(--radius-pill);
+  padding: 9px 18px; background: var(--white);
+  transition: border-color var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+.als-panel__skip:hover { border-color: var(--teal); color: var(--teal-dark); }
+.als-panel__sub { font-size: .94em; line-height: 1.66; max-width: 52ch; }
+.als-panel__block { display: flex; flex-direction: column; gap: var(--space-4); }
+.als-panel__block--divided { border-top: 1px solid var(--hairline); padding-top: 14px; }
+
+.als-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(178px, 1fr)); gap: var(--space-4); }
+.als-step {
+  background: var(--white); border: 1px solid var(--hairline); border-radius: var(--radius);
+  padding: var(--space-5); display: flex; flex-direction: column; gap: 10px;
+}
+.als-step__num {
+  width: 32px; height: 32px; border-radius: 50%; background: var(--mustard); color: var(--ink);
+  font-size: 15px; font-weight: 700; display: flex; align-items: center; justify-content: center;
+}
+.als-step strong { font-family: var(--font-display); font-size: 1.02em; font-weight: 600; color: var(--ink); }
+.als-step p { margin: 0; font-size: .86em; line-height: 1.6; color: var(--muted); }
+.als-step p strong { font-family: var(--font-body); color: var(--ink); font-weight: 700; }
+
+/* App-store search mock — stands in for a missing screenshot. */
+.als-search {
+  background: var(--white); border: 1px solid var(--hairline); border-radius: var(--radius);
+  padding: 22px; display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-5);
+}
+.als-search__field { flex: 1 1 280px; min-width: 0; display: flex; flex-direction: column; gap: 9px; }
+.als-search__label { font-size: 11.5px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: var(--muted); }
+.als-search__box {
+  display: flex; align-items: center; gap: var(--space-3);
+  background: var(--beige); border: 1.5px solid var(--hairline-strong);
+  border-radius: var(--radius-sm); padding: 13px var(--space-4);
+}
+.als-search__box::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: var(--mustard); flex: none; }
+.als-search__box span { font-size: 1.02em; font-weight: 600; color: var(--ink); letter-spacing: .01em; }
+.als-search p { margin: 0; flex: 1 1 220px; font-size: .84em; line-height: 1.6; color: var(--muted); }
+
+/* ===== Device frames + annotation pins ===================================== */
+
+.als-shots { display: grid; grid-template-columns: repeat(auto-fit, minmax(186px, 1fr)); gap: var(--space-5); }
+.als-shots--wide { display: flex; flex-wrap: wrap; gap: var(--space-8); align-items: flex-start; }
+.als-shot { margin: 0; display: flex; flex-direction: column; gap: var(--space-3); }
+.als-shot--single { flex: 0 1 262px; min-width: 210px; }
+.als-shot figcaption { font-size: .82em; line-height: 1.55; color: var(--muted); }
+.als-shot figcaption strong { color: var(--ink); font-weight: 700; }
+/* Text column sitting beside a single device shot. */
+.als-shot__aside { flex: 1 1 300px; min-width: 0; display: flex; flex-direction: column; gap: 18px; }
+
+.als-device { position: relative; padding: var(--space-2); background: var(--ink); border-radius: 26px; box-shadow: 0 16px 34px -20px rgba(19,107,125,.7); }
+.als-device--lg { padding: 10px; border-radius: 34px; box-shadow: var(--shadow-lg); }
+.als-device__screen { position: relative; border-radius: 19px; overflow: hidden; background: #fff; }
+.als-device--lg .als-device__screen { border-radius: 25px; }
+.als-device__screen img { width: 100%; height: auto; display: block; }
+
+/* Annotation rings. Positioned per-instance with inline custom properties —
+   the only inline styling on the page, because the coordinates are
+   image-specific data, not style. */
+.als-pin { position: absolute; border: 3px solid var(--mustard); box-shadow: 0 0 0 4px rgba(212,172,79,.25); }
+.als-pin--box { border-radius: 7px; }
+.als-pin--thin { border-width: 2.5px; box-shadow: 0 0 0 4px rgba(212,172,79,.28); }
+.als-pin--circle { border-radius: 50%; aspect-ratio: 1; }
+.als-pin__label {
+  position: absolute; font-size: 10.5px; font-weight: 700; letter-spacing: .06em;
+  text-transform: uppercase; color: var(--ink); background: var(--mustard);
+  padding: 4px 9px; border-radius: var(--radius-pill);
+}
+
+/* ===== View-only access strip ============================================== */
+
+.als-access {
+  display: flex; align-items: flex-start; gap: var(--space-4);
+  background: var(--teal-soft); border-radius: var(--radius); padding: var(--space-5) var(--space-6);
+}
+.als-access__chip {
+  display: inline-flex; align-items: center; justify-content: center; flex: none;
+  width: 40px; height: 40px; border-radius: var(--radius-sm); background: rgba(255,255,255,.75);
+}
+.als-access__chip img { width: 22px; height: 22px; }
+.als-access p { margin: 0; font-size: .92em; line-height: 1.66; color: var(--teal-deep); max-width: 56ch; }
+
+/* ===== Team ================================================================ */
+
+.als-person {
+  background: var(--white); border: 1px solid var(--hairline); border-radius: var(--radius);
+  padding: 22px; display: flex; flex-direction: column; gap: var(--space-3);
+  box-shadow: 0 3px 14px -8px rgba(19,107,125,.4);
+}
+.als-person__photo {
+  width: 88px; height: 88px; border-radius: 50%; object-fit: cover;
+  background: var(--teal-soft); display: block;
+}
+/* Placeholder slot until the consented headshot lands. Each carries its
+   intended path in data-photo — replace the div with:
+   <img class="als-person__photo" src="…" alt="Name">  */
+.als-person__photo--empty {
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-size: 30px; font-weight: 600;
+  color: var(--teal); border: 1px dashed var(--hairline-strong);
+}
+.als-person__id { display: flex; flex-direction: column; gap: 3px; }
+.als-person__name { font-family: var(--font-display); font-size: 1.1em; font-weight: 600; color: var(--ink); }
+.als-person__role { font-size: 11.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--mustard-ink); }
+.als-person p { margin: 0; font-size: .85em; line-height: 1.6; color: var(--muted); }
+
+/* ===== MCA download (existing name kept) =================================== */
+
+.als-download {
+  background: var(--white); border: 1px solid var(--hairline); border-radius: var(--radius);
+  padding: 26px; display: flex; flex-wrap: wrap; align-items: center; gap: 26px;
+  box-shadow: 0 3px 14px -8px rgba(19,107,125,.4);
+}
+.als-download img { width: 104px; height: auto; flex: none; border: 1px solid var(--hairline); border-radius: 6px; box-shadow: 0 6px 18px -10px rgba(19,107,125,.6); }
+.als-download__text { flex: 1 1 260px; min-width: 0; display: flex; flex-direction: column; gap: var(--space-2); }
+.als-download h3 { margin: 0; font-family: var(--font-display); font-size: 1.14em; font-weight: 600; color: var(--ink); }
+.als-download p { margin: 0; font-size: .88em; line-height: 1.62; color: var(--muted); max-width: 48ch; }
+
+/* ===== Closing CTA ========================================================= */
+
+.als-close {
+  position: relative; overflow: hidden; background: var(--teal);
+  border-radius: var(--radius); padding: clamp(26px, 3.2vw, 38px);
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 26px;
+}
+.als-close__text { flex: 1 1 300px; min-width: 0; display: flex; flex-direction: column; gap: 10px; }
+.als-close__text strong { font-family: var(--font-display); font-size: 1.34em; font-weight: 600; color: #fff; }
+.als-close__text p { margin: 0; font-size: .94em; line-height: 1.66; color: rgba(255,255,255,.86); max-width: 44ch; }
+.als-close__actions { padding-top: 10px; }
+.als-close__mascot { flex: none; width: clamp(120px, 16vw, 174px); height: auto; align-self: flex-end; margin-bottom: -14px; }
+
+/* ===== Prev / next stage =================================================== */
+
+.als-prevnext {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px;
+  border-top: 1px solid var(--hairline); padding-top: 34px;
+}
+.als-prevnext__item {
+  text-decoration: none; background: var(--white); border: 1px solid var(--hairline);
+  border-radius: var(--radius); padding: var(--space-5) 22px;
+  display: flex; flex-direction: column; gap: 5px;
+  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+a.als-prevnext__item:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+.als-prevnext__eyebrow { font-size: 11.5px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: var(--muted); }
+.als-prevnext__title { font-family: var(--font-display); font-size: 1.06em; font-weight: 600; color: var(--teal); }
+.als-prevnext__item--future { border-style: dashed; border-color: var(--hairline-strong); background: transparent; }
+.als-prevnext__item--future .als-prevnext__title { color: var(--muted); }
+
+/* ===== Responsive ========================================================== */
+
+@media (max-width: 1000px) {
+  .als-toc { position: static; max-width: none; flex: 1 1 100%; }
+  .als-toc__list { flex-direction: row; flex-wrap: wrap; gap: var(--space-2); }
+  .als-toc__link {
+    border-left: 0; border: 1px solid var(--hairline);
+    border-radius: var(--radius-pill); padding: var(--space-2) 14px;
+  }
+  .als-toc__link.is-current { border-color: var(--mustard); background: var(--cream); }
+  .als-toc__link--sub { display: none; }
+  .als-layout { gap: var(--space-8); }
+  .als-body { gap: 52px; }
+}
+@media (max-width: 600px) {
+  .als-hero__aside { position: static; margin-top: -20px; margin-left: 0; max-width: none; }
+  .als-callout, .als-download, .als-close { flex-direction: column; align-items: flex-start; }
+  .als-close__mascot { align-self: flex-end; margin-top: -40px; }
+  .als-shots--wide { gap: var(--space-5); }
+  .als-shot--single { flex: 1 1 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+  html { scroll-behavior: auto; }
+}
+
+@media print {
+  [data-print="hide"], .als-toc, .als-prevnext, .als-devnote { display: none !important; }
+  .als-hero, .als-close { background: none; color: var(--ink); }
+  .als-hero__title, .als-hero__lede, .als-close__text strong, .als-close__text p { color: var(--ink); }
+  .als-body { font-size: 11pt; gap: 28px; }
+  .als-panel, .als-card, .als-person, .als-download { box-shadow: none; break-inside: avoid; }
+  .als-section { break-inside: avoid-page; }
+}
