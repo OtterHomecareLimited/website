@@ -152,20 +152,24 @@
 }
 
 /* ---------------------------------------------------------------------------
-   Hero ground — Jamie, 2026-07-25: the hero and the site header were the same
-   colour, so they read as one flat teal block with no separation.
+   Hero ground — Jamie, 2026-07-25 (corrected).
 
-   Both were var(--teal) #136B7D — literally identical. Dropping the hero to
-   --teal-deep #0B3F49 separates them (1.88:1 against the header) and improves
-   everything sitting on it: white text 6.13 -> 11.53, the mustard CTA
-   3.14 -> 5.91. The header is site-wide so the hero is the one to move.
+   The reference is: utility bar and hero share a colour, with the nav sitting
+   between them as a LIGHTER band. So the hero matches .util, which
+   code-overrides.css sets to --teal-d (#0F4F60) — not --teal-deep, and the nav
+   is left at design's --teal (#136B7D).
 
-   Selector is `section.als-hero` (0,1,1), not `.als-hero` (0,1,0):
-   otter-alongside.css loads after this file and sets the hero to var(--teal),
-   so a same-specificity rule here would lose. Reordering the imports would
-   contradict the load order design's README pins, so raise specificity.
+   (An earlier pass read this the other way round and darkened the nav instead.
+   That produced one continuous dark block, which is not the intent.)
+
+   White text on --teal-d measures 9.10:1 and the mustard CTA 4.67:1 — both
+   comfortably better than on --teal, which is what the hero started as.
+
+   `section.als-hero` (0,1,1), not `.als-hero` (0,1,0): otter-alongside.css
+   loads after this file and sets the hero to var(--teal), so a
+   same-specificity rule here would lose.
    --------------------------------------------------------------------------- */
-section.als-hero { background: var(--teal-deep); }
+section.als-hero { background: var(--teal-d, #0F4F60); }
 
 /* ---------------------------------------------------------------------------
    Unwritten stages — Jamie: "these tabs on the top don't seem to work".
