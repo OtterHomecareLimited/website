@@ -119,6 +119,39 @@
 .prose a.btn-ghost { color: var(--teal-dark); }
 
 /* ---------------------------------------------------------------------------
+   BARE `nav` SELECTOR — the big one. Send upstream.
+
+   otter-home.css line 55:
+       nav{position:sticky;top:0;z-index:50;background:var(--teal);box-shadow:…}
+
+   An unscoped element selector, so EVERY <nav> on the page becomes the site
+   header: sticky, teal, z-index 50. Alongside uses <nav> semantically four
+   times — breadcrumb, stage rail, contents rail, prev/next — so all four
+   turned into teal bars stacked at top:0. That produced both reported bugs:
+   the contents rail rendered teal-on-teal (unreadable), and the rails
+   collided with the real header.
+
+   The correct fix is upstream: scope that rule to the site header
+   (`.site-nav` / `header nav`). Until then, opt these four out explicitly.
+   Not `nav:not(.site-nav)` here — that would restyle every other page.
+   --------------------------------------------------------------------------- */
+.als-crumbs,
+.als-stages,
+.als-toc,
+.als-prevnext {
+  position: static;
+  top: auto;
+  z-index: auto;
+  background: none;
+  box-shadow: none;
+}
+/* The contents rail is meant to be sticky — reinstate it after the reset. */
+.als-toc {
+  position: sticky;
+  top: calc(var(--als-head, 96px) + 16px);
+}
+
+/* ---------------------------------------------------------------------------
    Hero CTA — port fix, send back to design.
    The handoff markup uses the SITE's `btn btn-primary`, assuming it's mustard.
    On otter-home.css `.btn-primary` is TEAL (#136B7D) — the same colour as the
