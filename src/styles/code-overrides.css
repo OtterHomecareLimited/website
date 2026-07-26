@@ -305,15 +305,17 @@ button,summary,.btn,.otter-fab,.talk-opt,[role="switch"]{touch-action:manipulati
   .als-shot--single{max-width:100%}
 }
 
-/* ——— Mobile contact affordance swap (Jamie, 2026-07-26) ———
-   The sticky .mbar (Call / Book a free assessment) sat on top of page content
-   on phones — markup removed in SiteLayout. In its place, the clay "Talk to us"
-   launcher takes over on mobile: design's ≤1000px rules hid it entirely
-   (#talkToggle{display:none}) and shrank it to icon-only at bottom:90px to
-   clear the bar. With the bar gone: visible, labelled, back at the corner.
-   The pop panel follows (fab bottom 20 + height 56 + gap 12). */
+/* ——— Mobile contact affordance swap (Jamie, 2026-07-26, revised same day) ———
+   The sticky .mbar was removed (markup gone from SiteLayout); the clay
+   launcher takes over on mobile. BOTH floating bubbles share .otter-fab —
+   the accessibility control on the left and the chat launcher on the right —
+   so they are aligned together here. Jamie: icon-only circles, same size,
+   same baseline. Design's ≤1000px block already shrinks .otter-fab to a 56px
+   icon-only circle and hides .fab-label; it also hid #talkToggle entirely
+   (the bar used to do its job) and raised bottoms to clear the bar. With the
+   bar gone: chat un-hidden, both bubbles down at 20px. */
 @media(max-width:1000px){
-  #talkToggle{display:inline-flex;width:auto;padding:0 20px 0 16px;bottom:20px;right:16px;justify-content:flex-start}
-  #talkToggle .fab-label{display:inline}
+  #talkToggle{display:inline-flex;right:16px}
+  .otter-fab{bottom:20px}
   .otter-pop{bottom:88px}
 }
