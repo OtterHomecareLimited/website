@@ -93,8 +93,19 @@
 
 .als-stages { background: var(--cream); border-bottom: 1px solid var(--hairline); }
 .als-stages__inner {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(158px, 1fr));
+/* Explicit bands, not auto-fit. There are always SIX stages, and 6 divides
+   cleanly into 6 / 3 / 2 — so the row never orphans. auto-fit with
+   minmax(158px, 1fr) landed on 5 columns around 900px, leaving stage 6 alone on
+   a second row with ~700px of empty space beside it, which made the rail look
+   broken rather than deliberate. (Design, FAQ handoff round.) */
+  display: grid; grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 10px; max-width: var(--max-width); margin: 0 auto; padding: var(--space-5) var(--gutter);
+}
+@media (max-width: 1100px) {
+  .als-stages__inner { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 620px) {
+  .als-stages__inner { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 .als-stage {
   display: flex; align-items: center; gap: var(--space-3);

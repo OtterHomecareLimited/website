@@ -1,0 +1,439 @@
+---
+// Otter Alongside — "Questions families ask" (/family/questions).
+// Ported from design's FAQ handoff (Desktop/handoff, 2026-07-26). Stand-in
+// header/footer stripped, assets repointed, breadcrumb parent corrected.
+// Interaction decision is design's and deliberate: NO accordion — always-visible
+// grouped Q&A with a jump index (find-in-page, elderly readers, schema, print).
+//
+// The FAQPage JSON-LD below was GENERATED from this file's own markup at port
+// time (one Question per <article class="faq-item">; .faq-item__more excluded
+// as navigation). If the Q&A copy changes, regenerate it — don't let them drift.
+import SiteLayout from "../../layouts/SiteLayout.astro";
+import "../../styles/otter-alongside-tokens.css";
+import "../../styles/otter-alongside.css";
+import "../../styles/otter-alongside-faq.css";
+// Loads LAST on purpose — see the header of otter-alongside-print.css.
+import "../../styles/otter-alongside-print.css";
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do we have to commit to anything to talk to you?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Ringing us commits you to nothing, and the home visit is free with no obligation. Plenty of people who ring don't need care yet — we'd rather tell you that than sell you something."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does it cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We publish our full rates rather than making you ask — hourly visiting care, overnight and live-in are all on the cost of home care page. What you'd actually pay depends on how much help is needed and when, so we'd rather talk it through than quote a number that turns out to be wrong."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there money to help pay for care?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Often, yes — and much of it goes unclaimed for years. Attendance Allowance isn't means-tested. A Carer's Assessment is free and your legal right. None of it comes to us; we'd just rather you knew."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Mum says no. Can we arrange care anyway?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If your relative can make their own decisions, the choice is theirs — even if you disagree, and even if you're the one picking up the pieces. A first no is normal and rarely final; starting with something small and practical often shifts it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why can't I find the Otter app in the App Store?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because it isn't called Otter. The app is Access Care Planning — look for the red circle. It's the care system we use rather than something we built, so it carries their name."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do we get access to the app?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ask us — it isn't set up automatically, and your relative (or their representative) agrees to it first. Up to three people, view-only, and access can be removed at any time just by asking."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "I'm logged in but the app is empty. Is it broken?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No — this catches almost everyone. You have to follow your relative's records first: tap the three-dot menu, choose Follow Cases, type their first name."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do we have to use the app?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not at all. Most families choose a phone call when something matters and otherwise let us get on with it. Both are completely fine."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can we change visit times, or add a visit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — most changes are a phone call. The earlier you tell us, the better the chance of keeping the same familiar faces on the rota."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Something isn't right. Will complaining affect Mum's care?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Never — and you won't be causing trouble. Early and small is far easier to put right than late and large. If it's serious we'll come out in person, including at weekends, and we'll tell you what changed as a result."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who do we ring at night or the weekend?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The same number, always: Outside office hours — 8:30am to 5pm, Monday to Friday — it reaches our on-call team, who can always get to a manager."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Mum's gone into hospital. What do we do about the visits?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tell us as soon as you can and we'll pause everything — and ring us the moment you hear a discharge date, even a vague one. Coming home is the risky bit, not going in."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "I'm not a carer — I'm just her daughter. Does any of this apply to me?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If you're doing the shopping, sorting medication, ringing the GP or lying awake wondering — yes. Almost everything written for \"carers\" is meant for you, and people miss years of help because they didn't think the word meant them."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I get a break without it looking like I'm giving up?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, and it isn't giving up — a carer who gets a proper break is usually the reason someone stays at home longer. Respite can be a few reliable hours a week or a longer block."
+      }
+    }
+  ]
+};
+---
+
+<SiteLayout
+  title="Questions families ask | Otter Alongside | Otter Homecare"
+  description="Short, honest answers to the questions families ask us most — costs, the care app, changing visits, hospital stays, and looking after yourself."
+>
+<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+<section class="als-hero">
+  <div class="als-wrap">
+    <nav class="als-crumbs" aria-label="Breadcrumb">
+      <a href="/">Home</a><span>·</span><a href="/support-for-families">For families</a><span>·</span><span class="is-current">Questions</span>
+    </nav>
+  </div>
+  <div class="als-hero__inner als-hero--compact">
+    <div class="als-hero__body">
+      <p class="eyebrow eyebrow--on-teal">Otter Alongside</p>
+      <h1 class="als-hero__title">Questions families ask</h1>
+      <p class="als-hero__lede">Short answers to the things we're asked most. If yours isn't here, ring us — we'd rather you asked than wondered.</p>
+      <div class="als-hero__actions">
+        <a class="btn btn-primary btn-lg" href="tel:01225690022">Ring us — 01225 690022</a>
+        <a class="als-hero__skip" href="#index">Jump to your question</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Stage rail ========================================================
+     This page isn't a stage — it sits across all six, so nothing is marked
+     current. Stages 1-2 link; 3-6 are named but not built.
+     ====================================================================== -->
+<nav class="als-stages" aria-label="Otter Alongside stages" data-print="hide">
+  <div class="faq-stages__where">
+    <span class="faq-stages__you">You're on the questions page</span>
+    <p>It sits across all six stages of Otter Alongside — the answers below link into them.</p>
+  </div>
+  <div class="als-stages__inner">
+    <a class="als-stage" href="/family/before-we-start">
+      <span class="als-stage__num">1</span><span class="als-stage__label">Before we start</span>
+    </a>
+    <a class="als-stage" href="/family/your-first-month">
+      <span class="als-stage__num">2</span><span class="als-stage__label">Your first month</span>
+    </a>
+    <span class="als-stage als-stage--future"><span class="als-stage__num">3</span><span class="als-stage__label">Living with it</span></span>
+    <span class="als-stage als-stage--future"><span class="als-stage__num">4</span><span class="als-stage__label">When things change</span></span>
+    <span class="als-stage als-stage--future"><span class="als-stage__num">5</span><span class="als-stage__label">Looking after you</span></span>
+    <span class="als-stage als-stage--future"><span class="als-stage__num">6</span><span class="als-stage__label">The last part</span></span>
+  </div>
+</nav>
+
+<div class="als-layout">
+
+  <!-- ===== Contents rail — the four moments, same furniture as the stages == -->
+  <nav class="als-toc" aria-label="On this page" data-print="hide">
+    <p class="als-toc__title">On this page</p>
+    <ul class="als-toc__list">
+      <li><a class="als-toc__link" data-als-nav="before" href="#before">Before care starts</a></li>
+      <li><a class="als-toc__link" data-als-nav="app" href="#app">The care app</a></li>
+      <li><a class="als-toc__link" data-als-nav="daytoday" href="#daytoday">Day to day</a></li>
+      <li><a class="als-toc__link" data-als-nav="foryou" href="#foryou">For you</a></li>
+    </ul>
+  </nav>
+
+  <main class="als-body">
+
+    <p class="als-p als-p--lede">Fourteen questions, grouped by when they tend to come up. The answers are deliberately short — each one links to the stage page that covers it properly.</p>
+
+    <!-- ===== Jump index ==================================================== -->
+    <nav class="faq-index" id="index" aria-label="Jump to a question">
+      <h2 class="faq-index__title">Jump to your question</h2>
+      <ul class="faq-index__list">
+        <li><a class="faq-index__link" href="#q-commit">Do we have to commit to anything to talk to you?</a></li>
+        <li><a class="faq-index__link" href="#q-cost">How much does it cost?</a></li>
+        <li><a class="faq-index__link" href="#q-funding">Is there money to help pay for care?</a></li>
+        <li><a class="faq-index__link" href="#q-refusing">Mum says no. Can we arrange care anyway?</a></li>
+        <li><a class="faq-index__link" href="#q-appname">Why can't I find the Otter app in the App Store?</a></li>
+        <li><a class="faq-index__link" href="#q-appaccess">How do we get access to the app?</a></li>
+        <li><a class="faq-index__link" href="#q-appempty">I'm logged in but the app is empty. Is it broken?</a></li>
+        <li><a class="faq-index__link" href="#q-appoptional">Do we have to use the app?</a></li>
+        <li><a class="faq-index__link" href="#q-times">Can we change visit times, or add a visit?</a></li>
+        <li><a class="faq-index__link" href="#q-complaint">Something isn't right. Will complaining affect Mum's care?</a></li>
+        <li><a class="faq-index__link" href="#q-outofhours">Who do we ring at night or the weekend?</a></li>
+        <li><a class="faq-index__link" href="#q-hospital">Mum's gone into hospital. What do we do about the visits?</a></li>
+        <li><a class="faq-index__link" href="#q-notacarer">I'm not a carer — I'm just her daughter. Does any of this apply to me?</a></li>
+        <li><a class="faq-index__link" href="#q-respite">Can I get a break without it looking like I'm giving up?</a></li>
+      </ul>
+      <div class="faq-index__foot">
+        <p class="faq-hand">Can't see yours?</p>
+        <a class="btn btn-primary" href="tel:01225690022">01225 690022</a>
+      </div>
+    </nav>
+
+    <!-- ===== Before care starts =========================================== -->
+    <section class="faq-group" id="before">
+      <div class="faq-group__head">
+        <h2 class="als-h2">Before care starts</h2>
+        <p class="faq-group__count">Four questions</p>
+      </div>
+      <div class="faq-list">
+
+        <article class="faq-item" id="q-commit">
+          <h3 class="faq-item__q">Do we have to commit to anything to talk to you?</h3>
+          <p class="faq-item__a">No. Ringing us commits you to nothing, and the home visit is free with no obligation. Plenty of people who ring don't need care yet — we'd rather tell you that than sell you something.</p>
+          <div class="faq-item__more">
+            <span>Read more</span>
+            <a href="/family/before-we-start">Before we start</a>
+          </div>
+        </article>
+
+        <article class="faq-item" id="q-cost">
+          <h3 class="faq-item__q">How much does it cost?</h3>
+          <p class="faq-item__a">We publish our full rates rather than making you ask — hourly visiting care, overnight and live-in are all on the cost of home care page. What you'd actually pay depends on how much help is needed and when, so we'd rather talk it through than quote a number that turns out to be wrong.</p>
+          <div class="faq-item__more">
+            <span>Read more</span>
+            <a href="/cost-of-home-care">The cost of home care</a>
+          </div>
+        </article>
+
+        <article class="faq-item" id="q-funding">
+          <h3 class="faq-item__q">Is there money to help pay for care?</h3>
+          <p class="faq-item__a">Often, yes — and much of it goes unclaimed for years. Attendance Allowance isn't means-tested. A Carer's Assessment is free and your legal right. <strong>None of it comes to us</strong>; we'd just rather you knew.</p>
+          <div class="faq-item__more">
+            <span>Read more</span>
+            <a href="/family/your-first-month#money">Help you may be entitled to</a>
+          </div>
+        </article>
+
+        <article class="faq-item" id="q-refusing">
+          <h3 class="faq-item__q">Mum says no. Can we arrange care anyway?</h3>
+          <p class="faq-item__a">If your relative can make their own decisions, the choice is theirs — even if you disagree, and even if you're the one picking up the pieces.</p>
+          <p class="faq-item__a">A first no is normal and rarely final; starting with something small and practical often shifts it.</p>
+          <div class="faq-item__more">
+            <span>Read more</span>
+            <a href="/family/before-we-start">Before we start</a>
+            <a href="/post/mental-capacity-act">The Mental Capacity Act, explained simply</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ===== The care app ================================================= -->
+    <section class="faq-group" id="app">
+      <div class="faq-group__head">
+        <h2 class="als-h2">The care app</h2>
+        <p class="faq-group__count">Four questions · only if you've asked for access</p>
+      </div>
+      <div class="faq-list">
+
+        <article class="faq-item" id="q-appname">
+          <h3 class="faq-item__q">Why can't I find the Otter app in the App Store?</h3>
+          <p class="faq-item__a">Because it isn't called Otter. The app is <strong>Access Care Planning</strong> — look for the red circle. It's the care system we use rather than something we built, so it carries their name.</p>
+          <div class="faq-item__more">
+            <span>Read more</span>
+            <a href="/family/your-first-month#app">Your first month</a>
+          </div>
+        </article>
+
+        <article class="faq-item" id="q-appaccess">
+          <h3 class="faq-item__q">How do we get access to the app?</h3>
+          <p class="faq-item__a">Ask us — it isn't set up automatically, and your relative (or their representative) agrees to it first. Up to three people, view-only, and access can be removed at any time just by asking.</p>
+          <div class="faq-item__more">
+            <span>Read more</span>
+            <a href="/family/your-first-month#app">Your first month</a>
+          </div>
+        </article>
+
+        <article class="faq-item" id="q-appempty">
+          <h3 class="faq-item__q">I'm logged in but the app is empty. Is it broken?</h3>
+          <p class="faq-item__a">No — this catches almost everyone. You have to follow your relative's records first: tap the three-dot menu, choose <strong>Follow Cases</strong>, type their first name.</p>
+          <div class="faq-item__more">
+            <span>Read more</span>
+            <a href="/family/your-first-month#stuck">The bit everyone gets stuck on</a>
+          </div>
+        </article>
+
+        <article class="faq-item" id="q-appoptional">
+          <h3 class="faq-item__q">Do we have to use the app?</h3>
+          <p class="faq-item__a">Not at all. Most families choose a phone call when something matters and otherwise let us get on with it. Both are completely fine.</p>
+          <div class="faq-item__more">
+            <span>Read more</span>
+            <a href="/family/your-first-month#choice">Your first month</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ===== Day to day =================================================== -->
+    <section class="faq-group" id="daytoday">
+      <div class="faq-group__head">
+        <h2 class="als-h2">Day to day</h2>
+        <p class="faq-group__count">Four questions</p>
+      </div>
+      <div class="faq-list">
+
+        <article class="faq-item" id="q-times">
+          <h3 class="faq-item__q">Can we change visit times, or add a visit?</h3>
+          <p class="faq-item__a">Yes — most changes are a phone call. The earlier you tell us, the better the chance of keeping the same familiar faces on the rota.</p>
+          <div class="faq-item__more">
+            <span>Read more</span>
+            <a href="/family/living-with-it">Living with it</a>
+          </div>
+        </article>
+
+        <article class="faq-item" id="q-complaint">
+          <h3 class="faq-item__q">Something isn't right. Will complaining affect Mum's care?</h3>
+          <p class="faq-item__a">Never — and you won't be causing trouble. Early and small is far easier to put right than late and large.</p>
+          <p class="faq-item__a">If it's serious we'll come out in person, including at weekends, and we'll tell you what changed as a result.</p>
+          <div class="faq-item__more">
+            <span>Read more</span>
+            <a href="/family/living-with-it">Living with it</a>
+          </div>
+        </article>
+
+        <!-- Pinned: the only answer whose whole point is a number. -->
+        <article class="faq-item faq-item--pinned" id="q-outofhours">
+          <h3 class="faq-item__q">Who do we ring at night or the weekend?</h3>
+          <p class="faq-item__a">The same number, always:</p>
+          <a class="faq-item__tel" href="tel:01225690022">01225 690022 <span class="faq-item__hours">day or night</span></a>
+          <p class="faq-item__a">Outside office hours — 8:30am to 5pm, Monday to Friday — it reaches our on-call team, who can always get to a manager.</p>
+        </article>
+
+        <article class="faq-item" id="q-hospital">
+          <h3 class="faq-item__q">Mum's gone into hospital. What do we do about the visits?</h3>
+          <p class="faq-item__a">Tell us as soon as you can and we'll pause everything — and ring us the moment you hear a discharge date, even a vague one.</p>
+          <p class="faq-item__a"><strong>Coming home is the risky bit, not going in.</strong></p>
+          <div class="faq-item__more">
+            <span>Read more</span>
+            <a href="/family/when-things-change">When things change</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ===== For you ====================================================== -->
+    <section class="faq-group" id="foryou">
+      <div class="faq-group__head">
+        <h2 class="als-h2">For you</h2>
+        <p class="faq-group__count">Two questions · about you, not your relative</p>
+      </div>
+      <div class="faq-list">
+
+        <article class="faq-item" id="q-notacarer">
+          <h3 class="faq-item__q">I'm not a carer — I'm just her daughter. Does any of this apply to me?</h3>
+          <p class="faq-item__a">If you're doing the shopping, sorting medication, ringing the GP or lying awake wondering — yes. Almost everything written for "carers" is meant for you, and people miss years of help because they didn't think the word meant them.</p>
+          <div class="faq-item__more">
+            <span>Read more</span>
+            <a href="/family/looking-after-you">Looking after you</a>
+          </div>
+        </article>
+
+        <article class="faq-item" id="q-respite">
+          <h3 class="faq-item__q">Can I get a break without it looking like I'm giving up?</h3>
+          <p class="faq-item__a">Yes, and it isn't giving up — a carer who gets a proper break is usually the reason someone stays at home longer. Respite can be a few reliable hours a week or a longer block.</p>
+          <div class="faq-item__more">
+            <span>Read more</span>
+            <a href="/family/looking-after-you">Looking after you</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ===== Close ======================================================== -->
+    <section class="als-section">
+      <div class="als-close">
+        <div class="als-close__text">
+          <strong>Still worried about something?</strong>
+          <p>Ring the office, or say it to whoever's next at the door. Both reach the same place, and no question is too small.</p>
+          <div class="als-close__actions"><a class="btn btn-primary btn-lg" href="tel:01225690022">01225 690022</a></div>
+        </div>
+        <img class="als-close__mascot" src="/img/alongside/brand/otter-mascot.png" alt="">
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- ===== Site footer — stand-in. Use the real Astro partial. ============== -->
+
+<script is:inline>
+/* Contents-rail current-section highlight — same script as the stage pages. */
+(function () {
+  var links = Array.prototype.slice.call(document.querySelectorAll('[data-als-nav]'));
+  if (!links.length) return;
+  var sections = links.map(function (l) { return document.getElementById(l.getAttribute('data-als-nav')); }).filter(Boolean);
+  if (!sections.length) return;
+  var raf = null;
+  function pick() {
+    var current = sections[0];
+    sections.forEach(function (s) { if (s.getBoundingClientRect().top <= 200) current = s; });
+    links.forEach(function (l) {
+      l.classList.toggle('is-current', l.getAttribute('data-als-nav') === current.id);
+    });
+  }
+  window.addEventListener('scroll', function () {
+    if (raf) return;
+    raf = requestAnimationFrame(function () { raf = null; pick(); });
+  }, { passive: true });
+  pick();
+})();
+</script>
+</SiteLayout>

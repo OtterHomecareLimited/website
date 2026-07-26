@@ -1,0 +1,225 @@
+/* ---------------------------------------------------------------------------
+   otter-alongside-faq.css — /family/questions only.
+
+   ADDITIVE. Loads AFTER otter-alongside.css and reuses its furniture wholesale:
+   .als-hero, .als-stages, .als-toc, .als-section, .als-h2, .als-p, .als-note,
+   .als-close, .als-section__dots. Only the Q&A-specific pieces are new, so the
+   page is ~120 lines of CSS rather than a second page's worth.
+
+   Load order:
+     otter-home.css -> otter-alongside-tokens.css -> otter-alongside.css
+     -> otter-alongside-faq.css -> otter-alongside-print.css
+
+   DS token names only. The bridge maps them; --mustard-ink now resolves to
+   your --sun-text.
+
+   WHY THERE IS NO ACCORDION HERE — a design decision, recorded so nobody
+   "fixes" it later. Answers are 2-4 sentences. Collapsing them saves very
+   little scroll and costs four things that matter more: discoverability for
+   the hallway reader at 85, browser find-in-page (an adult child searching
+   "hospital" at 11pm finds nothing if the text is in a closed panel), tap
+   certainty, and clean print. It would also fight the FAQPage schema
+   requirement of one question = one addressable block. The jump index at the
+   top does the wayfinding an accordion would otherwise be doing.
+   --------------------------------------------------------------------------- */
+
+/* ===== Load-order guard ====================================================
+   The site's bare `nav` selector styles ANY semantic <nav> as a sticky teal
+   header — the trap that bit the Stage 2 port. This page has two in-body navs
+   (stage rail, jump index).
+
+   ⚠ The guard must weigh (0,0,1) — the same as the site's bare `nav` — so it
+   wins on load order alone and loses to every component class rule. Hence
+   :where(), which contributes nothing to specificity. Written as
+   `.als-layout nav` it computes (0,1,1) and beats the components it's meant to
+   protect: it blanked .faq-index's cream ground and killed .als-toc's sticky.
+   Delete the whole block once otter-home.css scopes that selector.
+   ========================================================================== */
+
+:where(.als-layout) nav {
+  position: static; top: auto; background: none; box-shadow: none;
+}
+
+/* ===== Jump index ==========================================================
+   Surface is --teal-soft, not --cream. Cream sits only ~5 per channel off the
+   beige page ground, so the panel barely read as a panel. Teal-soft separates
+   by HUE rather than tone, which also does semantic work: the index is
+   wayfinding, not content, so it shouldn't look like the white answer cards
+   below it. Rules inside it are teal-tinted for the same reason — a warm brown
+   hairline goes muddy on a cool ground.
+   ========================================================================== */
+
+.faq-index {
+  --faq-line: rgba(19, 107, 125, .18);
+  background: var(--teal-soft); border: 1px solid rgba(19, 107, 125, .14);
+  border-radius: var(--radius); padding: clamp(22px, 3vw, 32px);
+  display: flex; flex-direction: column; gap: var(--space-5);
+}
+.faq-index__title {
+  margin: 0; font-family: var(--font-display); font-weight: 600;
+  font-size: 1.3em; line-height: 1.2; color: var(--ink);
+}
+.faq-index__list {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(288px, 1fr));
+  gap: 2px var(--space-8);
+}
+/* The <li> is a grid item and stretches to its row height; the <a> is only a
+   flex child of it and does NOT, so without these two rules a short question
+   next to a two-line one leaves a dead strip below the link and floats its
+   rule above the neighbouring column's. Both are needed: display:flex on the
+   li, flex:1 on the a. */
+.faq-index__list li { display: flex; }
+/* Whole row is the target, min 44px tall, and the rule sits between rows
+   rather than around them so 14 links don't read as 14 boxes. */
+.faq-index__link {
+  flex: 1;
+  display: flex; align-items: center; gap: var(--space-3);
+  min-height: 46px; padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--faq-line);
+  font-size: .96em; line-height: 1.45; font-weight: 500;
+  color: var(--teal-dark); text-decoration: none;
+  transition: color var(--dur-fast) var(--ease);
+}
+.faq-index__link::before {
+  content: ""; flex: none; width: 7px; height: 7px; border-radius: 50%;
+  background: var(--mustard);
+}
+.faq-index__link:hover { color: var(--teal); text-decoration: underline; text-underline-offset: 3px; }
+.faq-index__foot {
+  display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4);
+  border-top: 1px solid var(--faq-line); padding-top: var(--space-5);
+}
+/* No `.faq-index__foot p` rule here: at (0,1,1) it outranked .faq-hand (0,1,0)
+   and clamped the hand note back to .94em. The foot's only <p> IS the hand
+   note, so the rule was both dead weight and actively wrong. */
+
+/* ===== Group heading ======================================================= */
+
+.faq-group { scroll-margin-top: 118px; display: flex; flex-direction: column; gap: var(--space-6); }
+/* No double-dot motif on these headings — the stage pages use it to mark
+   section starts in a long read; here there are only four groups and the
+   heading carries itself. */
+.faq-group__head { display: flex; flex-direction: column; gap: var(--space-2); }
+.faq-group__count {
+  font-size: 11.5px; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--teal);
+}
+
+/* ===== One question ========================================================
+   One .faq-item = one addressable block for FAQPage schema. Question is the
+   <h3>, answer is .faq-item__a, deeper links live in a bordered footer so they
+   never compete with the answer text.
+   ========================================================================== */
+
+.faq-list { display: flex; flex-direction: column; gap: var(--space-4); }
+
+.faq-item {
+  background: var(--white); border: 1px solid var(--hairline);
+  border-radius: var(--radius); padding: clamp(22px, 2.6vw, 30px);
+  display: flex; flex-direction: column; gap: var(--space-3);
+  box-shadow: var(--shadow-sm);
+}
+.faq-item__q {
+  margin: 0; font-family: var(--font-display); font-weight: 600;
+  font-size: 1.2em; line-height: 1.3; color: var(--ink); text-wrap: pretty;
+}
+.faq-item__a { margin: 0; font-size: 1em; line-height: 1.72; color: var(--ink); max-width: 66ch; }
+.faq-item__a strong { font-weight: 700; }
+.faq-item__a + .faq-item__a { margin-top: calc(var(--space-1) * -1); }
+
+.faq-item__more {
+  display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-5);
+  border-top: 1px solid var(--hairline); margin-top: var(--space-2); padding-top: var(--space-4);
+}
+.faq-item__more a {
+  display: inline-flex; align-items: center; gap: var(--space-2);
+  font-size: .9em; font-weight: 600; color: var(--teal);
+  text-decoration: none; min-height: 24px;
+}
+.faq-item__more a::after { content: "→"; font-weight: 400; }
+.faq-item__more a:hover { color: var(--teal-dark); text-decoration: underline; text-underline-offset: 3px; }
+.faq-item__more span {
+  font-size: 11.5px; font-weight: 700; letter-spacing: .09em;
+  text-transform: uppercase; color: var(--muted);
+}
+
+/* Pinned: the out-of-hours phone answer. Squared on the coloured edge. */
+.faq-item--pinned {
+  border-left: 6px solid var(--teal); border-radius: 0 var(--radius) var(--radius) 0;
+}
+.faq-item__tel {
+  display: inline-flex; align-items: baseline; gap: var(--space-3);
+  font-family: var(--font-display); font-size: 1.5em; font-weight: 600;
+  color: var(--teal-dark); text-decoration: none;
+}
+.faq-item__tel:hover { color: var(--teal); text-decoration: underline; text-underline-offset: 4px; }
+.faq-item__hours { font-family: var(--font-body); font-size: .5em; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--mustard-ink); }
+
+/* ===== Compact hero =======================================================
+   The stage pages' hero is a two-up photo layout. This page has no photograph
+   (looked things up in, not read through), so the single text column takes the
+   full width and the block sits shallower.
+   ========================================================================== */
+
+.als-hero--compact { padding-bottom: 48px; }
+
+/* ===== Stage rail context ===================================================
+   This page is not a stage — it sits across all six — so nothing in the rail
+   is marked current. Without saying so, the row reads as if it FAILED to mark
+   one. This line states the position explicitly and reframes the six as
+   destinations rather than a progress indicator.
+   ========================================================================== */
+
+.faq-stages__where {
+  max-width: var(--max-width); margin: 0 auto;
+  padding: var(--space-5) var(--gutter) var(--space-3);
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--space-2) var(--space-4);
+}
+.faq-stages__you {
+  display: inline-flex; align-items: center; gap: var(--space-2);
+  background: var(--white); border: 1px solid var(--hairline);
+  border-radius: var(--radius-pill); padding: 7px 16px 7px 12px;
+  font-size: 14px; font-weight: 700; color: var(--ink);
+}
+.faq-stages__you::before {
+  content: ""; flex: none; width: 9px; height: 9px; border-radius: 50%; background: var(--mustard);
+}
+.faq-stages__where p { margin: 0; font-size: 14px; line-height: 1.5; color: var(--muted); }
+
+/* ===== Hand note (one appearance) ==========================================
+   Caveat has a small x-height and runs visually smaller than its point size,
+   so it needs to be set larger than surrounding copy to read as equal weight.
+   ========================================================================== */
+
+.faq-hand {
+  margin: 0; font-family: var(--font-hand); font-weight: 500;
+  font-size: 1.62em; line-height: 1.15; color: var(--teal-dark);
+}
+
+/* ===== Responsive ========================================================== */
+
+@media (max-width: 700px) {
+  .faq-index__list { grid-template-columns: 1fr; }
+  .faq-index__link { min-height: 52px; }   /* thumb target, not pointer target */
+}
+
+/* ===== Print ===============================================================
+   Sits on top of otter-alongside-print.css; only the FAQ specifics.
+   ========================================================================== */
+
+@media print {
+  .faq-index, .faq-stages__where { display: none !important; }
+  .faq-item {
+    box-shadow: none; break-inside: avoid; page-break-inside: avoid;
+    padding: 10pt 0; border: 0; border-top: 0.5pt solid #999; border-radius: 0;
+  }
+  .faq-item--pinned { border-left: 3pt solid #136B7D; padding-left: 10pt; }
+  .faq-item__q { font-size: 12pt; }
+  .faq-item__a { font-size: 10.5pt; line-height: 1.5; max-width: none; }
+  .faq-item__more { border-top: 0; padding-top: 2pt; }
+  .faq-item__more a { color: #000; font-size: 9pt; }
+  .faq-item__more a::after { content: " (" attr(href) ")"; font-weight: 400; }
+  .faq-group { break-inside: auto; }
+  .faq-group__head { break-after: avoid; }
+}
