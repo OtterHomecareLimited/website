@@ -216,3 +216,24 @@ section.als-hero { background: var(--teal-d, #0F4F60); }
    --------------------------------------------------------------------------- */
 .als-stages[hidden],
 .als-prevnext[hidden] { display: none; }
+
+/* ---------------------------------------------------------------------------
+   Content lists — Jamie, 2026-07-26: "bullet points aren't indented properly
+   (they are sticking out to the left)".
+
+   otter-alongside.css never styles ul/ol, so the site's global reset
+   (padding:0) reaches the content lists and the outside markers render in the
+   margin, left of the text column. Scoped to the body column; the toc list is
+   marker-less and unaffected.
+   --------------------------------------------------------------------------- */
+.als-body ul.als-p,
+.als-body ol.als-p {
+  padding-left: 1.15em;
+  list-style: disc outside;
+}
+.als-body ul.als-p li,
+.als-body ol.als-p li {
+  margin-bottom: .55em;
+  padding-left: .15em;
+}
+.als-body ol.als-p { list-style: decimal outside; }
