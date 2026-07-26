@@ -12,6 +12,12 @@ export default defineConfig({
   // One trailing-slash policy site-wide (the live Wix site was inconsistent).
   trailingSlash: 'never',
 
+  // The Alongside A5 booklets print "otterhomecare.co.uk/downloads" on the MCA
+  // card — a printed URL lives forever, so the bare path must resolve.
+  redirects: {
+    '/downloads': '/downloads/otter-mental-capacity-act-guide.pdf',
+  },
+
   build: {
     // Emit /contact.html rather than /contact/index.html so URLs have no trailing slash.
     format: 'file',
