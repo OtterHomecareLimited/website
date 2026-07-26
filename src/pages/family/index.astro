@@ -1,0 +1,115 @@
+---
+// Otter Alongside — the hub (/family). Jamie, 2026-07-26: "can we put all the
+// alongside content on /family? currently it doesn't yet exist."
+//
+// This URL is load-bearing beyond navigation: the A5 booklets PRINT
+// "otterhomecare.co.uk/family" on their covers and back covers, so until this
+// page existed the printed URL 404'd. Built by Code in design's als-*
+// vocabulary per the standing arrangement.
+import SiteLayout from "../../layouts/SiteLayout.astro";
+import "../../styles/otter-alongside-tokens.css";
+import "../../styles/otter-alongside.css";
+// Loads LAST on purpose — see the header of otter-alongside-print.css.
+import "../../styles/otter-alongside-print.css";
+
+const stages = [
+  { n: 1, href: "/family/before-we-start", title: "Before we start",
+    blurb: "Thinking about care for someone you love — raising it with them, what it costs, and an honest section on when you might not need us yet." },
+  { n: 2, href: "/family/your-first-month", title: "Your first month",
+    blurb: "Getting the care app running if you want it, who you'll actually speak to, and the questions everyone asks at the start." },
+  { n: 3, href: "/family/living-with-it", title: "Living with it",
+    blurb: "Care reviews, changing the plan when it stops fitting, and how to tell us something without feeling like a nuisance." },
+  { n: 4, href: "/family/when-things-change", title: "When things change",
+    blurb: "Getting more help, hospital stays and coming home, dementia progressing — and the honest conversation about what's next." },
+  { n: 5, href: "/family/looking-after-you", title: "Looking after you",
+    blurb: "For the family member doing the caring: the help you're entitled to, a proper break, and people who understand it." },
+  { n: 6, href: "/family/the-last-part", title: "The last part",
+    blurb: "For families nearing the end. Here when you want it — there's no need to read it before you do." },
+];
+---
+
+<SiteLayout
+  title="Otter Alongside — support for families | Otter Homecare"
+  description="Six short guides for the families of the people we care for — from the first 'should we get help?' conversation to the very end. Free to read, and backed by a real office you can ring."
+>
+<section class="als-hero">
+  <div class="als-wrap">
+    <nav class="als-crumbs" aria-label="Breadcrumb">
+      <a href="/">Home</a><span>·</span><a href="/support-for-families">For families</a><span>·</span><span class="is-current">Otter Alongside</span>
+    </nav>
+  </div>
+  <div class="als-hero__inner">
+    <div class="als-hero__body">
+      <p class="eyebrow eyebrow--on-teal">Otter Alongside</p>
+      <h1 class="als-hero__title">Alongside your family, at every stage</h1>
+      <p class="als-hero__lede">Six short guides for the families of the people we care for — from the first "should we get help?" conversation to the very end. Free to read, written plainly, and backed by a real office you can ring.</p>
+      <div class="als-hero__actions">
+        <a class="btn btn-primary btn-lg" href="tel:01225690022">Ring us — 01225 690022</a>
+        <a class="als-hero__skip" href="#guides">Jump to the guides</a>
+      </div>
+    </div>
+    <div class="als-hero__media">
+      <img src="/img/alongside/photos/greeting.jpg" alt="An Otter Care Professional greeting a client warmly in her garden.">
+      <div class="als-hero__aside"><p>Start wherever you are.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="als-layout">
+  <main class="als-body" style="flex-basis:100%">
+
+    <div class="als-section">
+      <p class="als-p als-p--lede">Families told us the hardest part wasn't the care — it was never quite knowing what happens next, or what to ask.</p>
+      <p class="als-p als-p--muted">So we wrote it down. Each guide follows a stage of the journey, in plain English, with the honest bits left in. Read the one that matches where you are; ignore the rest until you need them.</p>
+    </div>
+
+    <!-- ===== The six guides =============================================== -->
+    <section class="als-section" id="guides">
+      <h2 class="als-h2">The six guides</h2>
+
+      <div class="als-cards als-cards--2">
+        {stages.map((s) => (
+          <div class="als-card">
+            <div class="als-card__head">
+              <span class="als-stage__num">{s.n}</span>
+            </div>
+            <strong class="als-card__title"><a href={s.href}>{s.title}</a></strong>
+            <p>{s.blurb}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- ===== Questions ==================================================== -->
+    <section class="als-section" id="questions">
+      <h2 class="als-h2">In a hurry?</h2>
+      <p class="als-p">The questions families ask us most, with short answers that link into the guides — the app that isn't called Otter, what we can and can't share, who to ring at 2am.</p>
+      <p class="als-p"><a class="btn btn-primary" href="/family/questions">Questions families ask</a></p>
+    </section>
+
+    <!-- ===== MCA guide ==================================================== -->
+    <section class="als-section" id="mca">
+      <div class="als-download">
+        <img src="/img/alongside/app/mca-guide-cover.png" alt="Cover of Otter Homecare's two-page Mental Capacity Act guide for clients and families.">
+        <div class="als-download__text">
+          <h3>The Mental Capacity Act — a simple guide</h3>
+          <p>Our own two-page guide to the law that protects your relative's right to make their own decisions — the five principles, and the misunderstandings we hear most. Print it and keep it with the care folder.</p>
+        </div>
+        <a class="btn btn-primary" href="/downloads/otter-mental-capacity-act-guide.pdf" download>Download (PDF)</a>
+      </div>
+    </section>
+
+    <!-- ===== Close ======================================================== -->
+    <section class="als-section">
+      <div class="als-close">
+        <div class="als-close__text">
+          <strong>Not sure where to start?</strong>
+          <p>If you're still deciding, start with <a href="/family/before-we-start">Before we start</a>. If we're already looking after someone you love, start with <a href="/family/your-first-month">Your first month</a> — or just ring, and a person who knows your family will pick up.</p>
+          <div class="als-close__actions"><a class="btn btn-primary btn-lg" href="tel:01225690022">01225 690022</a></div>
+        </div>
+        <img class="als-close__mascot" src="/img/alongside/brand/otter-mascot.png" alt="">
+      </div>
+    </section>
+  </main>
+</div>
+</SiteLayout>

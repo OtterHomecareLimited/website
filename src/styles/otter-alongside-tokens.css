@@ -271,3 +271,9 @@ section.als-hero { background: var(--teal-d, #0F4F60); }
     box-shadow: none;
   }
 }
+
+/* Inline links inside the teal closing panels (the /family hub's "not sure
+   where to start?" panel links both starting stages). Default link teal is
+   unreadable on the teal ground. */
+.als-close__text a:not(.btn) { color: #fff; text-decoration: underline; text-underline-offset: 2px; }
+.als-close__text a:not(.btn):hover { color: var(--mustard); }
