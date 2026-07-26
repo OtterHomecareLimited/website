@@ -128,11 +128,10 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
     <AccessibilityControl />
     <ContactLauncher />
 
-    <!-- sticky mobile action bar -->
-    <div class="mbar">
-      <a class="btn btn-ghost" href="tel:01225690022">Call</a>
-      <a class="btn btn-primary" href="/contact">Book a free assessment</a>
-    </div>
+    <!-- Sticky mobile action bar REMOVED (Jamie, 2026-07-26): it sat on top of
+         page content — the clay "Talk to us" launcher is the mobile contact
+         affordance instead (un-hidden in code-overrides.css). The .mbar CSS
+         rules in otter-home.css are inert without this markup. -->
 
     <script is:inline>
       // nav toggle — slide-in drawer: tap-outside and tap-a-link both close it

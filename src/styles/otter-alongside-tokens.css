@@ -237,3 +237,20 @@ section.als-hero { background: var(--teal-d, #0F4F60); }
   padding-left: .15em;
 }
 .als-body ol.als-p { list-style: decimal outside; }
+
+/* ---------------------------------------------------------------------------
+   Hero aside on phones — Jamie, 2026-07-26: "none of this is compulsory
+   comments are not well placed". design's .als-hero__aside is absolutely
+   positioned (left:-14px, bottom:26px) to overlap the photo's corner — good on
+   desktop, but on a phone it lands across the photo's subject and its mustard
+   rail pokes past the viewport edge. Below 760px it becomes a static
+   handwritten caption under the photo instead.
+   --------------------------------------------------------------------------- */
+@media (max-width: 760px) {
+  .als-hero__aside {
+    position: static;
+    margin: 12px 0 0;
+    max-width: none;
+    box-shadow: none;
+  }
+}

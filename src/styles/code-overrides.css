@@ -304,3 +304,16 @@ button,summary,.btn,.otter-fab,.talk-opt,[role="switch"]{touch-action:manipulati
   .als-callout,.als-download{flex-direction:column;align-items:flex-start}
   .als-shot--single{max-width:100%}
 }
+
+/* ——— Mobile contact affordance swap (Jamie, 2026-07-26) ———
+   The sticky .mbar (Call / Book a free assessment) sat on top of page content
+   on phones — markup removed in SiteLayout. In its place, the clay "Talk to us"
+   launcher takes over on mobile: design's ≤1000px rules hid it entirely
+   (#talkToggle{display:none}) and shrank it to icon-only at bottom:90px to
+   clear the bar. With the bar gone: visible, labelled, back at the corner.
+   The pop panel follows (fab bottom 20 + height 56 + gap 12). */
+@media(max-width:1000px){
+  #talkToggle{display:inline-flex;width:auto;padding:0 20px 0 16px;bottom:20px;right:16px;justify-content:flex-start}
+  #talkToggle .fab-label{display:inline}
+  .otter-pop{bottom:88px}
+}
