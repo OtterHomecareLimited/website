@@ -1,0 +1,232 @@
+---
+// "Your care with Otter" — the CLIENT-facing guide (/your-care).
+// Jamie, 2026-07-26. Alongside (/family) is written to families in the third
+// person; this page is written to the person we care for, in the second.
+// The same words become the A5 client booklet — this page is the manuscript.
+//
+// Voice rules, held hard:
+//  - "You", never "your relative". Their home, their choices, their care.
+//  - Dignity-first: the MCA principles addressed to their owner, not about them.
+//  - No charging figures (the agreement owns those), no credentials, nothing
+//    clinical. Large, generous type — the site's easy-read control applies.
+import SiteLayout from "../layouts/SiteLayout.astro";
+import "../styles/otter-alongside-tokens.css";
+import "../styles/otter-alongside.css";
+// Loads LAST on purpose — see the header of otter-alongside-print.css.
+import "../styles/otter-alongside-print.css";
+---
+
+<SiteLayout
+  title="Your care with Otter — what to expect from us | Otter Homecare"
+  description="Written for you, the person we care for: who we are, what happens at every visit, your choices, and how to tell us what you think."
+>
+<section class="als-hero">
+  <div class="als-wrap">
+    <nav class="als-crumbs" aria-label="Breadcrumb">
+      <a href="/">Home</a><span>·</span><span class="is-current">Your care with Otter</span>
+    </nav>
+  </div>
+  <div class="als-hero__inner">
+    <div class="als-hero__body">
+      <p class="eyebrow eyebrow--on-teal">Written for you</p>
+      <h1 class="als-hero__title">Your care, your way</h1>
+      <p class="als-hero__lede">We look after you, at home. This page is for you — who we are, what to expect from every visit, and how to tell us what you think.</p>
+      <div class="als-hero__actions">
+        <a class="btn btn-primary btn-lg" href="tel:01225690022">Ring us — 01225 690022</a>
+        <a class="als-hero__skip" href="#wrong">If something isn't right</a>
+      </div>
+    </div>
+    <div class="als-hero__media">
+      <img src="/img/alongside/photos/deciding.jpg" alt="An Otter Care Professional painting a client's nails at home, both smiling.">
+      <div class="als-hero__aside"><p>It's your home. We're guests in it.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="als-layout">
+
+  <!-- ===== Contents rail ================================================== -->
+  <nav class="als-toc" aria-label="On this page" data-print="hide">
+    <p class="als-toc__title">On this page</p>
+    <ul class="als-toc__list">
+      <li><a class="als-toc__link" data-als-nav="who" href="#who">Who we are</a></li>
+      <li><a class="als-toc__link" data-als-nav="visits" href="#visits">What happens at a visit</a></li>
+      <li><a class="als-toc__link" data-als-nav="choices" href="#choices">Your home, your choices</a></li>
+      <li><a class="als-toc__link" data-als-nav="ask" href="#ask">What you can ask us for</a></li>
+      <li><a class="als-toc__link" data-als-nav="notes" href="#notes">Your notes, and who sees them</a></li>
+      <li><a class="als-toc__link" data-als-nav="wrong" href="#wrong">If something isn't right</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===== Body =========================================================== -->
+  <main class="als-body">
+
+    <div class="als-section">
+      <p class="als-p als-p--lede">Most of what's written about home care is written for families. This is written for you.</p>
+      <p class="als-p als-p--muted">It's short, and none of it is homework. If you'd rather hear any of it out loud, ask whoever visits next — they'll happily talk it through over a cup of tea.</p>
+
+      <div class="als-callout">
+        <div class="als-callout__main">
+          <span class="als-card__chip"><img src="/img/alongside/icons/phone.svg" alt=""></span>
+          <div class="als-callout__text">
+            <strong>One number, and a person you know</strong>
+            <p>Office open <strong>8:30am – 5pm</strong>, Monday to Friday. Outside those hours the on-call team picks up. No call centre, no menu of options — whoever answers will know who you are.</p>
+          </div>
+        </div>
+        <a class="btn btn-primary btn-lg" href="tel:01225690022">01225 690022</a>
+      </div>
+    </div>
+
+    <!-- ===== Who we are =================================================== -->
+    <section class="als-section" id="who">
+      <h2 class="als-h2">Who we are</h2>
+      <p class="als-p">We're a small, local team — on purpose. Small enough that you'll know the people who come through your door, and they'll know you: how you take your tea, which chair is yours, what matters to you.</p>
+
+      <div class="als-cards als-cards--team">
+        <div class="als-person">
+          <img class="als-person__photo" src="/img/alongside/team/cherie.jpg" alt="" loading="lazy" width="88" height="88">
+          <div class="als-person__id"><strong class="als-person__name">Cherie</strong><span class="als-person__role">Registered Manager</span></div>
+          <p>Responsible for the quality and safety of your care.</p>
+        </div>
+        <div class="als-person">
+          <img class="als-person__photo" src="/img/alongside/team/maria.jpg" alt="" loading="lazy" width="88" height="88">
+          <div class="als-person__id"><strong class="als-person__name">Maria</strong><span class="als-person__role">Care Coordinator</span></div>
+          <p>Arranges your visits and who comes when.</p>
+        </div>
+        <div class="als-person">
+          <img class="als-person__photo" src="/img/alongside/team/brad.jpg" alt="" loading="lazy" width="88" height="88">
+          <div class="als-person__id"><strong class="als-person__name">Brad</strong><span class="als-person__role">Care Supervisor</span></div>
+          <p>Visits to check your care is right, and listens.</p>
+        </div>
+        <div class="als-person">
+          <img class="als-person__photo" src="/img/alongside/team/abbey.jpg" alt="" loading="lazy" width="88" height="88">
+          <div class="als-person__id"><strong class="als-person__name">Abbey</strong><span class="als-person__role">Training Coordinator</span></div>
+          <p>Trains the Care Professionals who visit you.</p>
+        </div>
+        <div class="als-person">
+          <img class="als-person__photo" src="/img/alongside/team/jamie.jpg" alt="" loading="lazy" width="88" height="88">
+          <div class="als-person__id"><strong class="als-person__name">Jamie</strong><span class="als-person__role">Our founder</span></div>
+          <p>Started Otter after caring for his own dad at home.</p>
+        </div>
+      </div>
+
+      <p class="als-p">We try hard to send you the same familiar faces. If someone new is ever coming, we'll do our best to let you know first.</p>
+    </section>
+
+    <!-- ===== What happens at a visit ===================================== -->
+    <section class="als-section" id="visits">
+      <h2 class="als-h2">What happens at a visit</h2>
+      <p class="als-p">Nothing mysterious. Your Care Professional arrives at the agreed time, does what you've agreed together — and does it your way, not ours. The plan is built around your day, and it can change whenever your day does.</p>
+      <p class="als-p">You'll hear us ask before we help — things like:</p>
+
+      <div class="als-cards als-cards--2">
+        <div class="als-card">
+          <p class="als-quote" style="border:none;padding:0;margin:0">"Is it okay if I help you wash now?"</p>
+        </div>
+        <div class="als-card">
+          <p class="als-quote" style="border:none;padding:0;margin:0">"Would you like your medication now, or after breakfast?"</p>
+        </div>
+        <div class="als-card">
+          <p class="als-quote" style="border:none;padding:0;margin:0">"Happy for me to update your daughter today?"</p>
+        </div>
+        <div class="als-card">
+          <p class="als-quote" style="border:none;padding:0;margin:0">"Would you like to go out today, or stay in?"</p>
+        </div>
+      </div>
+
+      <p class="als-p">That's not us being formal. Even when help feels routine, it's still your choice — every time.</p>
+      <p class="als-p">At the end of each visit we write a short note about how things went. Those notes are about you, so you can ask to see them whenever you like.</p>
+    </section>
+
+    <!-- ===== Your home, your choices ===================================== -->
+    <section class="als-panel" id="choices">
+      <div class="als-panel__head">
+        <div class="als-panel__headtext">
+          <span class="als-panel__cond">The most important part of this page</span>
+          <h2 class="als-h2">Your home, your choices</h2>
+        </div>
+      </div>
+
+      <div class="als-panel__block">
+        <p class="als-p">The law is on your side here, and so are we. In plain terms:</p>
+        <ul class="als-p">
+          <li><strong>We assume you can make your own decisions.</strong> That's our starting point, always — not something you have to prove.</li>
+          <li><strong>You're allowed to make choices others disagree with.</strong> A decision your family thinks is unwise is still yours to make.</li>
+          <li><strong>Nobody decides for you without proper reason</strong> — not us, and not family either. Being someone's parent or someone's child doesn't hand them your choices.</li>
+          <li><strong>If a decision ever does need making for you,</strong> it's done carefully, with your wishes and feelings at the centre, and written down.</li>
+        </ul>
+        <p class="als-p">If any of this ever feels like it isn't happening, say so — to anyone on the team.</p>
+      </div>
+    </section>
+
+    <!-- ===== What you can ask us for ====================================== -->
+    <section class="als-section" id="ask">
+      <h2 class="als-h2">What you can ask us for</h2>
+      <p class="als-p">More than you might think. If it would make your week better and it's safe and legal, ask — the answer is usually yes.</p>
+      <ul class="als-p">
+        <li>Meals you actually fancy, shopping, and collecting prescriptions.</li>
+        <li>A hand with the house — laundry, tidying, the paperwork pile.</li>
+        <li>Getting to appointments, or just getting out somewhere nice.</li>
+        <li>Company — a walk, a cup of tea, a hand with a hobby that's got harder.</li>
+        <li>Help with your phone or tablet, so calls with family actually happen.</li>
+        <li>The garden, and pets — both count. They're part of home.</li>
+      </ul>
+      <p class="als-p">And there's <strong>Otter Café</strong> — our free get-together, cake included. Some people come for the company, some for the cake. Both are excellent reasons.</p>
+    </section>
+
+    <!-- ===== Your notes and who sees them ================================ -->
+    <section class="als-section" id="notes">
+      <h2 class="als-h2">Your notes, and who sees them</h2>
+      <p class="als-p">What we write about your care is private. Our team sees it because they need it to look after you well — beyond that, <strong>who sees anything is your choice.</strong></p>
+      <p class="als-p">If you'd like family to follow your care on our app, tell us and we'll set it up — up to three people, chosen by you, and they can see but never change anything. If you'd rather they didn't, that's completely fine too, and you don't have to explain yourself.</p>
+
+      <div class="als-note als-note--lg">
+        <strong class="als-note__title">You can change your mind at any time</strong>
+        <p>Adding someone, removing someone — just tell any of us, and it's done. No forms to fight with, no reason needed.</p>
+      </div>
+    </section>
+
+    <!-- ===== If something isn't right ===================================== -->
+    <section class="als-section" id="wrong">
+      <h2 class="als-h2">If something isn't right</h2>
+      <p class="als-p">Tell us. Honestly — it's a kindness, not a complaint. It's the only way we find out, and it's how your care gets better.</p>
+      <p class="als-p">Telling us will <strong>never</strong> affect your care. Not the small things — a visit time that doesn't suit, a job done not-quite-your-way — and not the big things either. If it's serious, we'll come and see you in person. And we'll tell you what changed because you spoke up, which is the part most companies forget.</p>
+      <p class="als-p">You can tell whoever visits, or ring the office and ask for Cherie, our Registered Manager. Asking for her is a normal thing to do.</p>
+
+      <p class="als-quote">You will not be a nuisance. You will not be "causing trouble". This is your care.</p>
+
+      <div class="als-close">
+        <div class="als-close__text">
+          <strong>Anything at all — big, small, or just a chat</strong>
+          <p>Ring us, or say it to whoever's next through the door. Both reach the same small team. And if your family would like a guide of their own, ours is at <a href="/family">otterhomecare.co.uk/family</a>.</p>
+          <div class="als-close__actions"><a class="btn btn-primary btn-lg" href="tel:01225690022">01225 690022</a></div>
+        </div>
+        <img class="als-close__mascot" src="/img/alongside/brand/otter-mascot.png" alt="">
+      </div>
+    </section>
+  </main>
+</div>
+
+<script is:inline>
+/* Contents-rail current-section highlight — same script as the Alongside pages. */
+(function () {
+  var links = Array.prototype.slice.call(document.querySelectorAll('[data-als-nav]'));
+  if (!links.length) return;
+  var sections = links.map(function (l) { return document.getElementById(l.getAttribute('data-als-nav')); }).filter(Boolean);
+  if (!sections.length) return;
+  var raf = null;
+  function pick() {
+    var current = sections[0];
+    sections.forEach(function (s) { if (s.getBoundingClientRect().top <= 200) current = s; });
+    links.forEach(function (l) {
+      l.classList.toggle('is-current', l.getAttribute('data-als-nav') === current.id);
+    });
+  }
+  window.addEventListener('scroll', function () {
+    if (raf) return;
+    raf = requestAnimationFrame(function () { raf = null; pick(); });
+  }, { passive: true });
+  pick();
+})();
+</script>
+</SiteLayout>
