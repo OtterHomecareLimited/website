@@ -195,12 +195,18 @@ section.als-hero { background: var(--teal-d, #0F4F60); }
    Scoped to .als-hero__actions so the site's buttons are untouched.
    White on mustard is 1.95:1 — must be --ink (6.75:1).
    --------------------------------------------------------------------------- */
-.als-hero__actions .btn-primary {
+/* Same disease, second location found by Jamie 2026-07-26: the closing
+   panels (.als-close, on every stage page and the FAQ) are also teal, so
+   their phone button was invisible at rest and only surfaced on hover as a
+   darker pill. Mustard at rest, darker mustard on hover — visible always. */
+.als-hero__actions .btn-primary,
+.als-close__actions .btn-primary {
   background: var(--mustard);
   color: var(--ink);
   box-shadow: 0 12px 24px -12px rgba(59, 46, 30, .45);
 }
-.als-hero__actions .btn-primary:hover {
+.als-hero__actions .btn-primary:hover,
+.als-close__actions .btn-primary:hover {
   background: var(--mustard-dark);
   color: var(--ink);
 }
