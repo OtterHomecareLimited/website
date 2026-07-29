@@ -16,6 +16,9 @@ export default defineConfig({
   // card — a printed URL lives forever, so the bare path must resolve.
   redirects: {
     '/downloads': '/downloads/otter-mental-capacity-act-guide.pdf',
+    // The link the office emails to families instead of the old PDF guide —
+    // short enough to dictate over the phone. Keep it working forever.
+    '/app': '/family/care-app',
   },
 
   build: {

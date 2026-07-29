@@ -1,0 +1,194 @@
+---
+// Otter Alongside — the care app setup page (/family/care-app, short link /app).
+// Jamie, 2026-07-29: families were being emailed the OLD 4-page PDF guide
+// (which prints the server name, and whose page 4 shows a real client's data)
+// because there was no single page to link instead. This page IS that link.
+// The office emails "otterhomecare.co.uk/app" — no attachment.
+//
+// Content is the proven app panel from Stage 2 (your-first-month.astro),
+// refocused into one linear walkthrough. Same rules as everywhere: the app
+// is named "Access Care Planning", NO server name, NO login mechanics beyond
+// "we email your details", screenshots are from a test account.
+import SiteLayout from "../../layouts/SiteLayout.astro";
+import "../../styles/otter-alongside-tokens.css";
+import "../../styles/otter-alongside.css";
+// Loads LAST on purpose — see the header of otter-alongside-print.css.
+import "../../styles/otter-alongside-print.css";
+---
+
+<SiteLayout
+  title="Setting up the care app | Otter Homecare"
+  description="How to set up the family care app, step by step — from downloading Access Care Planning to reading your first visit note. Two short emails and about a day."
+>
+<section class="als-hero">
+  <div class="als-wrap">
+    <nav class="als-crumbs" aria-label="Breadcrumb">
+      <a href="/">Home</a><span>·</span><a href="/support-for-families">For families</a><span>·</span><a href="/family">Otter Alongside</a><span>·</span><span class="is-current">The care app</span>
+    </nav>
+  </div>
+  <div class="als-hero__inner">
+    <div class="als-hero__body">
+      <p class="eyebrow eyebrow--on-teal">Otter Alongside · A how-to guide</p>
+      <h1 class="als-hero__title">Setting up the care app</h1>
+      <p class="als-hero__lede">Everything on one page — from downloading the app to reading your first visit note. It takes two short emails and usually about a day.</p>
+      <div class="als-hero__actions">
+        <a class="btn btn-primary btn-lg" href="tel:01225690022">Stuck? Ring us — 01225 690022</a>
+        <a class="als-hero__skip" href="#steps">Jump to the steps</a>
+      </div>
+    </div>
+    <div class="als-hero__media">
+      <img src="/img/alongside/photos/together.jpg" alt="A Care Professional and a client looking at a phone together.">
+      <div class="als-hero__aside"><p>Ten minutes, start to finish.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="als-layout">
+  <main class="als-body" style="flex-basis:100%">
+
+    <div class="als-section">
+      <p class="als-p als-p--lede">The care app lets you read each visit's notes, times and completed tasks as they happen — good if you live away, or if several of you want to stay in the loop.</p>
+      <div class="als-note als-note--lg">
+        <strong class="als-note__title">First things first: it's set up by asking, not automatically.</strong>
+        <p>Your relative (or their representative) agrees to app access before we switch it on. If you've already discussed it with the office, you're ready — carry on below. If not, start with a phone call and we'll get it moving.</p>
+      </div>
+    </div>
+
+    <!-- ===== The four steps =============================================== -->
+    <section class="als-panel" id="steps">
+      <div class="als-panel__head">
+        <div class="als-panel__headtext">
+          <h2 class="als-h2">The whole thing, in four steps</h2>
+          <p class="als-p als-p--muted als-panel__sub">It isn't instant, and that's normal — there's one email each way in the middle.</p>
+        </div>
+      </div>
+
+      <div class="als-steps">
+        <div class="als-step">
+          <span class="als-step__num">1</span>
+          <strong>Tell us</strong>
+          <p>Let the office know you'd like access, and who for. You may well have done this already.</p>
+        </div>
+        <div class="als-step">
+          <span class="als-step__num">2</span>
+          <strong>Download it</strong>
+          <p>Search your app store for <strong>Access Care Planning</strong> and install it.</p>
+        </div>
+        <div class="als-step">
+          <span class="als-step__num">3</span>
+          <strong>Send us a screenshot</strong>
+          <p>Open the app and email us a photo of the first screen you see.</p>
+        </div>
+        <div class="als-step">
+          <span class="als-step__num">4</span>
+          <strong>We send your login</strong>
+          <p>Usually the same day. Then you're in.</p>
+        </div>
+      </div>
+
+      <div class="als-panel__block" id="name">
+        <h3 class="als-h3">Step 2 — it isn't called Otter</h3>
+        <p class="als-p als-p--sm">The app you need is called <strong>Access Care Planning</strong> — look for the red circle. Searching the app store for "Otter" won't find it.</p>
+        <div class="als-search">
+          <div class="als-search__field">
+            <span class="als-search__label">Type this into the app store</span>
+            <div class="als-search__box"><span>Access Care Planning</span></div>
+          </div>
+          <p>It's the care system we use rather than something we built ourselves, so it carries their name, not ours. That trips up almost everyone, so if you've already gone hunting and given up, that's why.</p>
+        </div>
+      </div>
+
+      <div class="als-panel__block" id="device">
+        <h3 class="als-h3">Step 3 — the screenshot, and why we need it</h3>
+        <div class="als-shots als-shots--wide">
+          <figure class="als-shot als-shot--single">
+            <div class="als-device als-device--lg">
+              <div class="als-device__screen">
+                <img src="/img/alongside/app/app-login.png" alt="The Access Care Planning login screen. A line of small text at the very top holds the device ID. Below the logo are three boxes: server, username and PIN.">
+                <span class="als-pin als-pin--box als-pin--thin" style="left:6%;top:8.2%;right:5%;height:5.6%"></span>
+                <span class="als-pin__label" style="left:6%;top:14.6%">This bit</span>
+              </div>
+            </div>
+            <figcaption>The login screen. We fill in the three boxes for you, by email.</figcaption>
+          </figure>
+          <div class="als-shot__aside">
+            <p class="als-p als-p--sm als-p--tight">Open the app and look at the very top of the login screen — there's a line of small text there. That's your <strong>device ID</strong>, and we can't register you without it. Screenshot that whole screen and email it to <a href="mailto:hello@otterhomecare.co.uk">hello@otterhomecare.co.uk</a>.</p>
+            <div class="als-note">
+              <p><strong>Don't tap the red button.</strong> Newer versions show a red <em>"Login with your Access account"</em> button above the boxes. That one's for staff at other organisations — yours are the three boxes underneath.</p>
+            </div>
+            <p class="als-p als-p--fine als-p--muted">We never publish login details on this page. They only ever come to you directly, by email.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="als-panel__block als-panel__block--divided" id="follow">
+        <h3 class="als-h3">Logged in? One last step — the bit everyone gets stuck on</h3>
+        <p class="als-p als-p--sm">Once you're logged in, <strong>the app will look empty.</strong> That's expected — nothing has gone wrong. You have to follow your relative's records before anything appears.</p>
+        <div class="als-shots">
+          <figure class="als-shot">
+            <div class="als-device">
+              <div class="als-device__screen">
+                <img src="/img/alongside/app/app-step1-empty.png" alt="The app's Cases screen, empty, with a prompt pointing at the three-dot menu in the top right corner.">
+                <span class="als-pin als-pin--circle" style="left:82%;top:4.4%;width:15%"></span>
+              </div>
+            </div>
+            <figcaption><strong>1.</strong> Tap the three-dot menu, top right.</figcaption>
+          </figure>
+          <figure class="als-shot">
+            <div class="als-device">
+              <div class="als-device__screen">
+                <img src="/img/alongside/app/app-step2-follow.png" alt="The menu open, showing Follow Cases at the top and Unfollow Cases below it.">
+                <span class="als-pin als-pin--box" style="left:4%;right:4%;top:10.9%;height:6.4%"></span>
+              </div>
+            </div>
+            <figcaption><strong>2.</strong> Choose <strong>Follow Cases</strong>.</figcaption>
+          </figure>
+          <figure class="als-shot">
+            <div class="als-device">
+              <div class="als-device__screen">
+                <img src="/img/alongside/app/app-step3-search.png" alt="A search box with a keyboard, ready for you to type a name.">
+              </div>
+            </div>
+            <figcaption><strong>3.</strong> Type your relative's first name and pick them.</figcaption>
+          </figure>
+        </div>
+        <p class="als-p als-p--sm">Now you'll see everything. If you've logged in fine and the screen is still blank, it's almost always this step.</p>
+      </div>
+    </section>
+
+    <!-- ===== What you'll see ============================================== -->
+    <section class="als-section" id="see">
+      <h2 class="als-h2">What you'll be able to see</h2>
+      <div class="als-cards als-cards--2">
+        <div class="als-card als-card--top-teal">
+          <span class="als-card__chip"><img src="/img/alongside/icons/clock.svg" alt=""></span>
+          <strong class="als-card__title">Visits</strong>
+          <p>Every visit — when your Care Professional arrived and left, which tasks were done, and the notes they wrote afterwards. Written by the person who was actually there, in their own words.</p>
+        </div>
+        <div class="als-card als-card--top-teal">
+          <span class="als-card__chip"><img src="/img/alongside/icons/home.svg" alt=""></span>
+          <strong class="als-card__title">Case forms</strong>
+          <p>The fuller picture: the care plan, key contacts, risk assessments, medication changes and notes from reviews.</p>
+        </div>
+      </div>
+      <div class="als-access">
+        <span class="als-access__chip"><img src="/img/alongside/icons/key.svg" alt=""></span>
+        <p>You'll have <strong>view-only access</strong> — you can see everything recorded, but not change it. If something looks wrong, tell us and we'll correct it properly, so there's a clear record of what changed and why.</p>
+      </div>
+      <p class="als-p">Access is set up for up to three people, chosen by your relative or their representative, and can be removed at any time by asking any of us. You don't need to give a reason.</p>
+    </section>
+
+    <!-- ===== Close ======================================================== -->
+    <section class="als-section">
+      <div class="als-close">
+        <div class="als-close__text">
+          <strong>Stuck at any step?</strong>
+          <p>Ring the office and we'll walk you through it on the phone — it usually takes a couple of minutes. And if you'd like the wider picture of the first few weeks of care, it's in <a href="/family/your-first-month">Your first month</a>, part of <a href="/family">Otter Alongside</a>.</p>
+          <div class="als-close__actions"><a class="btn btn-primary btn-lg" href="tel:01225690022">01225 690022</a></div>
+        </div>
+        <img class="als-close__mascot" src="/img/alongside/brand/otter-mascot.png" alt="">
+      </div>
+    </section>
+  </main>
+</div>
+</SiteLayout>
