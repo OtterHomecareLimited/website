@@ -1,0 +1,8 @@
+{
+  "note": "Auto-updated by the RC pipeline (sync_website_reviews.py on the office Mac). Numbers come from the homecare.co.uk reviews API. Do not hand-edit; review QUOTES stay hand-curated in the pages themselves.",
+  "homecare": {
+    "score": "9.5",
+    "count": 16,
+    "asOf": "2026-07-31"
+  }
+}

@@ -1,4 +1,5 @@
 ---
+import RatedBadge from "./RatedBadge.astro";
 import SiteLayout from "../layouts/SiteLayout.astro";
 import type { Service } from "../data/services";
 import { services } from "../data/services";
@@ -159,7 +160,7 @@ const faqSchema = service.faqs?.length
       </div>
       <div class="book-trust reveal">
         <div class="bt-ticks"><span>Free, no-obligation home visit</span><span>A care plan built around you</span><span>We usually reply the same day</span></div>
-        <div class="bt-stars"><span class="s">★★★★★</span> Rated <b>9.5</b> by families on homecare.co.uk</div>
+        <RatedBadge />
       </div>
     </div>
   </section>

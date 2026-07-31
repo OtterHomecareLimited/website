@@ -1,0 +1,6 @@
+---
+// The teal-band "Rated 9.5 by families" line used across the site.
+// Score comes from src/data/reviewStats.json so it can never go stale.
+import stats from "../data/reviewStats.json";
+---
+<div class="bt-stars"><span class="s">★★★★★</span> Rated <b>{stats.homecare.score}</b> by families on homecare.co.uk</div>
