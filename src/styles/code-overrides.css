@@ -187,11 +187,24 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .ratetable:not(.lefty) thead th:not(:first-child){text-align:right}
 
 /* Meet the Team — the 1:1 full-width photos at a 24px gap read as an overwhelming wall of
-   faces (Jamie, 10 Jun). Calm it: shorter 4:3 portraits (the ratio design uses for photos
-   elsewhere) and real breathing room between members. */
-.team-grid{gap:56px 40px}
-.team-card img{aspect-ratio:4/3;object-position:50% 22%}
-@media(max-width:760px){.team-grid{gap:44px}}
+   faces (Jamie, 10 Jun). Calm it: real breathing room between members.
+   6 Aug: the Aug studio shoot is framed 4:5, so a landscape slot cropped it badly — it clipped
+   hair at the top and cut chins at the collar. Cards now use a portrait slot that matches how
+   the photos were actually shot. To stop taller photos re-creating the wall-of-faces problem,
+   the cards are width-capped (320px) rather than stretching to a third of the row — which also
+   keeps the bios at a readable measure. Flex, not grid, so the trailing row of two centres
+   under the three above instead of hanging left. */
+.team-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:56px 40px}
+/* Wrapping keys off the flex-basis, so 3-up → 2-up → 1-up falls out of the available width
+   with no guessed breakpoints. The matching max-width is what stops a short row from
+   stretching its cards: two-up looks like three-up minus one, not two oversized portraits.
+   285 rather than a full third of the row (Jamie, 6 Aug): at 320 the portrait out-weighed the
+   bio under it. Narrowing the card shortens the photo AND wraps the bio onto more lines, which
+   closes the gap from both ends — the bio stays 14.5px, the size cards use site-wide. */
+.team-card{flex:0 1 285px;max-width:285px}
+.team-card img{aspect-ratio:4/5;object-position:50% 50%;margin-bottom:18px}
+/* Single column: let the card fill the phone's width instead of sitting at the 285px basis. */
+@media(max-width:560px){.team-grid{gap:44px}.team-card{flex:1 1 100%;max-width:360px}}
 
 /* How-We-Work photo annotations: the hand-drawn arrow doodles rendered tiny (30x24) and sat
    on the text baseline, reading as a squashed comma instead of "points down at the photo".
