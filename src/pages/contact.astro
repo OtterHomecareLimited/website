@@ -13,12 +13,10 @@ import SiteLayout from "../layouts/SiteLayout.astro";
       <div class="contact-info reveal">
         <div class="ci"><span class="ic"><img src="/assets/icons/phone.svg" alt="" /></span><div><b>Call us</b><a href="tel:01225690022">01225 690022</a></div></div>
         <div class="ci"><span class="ic"><img src="/assets/icons/heart.svg" alt="" /></span><div><b>Email</b><a href="mailto:hello@otterhomecare.co.uk">hello@otterhomecare.co.uk</a></div></div>
-        <div class="ci"><span class="ic"><img src="/assets/icons/pin.svg" alt="" /></span><div><b>Visit / write to us</b><span>Arlington House, 72 Fore Street,<br>Trowbridge, Wiltshire BA14 8HQ</span></div></div>
-        <div class="ci"><span class="ic"><img src="/assets/icons/clock.svg" alt="" /></span><div><b>Office hours</b><span>Mon–Fri 9am–5pm · care delivered 24/7</span></div></div>
       </div>
-      <div class="reveal">
+      <div class="reveal cg-form">
         <form class="form" id="contactForm" action="/api/contact" method="POST" novalidate>
-          <h3>Tell us a little about what you need</h3>
+          <h3>Book your free assessment</h3>
           <p class="fhint">We usually reply the same day — and there's no obligation at all.</p>
           <input type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none" />
           <div class="frow">
@@ -31,7 +29,7 @@ import SiteLayout from "../layouts/SiteLayout.astro";
             <div class="field"><label for="area">Your area</label><select id="area" name="area"><option>Trowbridge</option><option>Bradford-on-Avon</option><option>Melksham</option><option>Westbury</option><option>Frome</option><option>Elsewhere nearby</option></select></div>
           </div>
           <div class="field"><label for="m">How can we help?</label><textarea id="m" name="msg" placeholder="Tell us a little about what you're looking for…"></textarea></div>
-          <button class="btn btn-primary" type="submit">Send message →</button>
+          <button class="btn btn-primary" type="submit">Request my free assessment →</button>
           <p class="privacy">We'll only use your details to respond to your enquiry. See our <a href="/privacy" style="text-decoration:underline">privacy policy</a>.</p>
         </form>
         <div class="form-success" id="contactOk" style="display:none">
@@ -39,6 +37,10 @@ import SiteLayout from "../layouts/SiteLayout.astro";
           <h3>Thank you — message received</h3>
           <p>We'll be in touch very soon. If it's urgent, please call <strong>01225 690022</strong>.</p>
         </div>
+      </div>
+      <div class="contact-info reveal">
+        <div class="ci"><span class="ic"><img src="/assets/icons/pin.svg" alt="" /></span><div><b>Visit / write to us</b><span>Arlington House, 72 Fore Street,<br>Trowbridge, Wiltshire BA14 8HQ</span></div></div>
+        <div class="ci"><span class="ic"><img src="/assets/icons/clock.svg" alt="" /></span><div><b>Office hours</b><span>Mon–Fri 9am–5pm · care delivered 24/7</span></div></div>
       </div>
     </div>
   </div></section>
@@ -73,8 +75,8 @@ import SiteLayout from "../layouts/SiteLayout.astro";
           // Google Ads: count the successful send as a "Contact form submission" conversion (cookieless — see SiteLayout head)
           if (typeof gtag === "function") gtag("event", "conversion", { send_to: "AW-11233030388/uXnICMDw5bwcEPThqewp" });
         }
-        else { btn.disabled = false; btn.textContent = "Send message →"; alert(json.error || "Something went wrong — please call us on 01225 690022."); }
-      } catch { btn.disabled = false; btn.textContent = "Send message →"; alert("Something went wrong — please call us on 01225 690022."); }
+        else { btn.disabled = false; btn.textContent = "Request my free assessment →"; alert(json.error || "Something went wrong — please call us on 01225 690022."); }
+      } catch { btn.disabled = false; btn.textContent = "Request my free assessment →"; alert("Something went wrong — please call us on 01225 690022."); }
     });
   </script>
 </SiteLayout>

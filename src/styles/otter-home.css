@@ -972,6 +972,12 @@ html.a11y-contrast .section.bg-cream,html.a11y-contrast .section.bg-sky,html.a11
 /* Section rhythm on phones (fix pack A) — heads breathe with the tighter sections */
 @media(max-width:560px){.head-c{margin-bottom:34px}}
 
+/* Contact page — form spans both desktop rows so the address/hours block sits
+   under Call + Email on the left; on one column the natural order is
+   Call + Email → form → Visit/Hours (the mobile-first order). */
+.contact-grid .cg-form{grid-row:span 2}
+@media(max-width:780px){.contact-grid .cg-form{grid-row:auto}}
+
 /* Mustard primary on the dark booking bands (fix pack C).
    .btn-clay is teal, invisible on the .book band; scoped here so
    .quizcard and .careers keep their current looks. */
