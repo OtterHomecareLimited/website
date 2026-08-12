@@ -545,3 +545,14 @@ a.als-prevnext__item:hover { transform: translateY(-3px); box-shadow: var(--shad
    this only frames it to Alongside geometry (14px radius, teal shadow). */
 .als-video{max-width:640px}
 .als-video .video-embed{border-radius:var(--radius);box-shadow:0 16px 34px -20px rgba(19,107,125,.55)}
+
+/* Guide tiles on the /family hub: the whole card is the click target, not just
+   the title text (Jamie, 12 Aug 2026 — "just white tiles, not obvious where to
+   click"). Same stretched-link pattern as the site's .area-card, with hover and
+   keyboard affordance in the card's own shadow language. */
+#guides .als-card { position: relative; transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease; }
+#guides .als-card__title a::after { content: ""; position: absolute; inset: 0; }
+#guides .als-card__title a { color: var(--teal-dark); }
+#guides .als-card:hover { transform: translateY(-3px); border-color: var(--teal); box-shadow: 0 12px 26px -12px rgba(19,107,125,.5); }
+#guides .als-card:hover .als-card__title a { text-decoration: underline; text-underline-offset: 3px; }
+#guides .als-card:focus-within { border-color: var(--teal); box-shadow: 0 0 0 3px var(--mustard); }
