@@ -473,3 +473,68 @@ a.als-prevnext__item:hover { transform: translateY(-3px); box-shadow: var(--shad
   .als-panel, .als-card, .als-person, .als-download { box-shadow: none; break-inside: avoid; }
   .als-section { break-inside: avoid-page; }
 }
+
+/* ---------------------------------------------------------------------------
+   Otter Alongside stage-page components (moved from code-overrides.css at the
+   12 Aug 2026 reconciliation). Composes the site's existing components
+   (.hc-grid/.hc-card, .steps-grid/.step, .quizcard, .btn) rather than
+   introducing a new visual language. Accent edges are squared on the coloured
+   side — never curved round the corner (standing Otter rule).
+   --------------------------------------------------------------------------- */
+
+/* Callout: a talk-to-us / key-point bar with a square teal accent edge. */
+.als-callout{display:flex;align-items:center;justify-content:space-between;gap:22px;
+  flex-wrap:wrap;background:var(--paper);border:1px solid var(--line);
+  border-left:6px solid var(--teal);border-radius:0 var(--r) var(--r) 0;
+  padding:22px 26px;margin:26px 0}
+/* Direct child only — a bare `.als-callout strong` also hits inline <strong>
+   inside the paragraph and forces it onto its own line. */
+.als-callout>div>strong:first-child{display:block;font-size:18px;color:var(--ink);margin-bottom:4px}
+.als-callout p{margin:0;font-size:15.5px;color:var(--muted);max-width:62ch}
+.als-callout p strong{font-weight:700;color:var(--ink)}
+.als-callout .btn{flex:none;white-space:nowrap}
+.als-callout--sun{border-left-color:var(--sun-d);background:#FBF6E7}
+
+/* Inline note — lighter than a callout, for a single caution. */
+.als-note{background:#FBF6E7;border-left:6px solid var(--sun-d);border-radius:0 var(--r) var(--r) 0;
+  padding:16px 20px;margin:22px 0;font-size:15.5px;color:var(--ink)}
+.als-note strong{color:var(--ink)}
+
+/* Wide blocks. .prose caps at ~706px; these components are designed for full
+   page width. Breaks out symmetrically, clamped against horizontal overflow. */
+.als-wide{position:relative;left:50%;transform:translateX(-50%);
+  width:min(980px,calc(100vw - 3rem))}
+
+/* Card grids — column-count variants on .hc-grid. minmax(0,1fr), not 1fr:
+   bare 1fr means minmax(auto,1fr), so a long word widens its column. */
+.als-grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.als-grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.als-grid-team{grid-template-columns:repeat(5,minmax(0,1fr))}
+.hc-card>strong:first-child{font-size:17.5px;color:var(--ink);margin-bottom:8px;display:block}
+
+/* Phone screenshots. Bordered so the light app chrome doesn't bleed into cream. */
+.als-shots-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin:26px 0}
+.als-shot{margin:0}
+.als-shot img{width:100%;height:auto;display:block;border:1px solid var(--line);
+  border-radius:var(--r);box-shadow:var(--shadow-sm);background:#fff}
+.als-shot figcaption{font-size:14.5px;color:var(--muted);margin-top:10px;line-height:1.5}
+.als-shot--single{max-width:300px;margin:26px 0}
+
+/* Download card — cover thumbnail beside the button. */
+.als-download{align-items:center;gap:26px}
+.als-download img{width:110px;height:auto;flex:none;border:1px solid var(--line);
+  border-radius:6px;box-shadow:var(--shadow-sm)}
+.als-download h3{margin-bottom:6px}
+.als-download p{margin:0;color:var(--muted);font-size:15.5px}
+
+@media(max-width:900px){
+  .als-grid-4,.als-grid-team{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .als-shots-3{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:600px){
+  /* Stop breaking out once the column is the whole screen. */
+  .als-wide{left:auto;transform:none;width:100%}
+  .als-grid-2,.als-grid-4,.als-grid-team,.als-shots-3{grid-template-columns:minmax(0,1fr)}
+  .als-callout,.als-download{flex-direction:column;align-items:flex-start}
+  .als-shot--single{max-width:100%}
+}

@@ -1,21 +1,16 @@
 /* code-overrides.css — Code-side behaviour/plumbing CSS, kept OUT of design's otter-home.css
    so design's stylesheet re-syncs cleanly. Imported after otter-home.css in SiteLayout.
-   Anything here is functional/baseline; visual polish lives in design's file. */
+   Anything here is functional/baseline; visual polish lives in design's file.
+
+   12 Aug 2026 reconciliation: every visual block that had accumulated here was adopted
+   into otter-home.css (see its "fix pack + reconciliation" section) so the design file
+   is safe to re-sync wholesale again. What remains below is deliberately code-side. */
 
 /* Code-side functional additions (kept across design re-syncs) */
 .step .bignum{font-family:"Spectral",serif;font-size:52px;font-weight:800;color:var(--teal);line-height:1;display:block;margin-bottom:12px;letter-spacing:-.02em}
 .faq.tall.open .ans{max-height:760px}
 .faq .ans ul{margin:0 0 4px;padding:2px 24px 16px 44px}
 .faq .ans ul li{color:var(--muted);font-size:15px;margin:4px 0}
-
-/* Reviews Google bar — STOPGAP neutral layout only; design owns final .gbar/.g-* styling */
-.gbar{display:flex;align-items:center;gap:16px;flex-wrap:wrap;justify-content:center;max-width:760px;margin:0 auto 22px;padding:14px 18px;border:1px solid var(--line);border-radius:var(--r);background:var(--paper)}
-.gbar .g-logo{height:30px;width:auto;flex:none}
-.gbar .g-meta{display:flex;flex-direction:column;text-align:left}
-.gbar .g-stars{color:#f5b301;letter-spacing:2px}
-.gbar .g-meta small{color:var(--muted)}
-.gbar .g-link{margin-left:auto;color:var(--teal);font-weight:700;white-space:nowrap}
-@media(max-width:560px){.gbar .g-link{margin-left:0}}
 
 /* Skip-to-content link (accessibility) */
 .skip-link{position:absolute;left:-9999px;top:0;z-index:100;background:var(--teal-d);color:#fff;padding:12px 18px;border-radius:0 0 8px 0;font-weight:800;text-decoration:none}
@@ -24,23 +19,9 @@
 /* Global visible keyboard focus (accessibility) — gold ring works on light + dark sections */
 a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible,[tabindex]:focus-visible,.video-embed:focus-visible,.fullbleed:focus-visible{outline:3px solid var(--sun);outline-offset:2px;border-radius:4px}
 
-/* Hero "… like family" accent — design hides it <760px, but it completes the headline's
-   meaning ("We look after your loved ones like family"), so reveal it on phones. Left-aligned
-   and viewport-scaled so it fits the narrow column. Design to refine exact mobile placement. */
-@media(max-width:760px){.hero-like{display:block;text-align:left;padding-left:4px;padding-right:0;font-size:clamp(30px,8.5vw,42px);margin-top:6px}}
-
-/* Happy Hour emblem holding a real photo (Jamie-approved minimal plumb-in 2026-06-09;
-   design to refine framing/size). Fill the existing cream disc as a circular photo, keeping a
-   slim cream ring. Two-class selector beats design's base .hh-emblem img{width:54%}. */
-.hh-emblem.has-photo{padding:7px}
-.hh-emblem.has-photo img{width:100%;aspect-ratio:1;height:auto;object-fit:cover;border-radius:50%}
-
 /* Town pages — village chips: keep each chip's name on one line so two-word villages
    (e.g. "Limpley Stoke", "Monkton Farleigh") don't break mid-name. The row still wraps. */
 .lt-villages span{white-space:nowrap}
-
-/* ——— Conversion & mobile fixes (2026-07-02 review) ———
-   Mobile hero blocks LIFTED into otter-home.css (fix pack D, 12 Aug 2026). */
 
 /* Care App phone mock — an HTML recreation of the real family app's visit-note screen.
    Replaces the old Wix screenshot PNG. All names and note content are fictional:
@@ -79,46 +60,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .pa-tabs svg{width:17px;height:17px}
 .pa-tabs .on{background:#e5f0f2;color:var(--teal)}
 
-/* ——— Utility bar v6: deep teal (Jamie, 2026-07-02 — "black in the gold isn't attractive") ———
-   Gold flood retired; bar now matches the footer teal. Mustard survives only as the
-   phone number and the tt figure's mustard heads (otter-tt-white.png — new reversed cut).
-   Overrides design's .util gold rules; loads after otter-home.css so these win. */
-.util{background:var(--teal-d, #0B3F49);color:#fff;font-size:13.5px}
-.util a{color:#D4AC4F}
-.util a:hover{color:#E4C36F}
-.util .util-rot,.util-rot .em{color:#fff;font-size:13.5px}
-.util .areas{color:#bfe0dc}
-/* mobile: warm label + number, centered — replaces the lone phone number.
-   White (not the muted #bfe0dc) so the reassurance line stands out on the teal.
-   (Also re-shows the bar: design's base rule collapses it to an empty 8px strip
-   and hides .util a below 1000px.) */
-.util-mobile{display:none;color:#fff;font-weight:600;white-space:nowrap}
-@media(max-width:1000px){
-  .util .wrap{height:34px;justify-content:center;gap:8px}
-  .util-promise{display:none}
-  .util-mobile{display:inline}
-  .util .util-links{display:flex}
-  .util a{display:inline-flex}
-  .util .util-mail{display:none}
-}
-/* high-contrast mode already forces .util black/white — unaffected */
-
-/* Utility bar: phone and email are separate, correctly-typed links (was one combined
-   tel: link — the email address wasn't clickable). */
-.util-links{display:flex;align-items:center;gap:14px;white-space:nowrap}
-
-/* Town pages — "How we can help" grid: 4 cards. auto-fit produced an uneven 3+1 row at some
-   widths; force a clean 4-up → 2×2 → 1-col so there's never a lone orphan card. */
-.svc-grid.town-svc{grid-template-columns:repeat(4,1fr)}
-@media(max-width:880px){.svc-grid.town-svc{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:520px){.svc-grid.town-svc{grid-template-columns:1fr}}
-
-/* Service pages — "Other ways we can help": 3 related cards. Was an inline
-   repeat(3,1fr) that stayed 3-up on phones and clipped the titles ("Compan…").
-   3-up → 1-col below 720px (2-up would orphan one of three). */
-.svc-grid.svc-others{grid-template-columns:repeat(3,1fr)}
-@media(max-width:720px){.svc-grid.svc-others{grid-template-columns:1fr}}
-
 /* Otter Café photo strip (real event photos, Jamie-provided 2026-06-09; design may refine).
    Equal-height flex row so the portrait Staverton shot isn't cropped to match the landscape one. */
 .cafe-gallery{display:flex;flex-wrap:wrap;gap:18px;justify-content:center}
@@ -129,14 +70,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .conds a{background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:9px 18px;font-weight:700;font-size:14.5px;color:var(--teal-d);text-decoration:none;transition:border-color .15s,background .15s}
 .conds a:hover,.conds a:focus-visible{border-color:var(--teal);background:#fff}
 
-/* Presentation #2 fixes (2026-06-09) */
-/* Happy Hour photo circle was lost in the wide gold card on desktop — enlarge it (mobile unchanged). */
-@media(min-width:768px){.hh-emblem{width:164px;height:164px}}
-/* KILT value descriptions were too small to read comfortably — bump from 14.5px. */
-.pl-body p{font-size:16.5px}
 /* Thin horizontal line under the wavy section dividers — close the sub-pixel seam by
    overlapping the following section by 1px. */
 .wave{margin-bottom:-1px}
+
 /* Legal-page "On this page" TOC is collapsible so it can't dominate / hide content on mobile. */
 .legal-toc summary{font-weight:800;font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between}
 .legal-toc summary::-webkit-details-marker{display:none}
@@ -148,47 +85,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
    viewport on phones (min-width wouldn't shrink). Stack to one column on small screens. */
 @media(max-width:600px){.trust3.cond-grid{grid-template-columns:1fr !important}}
 
-/* Families "story" image: on phones the full-width 1:1 square (design's .story-pic) dominates
-   the screen — it reads as an oversized block, not a photo beside a quote. Use the photo's
-   natural 3:2 landscape ratio so it's a calm banner above the quote on mobile. (Desktop keeps
-   the 2-column layout untouched.) */
-@media(max-width:820px){.story-pic{aspect-ratio:3/2;height:auto;min-height:0}}
-/* …and in the 2-column layout (>820px), design's aspect-ratio:1 + height:100% feeds back:
-   a tall quote column inflates the photo's height, the 1:1 ratio then inflates its WIDTH,
-   blowing the grid track wider than the viewport (1418px wide at an 821px screen). Derive the
-   square from the column width instead of the row height. */
-@media(min-width:821px){.story-pic{width:100%;min-width:0;height:auto}}
-
 /* Form success panel on the dark-teal booking band: design's .form-success p uses var(--muted)
    (a grey for cream backgrounds) — barely legible on teal. Use the band's light lede tone, with
    the phone number in white. */
 .book .form-success p{color:#bfe0dc}
 .book .form-success p strong{color:#fff}
-
-/* Rate tables: price cells are right-aligned but design's headers were left-aligned, so on
-   wide columns the £ values sat far from their headers. Right-align headers to match.
-   (.lefty tables — cookies page — keep everything left-aligned, so they're excluded.) */
-.ratetable:not(.lefty) thead th:not(:first-child){text-align:right}
-
-/* Meet the Team — the 1:1 full-width photos at a 24px gap read as an overwhelming wall of
-   faces (Jamie, 10 Jun). Calm it: real breathing room between members.
-   6 Aug: the Aug studio shoot is framed 4:5, so a landscape slot cropped it badly — it clipped
-   hair at the top and cut chins at the collar. Cards now use a portrait slot that matches how
-   the photos were actually shot. To stop taller photos re-creating the wall-of-faces problem,
-   the cards are width-capped (320px) rather than stretching to a third of the row — which also
-   keeps the bios at a readable measure. Flex, not grid, so the trailing row of two centres
-   under the three above instead of hanging left. */
-.team-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:56px 40px}
-/* Wrapping keys off the flex-basis, so 3-up → 2-up → 1-up falls out of the available width
-   with no guessed breakpoints. The matching max-width is what stops a short row from
-   stretching its cards: two-up looks like three-up minus one, not two oversized portraits.
-   285 rather than a full third of the row (Jamie, 6 Aug): at 320 the portrait out-weighed the
-   bio under it. Narrowing the card shortens the photo AND wraps the bio onto more lines, which
-   closes the gap from both ends — the bio stays 14.5px, the size cards use site-wide. */
-.team-card{flex:0 1 285px;max-width:285px}
-.team-card img{aspect-ratio:4/5;object-position:50% 50%;margin-bottom:18px}
-/* Single column: let the card fill the phone's width instead of sitting at the 285px basis. */
-@media(max-width:560px){.team-grid{gap:44px}.team-card{flex:1 1 100%;max-width:360px}}
 
 /* How-We-Work photo annotations: the hand-drawn arrow doodles rendered tiny (30x24) and sat
    on the text baseline, reading as a squashed comma instead of "points down at the photo".
@@ -204,115 +105,3 @@ button,summary,.btn,.otter-fab,.talk-opt,[role="switch"]{touch-action:manipulati
 .a11y-stepper button[data-a11y="text-down"]{font-size:16px}
 .a11y-reset{font-size:16px}
 .a11y-read{font-size:16px}
-
-/* Checklist items: design's li{display:flex} splits text nodes around inline <strong> into
-   separate flex items ("Overnight and | live-in care | as needs grow" rendered as columns —
-   Jamie's dementia-page report). Tick becomes absolutely positioned; text flows normally. */
-.checklist li{display:block;position:relative;padding-left:26px}
-.checklist li::before{position:absolute;left:0;top:0}
-
-/* Founder signature: render the name as a hand-signed script (Caveat, already self-hosted),
-   like a real signature, instead of bold body text. Subtitle (role/company) stays sans. */
-.sig{font-family:"Caveat",cursive;font-weight:700;font-size:32px;line-height:.9;letter-spacing:.5px}
-.sig span{font-family:"Hanken Grotesk",system-ui,sans-serif;font-size:14px;letter-spacing:0;margin-top:6px}
-
-/* Atkinson Hyperlegible — self-hosted (OFL) for the easy-read toggle. Applied by design's
-   html.a11y-easy-font rule once their control CSS is lifted in. */
-@font-face{font-family:"Atkinson Hyperlegible";font-style:normal;font-weight:400;font-display:swap;src:url("/fonts/atkinson-hyperlegible-400.woff2") format("woff2")}
-@font-face{font-family:"Atkinson Hyperlegible";font-style:normal;font-weight:700;font-display:swap;src:url("/fonts/atkinson-hyperlegible-700.woff2") format("woff2")}
-@font-face{font-family:"Atkinson Hyperlegible";font-style:italic;font-weight:400;font-display:swap;src:url("/fonts/atkinson-hyperlegible-italic-400.woff2") format("woff2")}
-
-
-/* ---------------------------------------------------------------------------
-   Otter Alongside — family support programme stage pages (/family/*).
-   Code-side only: everything here composes design's existing components
-   (.hc-grid/.hc-card, .steps-grid/.step, .quizcard, .btn) rather than
-   introducing a new visual language. If /design lifts these into
-   otter-home.css, delete this block.
-   Accent edges are squared on the coloured side — never curved round the
-   corner (standing Otter rule).
-   --------------------------------------------------------------------------- */
-
-/* Buttons inside .prose. design's `.prose a{color:var(--teal-d);underline}` is
-   specificity (0,1,1) and beats `.btn-primary{color:#fff}` (0,1,0), so any button
-   placed in prose renders dark-teal underlined text on a teal fill — illegible.
-   Not Alongside-specific: this would hit a .btn in any prose block on the site.
-   Worth lifting into otter-home.css. */
-.prose a.btn{text-decoration:none}
-.prose a.btn-primary,.prose a.btn-clay{color:#fff}
-.prose a.btn-ghost{color:var(--teal-d)}
-
-/* Callout: a talk-to-us / key-point bar with a square teal accent edge. */
-.als-callout{display:flex;align-items:center;justify-content:space-between;gap:22px;
-  flex-wrap:wrap;background:var(--paper);border:1px solid var(--line);
-  border-left:6px solid var(--teal);border-radius:0 var(--r) var(--r) 0;
-  padding:22px 26px;margin:26px 0}
-/* Direct child only. A bare `.als-callout strong` also hits inline <strong> inside
-   the paragraph and forces it onto its own line — the same class of bug as the
-   .checklist li flex issue above. */
-.als-callout>div>strong:first-child{display:block;font-size:18px;color:var(--ink);margin-bottom:4px}
-.als-callout p{margin:0;font-size:15.5px;color:var(--muted);max-width:62ch}
-.als-callout p strong{font-weight:700;color:var(--ink)}
-.als-callout .btn{flex:none;white-space:nowrap}
-.als-callout--sun{border-left-color:var(--sun-d);background:#FBF6E7}
-
-/* Inline note — lighter than a callout, for a single caution. */
-.als-note{background:#FBF6E7;border-left:6px solid var(--sun-d);border-radius:0 var(--r) var(--r) 0;
-  padding:16px 20px;margin:22px 0;font-size:15.5px;color:var(--ink)}
-.als-note strong{color:var(--ink)}
-
-/* Wide blocks. .prose caps at ~706px, which squeezes 4- and 5-up grids down to
-   110–165px cards; these components are designed for full page width. Breaks
-   out symmetrically, clamped so it can never cause horizontal overflow. */
-.als-wide{position:relative;left:50%;transform:translateX(-50%);
-  width:min(980px,calc(100vw - 3rem))}
-
-/* Card grids — column-count variants on design's .hc-grid.
-   minmax(0,1fr), not 1fr: bare 1fr means minmax(auto,1fr), so a long word in
-   one card widens its column and the row goes uneven. */
-.als-grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
-.als-grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}
-.als-grid-team{grid-template-columns:repeat(5,minmax(0,1fr))}
-.hc-card>strong:first-child{font-size:17.5px;color:var(--ink);margin-bottom:8px;display:block}
-
-/* Phone screenshots. Bordered so the light app chrome doesn't bleed into cream. */
-.als-shots-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin:26px 0}
-.als-shot{margin:0}
-.als-shot img{width:100%;height:auto;display:block;border:1px solid var(--line);
-  border-radius:var(--r);box-shadow:var(--shadow-sm);background:#fff}
-.als-shot figcaption{font-size:14.5px;color:var(--muted);margin-top:10px;line-height:1.5}
-.als-shot--single{max-width:300px;margin:26px 0}
-
-/* Download card — cover thumbnail beside the button. */
-.als-download{align-items:center;gap:26px}
-.als-download img{width:110px;height:auto;flex:none;border:1px solid var(--line);
-  border-radius:6px;box-shadow:var(--shadow-sm)}
-.als-download h3{margin-bottom:6px}
-.als-download p{margin:0;color:var(--muted);font-size:15.5px}
-
-@media(max-width:900px){
-  .als-grid-4,.als-grid-team{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .als-shots-3{grid-template-columns:repeat(2,minmax(0,1fr))}
-}
-@media(max-width:600px){
-  /* Stop breaking out once the column is the whole screen. */
-  .als-wide{left:auto;transform:none;width:100%}
-  .als-grid-2,.als-grid-4,.als-grid-team,.als-shots-3{grid-template-columns:minmax(0,1fr)}
-  .als-callout,.als-download{flex-direction:column;align-items:flex-start}
-  .als-shot--single{max-width:100%}
-}
-
-/* ——— Mobile contact affordance swap (Jamie, 2026-07-26, revised same day) ———
-   The sticky .mbar was removed (markup gone from SiteLayout); the clay
-   launcher takes over on mobile. BOTH floating bubbles share .otter-fab —
-   the accessibility control on the left and the chat launcher on the right —
-   so they are aligned together here. Jamie: icon-only circles, same size,
-   same baseline. Design's ≤1000px block already shrinks .otter-fab to a 56px
-   icon-only circle and hides .fab-label; it also hid #talkToggle entirely
-   (the bar used to do its job) and raised bottoms to clear the bar. With the
-   bar gone: chat un-hidden, both bubbles down at 20px. */
-@media(max-width:1000px){
-  #talkToggle{display:inline-flex;right:16px}
-  .otter-fab{bottom:20px}
-  .otter-pop{bottom:88px}
-}

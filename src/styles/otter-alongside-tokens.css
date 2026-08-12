@@ -26,8 +26,9 @@
 
      --teal-dd     does NOT exist            -> literal #0B3F49
      --sun-soft    EXISTS  #F5E9CC           (design guessed #FBF6E7 — site wins)
-     --sand        does NOT exist. The site's page ground is --cream #FAF6EC,
-                   NOT the brand doc's #F5F1E8 -> --beige maps to --cream
+     --sand        does NOT exist. The site's page ground is --cream, which
+                   since the 12 Aug 2026 token alignment IS the brand doc's
+                   #F5F1E8 -> --beige maps to --cream
      --line-strong does NOT exist            -> literal
      --wrap        real name is --maxw (1200px, design guessed 1180)
      --mustard-ink the site ALREADY solves this: --sun-text #8A6410, which
@@ -36,7 +37,7 @@
 
    Also resolving to site values, deliberately — these differ from design's
    fallback literals and the site is correct:
-     --mustard      --sun    #D8B65E  (design literal was #D4AC4F)
+     --mustard      --sun    #D4AC4F  (site aligned to the design literal 12 Aug 2026)
      --mustard-dark --sun-d  #B98A1E  (design literal was #B5902F)
      --teal-dark    --teal-d #0F4F60  (design literal was #0E5260)
      --hairline     --line   #E8DECB  (design literal was a translucent brown)
@@ -54,7 +55,7 @@
      -------------------------------------------------------------------- */
   --teal: #136B7D;
   --teal-soft: #E2EDF1;
-  --cream: #FAF6EC;
+  --cream: #F5F1E8;
   --ink: #3B2E1E;                     /* site warm brown wins */
   --muted: #6A5F4C;                   /* site warm taupe wins */
   --shadow-sm: 0 8px 22px -18px rgba(39, 34, 25, .20);
@@ -63,11 +64,11 @@
   /* ---- Mapped from distinct site names — var() is safe here ---- */
   --teal-dark: var(--teal-d, #0F4F60);
   --teal-deep: #0B3F49;                        /* no site token */
-  --mustard: var(--sun, #D8B65E);
+  --mustard: var(--sun, #D4AC4F);
   --mustard-dark: var(--sun-d, #B98A1E);       /* fill only — 3.13:1 on white */
   --mustard-soft: var(--sun-soft, #F5E9CC);
   --mustard-ink: var(--sun-text, #8A6410);     /* mustard that WRITES */
-  --beige: var(--cream, #FAF6EC);              /* site page ground */
+  --beige: var(--cream, #F5F1E8);              /* site page ground */
   --white: var(--paper, #FFFFFF);
   --hairline: var(--line, #E8DECB);
   --hairline-strong: rgba(59, 46, 30, 0.22);   /* no site token */
