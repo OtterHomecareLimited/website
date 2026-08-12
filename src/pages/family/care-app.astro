@@ -178,20 +178,24 @@ import "../../styles/otter-alongside-print.css";
       <p class="als-p">Access is set up for up to three people, chosen by your relative or their representative, and can be removed at any time by asking any of us. You don't need to give a reason.</p>
     </section>
 
-    <!-- ===== See it in action (film moved from home, RESTRUCTURE §4) ======
-         C8 · SIGNED OFF 12 Aug 2026: heading + line below.
-         .video-embed here is playback PLUMBING only — §4 wants Alongside
-         visual treatment for this block, which comes with design's
-         production pass (no als video pattern exists yet to reuse). -->
-    <section class="als-section" id="film">
-      <h2 class="als-h2">See it in action</h2>
-      <p class="als-p">Two minutes inside the app — what you'll see after every visit.</p>
-      <div class="video-embed" data-yt="vnTnK0pfv0c" role="button" tabindex="0" aria-label="Play video: a look inside the family care app">
-        <img src="/img/poster-care-app.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/vnTnK0pfv0c/hqdefault.jpg'" alt="A look inside the Otter family care app" loading="lazy">
-        <span class="playbtn"><span></span></span>
-        <span class="vlabel">Watch: inside the care app</span>
-      </div>
-    </section>
+    <!-- ============================================================
+  SEE IT IN ACTION — film block for /family/care-app (design, 12 Aug 2026).
+  C8 signed off. Insert BETWEEN the id="see" als-section and the closing
+  "Stuck at any step?" als-section. Reuses the global .video-embed /
+  data-yt inline-play behaviour from otter-home.css.
+  CSS: otter-alongside-additions.css.
+  ============================================================ -->
+<section class="als-section" id="film">
+  <h2 class="als-h2">See it in action</h2>
+  <p class="als-p als-p--muted">Two minutes inside the app — what you’ll see after every visit.</p>
+  <div class="als-video">
+    <div class="video-embed" data-yt="vnTnK0pfv0c" role="button" tabindex="0" aria-label="Play video: Using the Otter Homecare app">
+      <img src="/img/poster-care-app.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/vnTnK0pfv0c/hqdefault.jpg'" alt="Using the Otter Homecare Care App" loading="lazy">
+      <span class="playbtn"><span></span></span>
+      <span class="vlabel">See the Care App in action</span>
+    </div>
+  </div>
+</section>
 
     <!-- ===== Close ======================================================== -->
     <section class="als-section">
