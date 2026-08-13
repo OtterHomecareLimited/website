@@ -556,3 +556,20 @@ a.als-prevnext__item:hover { transform: translateY(-3px); box-shadow: var(--shad
 #guides .als-card:hover { transform: translateY(-3px); border-color: var(--teal); box-shadow: 0 12px 26px -12px rgba(19,107,125,.5); }
 #guides .als-card:hover .als-card__title a { text-decoration: underline; text-underline-offset: 3px; }
 #guides .als-card:focus-within { border-color: var(--teal); box-shadow: 0 0 0 3px var(--mustard); }
+
+/* ============================================================
+   Guide-stage artwork — /family #guides (design, 13 Aug 2026).
+   FLAGGED PER THE DS ICON RULE: extends the bespoke two-tone kit
+   with six stage icons — door, calendar, chat, signpost, armchair,
+   window — drawn to the kit's conventions (64×64 grid, 4px #136B7D
+   stroke, round caps/joins, exactly one #D6A93D accent each).
+   [Integration note: design's files carried the retired near-miss
+   teal #17687D; corrected to the kit's actual #136B7D on copy.]
+   They are kit citizens: reuse them anywhere, and keep any future
+   icons to the same recipe.
+   ============================================================ */
+
+/* Stage chip — larger sibling of .als-card__chip (keep both classes
+   on the span: the print stylesheet already handles .als-card__chip). */
+.als-card__chip--stage{flex:none;width:56px;height:56px;border-radius:10px;background:var(--teal-soft);display:grid;place-items:center}
+.als-card__chip--stage img{width:34px;height:34px;display:block}
