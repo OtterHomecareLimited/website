@@ -679,7 +679,9 @@ footer .legal{border-top:1px solid rgba(255,255,255,.14);padding:20px 28px;text-
 .team-card b{font-size:19px}.team-card .role{display:block;font-size:13px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--teal);margin:2px 0 10px}
 .team-card p{font-size:14.5px;color:var(--muted);line-height:1.55}
 /* phones: two-up keeps faces big while halving the scroll */
-@media(max-width:560px){.team-grid{gap:34px 18px}.team-card{flex:1 1 44%;max-width:none}.team-card p{font-size:14px}}
+/* flex-grow 0: the odd last card (Abbey, 5 of 5) must stay one column,
+   centred — not stretch across the row (Jamie, 13 Aug) */
+@media(max-width:560px){.team-grid{gap:34px 18px}.team-card{flex:0 1 44%;max-width:none}.team-card p{font-size:14px}}
 .filefield{border:2px dashed var(--line);border-radius:13px;padding:20px;text-align:center;background:var(--cream);cursor:pointer;display:block}
 .filefield:hover{border-color:var(--teal);background:var(--paper)}
 .filefield .ff-ic{width:42px;height:42px;border-radius:50%;background:var(--teal-soft);color:var(--teal-d);display:grid;place-items:center;margin:0 auto 10px;font-size:20px;font-weight:900}
@@ -1106,3 +1108,13 @@ html.a11y-contrast .section.bg-cream,html.a11y-contrast .section.bg-sky,html.a11
    the base .hc-grid is four columns (sized for /reviews), which left the
    right half of the row empty. Two-up on home, per wireframe 1a. */
 .hc-grid--2{grid-template-columns:repeat(2,1fr)}
+
+/* Careers strip otter mark — design's "40px otter head fits on this strip"
+   option, taken up 13 Aug (using the estate's small tt motif mark). */
+.careers-strip .cs-otter{width:40px;height:auto;flex:none}
+
+/* Founder section: one-line values pointer to /our-story (owner-approved copy,
+   13 Aug) — KILT lore lives there; this is the wayfinding. */
+.promise-values{margin-top:14px;font-size:15.5px}
+.promise-values a{font-weight:800;color:var(--teal)}
+.promise-values a:hover{color:var(--teal-d)}
