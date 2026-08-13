@@ -515,7 +515,7 @@ footer .legal{border-top:1px solid rgba(255,255,255,.14);padding:20px 28px;text-
    viewport-scaled to fit the narrow column */
 @media(max-width:760px){.hero-like{display:block;text-align:left;padding-left:4px;padding-right:0;font-size:clamp(30px,8.5vw,42px);margin-top:6px}}
 .ww-photos{display:grid;grid-template-columns:1fr 1fr;gap:28px;max-width:980px;margin:0 auto}
-.ww-photo{position:relative;margin:0;padding-top:34px}
+.ww-photo{position:relative;margin:0;padding-top:42px}
 .ww-photo img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--r-lg);box-shadow:var(--shadow);display:block}
 .ww-note{position:absolute;top:-2px;left:12px;font-family:"Caveat",cursive;font-weight:700;color:var(--teal-d);font-size:26px;line-height:1;display:inline-flex;align-items:flex-end;gap:4px;transform:rotate(-2deg);z-index:2}
 .ww-note svg{width:30px;height:24px;flex:none;margin-bottom:-1px}
