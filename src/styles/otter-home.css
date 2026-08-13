@@ -1101,3 +1101,8 @@ html.a11y-contrast .section.bg-cream,html.a11y-contrast .section.bg-sky,html.a11
    .founder-merged scope — re-apply the site's standard signature treatment. */
 .founder-merged .sig{font-weight:800;color:var(--teal-d)}
 .founder-merged .sig span{display:block;font-weight:500;color:var(--muted);font-size:14px}
+
+/* Home reviews after the restructure keep only the two most recent cards —
+   the base .hc-grid is four columns (sized for /reviews), which left the
+   right half of the row empty. Two-up on home, per wireframe 1a. */
+.hc-grid--2{grid-template-columns:repeat(2,1fr)}
