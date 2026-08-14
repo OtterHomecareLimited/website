@@ -1122,9 +1122,10 @@ html.a11y-contrast .section.bg-cream,html.a11y-contrast .section.bg-sky,html.a11
 
 /* ——— Owner review round, 13 Aug 2026 (design parity: fold into source) ——— */
 
-/* Mobile: the 9.5 badge duplicated the trust line right above the photo and
-   cluttered the arch photo's visible top — desktop keeps it. */
-@media(max-width:880px){.hero-badge{display:none}}
+/* Mobile: ONE proof carrier — the 9.5 badge stays ON the photo (overlay =
+   no vertical cost); the trust line above comes off instead (owner call,
+   13 Aug, reversing the earlier swap). Desktop keeps both. */
+@media(max-width:880px){.hero-trust{display:none}}
 
 /* Home review cards on phones: stack. The two-up base rule was appended after
    the old 520px stacking rule and silently beat it — the wonky stars/dates
@@ -1141,6 +1142,9 @@ html.a11y-contrast .section.bg-cream,html.a11y-contrast .section.bg-sky,html.a11
   .careers-strip .cs-otter-wrap.in .cs-otter{animation:otterShake .85s ease .4s 1}
 }
 
-/* Strip wording in the site's handwritten voice — pairs with the character. */
-.careers-strip a{font-family:"Caveat",cursive;font-weight:700;font-size:27px;letter-spacing:.2px}
+/* Strip wording in the site's handwritten voice — pairs with the character.
+   line-height pinned: the inherited body 1.62 leading left a huge gap when
+   the line wraps on phones. */
+.careers-strip a{font-family:"Caveat",cursive;font-weight:700;font-size:27px;letter-spacing:.2px;line-height:1.08;text-align:left}
+@media(max-width:560px){.careers-strip a{font-size:24px}}
 .careers-strip a svg{width:20px;height:20px}
