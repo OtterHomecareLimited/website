@@ -3,7 +3,7 @@ title: "New Otter Homecare Facebook page"
 description: "We are excited to announce the launch of our Otter Homecare Facebook page, a new online channel for updating our community. Otter"
 pubDate: 2023-07-19
 category: "Community"
-heroImage: "/img/blog/ff72ba_7fb5dbc3163b4ea7bcc5262cd0317ab7.jpg"
+heroImage: "/img/team-group.jpg"
 ---
 
 We are excited to announce the launch of our Otter Homecare Facebook page, a new online channel for updating our community.

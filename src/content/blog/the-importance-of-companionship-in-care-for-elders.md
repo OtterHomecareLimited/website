@@ -3,7 +3,7 @@ title: "The Importance of Companionship in Care for Elders"
 description: "Ageing often brings about many challenges, among them being loneliness and isolation. At Otter Homecare, we understand that companionship"
 pubDate: 2023-06-15
 category: "Companionship"
-heroImage: "/img/blog/ff72ba_0bac9616228a49c2b84b941073c096ba.jpg"
+heroImage: "/img/ff72ba_a006c15eb20c4eb1b0930b2825f55912~mv2.jpg"
 ---
 
 Ageing often brings about many challenges, among them being loneliness and isolation. At Otter Homecare, we understand that companionship is as crucial to elderly care as medical attention. Companionship plays a key role in improving the quality of life for seniors, fostering emotional health and contributing to their overall well-being.
