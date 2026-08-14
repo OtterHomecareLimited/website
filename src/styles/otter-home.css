@@ -1113,11 +1113,34 @@ html.a11y-contrast .section.bg-cream,html.a11y-contrast .section.bg-sky,html.a11
    popping above the strip's top edge (Jamie, 13 Aug: the tt mark's gold
    heads clashed with the mustard; the character features on home here). */
 .careers-strip{position:relative}
-.careers-strip .cs-otter{width:auto;height:68px;flex:none;align-self:flex-end;
-  margin:-26px 6px -15px 0;filter:drop-shadow(0 6px 12px rgba(58,42,6,.3));z-index:1}
 
 /* Founder section: one-line values pointer to /our-story (owner-approved copy,
    13 Aug) — KILT lore lives there; this is the wayfinding. */
 .promise-values{margin-top:14px;font-size:15.5px}
 .promise-values a{font-weight:800;color:var(--teal)}
 .promise-values a:hover{color:var(--teal-d)}
+
+/* ——— Owner review round, 13 Aug 2026 (design parity: fold into source) ——— */
+
+/* Mobile: the 9.5 badge duplicated the trust line right above the photo and
+   cluttered the arch photo's visible top — desktop keeps it. */
+@media(max-width:880px){.hero-badge{display:none}}
+
+/* Home review cards on phones: stack. The two-up base rule was appended after
+   the old 520px stacking rule and silently beat it — the wonky stars/dates
+   were the two cards squeezing into 170px columns. */
+@media(max-width:560px){.hc-grid--2{grid-template-columns:1fr}}
+
+/* Careers strip otter v2: top half of the character, twice the presence,
+   popping from behind the band; shakes once when scrolled into view
+   (same otterShake + reduced-motion guard as the KILT otter). */
+.careers-strip .cs-otter-wrap{flex:none;align-self:flex-end;width:74px;height:58px;overflow:hidden;margin:-30px 8px -15px 0;position:relative}
+.careers-strip .cs-otter{width:74px;height:auto;display:block;filter:drop-shadow(0 6px 12px rgba(58,42,6,.3))}
+@media(prefers-reduced-motion:no-preference){
+  .careers-strip .cs-otter{transform-origin:50% 100%}
+  .careers-strip .cs-otter-wrap.in .cs-otter{animation:otterShake .85s ease .4s 1}
+}
+
+/* Strip wording in the site's handwritten voice — pairs with the character. */
+.careers-strip a{font-family:"Caveat",cursive;font-weight:700;font-size:27px;letter-spacing:.2px}
+.careers-strip a svg{width:20px;height:20px}
