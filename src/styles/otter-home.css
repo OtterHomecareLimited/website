@@ -1135,7 +1135,7 @@ html.a11y-contrast .section.bg-cream,html.a11y-contrast .section.bg-sky,html.a11
 /* Careers strip otter v2: top half of the character, twice the presence,
    popping from behind the band; shakes once when scrolled into view
    (same otterShake + reduced-motion guard as the KILT otter). */
-.careers-strip .cs-otter-wrap{flex:none;align-self:flex-end;width:74px;height:58px;overflow:hidden;margin:-30px 8px -15px 0;position:relative}
+.careers-strip .cs-otter-wrap{flex:none;align-self:flex-end;width:74px;height:72px;overflow:hidden;margin:-46px 8px -15px 0;position:relative}
 .careers-strip .cs-otter{width:74px;height:auto;display:block;filter:drop-shadow(0 6px 12px rgba(58,42,6,.3))}
 @media(prefers-reduced-motion:no-preference){
   .careers-strip .cs-otter{transform-origin:50% 100%}
@@ -1145,6 +1145,10 @@ html.a11y-contrast .section.bg-cream,html.a11y-contrast .section.bg-sky,html.a11
 /* Strip wording in the site's handwritten voice — pairs with the character.
    line-height pinned: the inherited body 1.62 leading left a huge gap when
    the line wraps on phones. */
-.careers-strip a{font-family:"Caveat",cursive;font-weight:700;font-size:27px;letter-spacing:.2px;line-height:1.08;text-align:left}
+.careers-strip a{font-family:"Caveat",cursive;font-weight:700;font-size:27px;letter-spacing:.2px;line-height:1.08;justify-content:center}
+/* label owns the words AND the arrow, so a wrapped line keeps the arrow at its
+   end instead of the flex layout parking it at the far edge; centred lines. */
+.careers-strip .cs-label{flex:0 1 auto;text-align:center}
+.careers-strip .cs-label svg{display:inline-block;vertical-align:-3px;margin-left:4px}
 @media(max-width:560px){.careers-strip a{font-size:24px}}
 .careers-strip a svg{width:20px;height:20px}
