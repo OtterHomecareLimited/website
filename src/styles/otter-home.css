@@ -794,9 +794,23 @@ html.a11y-easy-font body{font-family:"Atkinson Hyperlegible",system-ui,sans-seri
 html.a11y-easy-font h1,html.a11y-easy-font h2,html.a11y-easy-font h3,html.a11y-easy-font h4{font-family:"Atkinson Hyperlegible",system-ui,sans-serif;letter-spacing:0}
 html.a11y-easy-font .prose p,html.a11y-easy-font .lede{line-height:1.8;letter-spacing:.01em}
 /* text size */
-html.a11y-text-1 body{font-size:20px}
-html.a11y-text-2 body{font-size:22.5px}
-html.a11y-text-2 .lede{font-size:22px}
+/* Text size: real zoom on the page content. The stylesheet carries ~225
+   fixed px font sizes, so the old body-font bump visibly changed almost
+   nothing (Jamie, 13 Aug). Zoom scales text, images and layout together;
+   chrome (nav, menu, launchers, this panel) deliberately stays 1:1.
+   Supported in all evergreen browsers; older ones keep the modest bump. */
+html.a11y-text-1 :where(main,footer){zoom:1.12}
+html.a11y-text-2 :where(main,footer){zoom:1.25}
+/* zoomed content may exceed the shrunken layout viewport by a few px where
+   decorative pieces have fixed minimum widths (phone mock, floating cards) —
+   clip, don't scroll. clip creates no scroll container, so sticky is safe. */
+html.a11y-text-1 main,html.a11y-text-2 main{overflow-x:clip}
+@media(max-width:560px){html.a11y-text-2 :where(main,footer){zoom:1.2}}
+@supports not (zoom:1){
+  html.a11y-text-1 body{font-size:20px}
+  html.a11y-text-2 body{font-size:22.5px}
+  html.a11y-text-2 .lede{font-size:22px}
+}
 /* ===== maximal high-contrast theme (html.a11y-contrast) ===== */
 html.a11y-contrast{--cream:#FFFFFF;--cream-2:#FFFFFF;--paper:#FFFFFF;--ink:#000000;--muted:#1A1A1A;--line:#000000;--head:#000;--teal:#0B3D4D;--teal-d:#062A36;--teal-soft:#FFFFFF;--clay:#7A2E12;--clay-d:#7A2E12;--clay-text:#7A2E12;--sun:#000;--sun-d:#000;--sun-text:#000;background:#fff}
 html.a11y-contrast body{background:#fff;color:#000}
