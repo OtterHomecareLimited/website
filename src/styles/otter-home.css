@@ -1139,7 +1139,7 @@ html.a11y-contrast .section.bg-cream,html.a11y-contrast .section.bg-sky,html.a11
    had no readable edge (Jamie, 13 Aug). Band grows to hold the head with
    ~15px clearance; feet still plant on the band's bottom edge. */
 .careers-strip .cs-otter-wrap{flex:none;align-self:flex-end;width:74px;height:72px;overflow:hidden;margin:0 10px -15px 0;position:relative}
-.careers-strip .cs-otter{width:74px;height:auto;display:block;filter:drop-shadow(0 6px 12px rgba(58,42,6,.3))}
+.careers-strip .cs-otter{width:74px;height:auto;display:block}
 @media(prefers-reduced-motion:no-preference){
   .careers-strip .cs-otter{transform-origin:50% 100%}
   .careers-strip .cs-otter-wrap.in .cs-otter{animation:otterShake .85s ease .4s 1}
