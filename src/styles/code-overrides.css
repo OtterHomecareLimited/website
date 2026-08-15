@@ -94,9 +94,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 /* How-We-Work photo annotations: the hand-drawn arrow doodles rendered tiny (30x24) and sat
    on the text baseline, reading as a squashed comma instead of "points down at the photo".
    Render larger and let them dip below the baseline toward the image they annotate. */
-/* Dip reduced -18px -> -6px (Jamie, 13 Aug): tips were landing ON the photo
-   edge and reading as clipped; they now stop just above it. */
-.ww-note svg{width:38px;height:34px;margin-bottom:-6px}
+/* Redrawn 13 Aug (Jamie: "fishing hooks") — steeper stroke, bigger heads,
+   square box so nothing letterboxes; tips stop just above the photo. */
+.ww-note svg{width:34px;height:34px;margin-bottom:-4px}
 
 /* iOS zoom bug (Jamie, 10 Jun): tapping the accessibility stepper twice (A+ A+) triggers
    Safari's double-tap-to-zoom, blowing the viewport up and leaving the site "unusable".

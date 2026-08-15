@@ -667,7 +667,13 @@ footer .legal{border-top:1px solid rgba(255,255,255,.14);padding:20px 28px;text-
 /* icon badges kept consistent (single teal) across all perks */
 .perk .ic img{width:56%;height:56%;filter:brightness(0) invert(1)}
 .perk h3{font-size:17px;margin-bottom:5px}.perk p{font-size:14.5px;color:var(--muted)}
-@media(max-width:760px){.perks-grid{grid-template-columns:1fr}}
+@media(max-width:760px){
+  .perks-grid{grid-template-columns:1fr;gap:14px}
+  /* stacked tiles left a dead column right of the icon (Jamie, 13 Aug):
+     icon sits beside the text on phones, same row language as .dl/.ci */
+  .perk{display:grid;grid-template-columns:54px 1fr;column-gap:16px;padding:20px 22px}
+  .perk .ic{grid-row:1/3;margin-bottom:0}
+}
 /* Meet the Team — flex with width-capped portrait cards: 3-up → 2-up → 1-up falls out of
    the available width, trailing rows centre, and the 4:5 slot matches how the August
    studio photos were shot (a landscape slot clipped hair and chins). 285px cap keeps the
