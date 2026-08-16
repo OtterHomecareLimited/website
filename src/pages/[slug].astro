@@ -10,7 +10,22 @@ export function getStaticPaths() {
 
 const { town } = Astro.props;
 const initial = town.testimonial.author.trim().charAt(0);
+
+// FAQPage schema for the town-specific questions. Only emitted where a town
+// actually has FAQs — Google penalises markup that isn't visible on the page.
+const faqSchema = town.faqs?.length
+  ? {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: town.faqs.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    }
+  : null;
 ---
+{faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
 <SiteLayout title={town.title} description={town.description} ogImage={town.photo} breadcrumbLabel={town.name}>
   <header class="phero"><div class="wrap">
     <div class="crumb"><a href="/">Home</a> · <a href="/areas-we-cover">Areas We Cover</a> · {town.name}</div>
@@ -54,6 +69,39 @@ const initial = town.testimonial.author.trim().charAt(0);
     </div>
   </div></section>
 
+  <!-- Depth blocks — only render for towns that have the local detail written.
+       Trowbridge, Melksham and Frome fall through untouched until they do. -->
+  {town.localCare && (
+    <section class="section bg-sky"><div class="wrap" style="max-width:760px">
+      <div class="reveal">
+        <span class="eyebrow">Local healthcare</span>
+        <h2 style="font-size:clamp(24px,3vw,32px);margin:8px 0 12px">{town.localCare.headline}</h2>
+        <p class="lede" style="max-width:none" set:html={town.localCare.body}></p>
+      </div>
+    </div></section>
+  )}
+
+  {town.community && (
+    <section class="section"><div class="wrap" style="max-width:760px">
+      <div class="reveal">
+        <span class="eyebrow">In the community</span>
+        <h2 style="font-size:clamp(24px,3vw,32px);margin:8px 0 12px">{town.community.headline}</h2>
+        <p class="lede" style="max-width:none" set:html={town.community.body}></p>
+      </div>
+    </div></section>
+  )}
+
+  {town.funding && (
+    <section class="section tmt"><div class="wrap" style="max-width:760px">
+      <div class="reveal">
+        <span class="eyebrow">Costs and funding</span>
+        <h2 style="font-size:clamp(24px,3vw,32px);margin:8px 0 12px">{town.funding.headline}</h2>
+        <p class="lede" style="max-width:none" set:html={town.funding.body}></p>
+        <a class="btn btn-primary" href="/cost-of-home-care" style="margin-top:16px">See costs &amp; funding →</a>
+      </div>
+    </div></section>
+  )}
+
   <!-- live-in care cross-link (geo-targeted: "live in care {town}") -->
   <section class="section"><div class="wrap" style="max-width:760px">
     <div class="reveal">
@@ -73,6 +121,22 @@ const initial = town.testimonial.author.trim().charAt(0);
       <span class="vlabel">Watch: Hi, I'm Jamie</span>
     </div>
   </div></section>
+
+  <!-- Town FAQs. Markup matches /faqs so the global .faq > button accordion
+       handler in SiteLayout picks these up with no extra script. -->
+  {town.faqs && town.faqs.length > 0 && (
+    <section class="section"><div class="wrap" style="max-width:820px">
+      <div class="head-c reveal"><span class="eyebrow">Good to know</span><h2>Questions from {town.name} families</h2></div>
+      <div class="faqs reveal">
+        {town.faqs.map((f) => (
+          <div class="faq">
+            <button type="button">{f.q}<span class="tog">+</span></button>
+            <div class="ans"><p>{f.a}</p></div>
+          </div>
+        ))}
+      </div>
+    </div></section>
+  )}
 
   <!-- local testimonial -->
   <section class="section tmt"><div class="wrap">

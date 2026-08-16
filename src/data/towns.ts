@@ -15,6 +15,16 @@ export interface Town {
   chips: string[];         // surrounding villages
   cardBlurb: string;       // short blurb for the Areas hub card
   testimonial: { quote: string; author: string; role: string };
+
+  // --- Optional depth blocks (added Aug 2026) -------------------------------
+  // Rendered only when present, so towns can be deepened one at a time without
+  // touching the template. Bodies may contain <b> and <br> — set:html.
+  // Bradford-on-Avon and Westbury are done; the other three still need Jamie's
+  // local detail before they can be written honestly.
+  localCare?: { headline: string; body: string };
+  community?: { headline: string; body: string };
+  funding?: { headline: string; body: string };
+  faqs?: { q: string; a: string }[];
 }
 
 export const towns: Town[] = [
@@ -45,6 +55,29 @@ export const towns: Town[] = [
     chips: ["Winsley","Turleigh","Westwood","Avoncliff","Limpley Stoke","Monkton Farleigh","Iford"],
     cardBlurb: "Care across Bradford-on-Avon, Winsley, Westwood, Limpley Stoke and nearby.",
     testimonial: { quote: "Otter staff are superb in every way. They are kind, and really understand what being caring carers means.", author: "Frances W", role: "Client" },
+
+    localCare: {
+      headline: "Working with your GP and the hospital",
+      body: "Most of the people we look after in Bradford-on-Avon are registered with the <b>Bradford-on-Avon &amp; Melksham Health Partnership</b> on Station Approach, <b>St Margaret's Surgery</b> on Bridge Street, or the branch surgery up at <b>Winsley</b>. Whichever is yours, we speak to them directly — and to the district nurses — so you are not left carrying messages between people who ought to be talking to each other.<br><br>We also help a good number of people home from the <b>Royal United in Bath</b>. If that is where your relative is now, we can carry out the assessment on the ward rather than waiting for discharge day, so care is ready for the day they come home. We can do the same in a care home if someone is there for a short stay and wants to get back.",
+    },
+    community: {
+      headline: "Not a patch we drive to",
+      body: "Jamie, who founded Otter, lives in Bradford-on-Avon, and two of our office team live here too. We currently look after around fifteen families in and around the town.<br><br>Being local shows up in what we actually do rather than what we say. We take clients to <b>Music for the Mind</b> at the Wiltshire Music Centre, and to Beyond Dementia activities at <b>Holy Trinity Church</b>. One lady gets to church every Sunday, because that is the most important hour of her week. And a fair amount of our time goes on coffee and a change of scene — <b>Hartley Farm</b>, Merkins, Flourish over at Farleigh Hungerford, or the gardens at <b>Iford Manor</b>.",
+    },
+    funding: {
+      headline: "Paying for care in Bradford-on-Avon",
+      body: "Bradford-on-Avon is in Wiltshire, so if you are asking for help with the cost it is <b>Wiltshire Council</b> you will be dealing with — worth knowing on this side of the county, where people often assume Somerset. We look after clients funded by the council, we accept Direct Payments, and we are happy to invoice the council directly.<br><br>We also publish our rates rather than asking you to ring for a number: visiting care from £36 an hour, live-in from £1,550 a week, with no travel or call-out charge. The rate is the same whether you are on Bridge Street or up at Monkton Farleigh.",
+    },
+    faqs: [
+      { q: "How quickly can care start in Bradford-on-Avon?",
+        a: "We can usually carry out the free assessment the same day you call, and have care in place within 48 hours. If it is more urgent than that, say so when you ring and we will tell you honestly what we can do." },
+      { q: "Do you cover the villages around the town?",
+        a: "Yes — Winsley, Turleigh, Westwood, Avoncliff, Limpley Stoke, Monkton Farleigh and Iford, and the lanes between them. There is no extra charge for any of them, and no travel or call-out fee." },
+      { q: "Can you help someone coming out of the RUH in Bath?",
+        a: "Yes, and it is something we do often. Where it helps, we will come and assess on the ward so that care is arranged before discharge day rather than after it." },
+      { q: "Will the same carers come each time?",
+        a: "That is the whole reason we stay small. You will have a regular team who know the routine, rather than whoever the rota throws up — and you will meet them before they start." },
+    ],
   },
   {
     slug: "melksham",
@@ -73,6 +106,29 @@ export const towns: Town[] = [
     chips: ["Dilton Marsh","Bratton","Edington","Heywood","Hawkeridge","Chapmanslade","Upton Scudamore"],
     cardBlurb: "Care in Westbury and the villages including Dilton Marsh, Bratton and Edington.",
     testimonial: { quote: "The Otter Home Care staff were incredibly kind and considerate in all their dealings with me and my stepmother.", author: "J K", role: "Stepson of Client" },
+
+    localCare: {
+      headline: "Working with your GP and the hospital",
+      body: "Most of the people we look after in Westbury are registered with <b>Westbury Group Practice</b> at the White Horse Health Centre on Mane Way. We speak to the surgery and to the district nurses directly, so nobody is left relaying messages between people who ought to be talking to each other.<br><br>For anything more serious it is usually the <b>Royal United in Bath</b>, with the Minor Injury Unit at Trowbridge closer to hand. We help a good number of people home from the RUH, and where it helps we will carry out the assessment on the ward so care is ready for the day they get back — or in a care home, if someone is there for a short stay and wants to come home.",
+    },
+    community: {
+      headline: "Westbury people, not visitors",
+      body: "Several of our Care Professionals are from Westbury. This is their town — the school run, the shops, the people they already know — rather than a patch they drive out to. We look after a growing number of families here and in the villages around.<br><br>And we get out. We have taken clients up to the <b>White Horse</b> itself, which is not a small thing for someone who has looked at it from their window every day for fifty years and assumed those days were behind them.",
+    },
+    funding: {
+      headline: "Paying for care in Westbury",
+      body: "Westbury is in Wiltshire, so if you are asking for help with the cost it is <b>Wiltshire Council</b> you will be dealing with. We look after clients funded by the council, we accept Direct Payments, and we are happy to invoice the council directly.<br><br>We also publish our rates rather than asking you to ring for a number: visiting care from £36 an hour, live-in from £1,550 a week, with no travel or call-out charge. The rate is the same in town as it is out at Chapmanslade or Upton Scudamore.",
+    },
+    faqs: [
+      { q: "How quickly can care start in Westbury?",
+        a: "We can usually carry out the free assessment the same day you call, and have care in place within 48 hours. If it is more urgent than that, say so when you ring and we will tell you honestly what we can do." },
+      { q: "Do you cover the villages around Westbury?",
+        a: "Yes — Dilton Marsh, Bratton, Edington, Heywood, Hawkeridge, Chapmanslade and Upton Scudamore. There is no extra charge for any of them, and no travel or call-out fee." },
+      { q: "Can you help someone coming out of the RUH in Bath?",
+        a: "Yes, and it is something we do often. Where it helps, we will come and assess on the ward so that care is arranged before discharge day rather than after it." },
+      { q: "Are your carers actually local to Westbury?",
+        a: "Several of them are Westbury people. It is why we can be with you quickly, and why the same faces keep coming back rather than a different carer every week." },
+    ],
   },
   {
     slug: "frome",

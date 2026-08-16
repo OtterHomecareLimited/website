@@ -119,3 +119,33 @@ button,summary,.btn,.otter-fab,.talk-opt,[role="switch"]{touch-action:manipulati
    rows × 24px. display:none takes them out of layout, as the UA default intends. */
 picture { display: contents; }
 picture > source { display: none; }
+
+/* Otter Alongside block on the homepage (#alongside). Six guides as compact
+   cards — number, title, one short line. Deliberately lighter than .svc: this
+   sits just above the booking band and must not out-shout it. Cards use the
+   same paper/line/radius language as the rest of the site so it reads native. */
+.alongside-home .al-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:1000px;margin:0 auto;
+}
+.alongside-home .al-card{
+  background:var(--paper);border:1px solid var(--line);border-radius:var(--r);
+  padding:20px 20px 22px;display:flex;flex-direction:column;gap:5px;
+  text-decoration:none;transition:transform .2s,box-shadow .2s,border-color .2s;
+}
+.alongside-home .al-card:hover,.alongside-home .al-card:focus-visible{
+  transform:translateY(-3px);box-shadow:var(--shadow-sm);border-color:var(--teal);
+}
+.alongside-home .al-n{
+  font-family:"Spectral",serif;font-size:15px;font-weight:800;color:var(--teal);
+  line-height:1;margin-bottom:3px;
+}
+.alongside-home .al-t{
+  font-family:"Spectral",serif;font-size:19.5px;font-weight:700;color:var(--head);line-height:1.25;
+}
+.alongside-home .al-s{font-size:14.5px;color:var(--muted);line-height:1.5}
+.alongside-home .al-foot{text-align:center;margin-top:34px}
+.alongside-home .al-foot p{
+  margin:14px auto 0;max-width:46ch;font-size:14.5px;color:var(--muted);line-height:1.55;
+}
+@media(max-width:860px){.alongside-home .al-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.alongside-home .al-grid{grid-template-columns:1fr}}
