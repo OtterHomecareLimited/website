@@ -150,10 +150,15 @@ picture > source { display: none; }
 @media(max-width:860px){.alongside-home .al-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:520px){.alongside-home .al-grid{grid-template-columns:1fr}}
 
-/* Homepage reviews: the featured story now carries the section and a single
-   supporting card sits under it, so that card spans rather than leaving a gap
-   in the two-column grid it used to share. */
-.hc-grid--1{grid-template-columns:1fr}
+/* Social proof: full set on desktop, trimmed on phones.
+   Reviews and Real Moments ran to 4.4 consecutive phone screens. Cutting cards
+   outright fixed mobile but broke desktop — two moments left an empty third
+   column, and one review stretched the full 1144px. So the cards all stay in the
+   markup and the last of each is hidden only once its grid has collapsed to a
+   single column, which is the point where an extra card costs a whole screen.
+   Both sections already carry "read all" links, so nothing becomes unreachable. */
+@media(max-width:560px){ .moments-grid > .moment:nth-child(3){display:none} }
+@media(max-width:520px){ .hc-grid--2 > .hc-card:nth-child(2){display:none} }
 
 /* Homepage service cards: below 520px these stacked one-up, so four cards with
    16:11 photos ate 2.7 phone screens on their own. Two-up halves that without
@@ -167,4 +172,18 @@ picture > source { display: none; }
   .services .svc-grid .svc p{font-size:15px;line-height:1.5}
   .services .svc-grid .more{font-size:15px}
   .services .svc-grid .svc-ic{width:46px;height:46px}
+}
+
+/* Town pages "How we can help": the same four cards that stacked one-up on the
+   homepage did it here too, eating 2.2 phone screens of content that is
+   identical on all five towns. Two-up, with the type left alone — same reasoning
+   as the homepage grid: shrinking it saves almost nothing and this audience
+   skews older. These are the pages the Google Ads traffic lands on, so the
+   generic block is the one that should be compact, not the local detail. */
+@media(max-width:520px){
+  .svc-grid.town-svc{grid-template-columns:1fr 1fr;gap:12px}
+  .svc-grid.town-svc .body{padding:16px 15px 18px}
+  .svc-grid.town-svc h3{font-size:18px;line-height:1.25}
+  .svc-grid.town-svc p{font-size:15px;line-height:1.5}
+  .svc-grid.town-svc .more{font-size:15px}
 }

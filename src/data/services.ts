@@ -56,6 +56,63 @@ export const services: Service[] = [
         "Everyone I have seen has gone the extra mile and for me at this extremely difficult stage of his quickly diminishing control it has been a God send. I cannot recommend them highly enough.",
       who: "J W · Wife of Client",
     },
+
+    serviceType: "Personal care at home",
+    areaServed: ["Trowbridge", "Bradford-on-Avon", "Melksham", "Westbury", "Frome", "West Wiltshire", "Somerset"],
+    priceFrom: { amount: 27.5, unit: "30-minute visit" },
+    sections: [
+      {
+        eyebrow: "The honest bit",
+        h2: "Nobody looks forward to needing this",
+        body: [
+          "Help with washing, dressing or the toilet is the part of care people put off longest, and often the part they're least willing to talk about. That reluctance is completely reasonable, and it's worth saying out loud rather than pretending otherwise.",
+          "What makes it bearable is not being cheerful about it. It's the same few people, every time, who already know how you like things done — so you're not explaining yourself to a stranger, and nobody is learning on you.",
+        ],
+      },
+      {
+        eyebrow: "How we work",
+        h2: "Dignity, in practice rather than in a brochure",
+        body: [
+          "Before anyone starts, our Registered Manager or a Care Supervisor visits to write the care plan with you — not just what help is needed, but how you want it done. Which side you prefer to be helped from, what you'd rather do yourself, what you'd rather nobody mentioned. It's recorded so it doesn't depend on anyone's memory.",
+          "Every Care Professional is directly employed by us, DBS-checked, and trained by our own in-house trainer beyond the mandatory basics before they visit anyone alone. We are not an introductory agency passing you a name and a number.",
+        ],
+        list: [
+          "The same small team, who learn how you like things",
+          "Preferences written into the care plan, not left to memory",
+          "Directly employed and DBS-checked — never subcontracted",
+          "Trained in-house before a first solo visit",
+          "Male or female Care Professional, if you have a preference",
+        ],
+      },
+      {
+        eyebrow: "Working with others",
+        h2: "Alongside your GP and the district nurses",
+        body: [
+          "Personal care often sits next to other help — district nurses for dressings, a GP managing medication, a physiotherapist after a fall. We talk to them directly rather than leaving families to relay messages between people who ought to be speaking to each other.",
+          "Medication is recorded electronically at each visit, and families can see what was given and when through the <a href='/family/care-app'>care app</a>, wherever they are.",
+        ],
+      },
+      {
+        eyebrow: "Cost and funding",
+        h2: "What personal care costs",
+        body: [
+          "Personal care is charged at our standard visiting rates — £36 for an hour on a weekday, £31.75 for 45 minutes, £27.50 for half an hour, with no travel or call-out charge. Home care is VAT-exempt.",
+          "Council funding, Direct Payments, Attendance Allowance and NHS Continuing Healthcare may all help with the cost. The full rate card and an explanation of each route is on our <a href='/cost-of-home-care'>costs and funding page</a>.",
+        ],
+      },
+    ],
+    faqs: [
+      { q: "Can I ask for a male or female Care Professional?",
+        a: ["Yes, and you should. It's one of the first things we ask at the assessment, and it goes in the care plan. Most people have a preference for personal care and there is nothing awkward about saying so."] },
+      { q: "Will it be the same person each time?",
+        a: ["A small regular team rather than one individual, so that holidays and illness don't leave you with a stranger. You'll meet them before they start, and they'll already have read how you like things done."] },
+      { q: "What if I only need help on some days?",
+        a: ["That's fine. Plenty of people book two or three mornings a week rather than every day. We'd rather you had exactly what you need than a package that looks tidier on paper."] },
+      { q: "Do you help with continence care?",
+        a: ["Yes — discreetly, and it's written into the plan like anything else. If continence products or a district nurse referral would help, we'll raise it rather than leave you to work it out."] },
+      { q: "How is medication handled?",
+        a: ["Depending on what you need, we prompt, assist or administer, and it's recorded electronically at every visit rather than on a paper sheet in the kitchen. Family can see what was given and when through the care app."] },
+    ],
   },
   {
     slug: "visiting-care",
@@ -78,6 +135,55 @@ export const services: Service[] = [
       "Companionship and a friendly chat",
       "Help around the home and with errands",
       "The same familiar faces, every visit",
+    ],
+
+    serviceType: "Home visiting care",
+    areaServed: ["Trowbridge", "Bradford-on-Avon", "Melksham", "Westbury", "Frome", "West Wiltshire", "Somerset"],
+    priceFrom: { amount: 27.5, unit: "30-minute visit" },
+    sections: [
+      {
+        eyebrow: "How it works",
+        h2: "Visits built around the day you already have",
+        body: [
+          "Visiting care is exactly what it sounds like: a Care Professional comes to the home for an agreed length of time, does what needs doing, and leaves things as you'd want them. It might be one call-in a day to help someone get up and dressed, or four visits from morning to bedtime.",
+          "What it isn't is a fixed package you have to fit into. We start from the day you already have — when you like to get up, when you eat, when your programmes are on — and put the visits around that. If mornings are the hard part and the rest of the day is fine, that's all you need to book.",
+        ],
+      },
+      {
+        eyebrow: "Length and frequency",
+        h2: "How long, and how often",
+        body: [
+          "We offer 30-minute, 45-minute and one-hour visits, from once a week to several times a day. Most people start with more than they think they'll need and scale back, or start small and add as things change — both are fine, and there's no notice penalty for adjusting.",
+          "If you're finding the nights harder than the days, overnight support is a separate option — a sleeping night for occasional help, or a waking night for active care. And if visits stop being enough, <a href='/live-in-care'>live-in care</a> is the usual next step rather than a move into a home.",
+        ],
+        list: [
+          "30, 45 or 60-minute visits",
+          "From weekly to several times a day",
+          "Morning, lunchtime, teatime and bedtime calls",
+          "Sleeping or waking nights where they're needed",
+          "Change the pattern as needs change, without penalty",
+        ],
+      },
+      {
+        eyebrow: "Cost and funding",
+        h2: "What visiting care costs",
+        body: [
+          "A one-hour weekday visit is £36, 45 minutes is £31.75 and 30 minutes is £27.50, with published rates for weekends and bank holidays too. There is no travel charge and no call-out fee anywhere we cover, and home care is VAT-exempt.",
+          "We publish the whole rate card rather than asking you to ring for a number, along with the four routes that might help pay for it — council funding, Attendance Allowance, self-funding and NHS Continuing Healthcare. It's all on our <a href='/cost-of-home-care'>costs and funding page</a>.",
+        ],
+      },
+    ],
+    faqs: [
+      { q: "What's the shortest visit you do?",
+        a: ["Thirty minutes. That's enough for a medication prompt, help getting up or settled, or a quick check that everything is as it should be. If half an hour turns out to be a rush, say so and we'll lengthen it — nobody does good work against a stopwatch."] },
+      { q: "How quickly can visits start?",
+        a: ["We can usually carry out the free home assessment the same day you call, and have care in place within 48 hours. If it's more urgent than that, tell us when you ring and we'll be straight with you about what we can do."] },
+      { q: "Will it be the same Care Professional every time?",
+        a: ["That's the point of keeping the team small. You'll have a regular group who know your routine rather than whoever the rota produces, and you'll meet them before they start. Holidays and illness happen, but we'll tell you in advance rather than sending a stranger unannounced."] },
+      { q: "Do you charge more for travel, or for weekends?",
+        a: ["Never for travel — the rate is the same whether you're in the middle of Trowbridge or out in a village, and there's no call-out fee. Weekends and bank holidays do carry a higher rate, and every figure is published on the costs page so there are no surprises on the invoice."] },
+      { q: "Can we change the visits later?",
+        a: ["Yes, and most people do. Needs rarely stay still. We review the plan with you regularly, and you can add, shorten or drop visits as things change — there's no notice penalty for reducing care."] },
     ],
   },
   {
@@ -114,6 +220,63 @@ export const services: Service[] = [
         "She is such a gentle and caring soul and has been a godsend for my parents. We all really appreciate having Pam in our lives.",
       who: "Lyn E · Daughter of Client",
     },
+
+    serviceType: "Companionship care",
+    areaServed: ["Trowbridge", "Bradford-on-Avon", "Melksham", "Westbury", "Frome", "West Wiltshire", "Somerset"],
+    priceFrom: { amount: 27.5, unit: "30-minute visit" },
+    sections: [
+      {
+        eyebrow: "Why it counts as care",
+        h2: "Loneliness does real damage",
+        body: [
+          "Companionship is easy to treat as the soft option — the thing you book once the important care is arranged. In practice it's often the visit that changes the most. Someone who has spoken to nobody since Tuesday eats less, moves less and reports less, and the decline that follows is rarely put down to loneliness.",
+          "A regular visit from someone who remembers what you told them last week is not a luxury. It's frequently the difference between a person who is managing and a person who is quietly stopping.",
+        ],
+      },
+      {
+        eyebrow: "What a visit looks like",
+        h2: "Company, and whatever the day needs",
+        body: [
+          "There's no script. Some visits are a pot of tea and the crossword. Some are a walk, a trip to the shops, or getting to a club that stopped being manageable alone. Some are practical — a bit of tidying, a hand with the post, someone to sit with while a form gets filled in.",
+          "Because our Care Professionals are trained care staff rather than sitters, a companionship visit can quietly include the practical help that makes the difference, without it needing to be a separate booking.",
+        ],
+        list: [
+          "Conversation, hobbies, games and reminiscing",
+          "Walks, outings and getting to clubs or church",
+          "Company for meals, appointments and errands",
+          "Light practical help around the house",
+          "A regular, familiar face rather than a rotating one",
+        ],
+      },
+      {
+        eyebrow: "Something we fund ourselves",
+        h2: "The Otter Happy Hour",
+        body: [
+          "Every so often we put on an extra hour that nobody is billed for — the Otter Happy Hour. It exists to do the thing that never quite fits into a scheduled visit: a trip out to Longleat or a local farm, an afternoon with an old hobby, or simply going somewhere that matters to someone.",
+          "One lady asked to be taken up by the White Horse, to the spot where her husband's ashes had been scattered. Another had once helped at a local stable, so we took her back to see the horses. We pay for that time because care isn't only about safety and support. There are more of them on our <a href='/real-moments'>real moments page</a>.",
+        ],
+      },
+      {
+        eyebrow: "Cost and funding",
+        h2: "What companionship care costs",
+        body: [
+          "Companionship is charged at the same visiting rates as any other care — £36 for a weekday hour, £31.75 for 45 minutes, £27.50 for half an hour, with no travel or call-out charge. If we drive you somewhere, mileage is 55p a mile and always agreed with you first.",
+          "It can also be funded the same ways as any other home care. The full rate card and the funding routes are on our <a href='/cost-of-home-care'>costs and funding page</a>.",
+        ],
+      },
+    ],
+    faqs: [
+      { q: "Is companionship cheaper than personal care?",
+        a: ["No — it's the same hourly rate. The person coming has the same training and the same DBS check, and often ends up helping with practical things too. What changes is what the hour is spent on, not what it costs."] },
+      { q: "Can you take my mother out, not just sit with her?",
+        a: ["Yes, and it's often the best use of the visit. Shops, appointments, a café, a club, church on a Sunday. If we drive, mileage is 55p a mile and agreed with you beforehand."] },
+      { q: "What is the Otter Happy Hour?",
+        a: ["An extra hour we fund ourselves, so it costs you nothing, used for something that wouldn't fit in a normal visit — a trip out, an old hobby, a place that means something. Ask your Care Professional or ring the office."] },
+      { q: "How do you decide who visits?",
+        a: ["We match on personality as much as availability — shared interests, temperament, whether someone wants conversation or quiet company. If it isn't clicking, tell us and we'll change it. Nobody should feel they have to make do."] },
+      { q: "Can companionship include practical help?",
+        a: ["Yes. Light tidying, laundry, a hand with post and forms, help preparing a meal. Our Care Professionals are trained care staff, so if personal care is needed later it doesn't mean starting again with someone new."] },
+    ],
   },
   {
     slug: "live-in-care",
