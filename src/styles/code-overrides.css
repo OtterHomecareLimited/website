@@ -149,3 +149,22 @@ picture > source { display: none; }
 }
 @media(max-width:860px){.alongside-home .al-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:520px){.alongside-home .al-grid{grid-template-columns:1fr}}
+
+/* Homepage reviews: the featured story now carries the section and a single
+   supporting card sits under it, so that card spans rather than leaving a gap
+   in the two-column grid it used to share. */
+.hc-grid--1{grid-template-columns:1fr}
+
+/* Homepage service cards: below 520px these stacked one-up, so four cards with
+   16:11 photos ate 2.7 phone screens on their own. Two-up halves that without
+   removing a card or shrinking any text. */
+/* Type is deliberately NOT shrunk to fit: dropping the body copy to 13.5px saved
+   only 0.09 of a screen and this audience skews older. Two-up alone does the work. */
+@media(max-width:520px){
+  .services .svc-grid{grid-template-columns:1fr 1fr;gap:12px}
+  .services .svc-grid .body{padding:16px 15px 18px}
+  .services .svc-grid h3{font-size:18px;line-height:1.25}
+  .services .svc-grid .svc p{font-size:15px;line-height:1.5}
+  .services .svc-grid .more{font-size:15px}
+  .services .svc-grid .svc-ic{width:46px;height:46px}
+}

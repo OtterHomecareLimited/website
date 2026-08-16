@@ -19,8 +19,12 @@ import path from "node:path";
 import sharp from "sharp";
 import { createHash } from "node:crypto";
 
-const SRC_DIR = path.resolve("public/img");
-const OUT_DIR = path.resolve("public/img/opt");
+// Scans both folders: /img holds the photography, but /assets holds the logos
+// and mascot art — homecare-logo.png alone was 126KB, heavier than the hero
+// photo, and was never being touched because only /img was scanned.
+const SRC_DIRS = [path.resolve("public/img"), path.resolve("public/assets")];
+const SRC_ROOT = path.resolve("public");
+const OUT_DIR = path.resolve("public/opt");
 const MANIFEST = path.join(OUT_DIR, "manifest.json");
 const MIN_KB = 70;
 const WIDTHS = [480, 768, 1200, 1800];
@@ -48,7 +52,7 @@ const manifest = existsSync(MANIFEST)
   ? JSON.parse(await readFile(MANIFEST, "utf8"))
   : {};
 
-const files = await walk(SRC_DIR);
+const files = (await Promise.all(SRC_DIRS.map(walk))).flat();
 let built = 0;
 let skipped = 0;
 let savedBytes = 0;
@@ -56,7 +60,7 @@ const next = {};
 
 for (const file of files) {
   const info = await stat(file);
-  const rel = path.relative(SRC_DIR, file);
+  const rel = path.relative(SRC_ROOT, file);
   if (info.size < MIN_KB * 1024) continue;
 
   const key = rel.replace(/\\/g, "/");

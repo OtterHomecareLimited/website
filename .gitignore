@@ -25,5 +25,5 @@ pnpm-debug.log*
 src/assets/wix/
 
 # Generated image variants (scripts/optimise-images.mjs)
-public/img/opt/*
-!public/img/opt/manifest.json
+public/opt/*
+!public/opt/manifest.json

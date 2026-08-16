@@ -7,7 +7,7 @@
 //   <Photo src="/img/team-group.jpg" alt="The Otter Homecare team" />
 //   <Photo src="/img/town-frome.jpg" alt="…" priority sizes="(max-width:900px) 100vw, 520px" />
 
-import manifest from "../../public/img/opt/manifest.json";
+import manifest from "../../public/opt/manifest.json";
 
 interface Props {
   src: string;
@@ -32,13 +32,14 @@ const {
   height,
 } = Astro.props;
 
-const key = src.replace(/^\/img\//, "");
+// Manifest keys are public/-relative ("img/foo.jpg", "assets/logo.png").
+const key = src.replace(/^\//, "");
 const entry = (manifest as Record<string, {
   width: number; height: number; widths: number[]; base: string;
 }>)[key];
 
 const srcset = (fmt: "avif" | "webp") =>
-  entry ? entry.widths.map((w) => `/img/opt/${entry.base}-${w}.${fmt} ${w}w`).join(", ") : "";
+  entry ? entry.widths.map((w) => `/opt/${entry.base}-${w}.${fmt} ${w}w`).join(", ") : "";
 
 // Deliberately NOT defaulting width/height from the manifest. This site sizes
 // its photos with CSS `aspect-ratio` + `width:100%`, and the HTML width/height
