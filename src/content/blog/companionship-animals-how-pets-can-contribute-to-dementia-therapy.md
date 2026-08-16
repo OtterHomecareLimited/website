@@ -34,7 +34,7 @@ While the benefits are tangible, there are factors to consider when integrating 
 
 - Pet's Wellbeing: The pet's own welfare must also be considered. Regular training, socialization, and rest are essential for a therapy animal.
 
-**Pets and Care **
+**Pets and Care**
 
 At Otter Homecare, person-centred care is at the heart of everything we do. We recognize the profound connections many of our clients have with their pets, and we understand the comfort, joy, and therapeutic benefits these relationships can provide. This understanding drives our approach to care, allowing clients to remain close to their beloved pets even as their needs change.
 

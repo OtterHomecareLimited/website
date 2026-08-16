@@ -47,7 +47,11 @@ section[id]{scroll-margin-top:96px}
 .util{background:var(--teal-d, #0B3F49);color:#fff;font-size:13.5px;font-weight:700}
 .util .wrap{display:flex;justify-content:space-between;align-items:center;height:26px}
 .util .areas{opacity:.82;font-weight:600;color:#bfe0dc}
-.util a{display:inline-flex;gap:7px;align-items:center;white-space:nowrap;color:#D4AC4F}
+/* Gold lifted from #D4AC4F to #DCB65C here only: on the deep-teal bar the brand
+   gold measured 4.25:1, just under WCAG AA (4.5:1) for 13.5px text. #DCB65C is
+   4.72:1 on the same ground and visually near-identical. The global --sun token
+   is unchanged — it sits on cream elsewhere, where lightening would hurt. */
+.util a{display:inline-flex;gap:7px;align-items:center;white-space:nowrap;color:#DCB65C}
 .util a:hover{color:#E4C36F}
 @media(max-width:1040px){.util .areas{display:none}}
 
@@ -203,6 +207,14 @@ body:has(.mobile-menu.show){overflow:hidden}
 .head-c{text-align:center;max-width:36ch;margin:0 auto 48px}
 .head-c h2{font-size:clamp(30px,3.8vw,46px);margin-top:12px}
 .head-c p{margin-top:12px}
+/* 36ch is the right measure on a phone but was being applied at every width, so
+   longer section heads ("Care for the people you love most") stayed in a narrow
+   mobile column on desktop. Only heads long enough to reach the limit change;
+   short ones ("Your local Otter team") are unaffected. */
+@media(min-width:900px){
+  .head-c{max-width:54ch}
+  .head-c h2{max-width:22ch;margin-left:auto;margin-right:auto}
+}
 .dots-motif{display:inline-flex;justify-content:center;margin-bottom:10px}
 .dots-motif img{width:46px;height:auto;display:block}
 
@@ -971,11 +983,11 @@ html.a11y-contrast .section.bg-cream,html.a11y-contrast .section.bg-sky,html.a11
 /* Section rhythm on phones (fix pack A) — heads breathe with the tighter sections */
 @media(max-width:560px){.head-c{margin-bottom:34px}}
 
-/* Contact page — form spans both desktop rows so the address/hours block sits
-   under Call + Email on the left; on one column the natural order is
-   Call + Email → form → Visit/Hours (the mobile-first order). */
-.contact-grid .cg-form{grid-row:span 2}
-@media(max-width:780px){.contact-grid .cg-form{grid-row:auto}}
+/* Contact page — all four contact details are now one continuous .contact-info
+   list, so the grid is a plain two columns: details | form. The old markup split
+   them into two blocks with the form spanning both rows; because the form is far
+   taller than either block and the grid is align-items:start, that left a large
+   dead gap between Email and Visit. Nothing to span any more. */
 
 /* Mustard primary on the dark booking bands (fix pack C).
    .btn-clay is teal, invisible on the .book band; scoped here so

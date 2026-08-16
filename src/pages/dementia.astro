@@ -1,7 +1,8 @@
 ---
+import Photo from "../components/Photo.astro";
 import SiteLayout from "../layouts/SiteLayout.astro";
 ---
-<SiteLayout title="Dementia Care at Home in Wiltshire & Somerset | Otter Homecare" description="Compassionate, specialist dementia care at home across Wiltshire & Somerset — a small, familiar team, training co-produced with Alzheimer's Support, and care built around the person. Book a free assessment.">
+<SiteLayout title="Dementia Care at Home in Wiltshire & Somerset | Otter Homecare" description="Specialist dementia care at home across Wiltshire & Somerset. A small, familiar team, training co-produced with Alzheimer's Support, built around the person.">
 <header class="phero"><div class="wrap">
 <div class="crumb"><a href="/">Home</a> · <a href="/care-services">Our Care</a> · Dementia</div>
 <h1>Dementia care, built around the person</h1>
@@ -10,7 +11,7 @@ import SiteLayout from "../layouts/SiteLayout.astro";
 
 <section class="section"><div class="wrap">
 <div class="srow reveal">
-<div class="srow-media"><img src="/img/dem-stay-yourself.jpg" alt="An Otter Care Professional doing a wooden puzzle with an older couple at home"></div>
+<div class="srow-media"><Photo src="/img/dem-stay-yourself.jpg" alt="An Otter Care Professional doing a wooden puzzle with an older couple at home" /></div>
 <div>
 <span class="eyebrow on-clay">Person-centred</span>
 <h2 style="font-size:clamp(28px,3.4vw,40px);margin:10px 0 14px">Care that helps someone stay themselves</h2>
@@ -29,7 +30,7 @@ import SiteLayout from "../layouts/SiteLayout.astro";
 <p style="color:var(--muted)">We're also proud supporters of <strong>Beyond Dementia Wiltshire</strong>, joining local efforts like Denim for Dementia and the Memory Walk — because good dementia care extends beyond the front door, into the community.</p>
 </div>
 <div>
-<img class="dem-train-img" src="/img/dem-training-session.jpg" alt="The Otter team in a dementia training session, with a trainer presenting a 'Definition of dementia' slide" loading="lazy">
+<Photo class="dem-train-img" src="/img/dem-training-session.jpg" alt="The Otter team in a dementia training session, with a trainer presenting a 'Definition of dementia' slide" />
 <figure class="dem-quote">
 <span class="dq-mark" aria-hidden="true">“</span>
 <blockquote>More providers should be doing this.</blockquote>
@@ -42,7 +43,7 @@ import SiteLayout from "../layouts/SiteLayout.astro";
 <section class="section"><div class="wrap">
 <div class="mgroup-head reveal"><span class="eyebrow">Real moments</span><h2>The small, true things</h2><p class="lede">A few anonymised moments from our dementia care.</p></div>
 <div class="moments-grid">
-<div class="moment reveal"><img class="m-img" src="/img/rm-horses.jpeg" alt="An Otter Care Professional with a client visiting the horses at a local stable" loading="lazy"><div class="m-body"><h3>A morning with the horses</h3><p>A lady who'd once helped at a local stable, taken to stroke the horses and enjoy coffee and cake. Calm and happy all morning.</p></div></div>
+<div class="moment reveal"><Photo class="m-img" src="/img/rm-horses.jpeg" alt="An Otter Care Professional with a client visiting the horses at a local stable" /><div class="m-body"><h3>A morning with the horses</h3><p>A lady who'd once helped at a local stable, taken to stroke the horses and enjoy coffee and cake. Calm and happy all morning.</p></div></div>
 <div class="moment moment-note note-clay reveal">
 <span class="mn-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.5 12.5a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm5-3a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm5 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm5 3a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM12 13c-2.8 0-5 1.9-5 4.2 0 1.5 1.1 2.3 2.6 2.3.9 0 1.6-.3 2.4-.3s1.5.3 2.4.3c1.5 0 2.6-.8 2.6-2.3C17 14.9 14.8 13 12 13z"/></svg></span>
 <h3>The pet-shop visit</h3>
@@ -59,7 +60,7 @@ import SiteLayout from "../layouts/SiteLayout.astro";
 
 <section class="section" style="padding-top:0"><div class="wrap">
 <div class="dem-comfort reveal">
-<img class="dc-img" src="/img/otter-soft-toy.jpg" alt="Two Otter soft toys wearing branded lanyards with a card carrying the emergency number" loading="lazy">
+<Photo class="dc-img" src="/img/otter-soft-toy.jpg" alt="Two Otter soft toys wearing branded lanyards with a card carrying the emergency number" />
 <div class="dc-text">
 <h3>A little extra comfort</h3>
 <p>Every dementia client can receive a <strong>comforting Otter soft toy</strong> — a friendly, dementia-friendly companion that also quietly carries our emergency number, so help is never far away.</p>
@@ -89,11 +90,11 @@ import SiteLayout from "../layouts/SiteLayout.astro";
 <p style="color:var(--muted)">We keep families close and informed, and offer honest, jargon-free guidance every step of the way. We share what we've learned from supporting other families living with dementia — and where someone else could help, whether a local group, a charity or a specialist, we'll gladly point you their way or help make the introduction. As things change we adapt the care, so you always know what's happening, and why.</p>
 <a class="btn btn-primary" href="#book" style="margin-top:20px">Book a free assessment →</a>
 </div>
-<div class="srow-media"><img src="/img/personal-care-real.jpg" alt="An Otter Care Professional sharing a warm moment with a client" loading="lazy"></div>
+<div class="srow-media"><Photo src="/img/personal-care-real.jpg" alt="An Otter Care Professional sharing a warm moment with a client" /></div>
 </div>
 </div></section>
 
-<section class="section book" id="book"> <div class="wrap"> <div class="reveal"> <span class="eyebrow" style="color:#9fc4bf">Free, no-obligation assessment</span> <h2>Let's find the right care, together</h2> <p class="lede">Tell us a little about who needs support and we'll be in touch to arrange a free home visit — at a time that suits you.</p> <div class="reassure"> <div><span class="ic">✓</span> Free, no-obligation home visit</div> <div><span class="ic">✓</span> A tailored care plan, built around you</div> <div><span class="ic">✓</span> Speak to a real local person — never a call centre</div> </div> <div class="callbox"> <small>Prefer to talk? Call us any time</small> <a href="tel:01225690022">01225 690022</a> </div> </div> <div class="reveal"> <form class="form" id="bookForm" action="/api/contact" method="POST" novalidate> <h3>Book a free assessment</h3> <p class="fhint">We usually reply the same day.</p> <input type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none"> <div class="frow"> <div class="field"><label for="name">Your name</label><input id="name" name="name" type="text" required placeholder="Jane Smith"></div> <div class="field"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" required placeholder="07700 900000"></div> </div> <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" placeholder="jane@example.com"></div> <div class="frow"> <div class="field"><label for="who">Who is the care for?</label><select id="who" name="who"><option>My parent</option><option>My partner</option><option>Myself</option><option>Another relative</option><option>Someone else</option></select></div> <div class="field"><label for="area">Your area</label><select id="area" name="area"><option>Trowbridge</option><option>Bradford-on-Avon</option><option>Melksham</option><option>Westbury</option><option>Frome</option><option>Elsewhere nearby</option></select></div> </div> <div class="field"><label for="msg">How can we help? (optional)</label><textarea id="msg" name="msg" placeholder="A little about the support you're looking for…"></textarea></div> <button class="btn btn-primary" type="submit">Request my free assessment →</button> <p class="privacy">Your details are kept private and never shared. See our <a href="/privacy" style="text-decoration:underline">privacy policy</a>.</p> </form> <div class="form-success" id="formSuccess"> <div class="tick">✓</div> <h3>Thank you — we've got it</h3> <p>One of our local team will be in touch very soon to arrange your free visit. If it's urgent, please call <strong>01225 690022</strong>.</p> </div> </div> </div> </section>
+<section class="section book" id="book"> <div class="wrap"> <div class="reveal"> <span class="eyebrow" style="color:#9fc4bf">Free, no-obligation assessment</span> <h2>Let's find the right care, together</h2> <p class="lede">Tell us a little about who needs support and we'll be in touch to arrange a free home visit — at a time that suits you.</p> <div class="reassure"> <div><span class="ic">✓</span> Free, no-obligation home visit</div> <div><span class="ic">✓</span> A tailored care plan, built around you</div> <div><span class="ic">✓</span> Speak to a real local person — never a call centre</div> </div> <div class="callbox"> <small>Prefer to talk? Call us any time</small> <a href="tel:01225690022">01225 690022</a> </div> </div> <div class="reveal"> <form class="form" id="bookForm" action="/api/contact" method="POST" novalidate> <h3>Book a free assessment</h3> <p class="fhint">We usually reply the same day.</p> <input type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none"> <div class="frow"> <div class="field"><label for="name">Your name</label><input id="name" name="name" type="text" required autocomplete="name" placeholder="Jane Smith"></div> <div class="field"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" required autocomplete="tel" inputmode="tel" placeholder="07700 900000"></div> </div> <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="jane@example.com"></div> <div class="frow"> <div class="field"><label for="who">Who is the care for?</label><select id="who" name="who"><option>My parent</option><option>My partner</option><option>Myself</option><option>Another relative</option><option>Someone else</option></select></div> <div class="field"><label for="area">Your area</label><select id="area" name="area"><option>Trowbridge</option><option>Bradford-on-Avon</option><option>Melksham</option><option>Westbury</option><option>Frome</option><option>Elsewhere nearby</option></select></div> </div> <div class="field"><label for="msg">How can we help? (optional)</label><textarea id="msg" name="msg" placeholder="A little about the support you're looking for…"></textarea></div> <button class="btn btn-primary" type="submit">Request my free assessment →</button> <p class="privacy">Your details are kept private and never shared. See our <a href="/privacy" style="text-decoration:underline">privacy policy</a>.</p> </form> <div class="form-success" id="formSuccess"> <div class="tick">✓</div> <h3>Thank you — we've got it</h3> <p>One of our local team will be in touch very soon to arrange your free visit. If it's urgent, please call <strong>01225 690022</strong>.</p> </div> </div> </div> </section>
 
 <style is:global>
 /* Dementia page — small page-specific touches built on brand tokens.

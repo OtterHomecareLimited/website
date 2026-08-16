@@ -1,0 +1,82 @@
+---
+// Serves a public/img photo as <picture> with AVIF + WebP srcsets, falling back
+// to the original file. Variants come from scripts/optimise-images.mjs via the
+// generated manifest; if an image has no variants (too small, or the script has
+// not been run) this degrades to a plain <img> with the original src.
+//
+//   <Photo src="/img/team-group.jpg" alt="The Otter Homecare team" />
+//   <Photo src="/img/town-frome.jpg" alt="…" priority sizes="(max-width:900px) 100vw, 520px" />
+
+import manifest from "../../public/img/opt/manifest.json";
+
+interface Props {
+  src: string;
+  alt: string;
+  /** Above-the-fold image: eager + high fetch priority instead of lazy. */
+  priority?: boolean;
+  sizes?: string;
+  class?: string;
+  style?: string;
+  width?: number;
+  height?: number;
+}
+
+const {
+  src,
+  alt,
+  priority = false,
+  sizes = "(max-width: 900px) 100vw, 900px",
+  class: className,
+  style,
+  width,
+  height,
+} = Astro.props;
+
+const key = src.replace(/^\/img\//, "");
+const entry = (manifest as Record<string, {
+  width: number; height: number; widths: number[]; base: string;
+}>)[key];
+
+const srcset = (fmt: "avif" | "webp") =>
+  entry ? entry.widths.map((w) => `/img/opt/${entry.base}-${w}.${fmt} ${w}w`).join(", ") : "";
+
+// Deliberately NOT defaulting width/height from the manifest. This site sizes
+// its photos with CSS `aspect-ratio` + `width:100%`, and the HTML width/height
+// attributes are presentational hints that override it — emitting them stretched
+// every headshot to its full intrinsic height. Layout shift is already zero from
+// the CSS, so these are only set when a caller explicitly asks for them.
+const w = width;
+const h = height;
+
+const loading = priority ? "eager" : "lazy";
+const fetchpriority = priority ? "high" : undefined;
+---
+{entry ? (
+  <picture>
+    <source type="image/avif" srcset={srcset("avif")} sizes={sizes} />
+    <source type="image/webp" srcset={srcset("webp")} sizes={sizes} />
+    <img
+      src={src}
+      alt={alt}
+      class={className}
+      style={style}
+      width={w}
+      height={h}
+      loading={loading}
+      fetchpriority={fetchpriority}
+      decoding="async"
+    />
+  </picture>
+) : (
+  <img
+    src={src}
+    alt={alt}
+    class={className}
+    style={style}
+    width={w}
+    height={h}
+    loading={loading}
+    fetchpriority={fetchpriority}
+    decoding="async"
+  />
+)}

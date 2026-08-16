@@ -92,7 +92,7 @@ export const towns: Town[] = [
 
 // The 4 shared "How we can help" cards (identical across towns).
 export const helpCards = [
-  { href: "/personal-care",  img: "/img/svc-personal.jpg",     title: "Personal Care",     blurb: "Washing, dressing, medication and everyday routines, always with dignity." },
+  { href: "/personal-care",  img: "/img/personal-care-real.jpg",     title: "Personal Care",     blurb: "Washing, dressing, medication and everyday routines, always with dignity." },
   { href: "/live-in-care",   img: "/img/svc-livein.jpg",       title: "Live-in Care",      blurb: "Round-the-clock, one-to-one support in the home they know best." },
   { href: "/companionship",  img: "/img/svc-companionship.jpg",title: "Companionship",     blurb: "Friendly visits and good company that keep loneliness at bay." },
   { href: "/conditions",     img: "/img/svc-specialist.jpg",   title: "Specialist Support",blurb: "Dementia, stroke recovery, frailty and end-of-life care." },

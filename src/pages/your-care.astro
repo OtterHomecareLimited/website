@@ -1,4 +1,5 @@
 ---
+import Photo from "../components/Photo.astro";
 // "Your care with Otter" — the CLIENT-facing guide (/your-care).
 // Jamie, 2026-07-26. Alongside (/family) is written to families in the third
 // person; this page is written to the person we care for, in the second.
@@ -37,7 +38,7 @@ import "../styles/otter-alongside-print.css";
       </div>
     </div>
     <div class="als-hero__media">
-      <img src="/img/alongside/photos/deciding.jpg" alt="An Otter Care Professional painting a client's nails at home, both smiling.">
+      <Photo src="/img/alongside/photos/deciding.jpg" alt="An Otter Care Professional painting a client's nails at home, both smiling." />
       <div class="als-hero__aside"><p>It's your home. We're guests in it.</p></div>
     </div>
   </div>
@@ -201,7 +202,7 @@ import "../styles/otter-alongside-print.css";
           <p>Ring us, or say it to whoever's next through the door. Both reach the same small team. And if your family would like a guide of their own, ours is at <a href="/family">otterhomecare.co.uk/family</a>.</p>
           <div class="als-close__actions"><a class="btn btn-primary btn-lg" href="tel:01225690022">01225 690022</a></div>
         </div>
-        <img class="als-close__mascot" src="/img/alongside/brand/otter-mascot.png" alt="">
+        <Photo class="als-close__mascot" src="/img/alongside/brand/otter-mascot.png" alt="" />
       </div>
     </section>
   </main>

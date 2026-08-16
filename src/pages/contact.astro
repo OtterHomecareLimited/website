@@ -13,6 +13,8 @@ import SiteLayout from "../layouts/SiteLayout.astro";
       <div class="contact-info reveal">
         <div class="ci"><span class="ic"><img src="/assets/icons/phone.svg" alt="" /></span><div><b>Call us</b><a href="tel:01225690022">01225 690022</a></div></div>
         <div class="ci"><span class="ic"><img src="/assets/icons/heart.svg" alt="" /></span><div><b>Email</b><a href="mailto:hello@otterhomecare.co.uk">hello@otterhomecare.co.uk</a></div></div>
+        <div class="ci"><span class="ic"><img src="/assets/icons/pin.svg" alt="" /></span><div><b>Visit / write to us</b><span>Arlington House, 72 Fore Street,<br>Trowbridge, Wiltshire BA14 8HQ</span></div></div>
+        <div class="ci"><span class="ic"><img src="/assets/icons/clock.svg" alt="" /></span><div><b>Office hours</b><span>Mon–Fri 9am–5pm · care delivered 24/7</span></div></div>
       </div>
       <div class="reveal cg-form">
         <form class="form" id="contactForm" action="/api/contact" method="POST" novalidate>
@@ -20,10 +22,10 @@ import SiteLayout from "../layouts/SiteLayout.astro";
           <p class="fhint">We usually reply the same day — and there's no obligation at all.</p>
           <input type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none" />
           <div class="frow">
-            <div class="field"><label for="n">Your name</label><input id="n" name="name" type="text" required placeholder="Jane Smith" /></div>
-            <div class="field"><label for="p">Phone</label><input id="p" name="phone" type="tel" required placeholder="07700 900000" /></div>
+            <div class="field"><label for="n">Your name</label><input id="n" name="name" type="text" required autocomplete="name" placeholder="Jane Smith" /></div>
+            <div class="field"><label for="p">Phone</label><input id="p" name="phone" type="tel" required autocomplete="tel" inputmode="tel" placeholder="07700 900000" /></div>
           </div>
-          <div class="field"><label for="e">Email</label><input id="e" name="email" type="email" placeholder="jane@example.com" /></div>
+          <div class="field"><label for="e">Email</label><input id="e" name="email" type="email" autocomplete="email" inputmode="email" placeholder="jane@example.com" /></div>
           <div class="frow">
             <div class="field"><label for="who">Who is the care for?</label><select id="who" name="who"><option>My parent</option><option>My partner</option><option>Myself</option><option>Another relative</option><option>Someone else</option></select></div>
             <div class="field"><label for="area">Your area</label><select id="area" name="area"><option>Trowbridge</option><option>Bradford-on-Avon</option><option>Melksham</option><option>Westbury</option><option>Frome</option><option>Elsewhere nearby</option></select></div>
@@ -37,10 +39,6 @@ import SiteLayout from "../layouts/SiteLayout.astro";
           <h3>Thank you — message received</h3>
           <p>We'll be in touch very soon. If it's urgent, please call <strong>01225 690022</strong>.</p>
         </div>
-      </div>
-      <div class="contact-info reveal">
-        <div class="ci"><span class="ic"><img src="/assets/icons/pin.svg" alt="" /></span><div><b>Visit / write to us</b><span>Arlington House, 72 Fore Street,<br>Trowbridge, Wiltshire BA14 8HQ</span></div></div>
-        <div class="ci"><span class="ic"><img src="/assets/icons/clock.svg" alt="" /></span><div><b>Office hours</b><span>Mon–Fri 9am–5pm · care delivered 24/7</span></div></div>
       </div>
     </div>
   </div></section>
@@ -65,7 +63,9 @@ import SiteLayout from "../layouts/SiteLayout.astro";
     if (cf) cf.addEventListener("submit", async (e) => {
       e.preventDefault();
       const btn = cf.querySelector('button[type="submit"]');
-      const data = Object.fromEntries(new FormData(cf).entries());
+      // Attach where this enquiry came from (ad-click ID / campaign / page) — see SiteLayout head.
+      const data = Object.assign(Object.fromEntries(new FormData(cf).entries()),
+        typeof window.otterAdSource === "function" ? window.otterAdSource() : {});
       btn.disabled = true; btn.textContent = "Sending…";
       try {
         const res = await fetch("/api/contact", { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(data) });

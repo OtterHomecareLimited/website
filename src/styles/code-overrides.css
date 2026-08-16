@@ -107,3 +107,15 @@ button,summary,.btn,.otter-fab,.talk-opt,[role="switch"]{touch-action:manipulati
 .a11y-stepper button[data-a11y="text-down"]{font-size:16px}
 .a11y-reset{font-size:16px}
 .a11y-read{font-size:16px}
+
+/* <Photo> wraps images in <picture> for AVIF/WebP. `display:contents` keeps the
+   <img> as the direct flex/grid child it was before the wrapper existed, so no
+   existing layout rule has to know the wrapper is there.
+
+   The <source> rule is load-bearing, not tidiness. With the wrapper transparent,
+   picture's children become flex/grid items in their own right — and <source>
+   computes to display:block here, so each one takes a grid track. In a grid with
+   a gap that silently pads every image: the founder block grew by exactly two
+   rows × 24px. display:none takes them out of layout, as the UA default intends. */
+picture { display: contents; }
+picture > source { display: none; }

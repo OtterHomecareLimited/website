@@ -1,4 +1,5 @@
 ---
+import Photo from "../../components/Photo.astro";
 import SiteLayout from "../../layouts/SiteLayout.astro";
 import { getCollection } from "astro:content";
 
@@ -44,7 +45,7 @@ const feed = [...collection, ...standalone].sort((a, b) => b.date.valueOf() - a.
     <div class="blog-grid">
       {feed.map((post) => (
         <a class="post-card reveal" href={post.href}>
-          <div class="img">{post.heroImage ? <img src={post.heroImage} alt="" /> : null}</div>
+          <div class="img">{post.heroImage ? <Photo src={post.heroImage} alt="" sizes="(max-width: 880px) 100vw, 340px" /> : null}</div>
           <div class="body">
             <span class="cat">{post.category}</span>
             <h3>{post.title}</h3>

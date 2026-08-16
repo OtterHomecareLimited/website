@@ -1,4 +1,5 @@
 ---
+import Photo from "../../components/Photo.astro";
 // Otter Alongside — the hub (/family). Jamie, 2026-07-26: "can we put all the
 // alongside content on /family? currently it doesn't yet exist."
 //
@@ -30,7 +31,7 @@ const stages = [
 
 <SiteLayout
   title="Otter Alongside — support for families | Otter Homecare"
-  description="Six short guides for the families of the people we care for — from the first 'should we get help?' conversation to the very end. Free to read, and backed by a real office you can ring."
+  description="Six short guides for families — from the first 'should we get help?' conversation to the very end. Free to read, and backed by a real office you can ring."
 >
 <section class="als-hero">
   <div class="als-wrap">
@@ -49,7 +50,7 @@ const stages = [
       </div>
     </div>
     <div class="als-hero__media">
-      <img src="/img/alongside/photos/greeting.jpg" alt="An Otter Care Professional greeting a client warmly in her garden.">
+      <Photo src="/img/alongside/photos/greeting.jpg" alt="An Otter Care Professional greeting a client warmly in her garden." />
       <div class="als-hero__aside"><p>Start wherever you are.</p></div>
     </div>
   </div>
@@ -91,7 +92,7 @@ const stages = [
     <!-- ===== MCA guide ==================================================== -->
     <section class="als-section" id="mca">
       <div class="als-download">
-        <img src="/img/alongside/app/mca-guide-cover.png" alt="Cover of Otter Homecare's two-page Mental Capacity Act guide for clients and families.">
+        <Photo src="/img/alongside/app/mca-guide-cover.png" alt="Cover of Otter Homecare's two-page Mental Capacity Act guide for clients and families." />
         <div class="als-download__text">
           <h3>The Mental Capacity Act — a simple guide</h3>
           <p>Our own two-page guide to the law that protects your relative's right to make their own decisions — the five principles, and the misunderstandings we hear most. Print it and keep it with the care folder.</p>
@@ -108,7 +109,7 @@ const stages = [
           <p>If you're still deciding, start with <a href="/family/before-we-start">Before we start</a>. If we're already looking after someone you love, start with <a href="/family/your-first-month">Your first month</a> — or just ring, and a person who knows your family will pick up. And there's a page written for the person we care for, in their own words: <a href="/your-care">Your care with Otter</a>.</p>
           <div class="als-close__actions"><a class="btn btn-primary btn-lg" href="tel:01225690022">01225 690022</a></div>
         </div>
-        <img class="als-close__mascot" src="/img/alongside/brand/otter-mascot.png" alt="">
+        <Photo class="als-close__mascot" src="/img/alongside/brand/otter-mascot.png" alt="" />
       </div>
     </section>
   </main>

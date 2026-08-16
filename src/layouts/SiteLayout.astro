@@ -7,17 +7,114 @@ import SiteFooter from "../components/SiteFooter.astro";
 import AccessibilityControl from "../components/AccessibilityControl.astro";
 import ContactLauncher from "../components/ContactLauncher.astro";
 
+import { towns } from "../data/towns";
+
 interface Props {
   title: string;
   description: string;
   ogImage?: string;
+  /** Overrides the breadcrumb leaf name; defaults to the title before " | ". */
+  breadcrumbLabel?: string;
+  /** Keeps the page out of search results (post-submission pages, etc.). */
+  noindex?: boolean;
 }
-const { title, description, ogImage = "/img/ff72ba_82b85220c73d4bf3b00cc07f8605e8f0~mv2.jpg" } = Astro.props;
+const {
+  title,
+  description,
+  ogImage = "/img/ff72ba_82b85220c73d4bf3b00cc07f8605e8f0~mv2.jpg",
+  breadcrumbLabel,
+  noindex = false,
+} = Astro.props;
 const canonical = new URL(
   Astro.url.pathname.replace(/index\.html$/, "").replace(/\.html$/, "").replace(/\/$/, "") || "/",
   Astro.site,
 ).href;
 const ogImageUrl = new URL(ogImage, Astro.site).href;
+
+// ---------------------------------------------------------------------------
+// BreadcrumbList — mirrors the visible .crumb trail each page already renders,
+// derived from the path so no page has to pass anything. Only real, linkable
+// parents appear: the visible trails show a plain-text "About" level, but there
+// is no /about page, so it is omitted here rather than emitted without a URL.
+// `breadcrumbLabel` lets a page override the leaf name (used by blog posts and
+// town pages, whose leaf is the article/town title rather than the slug).
+// ---------------------------------------------------------------------------
+const SECTION_PARENTS: Record<string, { name: string; path: string }> = {
+  "/care-services": { name: "Care Services", path: "/care-services" },
+  "/areas-we-cover": { name: "Areas We Cover", path: "/areas-we-cover" },
+  "/family": { name: "Otter Alongside", path: "/family" },
+  "/blog": { name: "Blog", path: "/blog" },
+};
+
+// leaf slug -> display name, and which section it hangs under (if any)
+const CRUMBS: Record<string, { name: string; parent?: string }> = {
+  "/personal-care": { name: "Personal Care", parent: "/care-services" },
+  "/visiting-care": { name: "Visiting Care", parent: "/care-services" },
+  "/live-in-care": { name: "Live-in Care", parent: "/care-services" },
+  "/companionship": { name: "Companionship", parent: "/care-services" },
+  "/respite-care": { name: "Respite Care", parent: "/care-services" },
+  "/conditions": { name: "Conditions", parent: "/care-services" },
+  "/dementia": { name: "Dementia Care", parent: "/care-services" },
+  "/fall-recovery": { name: "Fall Recovery", parent: "/care-services" },
+  "/care-services": { name: "Care Services" },
+  "/areas-we-cover": { name: "Areas We Cover" },
+  "/how-we-work": { name: "How We Work" },
+  "/cost-of-home-care": { name: "Costs & Funding" },
+  "/our-story": { name: "Our Story" },
+  "/our-team": { name: "Meet the Team" },
+  "/support-for-families": { name: "For Families & Care App" },
+  "/reviews": { name: "Reviews" },
+  "/real-moments": { name: "Real Moments" },
+  "/faqs": { name: "FAQs" },
+  "/otter-cafe": { name: "Otter Café" },
+  "/your-care": { name: "Your Care" },
+  "/careers": { name: "Careers" },
+  "/contact": { name: "Contact" },
+  "/blog": { name: "Blog" },
+  "/family": { name: "Otter Alongside" },
+  "/privacy": { name: "Privacy Policy" },
+  "/terms": { name: "Terms & Conditions" },
+  "/cookies": { name: "Cookies" },
+  "/modern-slavery": { name: "Modern Slavery Policy" },
+};
+
+const path =
+  Astro.url.pathname.replace(/index\.html$/, "").replace(/\.html$/, "").replace(/\/+$/, "") || "/";
+
+function buildCrumbs() {
+  if (path === "/") return null; // Google: don't emit a single-item trail
+  const trail: { name: string; path: string }[] = [{ name: "Home", path: "/" }];
+
+  const known = CRUMBS[path];
+  if (known) {
+    if (known.parent && known.parent !== path) trail.push(SECTION_PARENTS[known.parent]);
+    trail.push({ name: known.name, path });
+  } else if (path.startsWith("/post/")) {
+    trail.push(SECTION_PARENTS["/blog"]);
+    trail.push({ name: breadcrumbLabel ?? title.split(" | ")[0], path });
+  } else if (path.startsWith("/family/")) {
+    trail.push(SECTION_PARENTS["/family"]);
+    trail.push({ name: breadcrumbLabel ?? title.split(" | ")[0], path });
+  } else if (towns.some((t) => `/${t.slug}` === path)) {
+    trail.push(SECTION_PARENTS["/areas-we-cover"]);
+    trail.push({ name: breadcrumbLabel ?? title.split(" | ")[0], path });
+  } else {
+    // Unmapped page (/thank-you, /404, anything new) — no invented parent.
+    return null;
+  }
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: trail.map((c, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: c.name,
+      item: new URL(c.path, Astro.site).href,
+    })),
+  };
+}
+const breadcrumbSchema = buildCrumbs();
 ---
 <!doctype html>
 <html lang="en-GB">
@@ -47,8 +144,31 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
       gtag("config", "AW-11233030388");
     </script>
     <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=AW-11233030388"></script>
+
+    <!-- Enquiry provenance — reads only, STORES NOTHING. No cookie, no localStorage, no
+         sessionStorage, so the /cookies "not a single cookie" promise is unaffected and no
+         consent banner is needed. It works because url_passthrough (set above) keeps the
+         ad-click ID in the URL across internal links while ad_storage is denied — so the ID is
+         still there in location.search when the visitor submits, even pages later. Read at
+         submit time by the two contact forms (components/ContactLauncher.astro and
+         pages/contact.astro) and emailed with the enquiry, so the team can tell a paid click
+         from an organic visit. Presence of gclid/gbraid/wbraid = the visitor arrived on an ad. -->
+    <script is:inline>
+      window.otterAdSource = function () {
+        var q = new URLSearchParams(location.search), out = {};
+        ["gclid", "gbraid", "wbraid", "gad_source", "utm_source", "utm_medium", "utm_campaign"]
+          .forEach(function (k) { var v = q.get(k); if (v) out[k] = v.slice(0, 200); });
+        out.page = location.pathname;
+        // Only external referrers are useful — internal navigation would just echo our own pages.
+        if (document.referrer && document.referrer.indexOf(location.origin) !== 0) {
+          out.referrer = document.referrer.slice(0, 200);
+        }
+        return out;
+      };
+    </script>
     <title>{title}</title>
     <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, follow" />}
     <link rel="canonical" href={canonical} />
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="icon" type="image/png" href="/assets/favicon-32.png" sizes="32x32" />
@@ -73,6 +193,10 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
     <meta property="og:image" content={ogImageUrl} />
     <meta property="og:site_name" content="Otter Homecare" />
     <meta name="twitter:card" content="summary_large_image" />
+
+    {breadcrumbSchema && (
+      <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    )}
 
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",

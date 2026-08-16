@@ -20,5 +20,25 @@
     { "source": "/physicaldisabilities", "destination": "/conditions", "permanent": true },
     { "source": "/learningdisabilities", "destination": "/conditions", "permanent": true },
     { "source": "/domestichelp", "destination": "/personal-care", "permanent": true }
+  ],
+  "headers": [
+    {
+      "source": "/fonts/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/img/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=2592000, stale-while-revalidate=86400" }
+      ]
+    },
+    {
+      "source": "/downloads/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=2592000, stale-while-revalidate=86400" }
+      ]
+    }
   ]
 }

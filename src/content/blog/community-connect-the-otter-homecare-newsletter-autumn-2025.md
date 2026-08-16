@@ -1,6 +1,6 @@
 ---
 title: "Community Connect (The Otter Homecare Newsletter): Autumn 2025"
-description: "Hello everyone, As we move into autumn, we’ve been reflecting on what makes Otter Homecare unique. For us, it’s the small moments — a shared laugh, a kind word, or a familiar face that makes someone feel at ease. In this edition, we’re sharing updates on our Otter Stars initiative, the Otter Café, and our new Otter Happy Hour. You’ll also find a seasonal health tip, meet one of our team members, and read about how care technology is helping people stay independent at home. Thank you for being"
+description: "Otter Stars, the Otter Café and our new Otter Happy Hour — plus a seasonal health tip, a team member interview, and the tech helping people stay at home."
 pubDate: 2025-10-16
 category: "Newsletter"
 heroImage: "/img/blog/ff72ba_66f7c699c4b948c884aa61d49ddcee77.jpg"
@@ -22,7 +22,7 @@ Jamie Rowland-Jones
 
 ## Introducing Otter Stars
 
-![](/img/blog/ff72ba_0e3a4c47d5c84e2fa9cdaaf87378cd67.jpg)
+![A Care Professional in an Otter Homecare polo shirt holding her Otter Stars award](/img/blog/ff72ba_0e3a4c47d5c84e2fa9cdaaf87378cd67.jpg)
 
 We’re delighted to launch Otter Stars — our new way of celebrating the care, compassion, and teamwork shown by our Care Professionals.
 
@@ -38,7 +38,7 @@ If one of our Care Professionals has made a difference to you or your loved one,
 
 Our Otter Café gatherings at Staverton Village Hall have quickly become a favourite part of the Otter Homecare calendar. These relaxed monthly events bring together our clients, their families, and care professionals for a friendly afternoon of tea, conversation, and good company.
 
-![](/img/blog/ff72ba_d2453a1d31ca41e1a7200df6d2d235e5.jpg)
+![Clients, families and Care Professionals around a long table of cakes and tea at the Otter Café in Staverton Village Hall](/img/blog/ff72ba_d2453a1d31ca41e1a7200df6d2d235e5.jpg)
 
 The aim is simple — to offer a welcoming space where people can connect and feel part of a community. Many of those who attended said it was a highlight of their month, and families shared how lovely it was to see their relatives enjoying time with others in such a positive atmosphere.
 
@@ -50,7 +50,7 @@ We’ve now held two cafés, both with great feedback, and we’re already plann
 
 At Otter Homecare, we know that care shouldn’t only be about the practical tasks — it should also make room for the things that make life enjoyable. That’s why we introduced Otter Happy Hour, a free, company-funded hour of care each month focused on wellbeing and enjoyment.
 
-![](/img/blog/ff72ba_b81cbd70fed5406f8477b3508a11c04c.jpg)
+![A Care Professional and an older gentleman smiling together for a photo at home](/img/blog/ff72ba_b81cbd70fed5406f8477b3508a11c04c.jpg)
 
 The idea is simple: to do something meaningful, just for the pleasure of it — whether that’s a walk outside, a visit to a café, or a bit of pampering at home. Recently, our Manager Cherie (see photo on the left) used an Otter Happy Hour to give one of our clients a free haircut — a small, thoughtful gesture that left him looking and feeling great and we have also used the time to help take clients out on excursions to Longleat and The Westbury White Horse.
 
@@ -62,9 +62,9 @@ If there’s something you’d love to use your Happy Hour for, please speak wit
 
 This issue, we’re introducing Missie, our Care Supervisor, who supports both in the office and out in the community.
 
-![](/img/blog/ff72ba_77d5f58bd4ac4f57ac4630881ab5f50f.jpg)
+![Missie, one of our Care Supervisors, photographed while away on holiday](/img/blog/ff72ba_77d5f58bd4ac4f57ac4630881ab5f50f.jpg)
 
-**What inspired you to work in care? **
+**What inspired you to work in care?**
 
 I have always been a caring person; I originally wanted to work looking after children with learning difficulties. But due to a change in circumstances, I fell into the role of a care assistant in a dementia nursing home. Witnessing mistreatment through the years has driven me to support and mentor carers to provide the best possible care and support to all those who need it in the community.
 
@@ -90,7 +90,7 @@ As the evenings draw in and temperatures drop, a few simple routines can help yo
 
 - Enjoy nourishing foods like soups, stews, and porridge.
 
-![](/img/blog/ff72ba_0fcc8bacdf574b729c6f10d452bd147b.jpg)
+![Two older women sitting by a sunny window, clinking mugs of tea together](/img/blog/ff72ba_0fcc8bacdf574b729c6f10d452bd147b.jpg)
 
 **Stay Active and Connected**
 
@@ -106,17 +106,17 @@ As the evenings draw in and temperatures drop, a few simple routines can help yo
 
 Technology is playing an increasing role in helping people live safely and confidently at home. At Otter Homecare, we use these tools to support comfort, safety, and independence — never to replace the human touch.
 
-![](/img/blog/ff72ba_e53a3e35523643bcb43758fa73414f10.jpg)
+![An older person pressing the button on a personal alarm pendant worn around their neck](/img/blog/ff72ba_e53a3e35523643bcb43758fa73414f10.jpg)
 
 Everyday Tech That Can Make a Difference
 
-**Voice Assistants: **Devices like Alexa or Google Home can remind you about medication, appointments, or even play your favourite music.
+**Voice Assistants:** Devices like Alexa or Google Home can remind you about medication, appointments, or even play your favourite music.
 
 **Smart Sensors:** Fall detectors and motion sensors can alert family or carers automatically if something seems wrong.
 
-**Smart Heating & Lighting: **Automated systems help keep homes comfortable and energy-efficient.
+**Smart Heating & Lighting:** Automated systems help keep homes comfortable and energy-efficient.
 
-**Digital Care Apps: **Our Care App keeps families updated in real time, offering reassurance and transparency about visits and wellbeing.
+**Digital Care Apps:** Our Care App keeps families updated in real time, offering reassurance and transparency about visits and wellbeing.
 
 **Our Approach**
 
@@ -136,7 +136,7 @@ started.
 
 Otter Homecare joined the Trowbridge Weavers Market on Saturday 11th October 2025 for a day of community connection and conversation. It was wonderful to meet so many people —
 
-![](/img/blog/ff72ba_065857a2d46f4504b1f889bf478366a2.jpg)
+![An Otter Homecare stall at Trowbridge Weavers Market, with banners, leaflets and an otter soft toy](/img/blog/ff72ba_065857a2d46f4504b1f889bf478366a2.jpg)
 
 from those curious about our services to others exploring a career in care.
 
@@ -154,4 +154,4 @@ You can share your thoughts by speaking with your Care Professional, calling the
 
 We look forward to sharing more updates and stories in the next edition.
 
-![](/img/blog/ff72ba_b56ef231d77a4de0a0766275ac9bbc8b.jpg)
+![An illustration of the Otter Homecare mascot wearing a branded teal polo shirt](/img/blog/ff72ba_b56ef231d77a4de0a0766275ac9bbc8b.jpg)

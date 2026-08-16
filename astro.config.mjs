@@ -4,7 +4,13 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [sitemap()],
+  // /thank-you is a post-submission confirmation page — it is noindex'd, so it
+  // must not be advertised in the sitemap either (the two signals would clash).
+  integrations: [
+    sitemap({
+      filter: (page) => !page.replace(/\/$/, '').endsWith('/thank-you'),
+    }),
+  ],
   // Canonical domain — drives <link rel="canonical"> and og:url in BaseLayout,
   // and the generated sitemap. Set to the live domain we'd cut over to.
   site: 'https://www.otterhomecare.co.uk',

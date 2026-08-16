@@ -1,4 +1,5 @@
 ---
+import Photo from "../../components/Photo.astro";
 import RatedBadge from "../../components/RatedBadge.astro";
 import SiteLayout from "../../layouts/SiteLayout.astro";
 import { getCollection, render } from "astro:content";
@@ -39,7 +40,7 @@ const postSchema = {
 
   <section class="section"><div class="wrap">
     {post.data.heroImage && (
-      <div class="post-hero-img reveal"><img src={post.data.heroImage} alt={post.data.title} /></div>
+      <div class="post-hero-img reveal"><Photo src={post.data.heroImage} alt={post.data.title} priority sizes="(max-width: 900px) 100vw, 820px" /></div>
     )}
     <div class="prose">
       <p class="updated">By the Otter Homecare team · {fmt(post.data.pubDate)} · {mins} min read</p>

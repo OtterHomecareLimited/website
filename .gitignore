@@ -23,3 +23,7 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 src/assets/wix/
+
+# Generated image variants (scripts/optimise-images.mjs)
+public/img/opt/*
+!public/img/opt/manifest.json

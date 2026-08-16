@@ -26,6 +26,11 @@ export default async function handler(req, res) {
     firstName = "", lastName = "", name: nameField = "",
     email = "", phone = "", consent = "",
     who = "", area = "",
+    // Provenance, collected from the URL/referrer at submit time by window.otterAdSource
+    // (SiteLayout head). Nothing is stored on the visitor's device to produce these.
+    gclid = "", gbraid = "", wbraid = "", gad_source = "",
+    utm_source = "", utm_medium = "", utm_campaign = "",
+    page = "", referrer = "",
   } = body;
   const message = (body.message || body.msg || "").toString();
 
@@ -49,6 +54,25 @@ export default async function handler(req, res) {
     return res.status(200).json({ ok: true, emailed: false, note: "Resend not configured yet" });
   }
 
+  // "Came from" line for the team. A Google Ads click ID (gclid, or gbraid/wbraid when iOS
+  // privacy suppresses gclid) is hard proof the visitor arrived on a paid click — that is the
+  // line to trust when judging whether the ads are producing enquiries. No click ID means the
+  // enquiry was NOT a tracked ad click.
+  const adClickId = gclid || gbraid || wbraid;
+  const cameFrom =
+    adClickId    ? "Google Ads — paid click"
+    : gad_source ? "Google Ads (no click ID captured)"
+    : utm_source ? `${utm_source}${utm_medium ? ` / ${utm_medium}` : ""}`
+    : referrer   ? referrer
+    :              "Direct or unknown — not a tracked ad click";
+
+  const sourceHtml = `
+          <hr>
+          <p style="font-size:13px;color:#555"><strong>Came from:</strong> ${esc(cameFrom)}</p>
+          ${adClickId ? `<p style="font-size:12px;color:#777"><strong>Google click ID:</strong> ${esc(adClickId)}</p>` : ""}
+          ${utm_campaign ? `<p style="font-size:13px;color:#555"><strong>Campaign:</strong> ${esc(utm_campaign)}</p>` : ""}
+          ${page ? `<p style="font-size:13px;color:#555"><strong>Page used:</strong> ${esc(page)}</p>` : ""}`;
+
   try {
     const r = await fetch("https://api.resend.com/emails", {
       method: "POST",
@@ -71,6 +95,7 @@ export default async function handler(req, res) {
           ${consent ? `<p><strong>Marketing opt-in:</strong> Yes</p>` : ""}
           <hr>
           <p style="white-space:pre-wrap">${esc(message) || "(no message)"}</p>
+          ${sourceHtml}
         `,
       }),
     });

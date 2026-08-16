@@ -56,7 +56,9 @@
     if (form) form.addEventListener("submit", async function (e) {
       e.preventDefault();
       var btn = form.querySelector('button[type="submit"]'), label = btn.textContent;
-      var data = Object.fromEntries(new FormData(form).entries());
+      // Attach where this enquiry came from (ad-click ID / campaign / page) — see SiteLayout head.
+      var data = Object.assign(Object.fromEntries(new FormData(form).entries()),
+        typeof window.otterAdSource === "function" ? window.otterAdSource() : {});
       if (!(data.phone || "").trim() && !(data.email || "").trim()) { alert("Please leave a phone number or an email so we can reach you."); return; }
       btn.disabled = true; btn.textContent = "Sending…";
       try {

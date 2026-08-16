@@ -1,11 +1,12 @@
 ---
+import Photo from "../components/Photo.astro";
 import RatedBadge from "../components/RatedBadge.astro";
 import SiteLayout from "../layouts/SiteLayout.astro";
 const img = (f: string) => `/img/${f}`;
 ---
 <SiteLayout
   title="Care Services in Wiltshire & Somerset | Otter Homecare"
-  description="From a friendly weekly visit to round-the-clock live-in support, our home care is personal, flexible and built around you — across Trowbridge, Bradford-on-Avon, Melksham, Westbury and Frome."
+  description="From a friendly weekly visit to round-the-clock live-in support — personal care, companionship and specialist help across Trowbridge, Melksham and nearby."
 >
   <header class="phero">
     <div class="wrap">
@@ -18,7 +19,7 @@ const img = (f: string) => `/img/${f}`;
   <section class="section" id="services">
     <div class="wrap">
       <div class="srow reveal">
-        <div class="srow-media"><img src={img("visiting-care.jpg")} alt="An Otter Care Professional visiting a client at home" /></div>
+        <div class="srow-media"><Photo src="/img/visiting-care.jpg" alt="An Otter Care Professional visiting a client at home" priority sizes="(max-width: 900px) 100vw, 520px" /></div>
         <div>
           <span class="eyebrow">Visiting Care</span>
           <h2>Flexible visits, on your terms</h2>
@@ -34,7 +35,7 @@ const img = (f: string) => `/img/${f}`;
       </div>
 
       <div class="srow flip reveal">
-        <div class="srow-media"><img src={img("elder-care-home.jpg")} alt="An Otter Care Professional supporting an older client at home" loading="lazy" /></div>
+        <div class="srow-media"><Photo src="/img/elder-care-home.jpg" alt="An Otter Care Professional supporting an older client at home" sizes="(max-width: 900px) 100vw, 520px" /></div>
         <div>
           <span class="eyebrow">Live-in Care</span>
           <h2>Round-the-clock care, at home</h2>
@@ -50,7 +51,7 @@ const img = (f: string) => `/img/${f}`;
       </div>
 
       <div class="srow reveal">
-        <div class="srow-media"><img src={img("specialist-support.jpg")} alt="An Otter Care Professional giving specialist support to a client at home" loading="lazy" /></div>
+        <div class="srow-media"><Photo src="/img/specialist-support.jpg" alt="An Otter Care Professional giving specialist support to a client at home" sizes="(max-width: 900px) 100vw, 520px" /></div>
         <div>
           <span class="eyebrow">Specialist &amp; Condition-led Care</span>
           <h2>Experienced, specialist support</h2>
@@ -66,7 +67,7 @@ const img = (f: string) => `/img/${f}`;
       </div>
 
       <div class="srow flip reveal">
-        <div class="srow-media"><img src={img("ff72ba_82b85220c73d4bf3b00cc07f8605e8f0~mv2.jpg")} alt="Companionship and a friendly chat" loading="lazy" /></div>
+        <div class="srow-media"><Photo src="/img/ff72ba_82b85220c73d4bf3b00cc07f8605e8f0~mv2.jpg" alt="Companionship and a friendly chat" sizes="(max-width: 900px) 100vw, 520px" /></div>
         <div>
           <span class="eyebrow">Companionship</span>
           <h2>A friendly face and good company</h2>

@@ -1,4 +1,5 @@
 ---
+import Photo from "../components/Photo.astro";
 import RatedBadge from "../components/RatedBadge.astro";
 import SiteLayout from "../layouts/SiteLayout.astro";
 import { towns } from "../data/towns";
@@ -17,7 +18,7 @@ import { towns } from "../data/towns";
     <div class="areas-grid">
       {towns.map((t) => (
         <div class="area-card reveal">
-          <img class="area-img" src={t.photo} alt={t.name} />
+          <Photo class="area-img" src={t.photo} alt={`Home care in ${t.name}`} sizes="(max-width: 880px) 100vw, 380px" />
           <div class="area-body">
             <h3><a href={`/${t.slug}`}>{t.name}</a></h3>
             <p>{t.cardBlurb}</p>

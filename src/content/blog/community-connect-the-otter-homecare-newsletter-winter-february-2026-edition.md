@@ -1,6 +1,6 @@
 ---
 title: "Community Connect (The Otter Homecare Newsletter): Winter / February 2026 Edition"
-description: "Hello everyone, As we settle into 2026, we find ourselves reflecting on what makes Otter Homecare special. For us, it's the small moments — a shared laugh, a kind word, or a familiar face that makes someone feel at ease. In this edition, we're sharing the results of our recent client survey and what we're doing in response. You'll also get a glimpse behind the scenes at the systems keeping you safe, meet one of our team members, and find out about the festive activities we've been getting"
+description: "Our winter round-up — what families told us in this year's survey, what we are changing as a result, and where to find us in the community this season."
 pubDate: 2026-02-15
 category: "Newsletter"
 heroImage: "/img/blog/ff72ba_8276c13817b9462fbeb8989ba14c69a0.jpg"
@@ -28,7 +28,7 @@ Thank you to everyone who completed our 2026 client survey. In early 2026, we as
 
 ### **Survey Snapshot**
 
-![](/img/blog/ff72ba_9870f1b4779b465597139235e765c155.jpg)
+![A handwritten whiteboard in a client's home listing the week's visit times, with names removed](/img/blog/ff72ba_9870f1b4779b465597139235e765c155.jpg)
 
 - **100% Feel safe with Otter Homecare**
 
@@ -38,25 +38,25 @@ Thank you to everyone who completed our 2026 client survey. In early 2026, we as
 
 ### **What you told us**
 
-**The positives: **94% said our care staff are kind, respectful and friendly. 94% said staff arrive on time. 94% feel listened to and involved in decisions about their care.
+**The positives:** 94% said our care staff are kind, respectful and friendly. 94% said staff arrive on time. 94% feel listened to and involved in decisions about their care.
 
 *"I feel very well cared for and safe. They remember to do everything without me having to ask. They really are kind and simply lovely."*
 
-**Areas to improve: **You told us you'd like more consistency with carers, better notice when visits change, and quicker responses when you raise concerns.
+**Areas to improve:** You told us you'd like more consistency with carers, better notice when visits change, and quicker responses when you raise concerns.
 
 ### **What we are doing about it**
 
-**Concerns: **We're reviewing how we handle concerns—acknowledging them within 24 hours and always confirming when they're resolved.
+**Concerns:** We're reviewing how we handle concerns—acknowledging them within 24 hours and always confirming when they're resolved.
 
-**Consistency: **We're working to match regular carers with clients, especially for those living with dementia, and to keep visit times as consistent as possible.
+**Consistency:** We're working to match regular carers with clients, especially for those living with dementia, and to keep visit times as consistent as possible.
 
-**Communication: **We're improving how we keep you informed if a carer is running late or if there are any changes to your rota, so you're never left wondering. We can now provide whiteboards for your home, allowing carers to write rota updates as they happen day to day. If you'd like one, please contact the office.
+**Communication:** We're improving how we keep you informed if a carer is running late or if there are any changes to your rota, so you're never left wondering. We can now provide whiteboards for your home, allowing carers to write rota updates as they happen day to day. If you'd like one, please contact the office.
 
 ---
 
 ## Welcome to Our Newest Otters
 
-![](/img/blog/ff72ba_1cec9ae2387e4c21b1d652f1f189b54d.jpg)
+![One of our newest Care Professionals, wearing her Otter Homecare lanyard](/img/blog/ff72ba_1cec9ae2387e4c21b1d652f1f189b54d.jpg)
 
 As Otter Homecare continues to grow, we're delighted to introduce some of our newest Care Professionals who joined us recently. Meet Kayla and Francis. Both bring compassion, dedication, and a genuine desire to make a difference. We're excited to have them as part of the Otter family.
 
@@ -64,7 +64,7 @@ As Otter Homecare continues to grow, we're delighted to introduce some of our ne
 
 ## Otter Office Party!
 
-![](/img/blog/ff72ba_aaab23c1666d47e392b436774f77a815.jpg)
+![The Otter Homecare team gathered around a table at their Christmas party at Trowbridge Rugby Club](/img/blog/ff72ba_aaab23c1666d47e392b436774f77a815.jpg)
 
 Back in December we had a great evening with lots of laughs and a well-earned night out for our Otter Homecare office party at Trowbridge Rugby Club. It was the perfect chance to relax and celebrate an amazing team for all the amazing work they do.
 
@@ -92,13 +92,13 @@ These systems work together quietly in the background—so you can feel safe, su
 
 ## Christmas Cheer at Otter
 
-![](/img/blog/ff72ba_29351cffcf1f4caa862a84aad9ddbf29.jpg)
+![Two Care Professionals in Otter polo shirts and reindeer antlers beside a decorated Christmas tree](/img/blog/ff72ba_29351cffcf1f4caa862a84aad9ddbf29.jpg)
 
 We got well and truly into the Christmas spirit at Otter last month! The office was decked out with decorations, and the team embraced the festive season with enthusiasm.
 
 A highlight was our Christmas-themed Otter Café event at Staverton Village Hall, where clients, carers and families came together for an afternoon of festive fun. The amazing Faye provided the soundtrack, playing Christmas carols on her cornet—a real treat that had everyone feeling merry.
 
-![](/img/blog/ff72ba_0e84ae2becb14bffbf2876d8f308b060.jpg)
+![A Care Professional in a Christmas jumper handing a wrapped gift to a client in his armchair](/img/blog/ff72ba_0e84ae2becb14bffbf2876d8f308b060.jpg)
 
 We also delivered festive treats and gifts to some of our clients at home, spreading a little extra cheer to those who couldn't make it to the café event. It was a wonderful way to round off the year and celebrate with the people who make Otter what it is.
 
@@ -108,7 +108,7 @@ We also delivered festive treats and gifts to some of our clients at home, sprea
 
 This issue, we're introducing Cherie, our Registered Manager, who supports both our office team Care Professionals in the community.
 
-![](/img/blog/ff72ba_63b5f73858f64d7b8e38b4bbecde8443.jpg)
+![Cherie, Otter Homecare's Registered Manager](/img/blog/ff72ba_63b5f73858f64d7b8e38b4bbecde8443.jpg)
 
 **What inspired you to work in care?**
 
@@ -126,13 +126,13 @@ I love camping and wild swimming. I have just brought a tentbox to take my 2-yea
 
 ## Otter in the Community
 
-![](/img/blog/ff72ba_737ff4d9a17d463788bfa1e652121d32.jpg)
+![A volunteer in an apron cooking at the hob, with rows of soup bowls ready, at the Beckington Lunch Club](/img/blog/ff72ba_737ff4d9a17d463788bfa1e652121d32.jpg)
 
-**Beckington Lunch Club: **Every last Friday of the month at Lahs Place Hall. We're proud to support this wonderful community gathering. In January Jamie (pictured left) and Maria helped serve and clear up an amazing lunch prepared by one of our clients.
+**Beckington Lunch Club:** Every last Friday of the month at Lahs Place Hall. We're proud to support this wonderful community gathering. In January Jamie (pictured left) and Maria helped serve and clear up an amazing lunch prepared by one of our clients.
 
-**Food Bank Support: **Our team continues regular donations to support local families in need.
+**Food Bank Support:** Our team continues regular donations to support local families in need.
 
-**Otter Café & Happy Hour: **Both continue to provide wonderful opportunities for connection. Speak with your Care Professional or call the office to join us. The next one will be announced shortly!
+**Otter Café & Happy Hour:** Both continue to provide wonderful opportunities for connection. Speak with your Care Professional or call the office to join us. The next one will be announced shortly!
 
 ---
 
