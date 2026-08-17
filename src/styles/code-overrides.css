@@ -187,3 +187,18 @@ picture > source { display: none; }
   .svc-grid.town-svc p{font-size:15px;line-height:1.5}
   .svc-grid.town-svc .more{font-size:15px}
 }
+
+/* Team cards: the initial-circle stands in when someone has no photo yet, so a
+   Care Professional can go on the page before their portrait is taken rather
+   than waiting for a photoshoot. Same footprint as the photo it replaces (4:5,
+   same radius and margin) so the grid doesn't jump. */
+.team-card .team-initial{
+  display:grid;place-items:center;width:100%;aspect-ratio:4/5;border-radius:var(--r);
+  margin:0 0 18px;background:var(--teal-soft);color:var(--teal-d);
+  font-family:"Spectral",serif;font-size:64px;font-weight:800;line-height:1;
+  box-shadow:var(--shadow-sm);
+}
+/* Area / length of service, under the role. Only rendered when supplied. */
+.team-card .team-meta{
+  display:block;font-size:13px;color:var(--muted);margin:-6px 0 10px;line-height:1.4;
+}
