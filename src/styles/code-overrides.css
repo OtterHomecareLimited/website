@@ -202,3 +202,21 @@ picture > source { display: none; }
 .team-card .team-meta{
   display:block;font-size:13px;color:var(--muted);margin:-6px 0 10px;line-height:1.4;
 }
+
+/* Founder block on the homepage — tightening the typography.
+   Seven lines of text were carrying three typefaces, seven sizes and four
+   colours, two of which (--teal #136B7D on the eyebrow and link, --teal-d
+   #0F4F60 on the quote and signature) sit within 200px of each other and read
+   as one colour that can't decide. Site-wide that pair is a real system —
+   bright teal for small accents, deep teal for large elements — but inside a
+   block this small it just wobbles.
+
+   The rule now is colour by role: teal is the meta layer (eyebrow, signature,
+   link), ink is the content (heading, quote), muted is support (note, role).
+   The quote keeps serif + italic + size, which already say "quote" without
+   also needing a colour change — four signals for one job was why it read as a
+   competing headline. Scoped to .founder-merged: .sig alone is used on 15+
+   pages and must not move. */
+.founder-merged .promise-quote{color:var(--head)}
+.founder-merged .sig{color:var(--teal);font-size:28px}
+.founder-merged .promise-values{font-size:16px}
