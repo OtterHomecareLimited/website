@@ -573,3 +573,18 @@ a.als-prevnext__item:hover { transform: translateY(-3px); box-shadow: var(--shad
    on the span: the print stylesheet already handles .als-card__chip). */
 .als-card__chip--stage{flex:none;width:56px;height:56px;border-radius:10px;background:var(--teal-soft);display:grid;place-items:center}
 .als-card__chip--stage img{width:34px;height:34px;display:block}
+
+/* Guide-card number badge: dark teal fill, white numeral.
+   It previously shared --teal-soft with the icon chip beside it, so an index and
+   a piece of meaning read as the same class of thing. Inverting it separates the
+   two and gives the sequence somewhere to land. White on --teal-dark is 9.1:1,
+   comfortable for a 14px numeral (the old ink-on-soft was 11.04:1, so contrast
+   was never the problem — sameness was).
+
+   Scoped to .als-card__head: .als-stage__num is shared with the stage rail on
+   all eight family pages, which keeps its light treatment. */
+.als-card__head .als-stage__num{
+  background: var(--teal-dark);
+  color: var(--white, #fff);
+  font-weight: 800;
+}

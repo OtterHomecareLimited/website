@@ -61,7 +61,10 @@ import stats from "../data/reviewStats.json";
     <div class="al-grid reveal">
       {stages.map((s) => (
         <a class="al-card" href={s.href}>
-          <span class="al-n">{s.n}</span>
+          <span class="al-head">
+            <span class="al-ic"><img src={`/assets/icons/${s.icon}.svg`} alt="" width="24" height="24" loading="lazy" /></span>
+            <span class="al-n">{s.n}</span>
+          </span>
           <span class="al-t">{s.title}</span>
           <span class="al-s">{s.short}</span>
         </a>

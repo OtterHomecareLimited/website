@@ -135,9 +135,25 @@ picture > source { display: none; }
 .alongside-home .al-card:hover,.alongside-home .al-card:focus-visible{
   transform:translateY(-3px);box-shadow:var(--shadow-sm);border-color:var(--teal);
 }
+/* Head row: the guide's icon on the left, its number on the right — the same
+   arrangement as the cards on /family, so the two pages read as one thing.
+   Six number-and-title tiles with no illustration looked anaemic. */
+.alongside-home .al-head{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:6px;
+}
+.alongside-home .al-ic{
+  flex:none;width:48px;height:48px;border-radius:10px;background:var(--teal-soft);
+  display:grid;place-items:center;
+}
+.alongside-home .al-ic img{width:24px;height:24px;display:block}
+/* Dark fill, white numeral. Sharing --teal-soft with the icon chip made an index
+   and a piece of meaning read as the same class of thing; inverting separates
+   them. White on --teal-d is 9.1:1. */
 .alongside-home .al-n{
-  font-family:"Spectral",serif;font-size:15px;font-weight:800;color:var(--teal);
-  line-height:1;margin-bottom:3px;
+  flex:none;width:26px;height:26px;border-radius:50%;
+  background:var(--teal-d);color:#fff;display:grid;place-items:center;
+  font-family:"Hanken Grotesk",system-ui,sans-serif;font-size:13px;font-weight:800;
+  line-height:1;margin:0;
 }
 .alongside-home .al-t{
   font-family:"Spectral",serif;font-size:19.5px;font-weight:700;color:var(--head);line-height:1.25;
