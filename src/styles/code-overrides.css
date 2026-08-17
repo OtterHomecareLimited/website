@@ -255,6 +255,21 @@ picture > source { display: none; }
 .steps-grid .step-ic{
   width:64px;height:64px;border-radius:16px;background:var(--teal-soft);
   box-shadow:none;
+  /* The outline is the load-bearing part. --teal-soft against this section's
+     --cream-2 ground measures 1.01:1 — identical in lightness, differing only in
+     hue, so the chip dissolved into the beige instead of reading as a shape.
+     (On /family and the homepage Alongside block the same chip sits on white
+     inside a bordered card, so it never had this problem.)
+
+     Filling the chip with teal instead was the obvious alternative and it does
+     not work here: the badge overhangs the chip onto the beige, so it has to
+     clear both at once, and nothing does — dark teal is 1.49:1 on the chip,
+     cream is 1.00:1 on the ground, gold only 2.86/1.77. That is precisely why
+     the original was gold. Outlining the soft chip clears all three
+     relationships: edge-to-ground 5.08:1, badge-to-chip 7.63:1,
+     badge-overhang-to-ground 7.55:1 — and the badge stays the same dark teal
+     used on every other numbered card on the site. */
+  border:1.5px solid var(--teal);
 }
 .steps-grid .step-ic svg{stroke:var(--teal-d)}
 .steps-grid .step-num{
