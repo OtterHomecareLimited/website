@@ -7,7 +7,6 @@
    is safe to re-sync wholesale again. What remains below is deliberately code-side. */
 
 /* Code-side functional additions (kept across design re-syncs) */
-.step .bignum{font-family:"Spectral",serif;font-size:52px;font-weight:800;color:var(--teal);line-height:1;display:block;margin-bottom:12px;letter-spacing:-.02em}
 .faq.tall.open .ans{max-height:760px}
 .faq .ans ul{margin:0 0 4px;padding:2px 24px 16px 44px}
 .faq .ans ul li{color:var(--muted);font-size:15px;margin:4px 0}
@@ -242,3 +241,29 @@ picture > source { display: none; }
    keeps it roughly 70% of the heading at every width. */
 .founder-merged .sig{color:var(--teal);font-size:clamp(21px, 2.4vw, 28px)}
 .founder-merged .promise-values{font-size:16px}
+
+/* "A simple, reassuring process" — into the same card language as /family and
+   the homepage Alongside block, so the site has ONE number badge rather than
+   three. The layout deliberately stays as it is: centred, four across, with the
+   dashed connector line, because that says "these happen in order" and cards
+   don't.
+
+   The chip had to lighten for this to work. The badge was gold precisely
+   because a dark teal badge on the old solid-teal circle measures 1.49:1 —
+   it would have vanished. With a --teal-soft chip the dark badge separates at
+   7.63:1, the icon reads at 7.63:1, and the white numeral sits at 9.1:1. */
+.steps-grid .step-ic{
+  width:64px;height:64px;border-radius:16px;background:var(--teal-soft);
+  box-shadow:none;
+}
+.steps-grid .step-ic svg{stroke:var(--teal-d)}
+.steps-grid .step-num{
+  background:var(--teal-d);color:#fff;
+  /* the cream ring stops it merging into the chip it overlaps */
+  border:2px solid var(--cream-2);
+  /* Reseated: the original offsets were tuned for a 64px circle, so on a rounded
+     square the badge sat inside the shape rather than on its corner. The chip is
+     64px and centred, so its right edge is 50% + 32px; less half the 24px badge
+     puts the badge centred on that corner. */
+  top:-9px;left:calc(50% + 20px);
+}
