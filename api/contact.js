@@ -4,7 +4,12 @@
 // the Vercel project's Environment Variables — until then it accepts submissions
 // and reports "email not yet configured" so nothing errors.
 
-const CONTACT_TO = process.env.CONTACT_TO || "hello@otterhomecare.co.uk";
+// Comma-separated, so an enquiry can reach more than one mailbox. This matters: the Report
+// Centre's enquiry counter reads hello@, while the office actually works out of jamie@ — if
+// CONTACT_TO names only one of them the other sees nothing, and the RC silently reports zero
+// enquiries. Set CONTACT_TO in Vercel to "hello@otterhomecare.co.uk, jamie@otterhomecare.co.uk".
+const CONTACT_TO = (process.env.CONTACT_TO || "hello@otterhomecare.co.uk")
+  .split(",").map((s) => s.trim()).filter(Boolean);
 // Until the otterhomecare.co.uk domain is verified in Resend, sends must come from
 // Resend's shared onboarding domain. Swap to website@otterhomecare.co.uk post-verify.
 const CONTACT_FROM = process.env.CONTACT_FROM || "Otter Website <onboarding@resend.dev>";
@@ -82,7 +87,7 @@ export default async function handler(req, res) {
       },
       body: JSON.stringify({
         from: CONTACT_FROM,
-        to: [CONTACT_TO],
+        to: CONTACT_TO,
         ...(emailValid ? { reply_to: email } : {}),
         subject: `Website enquiry from ${name}`,
         html: `
