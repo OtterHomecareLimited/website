@@ -338,7 +338,9 @@ footer h3{font-family:"Hanken Grotesk";font-weight:800;color:#fff;font-size:12.5
 .kilt-card:hover,.kilt-card:focus-visible{
   transform:translateY(-3px);box-shadow:var(--shadow-sm);border-color:var(--teal);
 }
-.kilt-img{width:clamp(84px,12vw,116px);height:auto;flex:none;display:block}
+/* 140 not 116: the tightened card holds a larger otter without growing taller —
+   the text block sets the card height, not the image. Jamie asked for bigger. */
+.kilt-img{width:clamp(96px,13vw,140px);height:auto;flex:none;display:block}
 .kilt-body{display:flex;flex-direction:column;gap:3px;min-width:0}
 .kilt-h{font-family:"Spectral",serif;font-size:clamp(19px,2.2vw,23px);font-weight:700;
   color:var(--head);line-height:1.25}

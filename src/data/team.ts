@@ -108,4 +108,14 @@ export const careProfessionals: Person[] = [
     words:
       "I came into care because I was my daughter's carer first. One lady wouldn't let anyone shower her when I started; now it's two or three times a week, and that trust is what makes the job worthwhile.",
   },
+  {
+    name: "Dee",
+    photo: "/img/team-dee.jpg",
+    // Verbatim from her interview, including dating her career by her son's age.
+    // The client who teases her about being cheerful is left anonymous in the
+    // quote (it is Jamie's dad — his call if he ever wants that named, not ours).
+    // area/since to follow from Jamie.
+    words:
+      "I've been doing this 28 years — well, 29 this year, because my son's 30. I just enjoy putting a smile on somebody's face; sometimes you're the one person they might see all day. One client teases me: \"Do you have to be so cheerful?\"",
+  },
 ];

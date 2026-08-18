@@ -1064,6 +1064,16 @@
   ],
   "base": "img/team-cherie"
  },
+ "img/team-dee.jpg": {
+  "hash": "6ddd0cb4b83a",
+  "width": 900,
+  "height": 1352,
+  "widths": [
+   480,
+   768
+  ],
+  "base": "img/team-dee"
+ },
  "img/team-group.jpg": {
   "hash": "93a2f884cd99",
   "width": 1536,
