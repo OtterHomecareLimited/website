@@ -43,17 +43,6 @@ section[id]{scroll-margin-top:96px}
 .btn-ghost:hover{border-color:var(--teal);color:var(--teal-d)}
 .btn-lg{padding:12px 22px;font-size:16px}
 
-/* utility bar — v6: deep teal, mustard phone number ("black in the gold isn't attractive") */
-.util{background:var(--teal-d, #0B3F49);color:#fff;font-size:13.5px;font-weight:700}
-.util .wrap{display:flex;justify-content:space-between;align-items:center;height:26px}
-.util .areas{opacity:.82;font-weight:600;color:#bfe0dc}
-/* Gold lifted from #D4AC4F to #DCB65C here only: on the deep-teal bar the brand
-   gold measured 4.25:1, just under WCAG AA (4.5:1) for 13.5px text. #DCB65C is
-   4.72:1 on the same ground and visually near-identical. The global --sun token
-   is unchanged — it sits on cream elsewhere, where lightening would hurt. */
-.util a{display:inline-flex;gap:7px;align-items:center;white-space:nowrap;color:#DCB65C}
-.util a:hover{color:#E4C36F}
-@media(max-width:1040px){.util .areas{display:none}}
 
 /* nav */
 nav{position:sticky;top:0;z-index:50;background:var(--teal);box-shadow:0 2px 14px -8px rgba(0,0,0,.4)}
@@ -65,6 +54,10 @@ nav .inner{max-width:var(--maxw);margin:0 auto;padding:15px 28px;display:flex;al
 .navlinks a:hover{color:#fff}
 .nav-cta{margin-left:auto;display:flex;align-items:center;gap:16px}
 .nav-phone{font-weight:800;color:#fff;white-space:nowrap}
+/* Phone in the nav (utility bar removed 18 Aug 2026): >=1200px only — below
+   that the six items + CTA need the room, and <=999px the gold .nav-call pill
+   takes over. */
+@media(max-width:1199px){.nav-phone{display:none}}
 .nav-cta .btn-primary{background:#fff;color:var(--teal-d);padding:8px 15px;box-shadow:0 8px 18px -12px rgba(0,0,0,.3)}
 .nav-cta .btn-primary:hover{background:var(--cream);color:var(--teal-d);transform:translateY(-2px)}
 .nav-call{display:none;height:40px;width:auto;padding:0 16px;gap:8px;border-radius:999px;background:var(--sun);align-items:center;justify-content:center;color:#3a2a06;font-weight:800;font-size:14px;box-shadow:0 8px 18px -12px rgba(0,0,0,.4)}
@@ -84,6 +77,11 @@ nav:has(.mobile-menu.show) .nav-call{display:none}
 nav:has(.mobile-menu.show) .nav-toggle{position:fixed;top:16px;right:18px;width:46px;padding:0;background:rgba(255,255,255,.7);border-color:rgba(15,79,96,.35);color:var(--teal-d);transform:none}
 nav:has(.mobile-menu.show) .nav-toggle::before{content:none}
 nav:has(.mobile-menu.show) .nav-toggle::after{content:none}
+/* Mobile drawer promise line — the utility bar's line, said once, where someone
+   is choosing which button to press. */
+.mm-promise{display:flex;align-items:center;justify-content:center;gap:8px;
+  font-size:13.5px;font-weight:600;color:var(--muted);padding-top:2px}
+.mm-promise img{width:14px;height:14px;object-fit:contain}
 .mobile-menu{position:fixed;top:0;right:0;height:100dvh;width:78%;max-width:358px;margin:0;background:var(--cream-2);border-radius:0;box-shadow:-18px 0 46px -20px rgba(0,0,0,.45);overflow-y:auto;-webkit-overflow-scrolling:touch;padding:86px 0 28px;transform:translateX(101%);transition:transform .3s cubic-bezier(.4,0,.2,1);z-index:6;visibility:hidden}
 .mobile-menu.show{transform:translateX(0);visibility:visible;box-shadow:-18px 0 46px -20px rgba(0,0,0,.45),0 0 0 100vmax rgba(13,40,45,.32)}
 body:has(.mobile-menu.show){overflow:hidden}
@@ -502,14 +500,6 @@ footer .legal{border-top:1px solid rgba(255,255,255,.14);padding:20px 28px;text-
 @media(max-width:860px){.promise-row{grid-template-columns:1fr;gap:28px;max-width:560px;margin:6px auto 0}.promise-otter img{width:150px}}
 @media(max-width:560px){.pl{grid-template-columns:1fr;gap:5px}.pl-val{padding-top:0}}
 
-/* header — clean rotating value line (gold utility bar) */
-.util-promise{display:flex;align-items:center;gap:9px;min-width:0}
-.util-tt{width:15px;height:15px;flex:none;object-fit:contain;transition:opacity .4s ease}
-.util-tt.fade{opacity:0}
-.util-rot{position:relative;font-family:"Hanken Grotesk",system-ui,sans-serif;font-size:12.5px;font-weight:700;color:#3a2a06;line-height:1;white-space:nowrap;transition:opacity .4s ease}
-.util-rot.fade{opacity:0}
-.util-rot .em{color:#3a2a06;font-weight:800}
-@media(max-width:1000px){.util .wrap{height:8px;justify-content:center}.util-promise{display:none}.util a{display:none}}
 
 /* hero — handwritten annotation + arch photo frame */
 .hero-media.arch .main{border-radius:999px 999px 20px 20px}
@@ -833,8 +823,6 @@ html.a11y-text-1 main,html.a11y-text-2 main{overflow-x:clip}
 html.a11y-contrast{--cream:#FFFFFF;--cream-2:#FFFFFF;--paper:#FFFFFF;--ink:#000000;--muted:#1A1A1A;--line:#000000;--head:#000;--teal:#0B3D4D;--teal-d:#062A36;--teal-soft:#FFFFFF;--clay:#7A2E12;--clay-d:#7A2E12;--clay-text:#7A2E12;--sun:#000;--sun-d:#000;--sun-text:#000;background:#fff}
 html.a11y-contrast body{background:#fff;color:#000}
 html.a11y-contrast a:not(.btn):not(.otter-fab):not(.talk-opt):not(.brand):not(.area-card h3 a){text-decoration:underline;text-underline-offset:2px}
-html.a11y-contrast .util{background:#000;color:#fff}
-html.a11y-contrast .util a{color:#fff;text-decoration:underline}
 html.a11y-contrast nav{background:#000}
 html.a11y-contrast footer{background:#000;color:#fff;border-top-color:#fff}
 html.a11y-contrast footer a,html.a11y-contrast footer .legal{color:#fff}
@@ -1032,20 +1020,6 @@ html.a11y-contrast .section.bg-cream,html.a11y-contrast .section.bg-sky,html.a11
 .hh-emblem.has-photo img{width:100%;aspect-ratio:1;height:auto;object-fit:cover;border-radius:50%}
 @media(min-width:768px){.hh-emblem{width:164px;height:164px}}
 
-/* Utility bar v6 — rotating promise line + mobile variant (bar colours are in the
-   base .util rules above) */
-.util .util-rot,.util-rot .em{color:#fff;font-size:13.5px}
-.util-mobile{display:none;color:#fff;font-weight:600;white-space:nowrap}
-@media(max-width:1000px){
-  .util .wrap{height:34px;justify-content:center;gap:8px}
-  .util-promise{display:none}
-  .util-mobile{display:inline}
-  .util .util-links{display:flex}
-  .util a{display:inline-flex}
-  .util .util-mail{display:none}
-}
-/* phone and email are separate, correctly-typed links */
-.util-links{display:flex;align-items:center;gap:14px;white-space:nowrap}
 
 /* Town pages "How we can help": clean 4-up → 2×2 → 1-col, never a lone orphan card */
 .svc-grid.town-svc{grid-template-columns:repeat(4,1fr)}

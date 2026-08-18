@@ -27,7 +27,7 @@
 
   /* ---- Site chrome. `.mbar` is the sticky mobile call/book bar, which
        otherwise prints across the foot of page one. ---- */
-  .util, nav, .mobile-menu, .nav-toggle, .mbar, .mm-cta, .nav-cta,
+  nav, .mobile-menu, .nav-toggle, .mbar, .mm-cta, .nav-cta,
   .otter-fab, .otter-pop, .skip-link, footer,
   [class*="a11y-"], .als-crumbs { display: none !important; }
 

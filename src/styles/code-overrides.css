@@ -305,11 +305,9 @@ picture > source { display: none; }
    pair of .util/footer rules and a homepage-scoped review block.
    a11y-contrast mode outranks this and still forces its own darks. */
 :root{ --sun-on-dark:#DCB65C; --teal-deep:#0B3F49; --teal-d:#0B3F49; }
-/* 18 Aug, later the same day: the util contact links went WHITE — Jamie flagged
-   gold text clashing on the deep bar. Gold-as-text on teal survives only in the
-   letterspaced eyebrows below; otherwise gold means filled shapes. */
-.util a{color:#fff}
-.util a:hover{color:#fff;text-decoration:underline}
+/* (18 Aug, evening: the utility bar itself was removed — design handoff. The
+   white-link rules that briefly lived here went with it; gold-as-text on teal
+   survives only in the letterspaced eyebrows below.) */
 .proof-eyebrow{color:var(--sun-on-dark)}
 .teal-panel .eyebrow{color:var(--sun-on-dark)}
 .prose .mca-callout .mc-eyebrow{color:var(--sun-on-dark)}
