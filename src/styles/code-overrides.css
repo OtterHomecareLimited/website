@@ -370,3 +370,23 @@ footer h3{font-family:"Hanken Grotesk";font-weight:800;color:#fff;font-size:12.5
   .kilt-body{align-items:center}
   .kilt-p{max-width:none}
 }
+
+/* ── REVIEW SCOPE: one-dark-teal + white top-bar contact, HOMEPAGE ONLY ──────
+   Jamie is reviewing two changes before site-wide rollout:
+     1. Top-bar phone/email in white, not gold — gold stays for filled shapes
+        (Call pill, Subscribe, careers strip); as thin text on the deep bar it
+        vibrates, which is the clash he flagged.
+     2. One dark teal: the mid-page dark bands join the frame at --teal-deep
+        #0B3F49, retiring --teal-d #0F4F60 as a band colour (it sat 1.27:1 from
+        the frame — the beige near-pair problem, in teal).
+   Scoped via body:has(#alongside), which only matches the homepage, so every
+   inner page keeps the current live styling for comparison. ON APPROVAL:
+   delete this whole block and instead set :root{--teal-d:#0B3F49} plus
+   .util a{color:#fff} (+hover) globally — the token flip carries the waves,
+   gradients, page heroes and Alongside pages with it automatically. */
+body:has(#alongside) .util a{color:#fff}
+body:has(#alongside) .util a:hover{color:#fff;text-decoration:underline}
+body:has(#alongside) .proof{background:var(--teal-deep)}
+body:has(#alongside) .wave--to-teal .rip-front{fill:var(--teal-deep)}
+body:has(#alongside) .book{background:radial-gradient(130% 100% at 50% 0%,#15637a 0%,var(--teal-deep) 58%)}
+body:has(#alongside) .app-co.co4{background:var(--teal-deep)}
