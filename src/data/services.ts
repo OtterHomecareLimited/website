@@ -418,6 +418,54 @@ export const services: Service[] = [
       "Peace of mind — knowing help is close when it's needed",
     ],
     note: "Fall recovery support is available to existing Otter Homecare clients.",
+
+    serviceType: "Fall recovery support at home",
+    areaServed: ["Trowbridge", "Bradford-on-Avon", "Melksham", "Westbury", "Frome", "West Wiltshire", "Somerset"],
+    sections: [
+      {
+        eyebrow: "Why it matters",
+        h2: "The fall is rarely the worst part",
+        body: [
+          "Most falls do no serious physical harm. What does the damage is the hour spent on the floor waiting, the ambulance called because nobody could lift safely, and the confidence that quietly goes afterwards — the walk to the shops that stops, the bath that starts to feel risky.",
+          "That loss of nerve is what turns one fall into a smaller life, and it is far easier to prevent than to reverse. Getting someone up quickly, calmly and without a hospital trip is the whole point.",
+        ],
+      },
+      {
+        eyebrow: "The Raizer chair",
+        h2: "How we get someone up safely",
+        body: [
+          "We use a <b>Raizer lifting chair</b> — a battery-powered chair that assembles around someone lying on the floor and raises them gently to a near-standing position. One person can operate it, so there is no heaving, no improvising with kitchen chairs, and no risk of a second injury to the person or to whoever is helping.",
+          "Every Care Professional who uses it is trained on it. If anything suggests the fall caused real harm we call for medical help first — the chair is for getting someone up who is not injured, not for deciding whether they are.",
+        ],
+        list: [
+          "A seated, supported lift rather than a hauled one",
+          "Operable by a single trained Care Professional",
+          "No lifting strain on family members",
+          "Avoids an ambulance call-out where none is needed",
+          "Used only once we are satisfied there is no injury",
+        ],
+      },
+      {
+        eyebrow: "Afterwards",
+        h2: "Getting the confidence back",
+        body: [
+          "Being helped up is the start. What follows matters more: working out why it happened, and making the next one less likely. That might mean looking at the trip hazards on the route to the bathroom, checking whether medication is causing dizziness, adding a visit at the time of day the falls happen, or simply walking with someone until they trust their legs again.",
+          "Where it would help we will say so plainly — a GP conversation about medication, a falls assessment, a rail in the right place. More about how we build that into a plan is on our <a href='/how-we-work'>how we work</a> page.",
+        ],
+      },
+    ],
+    faqs: [
+      { q: "Who can use the fall recovery service?",
+        a: ["It is for people we already look after. It relies on our team knowing the home, holding a key-safe code and being close enough to reach you quickly, so it is not something we can offer as a standalone call-out."] },
+      { q: "Should I call you or 999?",
+        a: ["If there is any sign of injury, or the person is unwell, confused or in pain, call 999 first. Call us when someone has slipped or slid down and simply cannot get up. If we arrive and are not happy, we will call for medical help ourselves rather than move them."] },
+      { q: "Can my family use the chair?",
+        a: ["No, and please do not try to lift someone yourselves either — that is how carers get hurt. The Raizer is operated by Care Professionals trained on it. If you are waiting for us, make the person warm and comfortable where they are."] },
+      { q: "Does it cost extra?",
+        a: ["The visit is charged at our normal hourly rate, with no call-out fee and no equipment charge for the chair. All our rates are published on the <a href='/cost-of-home-care'>costs and funding page</a>."] },
+      { q: "Will it stop the next fall?",
+        a: ["Not on its own. What reduces the next one is finding the cause — footwear, a rug, a medication making someone light-headed, weakness after an illness. We will raise what we notice and work with your GP where it helps."] },
+    ],
   },
   {
     slug: "respite-care",

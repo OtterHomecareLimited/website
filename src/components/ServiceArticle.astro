@@ -72,7 +72,7 @@ const faqSchema = service.faqs?.length
         <div class="srow-media"><img src={img(service.heroImg)} alt={service.h1} /></div>
         <div>
           {service.intro.map((p) => <p class="lede" style="margin-bottom:14px">{p}</p>)}
-          <h3 style="font-size:22px;margin:20px 0 8px">{service.includedTitle ?? "What's included"}</h3>
+          <h2 style="font-size:22px;margin:20px 0 8px">{service.includedTitle ?? "What's included"}</h2>
           <ul>{service.included.map((i) => <li>{i}</li>)}</ul>
           {service.price && (
             <p style="background:var(--sun-soft);border-radius:var(--r-sm);padding:14px 18px;margin-top:18px;font-size:15.5px"><strong>Cost &amp; funding.</strong> {service.price}</p>
