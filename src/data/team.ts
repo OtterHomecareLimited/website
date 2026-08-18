@@ -110,12 +110,16 @@ export const careProfessionals: Person[] = [
   },
   {
     name: "Dee",
+    area: "Trowbridge, Bradford-on-Avon & Melksham",
+    since: 2025,
     photo: "/img/team-dee.jpg",
-    // Verbatim from her interview, including dating her career by her son's age.
-    // The client who teases her about being cheerful is left anonymous in the
-    // quote (it is Jamie's dad — his call if he ever wants that named, not ours).
-    // area/since to follow from Jamie.
+    // Her interview, edited to the same two-sentence arc as Bev's (a first
+    // version kept the interview's meander verbatim and read as fragments next
+    // to Bev's card). Facts and phrases are hers: 29 years dated by her son's
+    // age, being the only person a client sees, the smile, the tease. The
+    // teasing client stays anonymous — it is Jamie's dad, and naming him is
+    // Jamie's call, not a bio's.
     words:
-      "I've been doing this 28 years — well, 29 this year, because my son's 30. I just enjoy putting a smile on somebody's face; sometimes you're the one person they might see all day. One client teases me: \"Do you have to be so cheerful?\"",
+      "I've been in care for 29 years this year — my son's 30, so it's been most of his life. Sometimes I'm the only person a client sees all day, so I always turn up with a smile; one client even teases me: 'Do you have to be so cheerful?'",
   },
 ];
