@@ -32,9 +32,9 @@ Thank you to everyone who completed our 2026 client survey. In early 2026, we as
 
 - **100% Feel safe with Otter Homecare**
 
-- **95% Kind, respectful & friendly carers**
+- **94% Kind, respectful & friendly carers**
 
-- **95% Feel listened to & involved**
+- **94% Feel listened to & involved**
 
 ### **What you told us**
 
