@@ -116,9 +116,9 @@ export const careProfessionals: Person[] = [
     // Her interview, edited to the same two-sentence arc as Bev's (a first
     // version kept the interview's meander verbatim and read as fragments next
     // to Bev's card). Facts and phrases are hers: 29 years dated by her son's
-    // age, being the only person a client sees, the smile, the tease. The
-    // teasing client stays anonymous — it is Jamie's dad, and naming him is
-    // Jamie's call, not a bio's.
+    // age, being the only person a client sees, the smile, the tease.
+    // The teasing client stays ANONYMOUS — Jamie's explicit decision
+    // (18 Aug 2026). Do not name him in this or any future copy.
     words:
       "I've been in care for 29 years this year — my son's 30, so it's been most of his life. Sometimes I'm the only person a client sees all day, so I always turn up with a smile; one client even teases me: 'Do you have to be so cheerful?'",
   },
