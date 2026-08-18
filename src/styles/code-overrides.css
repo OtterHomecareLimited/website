@@ -318,10 +318,14 @@ footer h3{font-family:"Hanken Grotesk";font-weight:800;color:#fff;font-size:12.5
   margin-bottom:4px;line-height:1.3;letter-spacing:0}
 
 /* Kilt strip on the homepage — one row, not a section-sized block.
-   Sits between the founder story (cream-2) and the process block (cream-2), so
-   the card carries its own paper fill to separate itself from both without
-   introducing a third background band. */
-.kiltstrip{padding:clamp(28px,3vw + 14px,48px) 0}
+   The section takes --cream-2 explicitly so it merges with the founder story
+   above and the process block below into one continuous band, the white card
+   being the only thing that breaks it. Without this it fell through to the body
+   default --cream #F5F1E8 and produced a thin lighter stripe between two darker
+   ones — which is exactly the extra band the original comment claimed to be
+   avoiding. The two beiges sit at 1.07:1 against each other, so a band of one
+   inside the other reads as a smudge rather than a deliberate change. */
+.kiltstrip{background:var(--cream-2);padding:clamp(28px,3vw + 14px,48px) 0}
 /* 600, not 760: the paragraph carries its own measure, so at 760 the content
    stopped 203px short of the card's right edge and the card read as off-centre
    with a hole in it. The card now hugs what is in it. */
