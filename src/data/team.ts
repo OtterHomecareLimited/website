@@ -93,4 +93,16 @@ export const office: Person[] = [
 //       "I fell into care looking after my nan and never left. The bit I like best is the ten minutes at the end when the jobs are done and you just sit and talk.",
 //   },
 //
-export const careProfessionals: Person[] = [];
+export const careProfessionals: Person[] = [
+  {
+    name: "Bev",
+    area: "Bradford-on-Avon & Trowbridge",
+    since: 2025,
+    photo: "/img/team-bev.jpg",
+    // Bev's own words, lightly joined from two answers. The client she named in
+    // the second story is deliberately not identified — client names never
+    // appear in marketing material.
+    words:
+      "Sometimes we're the only person someone sees all day — seeing their face light up when you walk in is just magical. One lady wouldn't let anyone shower her when I started; now it's two or three times a week, and that trust is what makes the job worthwhile.",
+  },
+];

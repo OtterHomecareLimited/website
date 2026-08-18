@@ -1034,6 +1034,16 @@
   ],
   "base": "img/team-abbey"
  },
+ "img/team-bev.jpg": {
+  "hash": "601df3fe2e19",
+  "width": 900,
+  "height": 1350,
+  "widths": [
+   480,
+   768
+  ],
+  "base": "img/team-bev"
+ },
  "img/team-brad.jpg": {
   "hash": "92de300e1c46",
   "width": 884,
