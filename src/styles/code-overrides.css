@@ -294,7 +294,24 @@ picture > source { display: none; }
    one-off; it was a pattern, and these three had it too. Kept here rather than
    in otter-home.css so a design re-sync of that file cannot silently revert an
    accessibility fix. */
-:root{ --sun-on-dark:#DCB65C; }
+:root{ --sun-on-dark:#DCB65C; --teal-deep:#0B3F49; }
+
+/* ── The frame: top bar and footer one step deeper than everything else ─────
+   Jamie, 18 Aug 2026: the edges should read darker so the page has a frame.
+   They already tried to — both were --teal-d — but teal-d is also the colour of
+   the mid-page bands (proof strip, booking band, values panel), so the edges
+   never owned it. --teal-deep gives a three-step hierarchy: deep frame, --teal
+   nav, --teal-d content bands. The token existed in the Alongside stylesheet
+   (and as .util's literal fallback — someone intended this once) but was never
+   defined site-wide until the :root line above.
+
+   Contrast improves everywhere on the deeper ground: white 9.1→11.5:1,
+   --sun-on-dark 4.72→5.98:1. The only near-identical seam this creates —
+   the teal-d booking band directly above the footer on inner pages, 1.27:1 —
+   is already mediated by the footer's 3px gold top rule.
+   a11y-contrast mode is unaffected: its html.-prefixed rules outrank these. */
+.util{background:var(--teal-deep)}
+footer{background:var(--teal-deep)}
 .util a{color:var(--sun-on-dark)}
 .proof-eyebrow{color:var(--sun-on-dark)}
 .teal-panel .eyebrow{color:var(--sun-on-dark)}
