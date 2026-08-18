@@ -99,10 +99,13 @@ export const careProfessionals: Person[] = [
     area: "Bradford-on-Avon & Trowbridge",
     since: 2025,
     photo: "/img/team-bev.jpg",
-    // Bev's own words, lightly joined from two answers. The client she named in
-    // the second story is deliberately not identified — client names never
-    // appear in marketing material.
+    // Why, then proof. The first sentence is the answer to "what made you go into
+    // care" — Bev came to it as her daughter's carer. Note it is a paraphrase:
+    // that answer was lost to a clipped transcription and reached us second-hand,
+    // so it is worth reading back to her, unlike the second sentence which is
+    // verbatim. The client she named when telling the shower story is deliberately
+    // not identified — client names never appear in marketing material.
     words:
-      "Sometimes we're the only person someone sees all day — seeing their face light up when you walk in is just magical. One lady wouldn't let anyone shower her when I started; now it's two or three times a week, and that trust is what makes the job worthwhile.",
+      "I came into care because I was my daughter's carer first. One lady wouldn't let anyone shower her when I started; now it's two or three times a week, and that trust is what makes the job worthwhile.",
   },
 ];
