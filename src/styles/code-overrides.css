@@ -397,3 +397,25 @@ footer h3{font-family:"Hanken Grotesk";font-weight:800;color:#fff;font-size:12.5
    gold as a filled shape, per the rule. */
 .teal-panel .btn-clay{background:var(--sun);color:#3a2a06}
 .teal-panel .btn-clay:hover{background:var(--sun-d, #B98A1E);color:#3a2a06}
+
+/* ── Homepage band grounds: no section left unpainted ────────────────────────
+   --cream #F5F1E8 is the BODY colour, not a band colour. Every deliberate band
+   on the homepage is one of dark teal / --cream-2 / --sky / --paper / --sun.
+   Two sections had no background rule at all and so fell through to the body,
+   landing directly beside --cream-2 bands. --cream against --cream-2 is ΔE 5.67
+   in CIE Lab — visible, but far too small to read as a decision; it looks like a
+   rendering fault. (Same failure as the kilt strip above, which fell through the
+   same way.) Both are now painted explicitly, chosen by what their cards need:
+
+   .services   cards are white shells with --sky bodies, so a white ground gives
+               the strongest possible break into the cream-2 band below (ΔE 12.30)
+               and opens the page brightly straight after the dark proof strip.
+   .moments-*  .moment cards are white (--paper), so this one CANNOT go white or
+               the cards vanish. --cream-2 gives them ΔE 12.30 and merges this
+               band with the reviews block above it — the two are both social
+               proof, so one continuous warm band is the honest grouping.
+
+   Both are scoped by class (.services / .moments), so no other page's bare
+   .section is affected. */
+.section.services{background:var(--paper)}
+.section.moments{background:var(--cream-2)}
