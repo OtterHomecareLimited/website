@@ -366,3 +366,13 @@ footer h3{font-family:"Hanken Grotesk";font-weight:800;color:#fff;font-size:12.5
   .kilt-p{max-width:none}
 }
 
+
+/* Homepage reviews footer: the "·" between the two links is a one-line
+   separator. Once the links wrap on a narrow screen the dot orphaned onto the
+   start of the second line and read as a stray bullet before "More reviews"
+   (Jamie's screenshot, 19 Aug). Below the wrap point the links stack and the
+   dot goes; on one line it stays. */
+@media(max-width:760px){
+  .hc-foot span{display:none}
+  .hc-foot a{display:block;margin:6px auto}
+}
