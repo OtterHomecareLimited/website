@@ -123,4 +123,17 @@ export const careProfessionals: Person[] = [
     words:
       "I've been in care for 29 years. Sometimes I'm the only person a client sees all day, so I always turn up with a smile; one client even teases me: 'Do you have to be so cheerful?'",
   },
+  {
+    // Spelling: the folder and photo Jamie supplied both say "Codi"; his message
+    // said "Cody". Went with the files — flagged to Jamie 20 Aug, correct here
+    // if wrong. area/since to follow from Jamie.
+    name: "Codi",
+    role: "Senior Care Professional",
+    photo: "/img/team-codi.jpg",
+    // Why, then what — both from her own written answers, lightly joined: the
+    // nan in her nineties who couldn't afford care (kept the "three times a
+    // month" because its honesty is the point), then the connections line.
+    words:
+      "I helped look after my nan when she was in her nineties — she couldn't afford care, so I went up three times a month myself. What I like most now is making new connections, and meeting such a wide variety of clients.",
+  },
 ];

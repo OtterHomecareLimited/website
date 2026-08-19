@@ -1064,6 +1064,16 @@
   ],
   "base": "img/team-cherie"
  },
+ "img/team-codi.jpg": {
+  "hash": "b869b893f454",
+  "width": 900,
+  "height": 1352,
+  "widths": [
+   480,
+   768
+  ],
+  "base": "img/team-codi"
+ },
  "img/team-dee.jpg": {
   "hash": "6ddd0cb4b83a",
   "width": 900,
