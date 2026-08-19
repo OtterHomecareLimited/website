@@ -8,7 +8,7 @@ import { office, careProfessionals, type Person } from "../data/team";
 // src/data/team.ts looks like the rest of the team with no markup changes.
 const label = (p: Person) => p.role ?? "Care Professional";
 const meta = (p: Person) =>
-  [p.area, p.since ? `With Otter since ${p.since}` : null].filter(Boolean).join(" · ");
+  [p.area, p.since ? `With Otter since ${p.since}` : null].filter(Boolean).join("\u00A0· ");  // nbsp binds the dot to the preceding word — it can trail a line but never lead one
 ---
 <SiteLayout
   title="Meet the Otter Homecare Team | Wiltshire & Somerset"

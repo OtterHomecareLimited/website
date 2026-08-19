@@ -376,3 +376,18 @@ footer h3{font-family:"Hanken Grotesk";font-weight:800;color:#fff;font-size:12.5
   .hc-foot span{display:none}
   .hc-foot a{display:block;margin:6px auto}
 }
+
+/* Separator-dot hygiene (the class of bug behind Jamie's stray-bullet report).
+   A "·" between inline items assumes its line never wraps. A detector pass at
+   phone width found the remaining offenders after the reviews-footer fix:
+   the footer legal row dangled its first dot at a line end on every page, and
+   the homepage app card wrapped "Notes added · 09:32" around the dot. Legal
+   separators are now real elements, dropped once the row wraps; the app-card
+   metas are short enough to simply never break. Generated separators
+   (team-card meta, blog bylines, footer contact) are nbsp-bound in markup so
+   a dot can trail a line but never lead one. */
+@media(max-width:760px){
+  footer .legal .sep{display:none}
+  footer .legal a{display:inline-block;margin:2px 9px}
+}
+.app-co small{white-space:nowrap}
