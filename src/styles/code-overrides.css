@@ -391,3 +391,9 @@ footer h3{font-family:"Hanken Grotesk";font-weight:800;color:#fff;font-size:12.5
   footer .legal a{display:inline-block;margin:2px 9px}
 }
 .app-co small{white-space:nowrap}
+
+/* "Meet the team" CTA on /our-story's teal panel: btn-clay is teal-on-teal
+   there, so it takes the gold treatment the booking band already gives it —
+   gold as a filled shape, per the rule. */
+.teal-panel .btn-clay{background:var(--sun);color:#3a2a06}
+.teal-panel .btn-clay:hover{background:var(--sun-d, #B98A1E);color:#3a2a06}
