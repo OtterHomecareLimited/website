@@ -304,7 +304,31 @@ picture > source { display: none; }
    mid #136B7D nav, then the light tints. This one line replaced an earlier
    pair of .util/footer rules and a homepage-scoped review block.
    a11y-contrast mode outranks this and still forces its own darks. */
-:root{ --sun-on-dark:#DCB65C; --teal-deep:#0B3F49; --teal-d:#0B3F49; }
+/* --cream-2 deepened #F2E9D7 → #EDE1C5 (19 Aug 2026, Jamie's call).
+
+   The site's light band and its warm band were only ΔE 5.67 apart in CIE Lab.
+   That is visible but far too small to read as a decision, so wherever they met
+   it looked like a rendering fault rather than a change of section — Jamie
+   spotted it on the homepage, and a sweep of all 66 band-bearing pages found
+   the same seam 33 more times (every town page, careers, our-story,
+   live-in-care, personal-care, companionship, how-we-work, real-moments).
+
+   Fixed at the token rather than by repainting ~30 sections, because the
+   alternation those pages use is the intended rhythm — it was just too faint to
+   read. The gap is now ΔE 11.70, matching the site's own decisive standard of
+   12.30 (white → beige). Deliberately NOT solved by making the light bands
+   white: cream is what keeps this site warm rather than clinical, and .quote
+   and .form are white with only a soft shadow, so they would have lost their
+   edge.
+
+   Checked before shipping: --muted body copy holds at 4.82:1 and --teal at
+   4.72:1 (both clear AA); white cards sharpen from ΔE 12.30 to 18.29; the pale
+   --teal-soft icon chips Jamie said "blend in with the beige" go from ΔE 13.36
+   to 18.82, so they now separate on their own. .step-num's ring is
+   var(--cream-2) and tracks the band automatically. --sun-text would fail on
+   this beige (4.14:1) but is only used via .eyebrow.on-clay, which sits on the
+   light band and on --sky, never here. */
+:root{ --sun-on-dark:#DCB65C; --teal-deep:#0B3F49; --teal-d:#0B3F49; --cream-2:#EDE1C5; }
 /* (18 Aug, evening: the utility bar itself was removed — design handoff. The
    white-link rules that briefly lived here went with it; gold-as-text on teal
    survives only in the letterspaced eyebrows below.) */
