@@ -124,11 +124,10 @@ export const careProfessionals: Person[] = [
       "I've been in care for 29 years. Sometimes I'm the only person a client sees all day, so I always turn up with a smile; one client even teases me: 'Do you have to be so cheerful?'",
   },
   {
-    // Spelling: the folder and photo Jamie supplied both say "Codi"; his message
-    // said "Cody". Went with the files — flagged to Jamie 20 Aug, correct here
-    // if wrong. area/since to follow from Jamie.
-    name: "Codi",
+    name: "Codi",  // spelling confirmed by Jamie, 20 Aug 2026 — "i" at the end
     role: "Senior Care Professional",
+    area: "Westbury, Trowbridge, Melksham & Bradford-on-Avon",
+    since: 2025,
     photo: "/img/team-codi.jpg",
     // Why, then what — both from her own written answers, lightly joined: the
     // nan in her nineties who couldn't afford care (kept the "three times a
