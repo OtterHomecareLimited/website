@@ -137,8 +137,8 @@ export const careProfessionals: Person[] = [
   },
   {
     name: "Zena",  // folder + photo both say "Zena"; Jamie typed "Xena" once — worth confirming
-    // area + since deliberately omitted until Jamie confirms them — the card
-    // renders without the meta line rather than showing anything invented.
+    area: "Trowbridge, Bradford-on-Avon, Melksham & Westbury",
+    since: 2026,
     photo: "/img/team-zena.jpg",
     // Why, then proof, both from her own answers. Her nan and the bingo are
     // verbatim; "got on better with them than with people my own age" tightens
