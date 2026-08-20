@@ -135,4 +135,19 @@ export const careProfessionals: Person[] = [
     words:
       "I helped look after my nan when she was in her nineties — she couldn't afford care, so I went up three times a month myself. What I like most now is making new connections, and meeting such a wide variety of clients.",
   },
+  {
+    name: "Zena",  // folder + photo both say "Zena"; Jamie typed "Xena" once — worth confirming
+    // area + since deliberately omitted until Jamie confirms them — the card
+    // renders without the meta line rather than showing anything invented.
+    photo: "/img/team-zena.jpg",
+    // Why, then proof, both from her own answers. Her nan and the bingo are
+    // verbatim; "got on better with them than with people my own age" tightens
+    // her "I got along better with elderly people than people my own age".
+    // The paintings client stays ANONYMOUS (she didn't name her, and client
+    // names never appear in marketing anyway). Two transcription slips
+    // corrected: she said the paintings were in "our home" (means the client's)
+    // and that she "brought" them (heard for "bought").
+    words:
+      "I grew up with my nan, going to bingo with all the old ladies — I always got on better with them than with people my own age. One client has paintings all over her home; I assumed she'd bought them, until she told me she'd made every one.",
+  },
 ];

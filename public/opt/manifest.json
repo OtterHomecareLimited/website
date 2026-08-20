@@ -1115,6 +1115,16 @@
   ],
   "base": "img/team-maria"
  },
+ "img/team-zena.jpg": {
+  "hash": "8dc05f77674b",
+  "width": 900,
+  "height": 1352,
+  "widths": [
+   480,
+   768
+  ],
+  "base": "img/team-zena"
+ },
  "img/town-bradford-on-avon.jpg": {
   "hash": "4d18f27ba515",
   "width": 960,
