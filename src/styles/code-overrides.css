@@ -551,3 +551,43 @@ footer h3{font-family:"Hanken Grotesk";font-weight:800;color:#fff;font-size:12.5
    Matched to .head-c. The wider 60ch measure on .mgroup-head is deliberate (its
    intro line is longer than a normal section's) and is left alone. */
 .mgroup-head h2{font-size:clamp(30px,3.8vw,46px);margin-top:12px}
+
+/* ── Nav: close the gap between "burger hidden" and "desktop nav actually fits" ──
+   Reported 22 Aug 2026 from a real iPad in landscape: the "Book a free assessment"
+   button was cut off at the right edge.
+
+   Cause was a dead zone, not a styling fault. The burger only appeared at
+   ≤1000px, but measured on the live site the desktop nav needs 1068px to fit:
+   brand 76 + links 666 + CTA 222, plus two 24px gaps and 56px of padding. So
+   every viewport from 1001px to 1068px rendered a desktop nav 44px wider than
+   the space available, pushing the CTA 30px off-screen. 1024px — every
+   pre-2018 iPad in landscape — sits squarely inside it.
+
+   Breakpoint moves to 1100px, clearing the 1068px requirement by 32px. Chosen
+   over squeezing the nav because the squeeze would have been marginal, and over
+   1199px (aligning with --nav-phone) because modern iPads land at 1180px and
+   1194px in landscape and comfortably keep the full nav.
+
+   The extra tightening below 1200px is belt-and-braces: if Hanken Grotesk fails
+   to load, the fallback stack renders wider and could re-cross the limit. It
+   buys 28px, taking the worst case (1101px) from 33px of slack to 61px. */
+@media(max-width:1100px){
+  .navlinks,.nav-cta{display:none}
+  .nav-call{display:flex}
+  .nav-toggle{display:flex;flex-direction:column}
+  nav .inner{gap:12px}
+  .brand{margin-right:auto}
+}
+@media(min-width:1101px) and (max-width:1199px){
+  nav .inner{padding-left:20px;padding-right:20px;gap:18px}
+}
+
+/* "Good Enough for Dad" headline on /how-we-work. Left to wrap naturally it broke
+   after "family,", which stacked "good enough for" almost exactly above "good
+   enough for" on the next line — the repetition lined up vertically and read as a
+   mistake (Jamie, 22 Aug). The break now falls after "my".
+
+   Only above 640px: below that the headline wraps to three or four lines anyway
+   and a forced break just makes a ragged short line. */
+.q-br{display:none}
+@media(min-width:641px){ .q-br{display:inline} }
