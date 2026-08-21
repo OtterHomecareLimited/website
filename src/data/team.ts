@@ -140,23 +140,17 @@ export const careProfessionals: Person[] = [
     area: "Trowbridge, Bradford-on-Avon, Melksham & Westbury",
     since: 2026,
     photo: "/img/team-zena.jpg",
-    // Rewritten 20 Aug 2026 — Jamie flagged the first version as disjointed and
-    // he was right. It closed sentence one on "I got on better with them than
-    // with people my own age", so the paintings anecdote landed with nothing
-    // connecting it: two unrelated thoughts butted together.
+    // Jamie's own wording, 20 Aug 2026 (third pass). Checked against her
+    // interview before use and every claim is hers: growing up with her nan,
+    // loving the company of older people, hearing their life stories, the
+    // Health and Social Care course, leaving college for a care home, and
+    // enjoying her clients' interests and "fascinating" stories.
     //
-    // The through-line in her interview is STORIES — "hearing their life
-    // stories" in answer one, "they've always got a story to tell" and "nice
-    // for them for someone to listen to their life" in answer two. Sentence one
-    // now ends on stories, and sentence two opens with her own bridge, so the
-    // paintings become an illustration of the point rather than a swerve.
-    //
-    // The painting client stays ANONYMOUS (she didn't name her, and client
-    // names never appear in marketing anyway) — "a lady I visit" also avoids
-    // the "got one to tell / one client" collision. Two transcription slips
-    // corrected: she said the paintings were in "our home" (means the client's)
-    // and that she "brought" them (heard for "bought").
+    // Longer than the other three (58 words vs 38/40/45) and it drops the
+    // paintings anecdote that the previous version turned on — that was
+    // Jamie's call, trading a concrete moment for a smoother read. Don't
+    // reinstate it without asking him.
     words:
-      "I grew up with my nan, going to bingo with all the old ladies and listening to their stories. They've always got one to tell — a lady I visit has paintings all over her home, and I assumed she'd bought them until she told me she'd made every one.",
+      "Growing up with my nan, I always loved spending time with older people, listening to their stories and learning about their lives. After studying Health and Social Care, I began working in a care home and haven’t looked back. I especially enjoy getting to know my clients, discovering their interests and hearing the fascinating stories and experiences they have to share.",
   },
 ];
