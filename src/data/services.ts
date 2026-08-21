@@ -279,6 +279,89 @@ export const services: Service[] = [
     ],
   },
   {
+    slug: "night-care",
+    name: "Night Care",
+    title: "Night Care at Home in Wiltshire & Somerset | Otter Homecare",
+    description:
+      "Sleeping nights and waking nights at home across Trowbridge, Bradford-on-Avon, Melksham, Westbury and Frome — someone there through the night so the whole household can sleep.",
+    h1: "Night Care",
+    subtitle: "Someone there through the night",
+    // Placeholder hero — there is no evening or night photograph in the library
+    // yet, and this page is the one that most obviously wants one. Worth asking
+    // Jamie for a real one when he next shoots.
+    heroImg: "elder-care-home.jpg",
+    intro: [
+      "Nights are often the part that gives way first. The days can be manageable and the nights still leave everyone exhausted — someone up and wandering, someone frightened to get to the bathroom on their own, or a husband or wife lying awake listening for movement.",
+      "Night care puts a Care Professional in the house from evening to morning, so the person who needs help has someone there, and everyone else gets a proper night's sleep.",
+    ],
+    includedTitle: "What a night can include",
+    included: [
+      "Help getting ready for bed and settled",
+      "Support to the bathroom during the night",
+      "Repositioning, continence care and pad changes",
+      "Reassurance for someone who wakes confused or frightened",
+      "Medication that falls outside daytime visits",
+      "Help up and dressed in the morning",
+      "A handover note so the day team know how the night went",
+    ],
+    serviceType: "Overnight home care",
+    areaServed: ["Trowbridge", "Bradford-on-Avon", "Melksham", "Westbury", "Frome", "West Wiltshire", "Somerset"],
+    priceFrom: { amount: 240, unit: "sleeping night (9 hours)" },
+    sections: [
+      {
+        eyebrow: "The two kinds of night",
+        h2: "A sleeping night, or a waking night",
+        body: [
+          "<strong>A sleeping night</strong> is for occasional support. The Care Professional sleeps in the home and is there if they are needed — someone needing the bathroom, or waking and wanting reassurance. It suits a household where the nights are usually quiet but nobody wants to be alone if something happens.",
+          "<strong>A waking night</strong> is active care. The Care Professional stays awake all night, and is there for repositioning every few hours, regular continence care, someone who is up and about repeatedly, or anyone who simply cannot safely be left unwatched.",
+          "If you are not sure which you need, that is normal — most families are not. It is one of the things a free assessment is for, and it is not a decision you are stuck with. If a sleeping night turns out to be busier than expected, we will say so and talk to you about moving to a waking night rather than quietly leaving someone short.",
+        ],
+      },
+      {
+        eyebrow: "When it helps",
+        h2: "The nights people usually ring us about",
+        body: [
+          "<strong>Coming home from hospital.</strong> The first fortnight home is when families worry most, and a run of nights often bridges it while confidence comes back.",
+          "<strong>Dementia that gets harder after dark.</strong> Late-day confusion and night waking are some of the hardest parts to live with, and they are frequently what tips a family towards a care home. Nights at home are sometimes the thing that prevents it.",
+          "<strong>After a fall.</strong> Getting to the bathroom in the dark is where a lot of second falls happen.",
+          "<strong>When the family carer is running out.</strong> A husband, wife or daughter who has not slept properly in months is not a small problem — it is usually the thing that breaks a home care arrangement. A few nights a week can reset it.",
+        ],
+      },
+      {
+        eyebrow: "How it fits",
+        h2: "Between visits and living in",
+        body: [
+          "Night care is not a separate thing from the rest of what we do; it is the next step along from <a href='/visiting-care'>visiting care</a>. Plenty of our families have visits during the day and add nights when they are needed, then drop them again when things settle.",
+          "You do not have to commit to a pattern. Some people book two nights a week so a family carer gets a reliable run of sleep, some book a fortnight after a hospital discharge, and some need every night for a while.",
+          "A sleeping night needs somewhere for the Care Professional to sleep — a spare room or a proper bed, not an armchair. A waking night does not, though somewhere to sit and make a cup of tea makes for better care at 4am.",
+        ],
+      },
+      {
+        eyebrow: "Costs",
+        h2: "What nights cost, honestly",
+        body: [
+          "A nine-hour <strong>sleeping night</strong> is £240 on a weekday, £260 at the weekend and £280 on a bank holiday. A <strong>waking night</strong> is £290, £320 and £350. There are no call-out fees on top, and care is VAT-exempt.",
+          "One thing worth doing the sums on before you commit: seven sleeping nights at the weekday rate comes to £1,680 a week, and seven waking nights to £2,030. <a href='/live-in-care'>Live-in care</a> starts at £1,550 a week and covers the days as well. So if you are heading towards needing someone every single night, live-in is usually both better care and better value — and we would rather tell you that at the assessment than sell you the more expensive option.",
+          "Nights bought occasionally are a different matter, and there live-in makes no sense at all. It depends entirely on the pattern, which is why we would rather come and look.",
+        ],
+      },
+    ],
+    faqs: [
+      { q: "What is the difference between a sleeping night and a waking night?",
+        a: ["A sleeping night means the Care Professional sleeps in the home and gets up if they are needed — it suits nights that are usually quiet. A waking night means they stay awake throughout, for someone who needs regular repositioning, continence care, or watching over. The price differs because the work does."] },
+      { q: "What if they end up being up all night on a sleeping night?",
+        a: ["Then a sleeping night is the wrong arrangement, and we will tell you so rather than let it drift. We would talk to you about moving to a waking night. It is not fair on the person needing care to be quietly short-changed, and it is not fair on the Care Professional either."] },
+      { q: "Where does the Care Professional sleep?",
+        a: ["On a sleeping night they need a proper bed — a spare room, or a bed somewhere they can rest undisturbed. An armchair or a sofa is not suitable and we will not agree to it. On a waking night no bed is needed, as they are up all night, though somewhere to sit is appreciated."] },
+      { q: "Can we book nights for just a week or two?",
+        a: ["Yes. Short runs are one of the most common ways night care is used — after a hospital discharge, during a bad patch, or to get a family carer through a stretch. There is no minimum contract and no penalty for stopping when you no longer need it."] },
+      { q: "Would live-in care be cheaper if we need every night?",
+        a: ["Usually, yes, and it also covers the days. Seven weekday sleeping nights come to £1,680 a week against live-in from £1,550. If you are approaching every-night cover we will point you at live-in rather than keep billing nights — it is better care and it costs you less."] },
+      { q: "Will it be the same person each night?",
+        a: ["We work from a small, directly employed team, so it will be a familiar face rather than whoever an agency sends. Night care especially depends on this — someone waking confused at 3am needs to recognise the person leaning over them."] },
+    ],
+  },
+  {
     slug: "live-in-care",
     name: "Live-in Care",
     title: "Live-in Care in Wiltshire & Somerset | Otter Homecare",
