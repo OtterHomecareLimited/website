@@ -443,3 +443,27 @@ footer h3{font-family:"Hanken Grotesk";font-weight:800;color:#fff;font-size:12.5
    .section is affected. */
 .section.services{background:var(--paper)}
 .section.moments{background:var(--cream-2)}
+
+
+/* ── WCP badge in the accreditation strip ───────────────────────────────────
+   The other three badges are wordmarks — wide and short — so the strip's 48px
+   image height suits them. The WCP badge is a roundel, so at 48px it is only
+   48px across: about a third of the CQC badge's area, and its curved
+   "Wiltshire Care Partnership" and "Associate Member" become illegible mush
+   (checked by rendering it at both sizes). At 64px it reads as a badge and
+   carries the same visual weight as its neighbours.
+
+   The card is 80px with border-box sizing, so 14px padding leaves only 50px
+   of content box; the vertical padding drops to 7px here to make room for 64.
+   This mirrors what .wide already does in the opposite direction — the very
+   wide homecare.co.uk badge is pinned to 30px so it cannot dominate the row.
+
+   NOTE: this artwork is dated 2025/26 and WCP's membership year runs 1 Oct to
+   30 Sept, so it goes out of date on 30 September 2026. Ask Becky Clark for
+   the 2026/27 badge and replace this file — the markup needs no change. */
+.accred a.round{padding:7px 22px}
+.accred a.round img{height:64px}
+@media(max-width:600px){
+  .accred a.round{padding:6px 16px}
+  .accred a.round img{height:52px}
+}

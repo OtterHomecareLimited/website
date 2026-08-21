@@ -1207,6 +1207,15 @@
   ],
   "base": "img/visiting-real"
  },
+ "img/wcp-associate-member.png": {
+  "hash": "d0ffd35fc9dc",
+  "width": 512,
+  "height": 512,
+  "widths": [
+   480
+  ],
+  "base": "img/wcp-associate-member"
+ },
  "img/ww-visit.jpg": {
   "hash": "73883934a09d",
   "width": 760,
