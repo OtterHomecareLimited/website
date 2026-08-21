@@ -140,14 +140,23 @@ export const careProfessionals: Person[] = [
     area: "Trowbridge, Bradford-on-Avon, Melksham & Westbury",
     since: 2026,
     photo: "/img/team-zena.jpg",
-    // Why, then proof, both from her own answers. Her nan and the bingo are
-    // verbatim; "got on better with them than with people my own age" tightens
-    // her "I got along better with elderly people than people my own age".
-    // The paintings client stays ANONYMOUS (she didn't name her, and client
-    // names never appear in marketing anyway). Two transcription slips
+    // Rewritten 20 Aug 2026 — Jamie flagged the first version as disjointed and
+    // he was right. It closed sentence one on "I got on better with them than
+    // with people my own age", so the paintings anecdote landed with nothing
+    // connecting it: two unrelated thoughts butted together.
+    //
+    // The through-line in her interview is STORIES — "hearing their life
+    // stories" in answer one, "they've always got a story to tell" and "nice
+    // for them for someone to listen to their life" in answer two. Sentence one
+    // now ends on stories, and sentence two opens with her own bridge, so the
+    // paintings become an illustration of the point rather than a swerve.
+    //
+    // The painting client stays ANONYMOUS (she didn't name her, and client
+    // names never appear in marketing anyway) — "a lady I visit" also avoids
+    // the "got one to tell / one client" collision. Two transcription slips
     // corrected: she said the paintings were in "our home" (means the client's)
     // and that she "brought" them (heard for "bought").
     words:
-      "I grew up with my nan, going to bingo with all the old ladies — I always got on better with them than with people my own age. One client has paintings all over her home; I assumed she'd bought them, until she told me she'd made every one.",
+      "I grew up with my nan, going to bingo with all the old ladies and listening to their stories. They've always got one to tell — a lady I visit has paintings all over her home, and I assumed she'd bought them until she told me she'd made every one.",
   },
 ];
