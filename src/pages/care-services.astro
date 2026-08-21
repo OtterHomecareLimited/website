@@ -7,47 +7,87 @@ const img = (f: string) => `/img/${f}`;
 ---
 <SiteLayout
   title="Care Services in Wiltshire & Somerset | Otter Homecare"
-  description="From a friendly weekly visit to round-the-clock live-in support — personal care, companionship and specialist help across Trowbridge, Melksham and nearby."
+  description="From a friendly weekly visit to daily care, nights or live-in support — personal care, companionship, dementia and specialist help across Trowbridge, Melksham and nearby."
 >
   <header class="phero">
     <div class="wrap">
       <div class="crumb"><a href="/">Home</a> · Care Services</div>
       <h1>Care services that fit around your life</h1>
-      <p>From a friendly weekly visit to round-the-clock live-in support, our care is personal, flexible and built entirely around you — here in Wiltshire and Somerset.</p>
+      <p>From a friendly weekly visit to daily care, nights, or someone living in — our care is personal, flexible and built entirely around you, here in Wiltshire and Somerset.</p>
     </div>
   </header>
 
+
+  <!-- TYPES OF SUPPORT — the delivery question, asked before the "what for"
+       question, matching the homepage and the town pages (21 Aug 2026). This
+       page previously ran visiting care and live-in as two of four equal rows
+       alongside companionship and conditions, which mixed delivery models with
+       needs, and night care was missing from it entirely. -->
+  <section class="section supportscale">
+    <div class="wrap">
+      <div class="head-c reveal">
+        <span class="eyebrow">Types of support</span>
+        <h2>From a cup of tea to someone living in</h2>
+        <p class="lede">Most families start small and change as things change. You are not picking a package — you are choosing how much help you would like, and it can move with you.</p>
+      </div>
+      <div class="scale-row">
+        <a class="scale reveal" href="/visiting-care">
+          <span class="sc-ic"><img src="/assets/icons/door.svg" alt="" loading="lazy" /></span>
+          <b>We visit you</b>
+          <p>From a friendly call-in once a day to several visits — half an hour, or a good long stretch.</p>
+          <span class="more">Visiting care →</span>
+        </a>
+        <a class="scale reveal" href="/night-care">
+          <span class="sc-ic"><img src="/assets/icons/window.svg" alt="" loading="lazy" /></span>
+          <b>We stay the night</b>
+          <p>Someone sleeping over who can be woken once or twice, or awake the whole night if that is what is needed.</p>
+          <span class="more">Night care →</span>
+        </a>
+        <a class="scale reveal" href="/live-in-care">
+          <span class="sc-ic"><img src="/assets/icons/home.svg" alt="" loading="lazy" /></span>
+          <b>We live in</b>
+          <p>A Care Professional living alongside them, day and night — the alternative to a move into a care home.</p>
+          <span class="more">Live-in care →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <section class="section" id="services">
     <div class="wrap">
+      <div class="head-c reveal" style="margin-bottom:34px">
+        <span class="eyebrow">What we help with</span>
+        <h2>Whatever the visits are for</h2>
+      </div>
       <div class="srow reveal">
-        <div class="srow-media"><Photo src="/img/visiting-care.jpg" alt="An Otter Care Professional visiting a client at home" priority sizes="(max-width: 900px) 100vw, 520px" /></div>
+        <div class="srow-media"><Photo src="/img/personal-care-real.jpg" alt="An Otter Care Professional helping a client at home" priority sizes="(max-width: 900px) 100vw, 520px" /></div>
         <div>
-          <span class="eyebrow">Visiting Care</span>
-          <h2>Flexible visits, on your terms</h2>
-          <p class="lede">From a quick daily call-in upward — friendly Care Professionals who help with everyday life and brighten the day.</p>
+          <span class="eyebrow">Personal Care</span>
+          <h2>The everyday things, done with dignity</h2>
+          <p class="lede">Washing, dressing, the bathroom, medication and meals — the hands-on help that keeps someone comfortable in their own home.</p>
           <ul>
-            <li>Flexible visit lengths to suit you</li>
-            <li>Help with washing, dressing, meals and medication</li>
-            <li>Support getting out to appointments and activities</li>
-            <li>The same familiar faces, building real relationships</li>
+            <li>Washing, bathing and dressing at their own pace</li>
+            <li>Medication prompts and administration</li>
+            <li>Continence support, discreetly handled</li>
+            <li>Meals, drinks and keeping an eye on appetite</li>
           </ul>
-          <a class="btn btn-primary" href="/visiting-care">Learn about visiting care →</a>
+          <a class="btn btn-primary" href="/personal-care">Learn about personal care →</a>
         </div>
       </div>
 
       <div class="srow flip reveal">
-        <div class="srow-media"><Photo src="/img/elder-care-home.jpg" alt="An Otter Care Professional supporting an older client at home" sizes="(max-width: 900px) 100vw, 520px" /></div>
+        <div class="srow-media"><Photo src="/img/dem-stay-yourself.jpg" alt="An Otter Care Professional with a client living with dementia" sizes="(max-width: 900px) 100vw, 520px" /></div>
         <div>
-          <span class="eyebrow">Live-in Care</span>
-          <h2>Round-the-clock care, at home</h2>
-          <p class="lede">Expert support day and night, from a dedicated Care Professional who lives with you — a reassuring alternative to a care home.</p>
+          <span class="eyebrow">Dementia Care</span>
+          <h2>Familiar faces, when memory is the hard part</h2>
+          <p class="lede">Patient support from people trained for it — keeping someone safe at home, and keeping them themselves.</p>
           <ul>
-            <li>A dedicated Care Professional living in your home, day and night</li>
-            <li>One-to-one support and genuine companionship</li>
-            <li>Help with personal care, meals, medication and routines</li>
-            <li>Keep your home, your pets and your independence</li>
+            <li>The same small team, so faces stay recognisable</li>
+            <li>Routines kept steady, because routine is reassurance</li>
+            <li>Help when the late afternoon gets harder</li>
+            <li>Practical support for the family too</li>
           </ul>
-          <a class="btn btn-primary" href="/live-in-care">Learn about live-in care →</a>
+          <a class="btn btn-primary" href="/dementia">Learn about dementia care →</a>
         </div>
       </div>
 
