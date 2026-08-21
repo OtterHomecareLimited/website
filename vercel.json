@@ -3,41 +3,128 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
-    { "source": "/gdprpolicy", "destination": "/privacy", "permanent": true },
-    { "source": "/about-us", "destination": "/our-story", "permanent": true },
-    { "source": "/the-otterly-caring-blog", "destination": "/blog", "permanent": true },
-    { "source": "/blank-21", "destination": "/", "permanent": true },
-    { "source": "/blank-21-1-1", "destination": "/", "permanent": true },
-    { "source": "/post/our-first-ever-otter-caf%C3%A9-a-wonderful-start", "destination": "/post/our-first-ever-otter-cafe-a-wonderful-start", "permanent": true },
-    { "source": "/post/otter-caf%C3%A9-returns-a-spooktacular-afternoon-at-staverton-village-hall", "destination": "/post/otter-cafe-returns-a-spooktacular-afternoon-at-staverton-village-hall", "permanent": true },
-    { "source": "/visitingcare", "destination": "/visiting-care", "permanent": true },
-    { "source": "/companionshipcare", "destination": "/companionship", "permanent": true },
-    { "source": "/liveincare", "destination": "/live-in-care", "permanent": true },
-    { "source": "/costofliveincare", "destination": "/cost-of-home-care", "permanent": true },
-    { "source": "/areas", "destination": "/areas-we-cover", "permanent": true },
-    { "source": "/about", "destination": "/our-story", "permanent": true },
-    { "source": "/strokecare", "destination": "/conditions", "permanent": true },
-    { "source": "/physicaldisabilities", "destination": "/conditions", "permanent": true },
-    { "source": "/learningdisabilities", "destination": "/conditions", "permanent": true },
-    { "source": "/domestichelp", "destination": "/personal-care", "permanent": true }
+    {
+      "source": "/gdprpolicy",
+      "destination": "/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/about-us",
+      "destination": "/our-story",
+      "permanent": true
+    },
+    {
+      "source": "/the-otterly-caring-blog",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blank-21",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/blank-21-1-1",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/post/our-first-ever-otter-caf%C3%A9-a-wonderful-start",
+      "destination": "/post/our-first-ever-otter-cafe-a-wonderful-start",
+      "permanent": true
+    },
+    {
+      "source": "/post/otter-caf%C3%A9-returns-a-spooktacular-afternoon-at-staverton-village-hall",
+      "destination": "/post/otter-cafe-returns-a-spooktacular-afternoon-at-staverton-village-hall",
+      "permanent": true
+    },
+    {
+      "source": "/visitingcare",
+      "destination": "/visiting-care",
+      "permanent": true
+    },
+    {
+      "source": "/companionshipcare",
+      "destination": "/companionship",
+      "permanent": true
+    },
+    {
+      "source": "/liveincare",
+      "destination": "/live-in-care",
+      "permanent": true
+    },
+    {
+      "source": "/fallrecovery",
+      "destination": "/fall-recovery",
+      "permanent": true
+    },
+    {
+      "source": "/personalcare",
+      "destination": "/personal-care",
+      "permanent": true
+    },
+    {
+      "source": "/costofliveincare",
+      "destination": "/cost-of-home-care",
+      "permanent": true
+    },
+    {
+      "source": "/areas",
+      "destination": "/areas-we-cover",
+      "permanent": true
+    },
+    {
+      "source": "/about",
+      "destination": "/our-story",
+      "permanent": true
+    },
+    {
+      "source": "/strokecare",
+      "destination": "/conditions",
+      "permanent": true
+    },
+    {
+      "source": "/physicaldisabilities",
+      "destination": "/conditions",
+      "permanent": true
+    },
+    {
+      "source": "/learningdisabilities",
+      "destination": "/conditions",
+      "permanent": true
+    },
+    {
+      "source": "/domestichelp",
+      "destination": "/personal-care",
+      "permanent": true
+    }
   ],
   "headers": [
     {
       "source": "/fonts/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
       ]
     },
     {
       "source": "/img/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=2592000, stale-while-revalidate=86400" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=2592000, stale-while-revalidate=86400"
+        }
       ]
     },
     {
       "source": "/downloads/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=2592000, stale-while-revalidate=86400" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=2592000, stale-while-revalidate=86400"
+        }
       ]
     }
   ]

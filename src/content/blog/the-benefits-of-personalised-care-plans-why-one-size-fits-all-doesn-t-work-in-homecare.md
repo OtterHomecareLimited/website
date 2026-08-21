@@ -30,4 +30,4 @@ As a care provider working across **Wiltshire and the surrounding areas**, we kn
 
 Personalised care isn’t a one-off document. At Otter Homecare, we review and adapt plans regularly, so support changes with each client’s needs.
 
-👉 If you’d like to find out more about how our tailored care plans could help your family, visit [www.otterhomecare.co.uk](http://www.otterhomecare.co.uk) or get in touch today.
+👉 If you’d like to find out more about how our tailored care plans could help your family, visit [www.otterhomecare.co.uk](https://www.otterhomecare.co.uk) or get in touch today.

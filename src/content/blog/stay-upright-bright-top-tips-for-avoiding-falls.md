@@ -24,6 +24,6 @@ Eat Well, Drink Water: Good nutrition and hydration support overall health, maki
 
 Whether you're looking out for yourself or a loved one, every small change can make a big difference.
 
-Want to learn more about fall prevention and how Otter Homecare can help in case you do have a fall? Find out more at [www.otterhomecare.co.uk/fallrecovery](http://www.otterhomecare.co.uk/fallrecovery). Let's make every step a safe one!
+Want to learn more about fall prevention and how Otter Homecare can help in case you do have a fall? Find out more at [www.otterhomecare.co.uk/fallrecovery](https://www.otterhomecare.co.uk/fallrecovery). Let's make every step a safe one!
 
 #FallPrevention #SafetyFirst #HealthyLiving #ElderlyCare
