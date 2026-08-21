@@ -458,9 +458,11 @@ footer h3{font-family:"Hanken Grotesk";font-weight:800;color:#fff;font-size:12.5
    This mirrors what .wide already does in the opposite direction — the very
    wide homecare.co.uk badge is pinned to 30px so it cannot dominate the row.
 
-   NOTE: this artwork is dated 2025/26 and WCP's membership year runs 1 Oct to
-   30 Sept, so it goes out of date on 30 September 2026. Ask Becky Clark for
-   the 2026/27 badge and replace this file — the markup needs no change. */
+   The artwork is dated 2025/26 and WCP's membership year runs 1 Oct to 30 Sept.
+   Jamie was told it goes stale on 30 September 2026 and decided on 21 Aug 2026
+   to leave it as it is — this is a settled decision, not an oversight, so don't
+   re-raise it or swap the file unless he asks. If he ever does want the newer
+   badge, replacing public/img/wcp-associate-member.png is the whole job. */
 .accred a.round{padding:7px 22px}
 .accred a.round img{height:64px}
 @media(max-width:600px){
@@ -481,12 +483,19 @@ footer h3{font-family:"Hanken Grotesk";font-weight:800;color:#fff;font-size:12.5
    sits on the page's default ground so it reads as a signpost rather than a
    fifth product. Live-in keeps a prominent slot — the last one, which is the
    position it actually occupies in a family's journey. */
-/* Painted white, not left to fall through to the body cream: it sits between the
-   dark proof strip and the white tile grid, and unpainted it would have leaked
-   --cream and re-created the ΔE 5.67 smudge fixed site-wide on 19 Aug. White also
-   merges it with the tile grid below, which is right — "how much support" and
-   "what we help with" are the two halves of one section, not two sections. */
-.supportscale{background:var(--paper);padding:clamp(44px,4vw + 24px,72px) 0 clamp(10px,1vw,18px)}
+/* Ground is --cream-2. It was briefly white (21 Aug) on the reasoning that the
+   band and the tile grid are two halves of one section — but .scale cards are
+   white, so white-on-white left them carried by a 1px border alone at ΔE 0.
+   Card legibility beats the merge. On --cream-2 the cards sit at ΔE 18.29, and
+   the homepage ladder still reads decisively throughout: dark proof → cream-2
+   band → white tiles → cream-2 founder.
+
+   The town-page version of this block deliberately does NOT take this class: it
+   sits between two --cream-2 sections there, so cream-2 would produce a long
+   three-section beige run. It stays on the towns' unpainted cream, where its
+   white cards land at ΔE 6.78 — the same footing as every other white card on
+   those pages. */
+.supportscale{background:var(--cream-2);padding:clamp(44px,4vw + 24px,72px) 0 clamp(38px,3vw + 16px,58px)}
 .scale-row{
   display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:30px;
 }

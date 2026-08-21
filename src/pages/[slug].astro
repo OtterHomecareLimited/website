@@ -102,13 +102,35 @@ const faqSchema = town.faqs?.length
     </div></section>
   )}
 
-  <!-- live-in care cross-link (geo-targeted: "live in care {town}") -->
-  <section class="section"><div class="wrap" style="max-width:760px">
-    <div class="reveal">
-      <span class="eyebrow">Round-the-clock support</span>
-      <h2 style="font-size:clamp(24px,3vw,32px);margin:8px 0 12px">Live-in care in {town.name}</h2>
-      <p class="lede" style="max-width:none">If a loved one in {town.name} needs more than a few visits a day, live-in care lets them stay in their own home with a dedicated Care Professional living alongside them, day and night. It's a reassuring alternative to a care home that keeps them close to the people, pets and places they know around {town.name} and villages like {town.chips.slice(0, 3).join(", ")}.</p>
-      <a class="btn btn-primary" href="/live-in-care" style="margin-top:16px">Live-in care in {town.name} →</a>
+  <!-- How much support, localised. Was a live-in-only cross-link; widened
+       21 Aug 2026 so each town page carries the whole range rather than
+       jumping straight to live-in. Keeps the geo-targeting and adds two more
+       real search terms ("visiting care {town}", "night care {town}"). -->
+  <section class="section"><div class="wrap" style="max-width:980px">
+    <div class="head-c reveal">
+      <span class="eyebrow">How much support?</span>
+      <h2 style="font-size:clamp(24px,3vw,32px);margin:8px 0 10px">Care in {town.name}, at whatever level suits</h2>
+      <p class="lede" style="max-width:62ch;margin:0 auto">Most families in {town.name} start small and change as things change — you are choosing how much help you would like, not a fixed package.</p>
+    </div>
+    <div class="scale-row" style="margin-top:26px">
+      <a class="scale reveal" href="/visiting-care">
+        <span class="sc-ic"><img src="/assets/icons/door.svg" alt="" loading="lazy" /></span>
+        <b>We visit you</b>
+        <p>From a friendly call-in once a day to several visits, around {town.name} and villages like {town.chips.slice(0, 2).join(" and ")}.</p>
+        <span class="more">Visiting care →</span>
+      </a>
+      <a class="scale reveal" href="/night-care">
+        <span class="sc-ic"><img src="/assets/icons/window.svg" alt="" loading="lazy" /></span>
+        <b>We stay the night</b>
+        <p>A sleeping night for occasional help, or a waking night when someone needs active care until morning.</p>
+        <span class="more">Night care →</span>
+      </a>
+      <a class="scale reveal" href="/live-in-care">
+        <span class="sc-ic"><img src="/assets/icons/home.svg" alt="" loading="lazy" /></span>
+        <b>We live in</b>
+        <p>A Care Professional living alongside them in {town.name} — the alternative to a move into a care home.</p>
+        <span class="more">Live-in care →</span>
+      </a>
     </div>
   </div></section>
 

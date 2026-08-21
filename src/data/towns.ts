@@ -147,9 +147,14 @@ export const towns: Town[] = [
 ];
 
 // The 4 shared "How we can help" cards (identical across towns).
+// The "How we can help" cards (identical across towns).
+// Needs only — no live-in here. Live-in is a delivery model, not a need, and
+// mixing it in made it read as a rival to personal care; it now leads the
+// three-rung support block further down each town page instead. Mirrors the
+// homepage grid (21 Aug 2026).
 export const helpCards = [
-  { href: "/personal-care",  img: "/img/personal-care-real.jpg",     title: "Personal Care",     blurb: "Washing, dressing, medication and everyday routines, always with dignity." },
-  { href: "/live-in-care",   img: "/img/svc-livein.jpg",       title: "Live-in Care",      blurb: "Round-the-clock, one-to-one support in the home they know best." },
-  { href: "/companionship",  img: "/img/svc-companionship.jpg",title: "Companionship",     blurb: "Friendly visits and good company that keep loneliness at bay." },
-  { href: "/conditions",     img: "/img/svc-specialist.jpg",   title: "Specialist Support",blurb: "Dementia, stroke recovery, frailty and end-of-life care." },
+  { href: "/personal-care",  img: "/img/personal-care-real.jpg", title: "Personal Care",     blurb: "Washing, dressing, medication and everyday routines, always with dignity." },
+  { href: "/companionship",  img: "/img/svc-companionship.jpg",  title: "Companionship",     blurb: "Friendly visits and good company that keep loneliness at bay." },
+  { href: "/dementia",       img: "/img/dem-stay-yourself.jpg",  title: "Dementia Care",     blurb: "Patient, familiar support that keeps someone safe at home — and themselves." },
+  { href: "/conditions",     img: "/img/svc-specialist.jpg",     title: "Specialist Support",blurb: "Stroke recovery, frailty, end-of-life and other conditions." },
 ];

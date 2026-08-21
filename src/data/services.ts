@@ -119,13 +119,13 @@ export const services: Service[] = [
     name: "Visiting Care",
     title: "Visiting Care in Wiltshire & Somerset | Otter Homecare",
     description:
-      "Flexible visiting care at home across Trowbridge, Bradford-on-Avon, Melksham, Westbury and Frome — from a quick daily call-in to several visits a day. Visit lengths to suit you.",
+      "Visiting care at home across Trowbridge, Bradford-on-Avon, Melksham, Westbury and Frome — from a daily call-in to several visits a day, covering personal care, companionship, dementia support and respite.",
     h1: "Visiting Care",
     subtitle: "Flexible visits, on your terms",
     heroImg: "ff72ba_3a8fe18215c24b3e9cb6884f0bf44228~mv2.jpg",
     intro: [
-      "From a friendly daily call-in upwards, our visiting care fits around your routine — never the other way round. Friendly Care Professionals help with everyday life and brighten the day, with the same familiar faces building real relationships.",
-      "Visit lengths flex to suit you, from a short call-in upwards, because good care shouldn't be rushed.",
+      "Visiting care is what most people mean by home care: a Care Professional comes to the house, does what needs doing, and leaves things as you would want them. It is how almost everyone we look after is supported — from one friendly call-in a day to four visits from morning to bedtime.",
+      "It is not a single service so much as the shape the care takes. What happens inside the visits is up to you: help washing and dressing, a hot meal, medication, an hour of company, or specialist support for dementia. Same familiar faces, built around the day you already have.",
     ],
     includedTitle: "What visiting care can include",
     included: [
@@ -154,7 +154,7 @@ export const services: Service[] = [
         h2: "How long, and how often",
         body: [
           "We offer 30-minute, 45-minute and one-hour visits, from once a week to several times a day. Most people start with more than they think they'll need and scale back, or start small and add as things change — both are fine, and there's no notice penalty for adjusting.",
-          "If you're finding the nights harder than the days, overnight support is a separate option — a sleeping night for occasional help, or a waking night for active care. And if visits stop being enough, <a href='/live-in-care'>live-in care</a> is the usual next step rather than a move into a home.",
+          "If you're finding the nights harder than the days, <a href='/night-care'>overnight support</a> is a separate option — a sleeping night for occasional help, or a waking night for active care. And if visits stop being enough, <a href='/live-in-care'>live-in care</a> is the usual next step rather than a move into a home.",
         ],
         list: [
           "30, 45 or 60-minute visits",
@@ -162,6 +162,25 @@ export const services: Service[] = [
           "Morning, lunchtime, teatime and bedtime calls",
           "Sleeping or waking nights where they're needed",
           "Change the pattern as needs change, without penalty",
+        ],
+      },
+      {
+        eyebrow: "What the visits are for",
+        h2: "The same visits, doing different jobs",
+        body: [
+          "Families often ask which service they need. Usually the answer is that they need visiting care, and the question is really what the visits should do — which can change from month to month without the arrangement changing at all.",
+          "<strong><a href='/personal-care'>Personal care</a></strong> is the hands-on side: washing, dressing, the bathroom, medication, meals. <strong><a href='/companionship'>Companionship</a></strong> is a visit whose job is the company itself — a cup of tea, a game of cards, a lift to the shops. Plenty of people have both, on different days.",
+          "<strong><a href='/dementia'>Dementia care</a></strong> is visiting care delivered by people trained for it, with the patience and the familiarity that memory loss needs. <strong><a href='/respite-care'>Respite</a></strong> is the same visits arranged so a family carer can rest, travel or recover. <strong><a href='/fall-recovery'>Fall recovery</a></strong> and support for <strong><a href='/conditions'>other conditions</a></strong> work the same way.",
+          "You do not need to pick the right label before you ring. Describe the day you are dealing with and we will work out the shape with you.",
+        ],
+      },
+      {
+        eyebrow: "When visits stop being enough",
+        h2: "Nights, and living in",
+        body: [
+          "Visiting care covers a great deal, but not everything. If the nights are the hard part — someone up and wandering, or a husband or wife lying awake listening — <a href='/night-care'>night care</a> puts someone in the house from evening to morning, either sleeping over or awake throughout.",
+          "And if visits are creeping up to the point where someone is needed most of the day, <a href='/live-in-care'>live-in care</a> is usually the next step rather than a move into a care home. It is often better value too: we will show you the arithmetic rather than keep adding visits.",
+          "Most families move along this line gradually, and plenty move back down it again once things settle. Nothing here is a one-way door.",
         ],
       },
       {
