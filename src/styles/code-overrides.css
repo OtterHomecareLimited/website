@@ -539,3 +539,11 @@ footer h3{font-family:"Hanken Grotesk";font-weight:800;color:#fff;font-size:12.5
   color:var(--muted);padding:9px 12px 4px;pointer-events:none;
 }
 .mobile-menu .sub .mm-lab{padding:12px 0 3px}
+
+/* The "Real moments" heading was rendering noticeably smaller than every other
+   section heading on the homepage. Cause: .head-c h2 carries the section-heading
+   size (clamp 30–46px) but .mgroup-head — which the moments group uses instead —
+   never had an h2 rule at all, so it fell back to the browser's default h2 size.
+   Matched to .head-c. The wider 60ch measure on .mgroup-head is deliberate (its
+   intro line is longer than a normal section's) and is left alone. */
+.mgroup-head h2{font-size:clamp(30px,3.8vw,46px);margin-top:12px}
