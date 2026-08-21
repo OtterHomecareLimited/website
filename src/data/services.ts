@@ -331,9 +331,9 @@ export const services: Service[] = [
         eyebrow: "The two kinds of night",
         h2: "A sleeping night, or a waking night",
         body: [
-          "<strong>A sleeping night</strong> is for occasional support. The Care Professional sleeps in the home and is there if they are needed — someone needing the bathroom, or waking and wanting reassurance. It suits a household where the nights are usually quiet but nobody wants to be alone if something happens.",
-          "<strong>A waking night</strong> is active care. The Care Professional stays awake all night, and is there for repositioning every few hours, regular continence care, someone who is up and about repeatedly, or anyone who simply cannot safely be left unwatched.",
-          "If you are not sure which you need, that is normal — most families are not. It is one of the things a free assessment is for, and it is not a decision you are stuck with. If a sleeping night turns out to be busier than expected, we will say so and talk to you about moving to a waking night rather than quietly leaving someone short.",
+          "<strong>A sleeping night</strong> means the Care Professional sleeps in the home and can be woken once or twice in the night — someone needing the bathroom, or waking and wanting reassurance. It suits a household where the nights are usually quiet but nobody wants to be alone if something happens.",
+          "<strong>A waking night</strong> means the Care Professional stays awake the whole night. That is what you need for repositioning every few hours, regular continence care, someone who is up and about repeatedly, or anyone who cannot safely be left unwatched.",
+          "The line between them is simply how often someone is needed. Once or twice a night is a sleeping night; more than that, and nobody is really sleeping, so it should be a waking night. If you are not sure which you need, that is normal — it is one of the things a free assessment is for, and it is not a decision you are stuck with. If a sleeping night turns out busier than expected we will say so, rather than quietly leaving someone short.",
         ],
       },
       {
@@ -367,9 +367,9 @@ export const services: Service[] = [
     ],
     faqs: [
       { q: "What is the difference between a sleeping night and a waking night?",
-        a: ["A sleeping night means the Care Professional sleeps in the home and gets up if they are needed — it suits nights that are usually quiet. A waking night means they stay awake throughout, for someone who needs regular repositioning, continence care, or watching over. The price differs because the work does."] },
+        a: ["On a sleeping night the Care Professional sleeps in the home and can be woken once or twice — it suits nights that are usually quiet. On a waking night they stay awake the whole night, for someone who needs regular repositioning, continence care, or watching over. The price differs because the work does."] },
       { q: "What if they end up being up all night on a sleeping night?",
-        a: ["Then a sleeping night is the wrong arrangement, and we will tell you so rather than let it drift. We would talk to you about moving to a waking night. It is not fair on the person needing care to be quietly short-changed, and it is not fair on the Care Professional either."] },
+        a: ["Then a sleeping night is the wrong arrangement. Once or twice a night is what a sleeping night covers; beyond that nobody is getting any rest and it should be a waking night. We would tell you so rather than let it drift — it is not fair on the person needing care to be quietly short-changed, and it is not fair on the Care Professional either."] },
       { q: "Where does the Care Professional sleep?",
         a: ["On a sleeping night they need a proper bed — a spare room, or a bed somewhere they can rest undisturbed. An armchair or a sofa is not suitable and we will not agree to it. On a waking night no bed is needed, as they are up all night, though somewhere to sit is appreciated."] },
       { q: "Can we book nights for just a week or two?",
