@@ -490,11 +490,15 @@ footer h3{font-family:"Hanken Grotesk";font-weight:800;color:#fff;font-size:12.5
    the homepage ladder still reads decisively throughout: dark proof → cream-2
    band → white tiles → cream-2 founder.
 
-   The town-page version of this block deliberately does NOT take this class: it
-   sits between two --cream-2 sections there, so cream-2 would produce a long
-   three-section beige run. It stays on the towns' unpainted cream, where its
-   white cards land at ΔE 6.78 — the same footing as every other white card on
-   those pages. */
+   The town-page version of this block does NOT take this class. Under the band
+   system adopted 22 Aug 2026 it sits on .bg-paper instead: cream-2 there would
+   merge it into a three-section beige run, and the towns' unpainted cream is no
+   longer available as a mid-page ground at all. On paper its white .scale cards
+   are carried by their 1px --line border (1.33:1) rather than by their fill —
+   the same mechanism .al-card already ships on the homepage's bg-paper
+   Alongside band. Weaker than the ΔE 18.29 the homepage version gets from
+   cream-2; accepted deliberately, because the alternative reintroduces a
+   banned cream/cream-2 join. */
 .supportscale{background:var(--cream-2);padding:clamp(44px,4vw + 24px,72px) 0 clamp(38px,3vw + 16px,58px)}
 .scale-row{
   display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:30px;

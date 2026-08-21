@@ -12,7 +12,8 @@
     "astro": "astro",
     "images": "node scripts/optimise-images.mjs",
     "prebuild": "node scripts/optimise-images.mjs",
-    "predev": "node scripts/optimise-images.mjs"
+    "predev": "node scripts/optimise-images.mjs",
+    "check:bands": "node scripts/check-bands.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
