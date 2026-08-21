@@ -20,7 +20,13 @@ Allow: /
 User-agent: anthropic-ai
 Allow: /
 
-User-agent: Claude-Web
+# Anthropic renamed its crawlers: Claude-Web is retired. Claude-SearchBot indexes
+# for Claude's search, Claude-User fetches a page a person asked about. Both are
+# retrieval, not training — ClaudeBot above is the training-oriented one.
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
 Allow: /
 
 User-agent: PerplexityBot

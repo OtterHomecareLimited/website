@@ -44,6 +44,6 @@ Unlike other options such as residential care, our home care service ensures tha
 
 The question, "Can pets really help with dementia?" is met with a resounding yes. From scientific studies to personal experiences, the evidence shows that pets can play a vital role in enhancing the quality of life for individuals with dementia.
 
-At Otter Homecare, we are proud to bring innovative and compassionate home care approaches to communities throughout Wiltshire and Somerset. For more information on our services, please [contact us](www.otterhomecare.co.uk/contact).
+At Otter Homecare, we are proud to bring innovative and compassionate home care approaches to communities throughout Wiltshire and Somerset. For more information on our services, please [contact us](/contact).
 
 Note: Always consult with a healthcare provider for professional advice on dementia care and the suitability of Animal-Assisted Therapy for individual cases.

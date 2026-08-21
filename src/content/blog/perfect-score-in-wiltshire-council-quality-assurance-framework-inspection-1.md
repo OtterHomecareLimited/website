@@ -20,6 +20,6 @@ This perfect score is a testament to the hard work and dedication of our Care Pr
 
 A heartfelt thank you to our clients, families, and the entire Otter Homecare team – together, we’re building something truly special! 💙
 
-*For more information about our services or to get in touch, feel free to *[*reach out*](www.otterhomecare.co.uk/contact)*. We’re here to help and always happy to discuss how we can best support your needs.*
+*For more information about our services or to get in touch, feel free to *[*reach out*](/contact)*. We’re here to help and always happy to discuss how we can best support your needs.*
 
 #OtterHomecare #QualityHomeCare #WiltshireCare #ProudToCare #PersonCentredCare
