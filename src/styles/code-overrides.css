@@ -467,3 +467,66 @@ footer h3{font-family:"Hanken Grotesk";font-weight:800;color:#fff;font-size:12.5
   .accred a.round{padding:6px 16px}
   .accred a.round img{height:52px}
 }
+
+/* ── "How much support?" band + two-level service nav ───────────────────────
+   Added 21 Aug 2026. The homepage used to present one delivery model (live-in)
+   as a tile alongside three needs (personal care, conditions, companionship),
+   so live-in read as a rival to personal care rather than as the far end of a
+   range — and visiting care, which is how every one of our 50+ clients is
+   actually supported, had no name anywhere on the page. The page now asks the
+   two questions in order: how much support (this band), then what it is for
+   (the tile grid below it).
+
+   Deliberately lighter than a service tile: no photography, flat cards, and it
+   sits on the page's default ground so it reads as a signpost rather than a
+   fifth product. Live-in keeps a prominent slot — the last one, which is the
+   position it actually occupies in a family's journey. */
+/* Painted white, not left to fall through to the body cream: it sits between the
+   dark proof strip and the white tile grid, and unpainted it would have leaked
+   --cream and re-created the ΔE 5.67 smudge fixed site-wide on 19 Aug. White also
+   merges it with the tile grid below, which is right — "how much support" and
+   "what we help with" are the two halves of one section, not two sections. */
+.supportscale{background:var(--paper);padding:clamp(44px,4vw + 24px,72px) 0 clamp(10px,1vw,18px)}
+.scale-row{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:30px;
+}
+.scale{
+  display:flex;flex-direction:column;align-items:flex-start;gap:9px;
+  background:var(--paper);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:24px 24px 22px;text-decoration:none;color:inherit;
+  transition:transform .2s,box-shadow .2s,border-color .2s;
+}
+.scale:hover{transform:translateY(-2px);box-shadow:var(--shadow);border-color:var(--teal)}
+.scale .sc-ic{
+  width:52px;height:52px;border-radius:14px;display:grid;place-items:center;
+  background:var(--teal-soft);border:1.5px solid var(--teal);margin-bottom:3px;
+}
+.scale .sc-ic img{width:26px;height:26px}
+.scale b{font-family:"Spectral",serif;font-weight:600;font-size:21px;color:var(--head);line-height:1.25}
+.scale p{margin:0;font-size:15.5px;color:var(--muted);line-height:1.55}
+.scale .more{font-weight:800;font-size:14.5px;color:var(--teal);margin-top:auto;padding-top:6px}
+/* Stacked on mobile the icon-above-text card wasted a lot of height on a page
+   that is already long, so the icon moves into a left-hand column instead. */
+@media(max-width:860px){
+  .scale-row{grid-template-columns:1fr;gap:12px}
+  .scale{
+    display:grid;grid-template-columns:44px 1fr;column-gap:14px;row-gap:5px;
+    align-items:start;padding:18px 20px 16px;
+  }
+  .scale .sc-ic{grid-column:1;grid-row:1;width:44px;height:44px;border-radius:12px;margin:0}
+  .scale .sc-ic img{width:22px;height:22px}
+  .scale b{grid-column:2;grid-row:1;font-size:19px;align-self:center}
+  .scale p{grid-column:2;font-size:15px}
+  .scale .more{grid-column:2;padding-top:2px}
+}
+
+/* Group headings inside the service menus. The list mixes two kinds of thing —
+   how the care is delivered, and what it is for — and showing them as one flat
+   list is what made live-in look like an alternative to personal care. */
+.dropdown .dd-lab,
+.mobile-menu .sub .mm-lab{
+  display:block;font-family:"Hanken Grotesk",system-ui,sans-serif;
+  font-weight:800;font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--muted);padding:9px 12px 4px;pointer-events:none;
+}
+.mobile-menu .sub .mm-lab{padding:12px 0 3px}

@@ -2,6 +2,7 @@
 import Photo from "../components/Photo.astro";
 import RatedBadge from "../components/RatedBadge.astro";
 import SiteLayout from "../layouts/SiteLayout.astro";
+import stats from "../data/reviewStats.json";
 const img = (f: string) => `/img/${f}`;
 ---
 <SiteLayout
@@ -114,7 +115,7 @@ const img = (f: string) => `/img/${f}`;
       </div>
       <div class="trust3">
         <div class="t3 reveal"><span class="ix">01</span><h3>Registered with the CQC</h3><p>Fully registered and regulated by the Care Quality Commission — never an unregulated introductory agency.</p></div>
-        <div class="t3 reveal"><span class="ix">02</span><h3>A perfect council score</h3><p>Wiltshire Council’s quality assurance inspection gave us its best possible rating — zero risk, across care, staffing and leadership.</p></div>
+        <div class="t3 reveal"><span class="ix">02</span><h3>Reviewed by the families themselves</h3><p>{stats.homecare.score} out of 10 on homecare.co.uk, from {stats.homecare.count} verified reviews — written by clients and their families, not testimonials we picked ourselves.</p></div>
         <div class="t3 reveal"><span class="ix">03</span><h3>Our own, familiar faces</h3><p>Directly employed, DBS-checked and trained by us — the same small team, who get to know you and your routine.</p></div>
       </div>
     </div>
