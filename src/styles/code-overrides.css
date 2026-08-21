@@ -591,3 +591,35 @@ footer h3{font-family:"Hanken Grotesk";font-weight:800;color:#fff;font-size:12.5
    and a forced break just makes a ragged short line. */
 .q-br{display:none}
 @media(min-width:641px){ .q-br{display:inline} }
+
+/* ── Accessibility control vs the hero CTA on short screens ──────────────────
+   Reported by the external review and confirmed by measurement: at 1280×720 the
+   accessibility FAB (x 26–268, y 638–694) physically overlaps "Book a free
+   assessment" (x 68–315, y 620–665). It sits on top of the primary conversion
+   button at one of the commonest laptop heights. The Talk control on the right
+   overlaps nothing, so only this one moves.
+
+   Vertical-only fixes do not work here. At 720px the CTA row ends at y=665,
+   leaving 55px; a control needs bottom + height < 55 to clear it, and 44px is
+   the minimum sensible touch target, so the best case clears by a single pixel.
+   The fix has to buy horizontal separation, so below 800px tall the control
+   collapses to a circle and stacks above the Talk button instead — the whole
+   left-hand CTA zone is then clear, and nothing changes on taller screens.
+
+   The label is hidden with a clip rect, NOT display:none: the button carries no
+   aria-label, so its accessible name comes from that span. Removing it from the
+   render tree would leave the accessibility control itself unnamed to a screen
+   reader, which would be a poor joke. */
+@media(max-height:800px) and (min-width:641px){
+  #a11yToggle{
+    left:auto;right:26px;bottom:96px;
+    width:56px;padding:0;justify-content:center;gap:0;
+  }
+  #a11yToggle .fab-label{
+    position:absolute;width:1px;height:1px;margin:-1px;padding:0;
+    overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0;
+  }
+  /* the panel is anchored to the button, so it follows it across */
+  #a11yPanel{left:auto;right:26px}
+  #a11yPanel::after{left:auto;right:34px}
+}
