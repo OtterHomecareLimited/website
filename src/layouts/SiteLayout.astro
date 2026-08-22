@@ -304,5 +304,16 @@ const breadcrumbSchema = buildCrumbs();
         el.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); play(); } });
       });
 </script>
+  
+    <script is:inline>
+      /* Stamps when the page was loaded, so api/contact.js can tell a person
+         typing from a script posting instantly. Deliberately advisory only: a
+         missing or odd value never blocks a submission, because no-JS visitors
+         have none and losing a real enquiry is the worse failure. */
+      (function () {
+        var now = Date.now();
+        document.querySelectorAll("input[data-stamp]").forEach(function (i) { i.value = String(now); });
+      })();
+    </script>
   </body>
 </html>

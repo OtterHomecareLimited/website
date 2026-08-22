@@ -21,6 +21,13 @@ import SiteLayout from "../layouts/SiteLayout.astro";
           <h2>Book your free assessment</h2>
           <p class="fhint">We usually reply the same day — and there's no obligation at all.</p>
           <input type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none" />
+          <!-- Second honeypot. Positioned off-screen rather than display:none, which
+               spam tooling detects and skips, and given an ordinary-looking name so a
+               bot avoiding the well-known "company" trap still fills it. Never focusable,
+               never announced. -->
+          <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"
+                 style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden" />
+          <input type="hidden" name="ts" value="" data-stamp />
           <div class="frow">
             <div class="field"><label for="n">Your name</label><input id="n" name="name" type="text" required autocomplete="name" placeholder="Jane Smith" /></div>
             <div class="field"><label for="p">Phone</label><input id="p" name="phone" type="tel" required autocomplete="tel" inputmode="tel" placeholder="07700 900000" /></div>

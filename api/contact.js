@@ -39,11 +39,60 @@ export default async function handler(req, res) {
   } = body;
   const message = (body.message || body.msg || "").toString();
 
-  // Spam honeypot: bots fill the hidden "company" field; humans never see it.
-  if (body.company) return res.status(200).json({ ok: true }); // silently drop
+  // ── Spam handling ─────────────────────────────────────────────────────────
+  // Six Faker-generated submissions arrived in half an hour on 22 Aug 2026
+  // (Lelia Lockman, Wava Kozey, Garland Feeney…). The only defence was a
+  // honeypot named "company" hidden with display:none — the most guessed name,
+  // hidden the most detectable way — so current tooling walked straight past it.
+  //
+  // GOVERNING RULE: for a care company, silently losing one real enquiry is far
+  // worse than receiving a hundred junk ones. Someone ringing round in a crisis
+  // must always get through. So we DROP only where a human physically could not
+  // have produced the submission, and otherwise let it through with the subject
+  // tagged so the office can filter it. Nothing borderline is ever discarded.
+
+  // 1 · Honeypots — the only certain signal. A human cannot fill these: both are
+  //     off-screen rather than display:none (which bots detect and skip), and
+  //     "website" is a plausible-looking field name rather than the usual
+  //     "company", so a bot that avoids known honeypots still fills it.
+  if (body.company || body.website) return res.status(200).json({ ok: true });
+
 
   const name = (nameField || [firstName, lastName].filter(Boolean).join(" ")).trim();
   const emailValid = /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email);
+
+  // Everything below only ever RAISES SUSPICION. None of it drops anything.
+  const suspicion = [];
+
+  // 2 · Origin. A browser posting our own form sends an Origin or Referer on our
+  //     host. A script posting the endpoint directly usually sends neither, or
+  //     sends someone else's. Missing is treated as neutral: privacy tooling
+  //     strips these, and no-JS form posts vary by browser.
+  const originHdr = req.headers.origin || req.headers.referer || "";
+  if (originHdr && !/^https?:\/\/(www\.)?otterhomecare\.co\.uk/.test(originHdr)) {
+    suspicion.push("posted from " + originHdr);
+  }
+
+  // 3 · Time on form. The page stamps ts on load; a person needs several seconds
+  //     to type a name and number. Absent ts is neutral — no-JS users have none.
+  const ts = parseInt(body.ts, 10);
+  if (ts && Number.isFinite(ts)) {
+    const seconds = (Date.now() - ts) / 1000;
+    if (seconds < 3) suspicion.push("form completed in " + seconds.toFixed(1) + "s");
+    if (seconds > 60 * 60 * 12) suspicion.push("form page was " + Math.round(seconds / 3600) + "h old");
+  }
+
+  // 4 · Links in the message. Real enquiries about care for a parent do not
+  //     contain URLs; link-dropping is most of what this kind of spam is for.
+  const links = (message.match(/https?:\/\/|www\.|\[url|<a\s/gi) || []).length;
+  if (links) suspicion.push(links + " link(s) in the message");
+
+  // 5 · Cyrillic or CJK in a West Wiltshire enquiry form.
+  if (/[\u0400-\u04FF\u4E00-\u9FFF]/.test(name + " " + message)) {
+    suspicion.push("non-Latin script");
+  }
+
+  const suspect = suspicion.length > 0;
 
   // Need a name and at least one way to reach them (valid email OR a phone number).
   if (!name || (!emailValid && !phone.trim())) {
@@ -89,7 +138,7 @@ export default async function handler(req, res) {
         from: CONTACT_FROM,
         to: CONTACT_TO,
         ...(emailValid ? { reply_to: email } : {}),
-        subject: `Website enquiry from ${name}`,
+        subject: `${suspect ? "[likely spam] " : ""}Website enquiry from ${name}`,
         html: `
           <h2>New enquiry from the Otter Homecare website</h2>
           <p><strong>Name:</strong> ${esc(name)}</p>
@@ -101,6 +150,7 @@ export default async function handler(req, res) {
           <hr>
           <p style="white-space:pre-wrap">${esc(message) || "(no message)"}</p>
           ${sourceHtml}
+            ${suspect ? `<hr><p style="font-size:13px;color:#a33"><strong>Flagged as likely spam:</strong> ${esc(suspicion.join("; "))}. Delivered anyway — a possible enquiry is never discarded.</p>` : ""}
         `,
       }),
     });

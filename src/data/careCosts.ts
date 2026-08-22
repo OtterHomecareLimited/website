@@ -53,3 +53,9 @@ export const funding = {
   attendanceAllowance: { lower: 76.7, higher: 114.6 },
   propertyDisregardWeeks: 12,
 };
+
+// Housekeeping note, 22 Aug 2026: public/img/dem-stay-yourself.jpg and
+// cond-dementia.jpg are THE SAME STOCK PHOTO saved twice at different crops
+// (different bytes, identical picture). That caught us out once — the homepage
+// Dementia and Conditions tiles sat side by side showing the same image. If you
+// pick either file for a new tile, check what its neighbour is using.
