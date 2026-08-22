@@ -92,6 +92,97 @@ export default async function handler(req, res) {
     suspicion.push("non-Latin script");
   }
 
+  // 6 · Faker surnames. Every name in the 22 Aug run — Kozey, Legros, Oberbrunner,
+  //     Yundt, Rath, Feeney, Lockman, Hermiston — comes from the surname list in
+  //     the Faker library, which is what most form-spam tooling generates from.
+  //     These are real surnames and someone could genuinely be called Rath, so
+  //     this TAGS and never drops. It is deliberately narrow: distinctive entries
+  //     only, not common names that happen to be in the list.
+  const FAKER_SURNAMES = new Set([
+    "abbott","altenwerth","anderson","bahringer","bailey","balistreri","barrows","bartell",
+    "bartoletti","bashirian","batz","bauch","baumbach","bayer","beahan","beatty","bechtelar",
+    "becker","bednar","beier","berge","bergnaum","bergstrom","bernhard","bernier","blanda",
+    "blick","bode","boehm","bogan","bogisich","borer","bosco","botsford","boyer","boyle",
+    "braun","bruen","buckridge","carroll","carter","cartwright","casper","cassin","champlin",
+    "christiansen","cole","collier","collins","conn","connelly","conroy","considine","corkery",
+    "cormier","corwin","cronin","crooks","cruickshank","cummerata","cummings","dach","damore",
+    "daniel","dare","daugherty","davis","deckow","denesik","dibbert","dickens","dicki","dietrich",
+    "donnelly","dooley","douglas","doyle","durgan","ebert","effertz","eichmann","emard","emmerich",
+    "erdman","ernser","fadel","fahey","farrell","fay","feeney","feest","feil","ferry","fisher",
+    "flatley","frami","franecki","friesen","fritsch","funk","gerhold","gerlach","gibson","gislason",
+    "gleason","glover","goldner","goodwin","gorczany","gottlieb","goyette","grady","graham","grant",
+    "green","greenfelder","greenholt","gulgowski","gusikowski","gutkowski","gutmann","haag","hackett",
+    "hagenes","hahn","haley","halvorson","hamill","hammes","hand","hane","hansen","harber","harris",
+    "hartmann","harvey","hauck","hayes","heaney","heathcote","hegmann","heidenreich","heller",
+    "herman","hermann","hermiston","herzog","hessel","hettinger","hickle","hilll","hills","hilpert",
+    "hintz","hirthe","hodkiewicz","hoeger","homenick","hoppe","howe","howell","hudson","huel",
+    "huels","hyatt","jacobi","jacobs","jacobson","jakubowski","jaskolski","jast","jenkins","jerde",
+    "johns","johnson","johnston","jones","kassulke","kautzer","keebler","keeling","kemmer","kerluke",
+    "kertzmann","kessler","kiehn","kihn","kilback","king","kirlin","klein","kling","klocko","koch",
+    "koelpin","koepp","kohler","konopelski","koss","kovacek","kozey","krajcik","kreiger","kris",
+    "kshlerin","kuhic","kuhlman","kuhn","kulas","kunde","kunze","kuphal","kutch","kuvalis","labadie",
+    "lakin","lang","langosh","langworth","larkin","larson","leannon","lebsack","ledner","leffler",
+    "legros","lehner","lemke","lesch","leuschke","lind","lindgren","littel","little","lockman",
+    "lowe","lubowitz","lueilwitz","luettgen","lynch","macejkovic","maggio","mann","mante","marks",
+    "marquardt","marvin","mayer","mayert","mccullough","mcdermott","mcglynn","mckenzie","mclaughlin",
+    "medhurst","mertz","metz","miller","mills","mitchell","moen","mohr","monahan","moore","morar",
+    "morissette","mosciski","mraz","mueller","muller","murazik","murphy","murray","nader","nicolas",
+    "nienow","nikolaus","nitzsche","nolan","oberbrunner","ohara","okeefe","okon","olson","ondricka",
+    "oreilly","orn","ortiz","osinski","pacocha","padberg","pagac","parisian","parker","paucek",
+    "pfannerstill","pfeffer","pollich","pouros","powlowski","predovic","price","prohaska","prosacco",
+    "purdy","quigley","quitzon","rath","ratke","rau","raynor","reichel","reichert","reilly",
+    "reinger","rempel","renner","reynolds","rice","rippin","ritchie","robel","roberts","rodriguez",
+    "rogahn","rohan","rolfson","romaguera","roob","rosenbaum","rowe","ruecker","runolfsdottir",
+    "runolfsson","runte","russel","rutherford","ryan","sanford","satterfield","sauer","sawayn",
+    "schaden","schaefer","schamberger","schiller","schimmel","schinner","schmeler","schmidt","schmitt",
+    "schneider","schoen","schowalter","schroeder","schulist","schultz","schumm","schuppe","schuster",
+    "senger","shanahan","shields","simonis","sipes","skiles","smith","smitham","spencer","spinka",
+    "sporer","stamm","stanton","stark","stehr","steuber","stiedemann","stokes","stoltenberg","stracke",
+    "streich","stroman","strosin","swaniawski","swift","terry","thiel","thompson","tillman","torp",
+    "torphy","towne","toy","trantow","tremblay","treutel","tromp","turcotte","turner","ullrich",
+    "upton","vandervort","veum","volkman","von","vonrueden","waelchi","walker","walsh","walter",
+    "ward","waters","watsica","weber","wehner","weimann","weissnat","welch","west","white",
+    "wiegand","wilderman","wildman","wilkinson","will","williamson","willms","windler","wintheiser",
+    "wisoky","wisozk","witting","wiza","wolf","wolff","wuckert","wunsch","wyman","yost","young",
+    "yundt","zboncak","zemlak","ziemann","zieme","zulauf",
+  ]);
+  // Common surnames that are also in Faker's list — never flag on these alone.
+  const TOO_COMMON = new Set(["smith","jones","davis","miller","johnson","williamson","walker","turner",
+    "murphy","murray","moore","mitchell","white","young","ward","walsh","price","parker","cole",
+    "carter","collins","graham","grant","green","harris","hayes","hudson","jenkins","king","klein",
+    "lang","little","lowe","lynch","mann","marks","reilly","reynolds","rice","roberts","rodriguez",
+    "rowe","ryan","schmidt","schneider","shields","spencer","stokes","terry","thompson","west",
+    "wilkinson","wolf","fisher","fay","funk","hansen","hand","howe","howell","koch","olson"]);
+  const surname = name.trim().split(/\s+/).pop().toLowerCase().replace(/[^a-z]/g, "");
+  if (surname && FAKER_SURNAMES.has(surname) && !TOO_COMMON.has(surname)) {
+    suspicion.push("name matches the Faker test-data surname list");
+  }
+
+  // 7 · Burst. Serverless memory is per-instance and short-lived, so this is
+  //     best-effort rather than a real rate limit — but a burst from one source
+  //     usually lands on a warm instance, and it costs nothing. Tags only.
+  //
+  //     Two guards learned the hard way in testing: if there is no forwarded IP
+  //     we skip this entirely rather than pooling every visitor into a shared
+  //     "unknown" bucket (which tagged the third genuine enquiry of the day),
+  //     and the threshold is 5, not 3 — households behind one router and whole
+  //     towns behind carrier-grade NAT share an address, and a family that
+  //     submits twice after a typo must never be treated as a bot.
+  const ip = (req.headers["x-forwarded-for"] || "").split(",")[0].trim();
+  if (ip) {
+    globalThis.__otterSeen = globalThis.__otterSeen || new Map();
+    const seen = globalThis.__otterSeen;
+    const nowMs = Date.now();
+    for (const [k, times] of seen) {
+      const keep = times.filter((t) => nowMs - t < 15 * 60 * 1000);
+      keep.length ? seen.set(k, keep) : seen.delete(k);
+    }
+    const mine = seen.get(ip) || [];
+    mine.push(nowMs);
+    seen.set(ip, mine);
+    if (mine.length > 5) suspicion.push(mine.length + " submissions from this address in 15 minutes");
+  }
+
   const suspect = suspicion.length > 0;
 
   // Need a name and at least one way to reach them (valid email OR a phone number).
