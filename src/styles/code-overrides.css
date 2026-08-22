@@ -891,3 +891,21 @@ footer h3{font-family:"Hanken Grotesk";font-weight:800;color:#fff;font-size:12.5
    it; making the transparent border solid teal does not. Nothing else about the
    button changes, and the shadow is untouched everywhere else on the site. */
 .mobile-menu .mm-cta .btn-primary{box-shadow:none}
+
+/* Turnstile placement.
+   The widget is a real element in the form, so it lands wherever the form's
+   layout puts it. In the footer that was between the email field and Subscribe,
+   because footer .news is a single flex row — a white Cloudflare panel dropped
+   into the middle of a dark teal newsletter bar.
+   These rules are belt-and-braces: with the widget set to Invisible mode in the
+   Cloudflare dashboard it renders nothing and none of this is visible. They
+   exist so the layout still holds if the mode is ever changed back. */
+footer .news{flex-wrap:wrap;row-gap:0}
+footer .news .cf-turnstile{flex:0 0 100%;order:3;margin-top:10px}
+
+/* Never let the flexible-width widget push a narrow container wider than itself. */
+.cf-turnstile{max-width:100%;overflow:hidden}
+
+/* In the launcher panel it sits directly above Send message; give it a little
+   air so it does not read as part of the button. */
+.otter-pop .cf-turnstile{margin:2px 0 10px}
