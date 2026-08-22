@@ -11,9 +11,11 @@
     "preview": "astro preview",
     "astro": "astro",
     "images": "node scripts/optimise-images.mjs",
-    "prebuild": "node scripts/optimise-images.mjs",
+    "prebuild": "node scripts/optimise-images.mjs && node scripts/check-placeholders.mjs",
     "predev": "node scripts/optimise-images.mjs",
-    "check:bands": "node scripts/check-bands.mjs"
+    "check:bands": "node scripts/check-bands.mjs",
+    "check:placeholders": "node scripts/check-placeholders.mjs",
+    "check": "node scripts/check-placeholders.mjs && npm run build && node scripts/check-bands.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",

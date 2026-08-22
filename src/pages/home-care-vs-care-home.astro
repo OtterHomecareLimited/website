@@ -183,8 +183,17 @@ const faqSchema = { "@context": "https://schema.org", "@type": "FAQPage",
       </div>
     </div>
 
-    {/* UNCHANGED — the existing <details> and .calc-checked paragraph go here
-        exactly as they are today. */}
+      <details class="calc-more">
+        <summary>What about the house?</summary>
+        <div>
+          <p>This is the part families are most often surprised by, and it can matter more than the weekly figures.</p>
+          <p><strong>For care at home, the value of the home is never counted</strong> in the council's financial assessment. Age UK put it plainly: “Unless you're moving into a care home, this won't take into account the value of your property.”</p>
+          <p><strong>For a permanent care home place it is counted</strong> — though not straight away, and not always. It is disregarded for the first {funding.propertyDisregardWeeks} weeks. A Deferred Payment Agreement lets the council pay the fees and recover the money later, rather than forcing a sale. And it is disregarded entirely if a partner still lives there, or a relative aged 60 or over or with a disability does.</p>
+          <p>Where nobody qualifying lives in the property, the practical position is that its value funds the care either way — by sale, or by a deferred payment repaid from the estate. What changes is the timing, and whether the house stays in the family in the meantime.</p>
+          <p class="calc-caveat">We are a care provider, not financial advisers, and we are not going to pretend otherwise. For your own situation, talk to <a href="https://www.ageuk.org.uk/information-advice/care/paying-for-care/" target="_blank" rel="noopener">Age UK</a> or an independent financial adviser who specialises in later-life care.</p>
+        </div>
+      </details>
+      <p class="calc-checked">Figures checked {checked}. Care home charges are the homes' own published rates; ours are on our <a href="/cost-of-home-care">costs page</a>.</p>
 
   </div>
 </div></section>
