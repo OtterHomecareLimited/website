@@ -16,10 +16,6 @@ const gbp = (n: number) => "£" + n.toLocaleString("en-GB");
 
 // Chart geometry. Plot viewBox is 0 0 680 256 — x is hours of visiting care a
 // day (0–8), y is £ a week (0–2,200). Derived, never typed by hand.
-const PW = 680, PH = 256, Y_MAX = 2200, X_MAX = 8;
-const py = (v: number) => +(PH - v * (PH / Y_MAX)).toFixed(2);
-const px = (h: number) => +(h * (PW / X_MAX)).toFixed(2);
-const pctTop = (v: number) => +((1 - v / Y_MAX) * 100).toFixed(2) + "%";
 
 // £260 a week for every hour a day: five weekdays at £36 + two weekend days at £40.
 const perHourDay = otter.visiting.hour.weekday * 5 + otter.visiting.hour.weekend * 2;
@@ -30,10 +26,7 @@ const chHigh = careHomes.dementiaResidential.high;        // 1920
 
 // The band of hours over which visiting care passes through both ranges —
 // "about six to seven and a half hours a day" on the August 2026 figures.
-const levelFromX = px(liveBandLow / perHourDay);
-const levelToX   = px(chHigh / perHourDay);
 
-const grid = [2000, 1500, 1000, 500];
 
 const faqs = [
   { q: "Is live-in care really the same price as a care home?",
@@ -138,49 +131,8 @@ const faqSchema = { "@context": "https://schema.org", "@type": "FAQPage",
 
     <div class="calc-cross">
       <h3>Where visiting care stops being the cheaper option</h3>
-      <p>Read along the bottom for how many hours of care a day — about one hour per visit, so three visits a day sits at the 3 mark. Visiting care costs about {gbp(perHourDay)} a week for every hour a day. It stays below both live-in care and a local care home until roughly six hours a day — after that, live-in usually costs less than the same hours bought as visits, and it covers the night.</p>
+      <p>Visiting care costs about {gbp(perHourDay)} a week for every hour a day — roughly one hour per visit. It stays below both live-in care and a local care home until roughly six hours a day — after that, live-in usually costs less than the same hours bought as visits, and it covers the night.</p>
 
-      <div class="calc-plotgrid">
-        <div class="calc-yaxis">
-          {grid.map((v) => <span style={`top:${pctTop(v)}`}>{gbp(v)}</span>)}
-        </div>
-
-        <div class="calc-plot" id="ccPlot">
-          <svg viewBox={`0 0 ${PW} ${PH}`} preserveAspectRatio="none" aria-hidden="true" focusable="false">
-            {/* the hours over which the two are level */}
-            <rect x={levelFromX} y="0" width={+(levelToX - levelFromX).toFixed(2)} height={PH}
-                  fill="var(--cream)" stroke="var(--line)" stroke-width="1" vector-effect="non-scaling-stroke" />
-            <g stroke="var(--line)" stroke-width="1">
-              {grid.map((v) => <line x1="0" y1={py(v)} x2={PW} y2={py(v)} vector-effect="non-scaling-stroke" />)}
-            </g>
-            {/* live-in range — pale fill always takes a 1.5px --teal edge */}
-            <rect x="0" y={py(liveBandHigh)} width={PW} height={+(py(liveBandLow) - py(liveBandHigh)).toFixed(2)}
-                  fill="var(--teal-soft)" stroke="var(--teal)" stroke-width="1.5" vector-effect="non-scaling-stroke" />
-            {/* care home range — dashed outline, so the overlap with live-in stays visible */}
-            <rect x="0" y={py(chHigh)} width={PW} height={+(py(chLow) - py(chHigh)).toFixed(2)}
-                  fill="none" stroke="var(--teal-d)" stroke-width="1.5" stroke-dasharray="7 4" vector-effect="non-scaling-stroke" />
-            {/* visiting care, £260 a week per hour a day */}
-            <line x1="0" y1={PH} x2={PW} y2={py(perHourDay * X_MAX)}
-                  stroke="var(--teal-d)" stroke-width="2.5" vector-effect="non-scaling-stroke" />
-          </svg>
-          <span class="calc-dot"      id="ccDot"  hidden></span>
-          <span class="calc-liveline" id="ccLive" hidden></span>
-          <span class="calc-offchart" id="ccOff"  hidden></span>
-        </div>
-
-        <div></div>
-        <div class="calc-xaxis"><span>0</span><span>2 hrs</span><span>4 hrs</span><span>6 hrs</span><span>8 hrs</span></div>
-
-        <div></div>
-        <p class="calc-axisnote">Hours of visiting care a day — roughly one hour per visit · <span id="ccChartNote">shown for one person</span></p>
-      </div>
-
-      <div class="calc-key">
-        <span><i class="k-visit"></i>Visiting care, by hours a day</span>
-        <span><i class="k-live"></i>Live-in care {gbp(liveBandLow)}–{gbp(liveBandHigh)}</span>
-        <span><i class="k-home"></i>A local care home {gbp(chLow)}–{gbp(chHigh)}</span>
-        <span><i class="k-level"></i>Where the two are level</span>
-      </div>
     </div>
 
       <p class="calc-checked">Figures checked {checked}. Care home charges are the homes' own published rates; ours are on our <a href="/cost-of-home-care">costs page</a>.</p>
@@ -192,7 +144,7 @@ const faqSchema = { "@context": "https://schema.org", "@type": "FAQPage",
 <section class="section tmt"><div class="wrap" style="max-width:820px">
   <div class="head-c reveal">
     <span class="eyebrow">If the money is level</span>
-    <h2>What the money actually buys</h2>
+    <h2>What home care actually buys you</h2>
   </div>
   <div class="reveal">
     <div class="buys-grid">
@@ -302,7 +254,7 @@ const faqSchema = { "@context": "https://schema.org", "@type": "FAQPage",
     </div>
   </div></section>
 
-<script is:inline define:vars={{ otter, careHomes, perHourDay, Y_MAX, X_MAX }}>
+<script is:inline define:vars={{ otter, careHomes, perHourDay }}>
   (function () {
     var el = function (id) { return document.getElementById(id); };
     var calc = el("ccCalc"); if (!calc) return;
@@ -325,7 +277,6 @@ const faqSchema = { "@context": "https://schema.org", "@type": "FAQPage",
     };
 
     var people = 1, aa = 0;
-    var pctTop = function (v) { return (1 - v / Y_MAX) * 100 + "%"; };
 
     function pills(wrap, attr, value, set) {
       wrap.querySelectorAll(".calc-pill").forEach(function (b) {
@@ -376,25 +327,6 @@ const faqSchema = { "@context": "https://schema.org", "@type": "FAQPage",
         (fwd ? ' <span class="cv-soft">' + fwd + "</span>" : "") +
         ' <span class="cv-soft">These are estimates, not quotes.</span>';
 
-      // Chart marker. Always the one-person picture — the axis is hours, and a
-      // couple is one package, so doubling it would draw a relationship that
-      // does not exist.
-      var dot = el("ccDot"), live = el("ccLive"), off = el("ccOff");
-      dot.hidden = live.hidden = off.hidden = true;
-      if (r.hours) {
-        dot.hidden = false;
-        dot.style.left = (r.hours / X_MAX) * 100 + "%";
-        dot.style.top = pctTop(perHourDay * r.hours);
-      } else if (r.live) {
-        live.hidden = false;
-        live.style.top = pctTop(r.cost);
-      } else {
-        off.hidden = false;
-        off.textContent = gbp(r.cost) + " a week — above the top of this chart";
-      }
-      el("ccChartNote").textContent = people === 2
-        ? "shown for one person; the figures above are for a couple"
-        : "shown for one person";
     }
 
     // role="radio" announces a radiogroup, which commits us to arrow-key
