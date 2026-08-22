@@ -542,7 +542,12 @@ footer h3{font-family:"Hanken Grotesk";font-weight:800;color:#fff;font-size:12.5
   font-weight:800;font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;
   color:var(--muted);padding:9px 12px 4px;pointer-events:none;
 }
-.mobile-menu .sub .mm-lab{padding:12px 0 3px}
+/* Align the group label with the links it labels. The sub-links carry
+   padding-left:38px; the shorthand here previously reset it to 0, so the labels
+   sat flush against the drawer edge while everything under them was indented —
+   they read as falling off the page (Jamie, on an Android phone). Right padding
+   added too so a longer label can never reach the drawer edge. */
+.mobile-menu .sub .mm-lab{padding:14px 24px 4px 38px}
 
 /* The "Real moments" heading was rendering noticeably smaller than every other
    section heading on the homepage. Cause: .head-c h2 carries the section-heading
