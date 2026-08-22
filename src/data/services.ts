@@ -425,6 +425,15 @@ export const services: Service[] = [
     priceFrom: { amount: 1550, unit: "WEEK" },
     sections: [
       {
+        eyebrow: "The comparison families make",
+        h2: "Live-in care, or a care home?",
+        body: [
+          "Almost everyone weighing up live-in care is really weighing it against a care home, and almost everyone assumes the care home is cheaper. On the rates local homes publish, it usually is not — they are much closer than people expect, and for a couple they are not close at all.",
+          "We have set the two out side by side, with the local figures, the effect on the house and Attendance Allowance, and the situations where a care home is genuinely the better answer: <a href='/home-care-vs-care-home'>home care vs a care home</a>.",
+        ],
+      },
+      
+      {
         eyebrow: "Around-the-clock care",
         h2: "How live-in care works",
         body: [

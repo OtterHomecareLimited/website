@@ -628,3 +628,45 @@ footer h3{font-family:"Hanken Grotesk";font-weight:800;color:#fff;font-size:12.5
   #a11yPanel{left:auto;right:26px}
   #a11yPanel::after{left:auto;right:34px}
 }
+
+/* ── Home care vs a care home: the cost calculator ──────────────────────────
+   Built 22 Aug 2026. Two cards side by side, deliberately not styled as a
+   winner and a loser — the page's argument is that the two cost about the same,
+   so the care-home card gets equal visual weight rather than being greyed out.
+   The verdict line underneath does the interpreting, in words. */
+.calc{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:clamp(20px,2vw + 12px,30px);box-shadow:var(--shadow-sm)}
+.calc-controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px}
+.calc-field{display:flex;flex-direction:column;gap:6px}
+.calc-field label{font-weight:800;font-size:14px;color:var(--ink)}
+.calc-field select{
+  font-family:inherit;font-size:16px;                 /* 16px stops iOS focus-zoom */
+  padding:12px 14px;border:1px solid var(--line);border-radius:12px;
+  background:var(--cream);color:var(--ink);width:100%;
+}
+.calc-field select:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+.calc-out{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px}
+.calc-card{border:1px solid var(--line);border-radius:var(--r);padding:20px 20px 18px;
+  display:flex;flex-direction:column;gap:3px}
+.calc-home{background:var(--teal-soft);border-color:var(--teal)}
+.calc-ch{background:var(--cream-2)}
+.calc-tag{font-weight:800;font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+.calc-card b{font-family:"Spectral",Georgia,serif;font-weight:600;font-size:clamp(25px,3vw,34px);
+  line-height:1.1;color:var(--head);font-variant-numeric:tabular-nums}
+.calc-per{font-size:13.5px;color:var(--muted)}
+.calc-yr{margin:6px 0 0;font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums}
+.calc-notes{margin:10px 0 0;padding-left:17px;display:flex;flex-direction:column;gap:5px;
+  font-size:13.5px;color:var(--muted);line-height:1.45}
+.calc-verdict{margin:20px 0 0;padding:15px 18px;background:var(--cream);border-radius:12px;
+  font-size:16px;line-height:1.55}
+.calc-more{margin-top:18px;border-top:1px solid var(--line);padding-top:14px}
+.calc-more summary{font-weight:800;cursor:pointer;padding:6px 0;font-size:16px}
+.calc-more summary:focus-visible{outline:3px solid var(--teal);outline-offset:3px;border-radius:6px}
+.calc-more > div{display:flex;flex-direction:column;gap:11px;padding:10px 0 4px;max-width:64ch}
+.calc-more p{font-size:15.5px;color:var(--muted)}
+.calc-caveat{border-left:3px solid var(--sun);padding-left:14px}
+.calc-checked{margin:16px 0 0;font-size:13px;color:var(--muted)}
+@media(max-width:640px){
+  .calc-out{grid-template-columns:1fr}
+  .calc-controls{grid-template-columns:1fr}
+}
