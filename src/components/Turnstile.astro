@@ -1,0 +1,35 @@
+---
+/**
+ * Cloudflare Turnstile — bot check for the enquiry forms.
+ *
+ * Renders NOTHING unless PUBLIC_TURNSTILE_SITE_KEY is set, so the site behaves
+ * exactly as it did before until the keys exist in Vercel. That matters: this
+ * sits in front of the only way a family can reach us online, and a
+ * half-configured gate is worse than no gate.
+ *
+ * Set the widget to "Invisible" mode in the Cloudflare dashboard. Managed mode
+ * draws a checkbox panel; invisible mode verifies silently and draws nothing,
+ * which is what we want in front of someone who is already worried.
+ *
+ * Must sit INSIDE the <form> — Turnstile injects its
+ * <input name="cf-turnstile-response"> into this div, and it only reaches the
+ * server if it is within the form being submitted.
+ */
+const siteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
+---
+{siteKey && (
+  <>
+    <div class="cf-turnstile" data-sitekey={siteKey} data-theme="light" data-size="flexible"></div>
+    <script is:inline>
+      // One script tag per page however many forms are on it.
+      if (!window.__otterTurnstile) {
+        window.__otterTurnstile = true;
+        var s = document.createElement("script");
+        s.src = "https://challenges.cloudflare.com/turnstile/v0/api.js";
+        s.async = true;
+        s.defer = true;
+        document.head.appendChild(s);
+      }
+    </script>
+  </>
+)}

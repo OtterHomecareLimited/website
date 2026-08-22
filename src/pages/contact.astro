@@ -1,6 +1,7 @@
 ---
 import RatedBadge from "../components/RatedBadge.astro";
 import SiteLayout from "../layouts/SiteLayout.astro";
+import Turnstile from "../components/Turnstile.astro";
 ---
 <SiteLayout
   title="Contact Otter Homecare | Home Care in Wiltshire & Somerset"
@@ -38,6 +39,7 @@ import SiteLayout from "../layouts/SiteLayout.astro";
             <div class="field"><label for="area">Your area</label><select id="area" name="area"><option>Trowbridge</option><option>Bradford-on-Avon</option><option>Melksham</option><option>Westbury</option><option>Frome</option><option>Elsewhere nearby</option></select></div>
           </div>
           <div class="field"><label for="m">How can we help?</label><textarea id="m" name="msg" placeholder="Tell us a little about what you're looking for…"></textarea></div>
+          <Turnstile />
           <button class="btn btn-primary" type="submit">Request my free assessment →</button>
           <p class="privacy">We'll only use your details to respond to your enquiry. See our <a href="/privacy" style="text-decoration:underline">privacy policy</a>.</p>
         </form>

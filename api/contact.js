@@ -17,6 +17,27 @@ const CONTACT_FROM = process.env.CONTACT_FROM || "Otter Website <onboarding@rese
 const esc = (s = "") =>
   String(s).replace(/[<>&]/g, (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;" }[c]));
 
+// A form POST made without JS cannot be answered with JSON, and cannot be bounced
+// to a static page carrying a query flag either — that page has no way to read the
+// flag without the JS this visitor does not have. So the answer is a whole small
+// page, self-contained, carrying the reason and the phone number.
+function refusalPage(res, why) {
+  res.setHeader("content-type", "text/html; charset=utf-8");
+  return res.status(400).send(`<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Please try that once more — Otter Homecare</title>
+<style>body{margin:0;padding:9vh 22px;background:#F5F1E8;color:#3B2E1E;
+font:17px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+main{max-width:34rem;margin:0 auto}h1{font-size:26px;line-height:1.25;margin:0 0 14px}
+a{color:#0B3F49}.tel{display:inline-block;margin-top:22px;padding:13px 22px;border-radius:13px;
+background:#136B7D;color:#fff;text-decoration:none;font-weight:700}</style></head><body><main>
+<h1>Please send that once more</h1><p>${esc(why)}</p>
+<p>Nothing you typed has been lost on our side — we simply could not complete the check, so it has not reached us yet.</p>
+<a class="tel" href="tel:01225690022">Call 01225 690022</a>
+<p style="margin-top:26px"><a href="/contact">Back to the contact form</a></p>
+</main></body></html>`);
+}
+
 export default async function handler(req, res) {
   if (req.method !== "POST") {
     res.setHeader("Allow", "POST");
@@ -38,6 +59,11 @@ export default async function handler(req, res) {
     page = "", referrer = "",
   } = body;
   const message = (body.message || body.msg || "").toString();
+
+  // Declared up here, not next to its first use further down: the Turnstile
+  // branch below needs it, and a let/const referenced before its declaration
+  // is a ReferenceError at runtime that no syntax check catches.
+  const wantsFormRedirect = (req.headers["accept"] || "").includes("text/html");
 
   // ── Spam handling ─────────────────────────────────────────────────────────
   // Six Faker-generated submissions arrived in half an hour on 22 Aug 2026
@@ -183,6 +209,79 @@ export default async function handler(req, res) {
     if (mine.length > 5) suspicion.push(mine.length + " submissions from this address in 15 minutes");
   }
 
+  // 8 · Cloudflare Turnstile. The heuristics above tag reliably but cannot stop
+  //     anything — by 17:00 on 22 Aug the run was 8 for 8 tagged and still
+  //     accelerating. Turnstile is the first check here that actually refuses a
+  //     submission, so it is also the first that could cost us a real enquiry.
+  //     It is therefore built to three rules:
+  //
+  //       a. Unconfigured is a no-op. No secret, no behaviour change at all.
+  //       b. Never fail closed on OUR problems. If Cloudflare is unreachable or
+  //          errors, the enquiry goes through — tagged, not lost. A bad day at
+  //          Cloudflare must never stand between a family and this form.
+  //       c. Never fail SILENTLY on theirs. Tokens expire after ~5 minutes, and
+  //          someone upset, or elderly, or interrupted, will routinely take
+  //          longer than that. So a bad token returns a visible error with the
+  //          phone number, and they can send it again or ring. What we must not
+  //          do is accept the submission, bin it, and show a thank-you page.
+  const tsSecret = process.env.TURNSTILE_SECRET_KEY;
+  if (tsSecret) {
+    const token = (body["cf-turnstile-response"] || "").toString();
+    // A missing token has to be refused, not tagged. The 22 Aug run posts
+    // straight to this endpoint with a spoofed Origin — every message carried
+    // exactly one flag, the Faker name, meaning origin and timing both looked
+    // fine. Such a request never executes the widget, so it never has a token.
+    // Tag-on-missing would let all of it through untouched and this whole
+    // integration would be decoration.
+    //
+    // The cost is real and worth naming: a visitor whose browser cannot load
+    // challenges.cloudflare.com — JS off, a blocking extension, a locked-down
+    // NHS or council network — is refused. They are not lost silently: they get
+    // the reason and the phone number, and the details are still in front of
+    // them. Weighed against that, the alternative is a form that any script can
+    // post to for as long as it feels like.
+    if (!token) {
+      const why = "We could not complete the security check — it may have been blocked by your browser or your network. Please try again, or ring us on 01225 690022 and we will take the details over the phone.";
+      if (wantsFormRedirect) return refusalPage(res, why);
+      return res.status(400).json({ ok: false, error: why });
+    }
+
+    {
+      let verdict = null;
+      try {
+        const vr = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
+          method: "POST",
+          headers: { "content-type": "application/x-www-form-urlencoded" },
+          body: new URLSearchParams({
+            secret: tsSecret,
+            response: token,
+            ...(ip ? { remoteip: ip } : {}),
+          }),
+        });
+        verdict = await vr.json();
+      } catch {
+        verdict = null; // rule (b)
+      }
+
+      if (verdict && verdict.success === false) {
+        const codes = verdict["error-codes"] || [];
+        // Rule (c): say so, do not swallow it.
+        const stale = codes.includes("timeout-or-duplicate") || codes.includes("invalid-input-response");
+        const why = stale
+          ? "That took a little while, so the security check timed out. Please send it once more — or ring us on 01225 690022 and we will take the details over the phone."
+          : "We could not complete the security check. Please try again, or ring us on 01225 690022 and we will take the details over the phone.";
+
+        // A form POST without JS cannot be answered with JSON, and it cannot be
+        // bounced to a static page with a query flag either — the page has no
+        // way to read it without the JS this visitor does not have. So the
+        // response is a whole small page, carrying the reason and the number.
+        if (wantsFormRedirect) return refusalPage(res, why);
+        return res.status(400).json({ ok: false, error: why });
+      }
+      if (!verdict) suspicion.push("Turnstile unreachable — not verified");
+    }
+  }
+
   const suspect = suspicion.length > 0;
 
   // Need a name and at least one way to reach them (valid email OR a phone number).
@@ -190,7 +289,6 @@ export default async function handler(req, res) {
     return res.status(400).json({ ok: false, error: "Please add your name and a phone number or email." });
   }
 
-  const wantsFormRedirect = (req.headers["accept"] || "").includes("text/html");
 
   // If Resend isn't configured yet, accept the submission so the POC works,
   // but make it clear email isn't wired up.

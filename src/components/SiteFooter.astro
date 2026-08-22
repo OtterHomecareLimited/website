@@ -1,4 +1,5 @@
 ---
+import Turnstile from "./Turnstile.astro";
 // Design-system footer.
 const mark = "/img/ff72ba_22266503bf64408e9f5cd5af4757b439~mv2.png";
 const year = new Date().getFullYear();
@@ -40,6 +41,7 @@ const year = new Date().getFullYear();
       <form class="news" id="newsForm" action="/api/contact" method="POST">
         <input type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none" />
         <input name="email" type="email" placeholder="Your email" aria-label="Your email" required />
+        <Turnstile />
         <button type="submit">Subscribe</button>
       </form>
       <p id="newsOk" style="display:none;margin-top:10px;color:#bcd6d2;font-weight:700">Thanks — you're on the list.</p>
