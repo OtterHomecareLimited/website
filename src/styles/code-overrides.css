@@ -630,43 +630,195 @@ footer h3{font-family:"Hanken Grotesk";font-weight:800;color:#fff;font-size:12.5
 }
 
 /* ── Home care vs a care home: the cost calculator ──────────────────────────
-   Built 22 Aug 2026. Two cards side by side, deliberately not styled as a
-   winner and a loser — the page's argument is that the two cost about the same,
-   so the care-home card gets equal visual weight rather than being greyed out.
-   The verdict line underneath does the interpreting, in words. */
-.calc{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-lg);
-  padding:clamp(20px,2vw + 12px,30px);box-shadow:var(--shadow-sm)}
-.calc-controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px}
-.calc-field{display:flex;flex-direction:column;gap:6px}
-.calc-field label{font-weight:800;font-size:14px;color:var(--ink)}
-.calc-field select{
-  font-family:inherit;font-size:16px;                 /* 16px stops iOS focus-zoom */
+   Redesign, 22 Aug 2026. REPLACES the whole ".calc" block at the foot of
+   src/styles/code-overrides.css. Same tokens, no new ones. Plain CSS.
+
+   What changed, in one line: the two cards became one instrument. The old
+   layout gave "care at home" a --teal-soft fill with a --teal border and gave
+   the care home --cream-2 — the two sides were colour-coded, which reads as a
+   scoreboard. Both figures now sit in one white panel with identical
+   treatment, and a crossover chart underneath carries the "about six hours a
+   day" relationship that was previously only in prose.
+
+   REMOVED classes (delete from markup too): .calc-controls .calc-field
+   .calc-out .calc-card .calc-home .calc-ch .calc-yr
+   KEPT names, new styles: .calc .calc-verdict .calc-more .calc-caveat
+   .calc-checked .calc-tag .calc-notes                                       */
+
+/* The panel. --paper on the section ground, carried by its 1px --line border —
+   the same mechanism .al-card and .scale already use on .bg-paper. */
+.calc{
+  background:var(--paper);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:clamp(20px,2vw + 12px,32px);box-shadow:var(--shadow-sm);
+}
+
+/* ── The question ─────────────────────────────────────────────────────────
+   Stays a native <select>. Nine options in a real order, an audience that
+   skews older, and the iOS wheel is genuinely the best control for that on a
+   phone — a custom listbox would be worse here, not more memorable. It just
+   gets room: full width, 17px, 48px tall. */
+.calc-ask{display:flex;flex-direction:column;gap:7px}
+.calc-ask label{font-weight:800;font-size:15px;color:var(--ink)}
+.calc-ask select{
+  font-family:inherit;font-size:17px;font-weight:600;min-height:48px;
   padding:12px 14px;border:1px solid var(--line);border-radius:12px;
   background:var(--cream);color:var(--ink);width:100%;
 }
-.calc-field select:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
-.calc-out{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px}
-.calc-card{border:1px solid var(--line);border-radius:var(--r);padding:20px 20px 18px;
-  display:flex;flex-direction:column;gap:3px}
-.calc-home{background:var(--teal-soft);border-color:var(--teal)}
-.calc-ch{background:var(--cream-2)}
-.calc-tag{font-weight:800;font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
-.calc-card b{font-family:"Spectral",Georgia,serif;font-weight:600;font-size:clamp(25px,3vw,34px);
-  line-height:1.1;color:var(--head);font-variant-numeric:tabular-nums}
-.calc-per{font-size:13.5px;color:var(--muted)}
-.calc-yr{margin:6px 0 0;font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums}
-.calc-notes{margin:10px 0 0;padding-left:17px;display:flex;flex-direction:column;gap:5px;
-  font-size:13.5px;color:var(--muted);line-height:1.45}
-.calc-verdict{margin:20px 0 0;padding:15px 18px;background:var(--cream);border-radius:12px;
-  font-size:16px;line-height:1.55}
-.calc-more{margin-top:18px;border-top:1px solid var(--line);padding-top:14px}
-.calc-more summary{font-weight:800;cursor:pointer;padding:6px 0;font-size:16px}
+.calc-ask select:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+
+/* ── The two short questions ──────────────────────────────────────────────
+   Two options and three options respectively: a dropdown for a binary hides
+   the choice behind a tap. Pill rows show both answers at once. */
+.calc-refine{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:18px 26px;margin-top:20px;
+}
+.calc-group > p{margin:0 0 8px;font-weight:800;font-size:15px;color:var(--ink)}
+.calc-pills{display:flex;flex-wrap:wrap;gap:8px}
+.calc-pill{
+  font-family:inherit;font-size:16px;font-weight:700;      /* 16px: no iOS zoom */
+  min-height:44px;padding:10px 18px;border-radius:999px;   /* 44px touch target */
+  background:var(--paper);color:var(--ink);border:1.5px solid var(--line);
+  cursor:pointer;transition:background .15s,border-color .15s;
+}
+.calc-pill:hover{border-color:var(--teal)}
+/* Selected = --teal-d fill, white text: 11.38:1. Deliberately not --sun —
+   gold would read as "promoted", and this is a neutral input. */
+.calc-pill[aria-checked="true"]{
+  background:var(--teal-d);color:#fff;border-color:var(--teal-d);
+}
+.calc-pill:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+
+.calc-rule{height:1px;background:var(--line);margin:28px 0 24px}
+
+/* ── The two figures ──────────────────────────────────────────────────────
+   Identical in every respect: same label style, same serif figure, same
+   colour, same ground. The only difference between the two columns is that one
+   is a number and the other is a range, which is true. Nothing is filled,
+   bordered or tinted, so neither side can read as the winner — and it also
+   removes the card-in-card nesting the old .calc-card had inside .calc.
+   Tabular numerals so the digits line up between the rows: when the two are
+   close, the figures are visibly the same width. */
+.calc-figs{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:24px 32px;
+}
+.calc-fig{display:flex;flex-direction:column;gap:2px;min-width:0}
+.calc-tag{
+  font-weight:800;font-size:12px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--muted);
+}
+.calc-fig b{
+  font-family:"Spectral",Georgia,serif;font-weight:600;
+  font-size:clamp(28px,3.4vw,38px);line-height:1.08;letter-spacing:-.01em;
+  color:var(--head);font-variant-numeric:tabular-nums;
+}
+.calc-per{font-size:14px;color:var(--muted)}
+.calc-notes{
+  margin:11px 0 0;padding-left:17px;display:flex;flex-direction:column;gap:5px;
+  font-size:14px;color:var(--muted);line-height:1.45;
+}
+
+/* ── The verdict ──────────────────────────────────────────────────────────
+   Under the figures, not above them: it interprets, it does not announce.
+   aria-live="polite" in the markup so a screen reader hears the change. */
+.calc-verdict{
+  margin:24px 0 0;padding:16px 18px;background:var(--cream);border-radius:var(--r);
+  font-size:17px;line-height:1.6;color:var(--ink);
+}
+.calc-verdict strong{font-weight:800}
+.calc-verdict .cv-soft{color:var(--muted)}
+
+/* ── The crossover ────────────────────────────────────────────────────────
+   x = hours of visiting care a day (0–8), y = £ a week (0–2,200). Every
+   coordinate is derived in the frontmatter from careCosts.ts, so the annual
+   update is still one file.
+
+   The SVG carries NO text. All labels are real HTML at real pixel sizes, so
+   they stay legible at 390px — a viewBox-scaled <text> would render at about
+   7px there. The plot uses preserveAspectRatio="none" plus
+   vector-effect="non-scaling-stroke" on every stroke, so the box can be short
+   and wide on a phone without thinning the lines, and the markers are HTML
+   (positioned in %) so they stay round. */
+.calc-cross{margin-top:30px;padding-top:26px;border-top:1px solid var(--line)}
+.calc-cross h3{margin:0 0 4px;font-family:inherit;font-weight:800;font-size:15px;color:var(--ink)}
+.calc-cross > p{margin:0 0 20px;font-size:15px;line-height:1.55;color:var(--muted);max-width:60ch}
+
+.calc-plotgrid{display:grid;grid-template-columns:56px 1fr;gap:0 10px}
+.calc-yaxis{
+  position:relative;font-size:13px;color:var(--muted);text-align:right;
+  font-variant-numeric:tabular-nums;
+}
+.calc-yaxis span{position:absolute;right:0;transform:translateY(-50%);white-space:nowrap}
+.calc-plot{
+  position:relative;height:clamp(190px,26vw,270px);background:var(--paper);
+  border-left:1px solid var(--line);border-bottom:1px solid var(--line);
+}
+.calc-plot svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.calc-xaxis{
+  display:flex;justify-content:space-between;padding-top:7px;
+  font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums;
+}
+.calc-axisnote{margin:2px 0 0;font-size:13px;color:var(--muted)}
+
+/* "You are here". --sun is the one accent, used as a filled shape only, and it
+   takes a --teal-d edge because gold on white is 2.16:1 — the fill cannot
+   carry the mark on its own. */
+.calc-dot{
+  position:absolute;width:15px;height:15px;border-radius:50%;
+  background:var(--sun);border:2px solid var(--teal-d);
+  transform:translate(-50%,-50%);
+}
+.calc-liveline{
+  position:absolute;left:0;right:0;height:4px;background:var(--sun);
+  border-top:1px solid var(--teal-d);border-bottom:1px solid var(--teal-d);
+  transform:translateY(-50%);
+}
+/* Sleeping and waking nights (£2,240 and £2,610) are above the top of the
+   chart. Saying so is better than rescaling the axis to hide it. */
+.calc-offchart{
+  position:absolute;top:8px;right:8px;max-width:70%;
+  background:var(--paper);border:1.5px solid var(--teal-d);border-radius:999px;
+  padding:6px 13px;font-size:13.5px;font-weight:700;color:var(--teal-d);line-height:1.3;
+}
+
+.calc-key{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:18px}
+.calc-key span{display:flex;align-items:center;gap:9px;font-size:14px;color:var(--ink)}
+.calc-key i{flex:none;width:26px;height:15px;border-radius:3px}
+.calc-key .k-visit{height:0;border-top:2.5px solid var(--teal-d);border-radius:0}
+/* --teal-soft is lightness-identical to a warm ground and near-identical to
+   white, so it always takes a 1.5px --teal edge. Same rule inside the plot. */
+.calc-key .k-live{background:var(--teal-soft);border:1.5px solid var(--teal)}
+.calc-key .k-home{background:var(--paper);border:1.5px dashed var(--teal-d)}
+.calc-key .k-level{background:var(--cream);border:1px solid var(--line)}
+
+/* ── Unchanged blocks, restated so this file is self-contained ────────────── */
+.calc-more{margin-top:26px;border-top:1px solid var(--line);padding-top:16px}
+.calc-more summary{
+  font-weight:800;cursor:pointer;padding:8px 0;font-size:17px;color:var(--ink);
+  min-height:44px;display:flex;align-items:center;
+}
 .calc-more summary:focus-visible{outline:3px solid var(--teal);outline-offset:3px;border-radius:6px}
 .calc-more > div{display:flex;flex-direction:column;gap:11px;padding:10px 0 4px;max-width:64ch}
-.calc-more p{font-size:15.5px;color:var(--muted)}
+.calc-more p{font-size:15.5px;line-height:1.6;color:var(--muted)}
+.calc-more p strong{color:var(--ink)}
 .calc-caveat{border-left:3px solid var(--sun);padding-left:14px}
-.calc-checked{margin:16px 0 0;font-size:13px;color:var(--muted)}
+.calc-checked{margin:16px 0 0;font-size:13px;line-height:1.55;color:var(--muted)}
+
+/* ── 390px ────────────────────────────────────────────────────────────────
+   Everything above is auto-fit grid, so the stack is automatic and there is no
+   horizontal overflow. These are the only explicit adjustments. */
 @media(max-width:640px){
-  .calc-out{grid-template-columns:1fr}
-  .calc-controls{grid-template-columns:1fr}
+  .calc{padding:18px 16px 20px}
+  .calc-plotgrid{grid-template-columns:44px 1fr;gap:0 8px}
+  .calc-yaxis{font-size:12px}
+  .calc-plot{height:200px}
+  .calc-key{gap:8px 16px}
+  .calc-key span{font-size:13.5px}
+}
+
+/* Motion is one 0.15s colour change on the pills. Nothing moves on the chart.
+   Guarded anyway so the site's global reduce-motion switch owns it. */
+@media(prefers-reduced-motion:reduce){
+  .calc-pill{transition:none}
 }

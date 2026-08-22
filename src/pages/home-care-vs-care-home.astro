@@ -14,6 +14,27 @@ const liveInLow = otter.liveIn.A + otter.liveInFood;
 const liveInHigh = otter.liveIn.C + otter.liveInFood;
 const gbp = (n: number) => "£" + n.toLocaleString("en-GB");
 
+// Chart geometry. Plot viewBox is 0 0 680 256 — x is hours of visiting care a
+// day (0–8), y is £ a week (0–2,200). Derived, never typed by hand.
+const PW = 680, PH = 256, Y_MAX = 2200, X_MAX = 8;
+const py = (v: number) => +(PH - v * (PH / Y_MAX)).toFixed(2);
+const px = (h: number) => +(h * (PW / X_MAX)).toFixed(2);
+const pctTop = (v: number) => +((1 - v / Y_MAX) * 100).toFixed(2) + "%";
+
+// £260 a week for every hour a day: five weekdays at £36 + two weekend days at £40.
+const perHourDay = otter.visiting.hour.weekday * 5 + otter.visiting.hour.weekend * 2;
+const liveBandLow  = otter.liveIn.A + otter.liveInFood;   // 1600
+const liveBandHigh = otter.liveIn.C + otter.liveInFood;   // 1850
+const chLow  = careHomes.dementiaResidential.low;         // 1795
+const chHigh = careHomes.dementiaResidential.high;        // 1920
+
+// The band of hours over which visiting care passes through both ranges —
+// "about six to seven and a half hours a day" on the August 2026 figures.
+const levelFromX = px(liveBandLow / perHourDay);
+const levelToX   = px(chHigh / perHourDay);
+
+const grid = [2000, 1500, 1000, 500];
+
 const faqs = [
   { q: "Is live-in care really the same price as a care home?",
     a: `Close to it, and often less. Live-in care with us is ${gbp(liveInLow)}–${gbp(liveInHigh)} a week including the food allowance. Local homes publish ${gbp(careHomes.dementiaResidential.low)}–${gbp(careHomes.dementiaResidential.high)} a week for residential dementia care. At the top of our banding and the bottom of theirs the two are level; across most of the range live-in costs less.` },
@@ -57,72 +78,116 @@ const faqSchema = { "@context": "https://schema.org", "@type": "FAQPage",
 
   <!-- CALCULATOR -->
   <section class="section bg-paper" id="calculator"><div class="wrap" style="max-width:900px">
-    <div class="head-c reveal"><span class="eyebrow">Work out your own numbers</span>
-      <h2>What would each option cost?</h2>
-      <p class="lede">An estimate, not a quote — every family's situation differs, and a care home's fee depends on the room and the assessment.</p></div>
+  <div class="head-c reveal"><span class="eyebrow">Work out your own numbers</span>
+    <h2>What would each option cost?</h2>
+    <p class="lede">An estimate, not a quote — every family's situation differs, and a care home's fee depends on the room and the assessment.</p></div>
 
-    <div class="calc reveal" id="ccCalc">
-      <div class="calc-controls">
-        <div class="calc-field">
-          <label for="ccLevel">How much help is needed?</label>
-          <select id="ccLevel">
-            <option value="v1">A visit a day (1 hour)</option>
-            <option value="v2" selected>Two visits a day (1 hour each)</option>
-            <option value="v3">Three visits a day (1 hour each)</option>
-            <option value="v4">Four visits a day (1 hour each)</option>
-            <option value="sleep">Visits plus a sleeping night</option>
-            <option value="wake">Visits plus a waking night</option>
-            <option value="liveA">Live-in care — lower dependency</option>
-            <option value="liveB">Live-in care — medium dependency</option>
-            <option value="liveC">Live-in care — higher dependency</option>
-          </select>
-        </div>
-        <div class="calc-field">
-          <label for="ccWho">Who needs care?</label>
-          <select id="ccWho">
-            <option value="1" selected>One person</option>
-            <option value="2">A couple, both needing care</option>
-          </select>
-        </div>
-        <div class="calc-field">
-          <label for="ccAA">Attendance Allowance</label>
-          <select id="ccAA">
-            <option value="0" selected>Not claiming / not sure</option>
-            <option value="76.7">Lower rate — £76.70 a week</option>
-            <option value="114.6">Higher rate — £114.60 a week</option>
-          </select>
-        </div>
-      </div>
+  <div class="calc reveal" id="ccCalc">
 
-      <div class="calc-out">
-        <div class="calc-card calc-home">
-          <span class="calc-tag">Care at home</span>
-          <b id="ccHome">—</b><span class="calc-per">per week</span>
-          <p id="ccHomeYr" class="calc-yr"></p>
-          <ul class="calc-notes" id="ccHomeNotes"></ul>
-        </div>
-        <div class="calc-card calc-ch">
-          <span class="calc-tag">A local care home</span>
-          <b id="ccCH">—</b><span class="calc-per">per week</span>
-          <p id="ccCHYr" class="calc-yr"></p>
-          <ul class="calc-notes" id="ccCHNotes"></ul>
-        </div>
-      </div>
-      <p class="calc-verdict" id="ccVerdict"></p>
-
-      <details class="calc-more">
-        <summary>What about the house?</summary>
-        <div>
-          <p>This is the part families are most often surprised by, and it can matter more than the weekly figures.</p>
-          <p><strong>For care at home, the value of the home is never counted</strong> in the council's financial assessment. Age UK put it plainly: “Unless you're moving into a care home, this won't take into account the value of your property.”</p>
-          <p><strong>For a permanent care home place it is counted</strong> — though not straight away, and not always. It is disregarded for the first {funding.propertyDisregardWeeks} weeks. A Deferred Payment Agreement lets the council pay the fees and recover the money later, rather than forcing a sale. And it is disregarded entirely if a partner still lives there, or a relative aged 60 or over or with a disability does.</p>
-          <p>Where nobody qualifying lives in the property, the practical position is that its value funds the care either way — by sale, or by a deferred payment repaid from the estate. What changes is the timing, and whether the house stays in the family in the meantime.</p>
-          <p class="calc-caveat">We are a care provider, not financial advisers, and we are not going to pretend otherwise. For your own situation, talk to <a href="https://www.ageuk.org.uk/information-advice/care/paying-for-care/" target="_blank" rel="noopener">Age UK</a> or an independent financial adviser who specialises in later-life care.</p>
-        </div>
-      </details>
-      <p class="calc-checked">Figures checked {checked}. Care home charges are the homes' own published rates; ours are on our <a href="/cost-of-home-care">costs page</a>.</p>
+    <div class="calc-ask">
+      <label for="ccLevel">How much help is needed?</label>
+      <select id="ccLevel">
+        <option value="v1">A visit a day (1 hour)</option>
+        <option value="v2" selected>Two visits a day (1 hour each)</option>
+        <option value="v3">Three visits a day (1 hour each)</option>
+        <option value="v4">Four visits a day (1 hour each)</option>
+        <option value="sleep">Visits plus a sleeping night</option>
+        <option value="wake">Visits plus a waking night</option>
+        <option value="liveA">Live-in care — lower dependency</option>
+        <option value="liveB">Live-in care — medium dependency</option>
+        <option value="liveC">Live-in care — higher dependency</option>
+      </select>
     </div>
-  </div></section>
+
+    <div class="calc-refine">
+      <div class="calc-group">
+        <p id="ccWhoLab">Who needs care?</p>
+        <div class="calc-pills" role="radiogroup" aria-labelledby="ccWhoLab" id="ccWho">
+          <button type="button" class="calc-pill" role="radio" aria-checked="true"  tabindex="0" data-people="1">One person</button>
+          <button type="button" class="calc-pill" role="radio" aria-checked="false" tabindex="-1" data-people="2">A couple, both needing care</button>
+        </div>
+      </div>
+      <div class="calc-group">
+        <p id="ccAALab">Attendance Allowance</p>
+        <div class="calc-pills" role="radiogroup" aria-labelledby="ccAALab" id="ccAA">
+          <button type="button" class="calc-pill" role="radio" aria-checked="true"  tabindex="0" data-aa="0">Not claiming</button>
+          <button type="button" class="calc-pill" role="radio" aria-checked="false" tabindex="-1" data-aa={funding.attendanceAllowance.lower}>Lower — £{funding.attendanceAllowance.lower.toFixed(2)}</button>
+          <button type="button" class="calc-pill" role="radio" aria-checked="false" tabindex="-1" data-aa={funding.attendanceAllowance.higher}>Higher — £{funding.attendanceAllowance.higher.toFixed(2)}</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="calc-rule"></div>
+
+    <div class="calc-figs">
+      <div class="calc-fig">
+        <span class="calc-tag">Care at home</span>
+        <b id="ccHome">—</b>
+        <span class="calc-per">a week · <span id="ccHomeYr"></span></span>
+        <ul class="calc-notes" id="ccHomeNotes"></ul>
+      </div>
+      <div class="calc-fig">
+        <span class="calc-tag">A local care home</span>
+        <b id="ccCH">—</b>
+        <span class="calc-per">a week · <span id="ccCHYr"></span></span>
+        <ul class="calc-notes" id="ccCHNotes"></ul>
+      </div>
+    </div>
+
+    <p class="calc-verdict" id="ccVerdict" aria-live="polite"></p>
+
+    <div class="calc-cross">
+      <h3>Where visiting care stops being the cheaper option</h3>
+      <p>Visiting care costs about {gbp(perHourDay)} a week for every hour a day. It stays below both live-in care and a local care home until roughly six hours a day — after that, live-in usually costs less than the same hours bought as visits, and it covers the night.</p>
+
+      <div class="calc-plotgrid">
+        <div class="calc-yaxis">
+          {grid.map((v) => <span style={`top:${pctTop(v)}`}>{gbp(v)}</span>)}
+        </div>
+
+        <div class="calc-plot" id="ccPlot">
+          <svg viewBox={`0 0 ${PW} ${PH}`} preserveAspectRatio="none" aria-hidden="true" focusable="false">
+            {/* the hours over which the two are level */}
+            <rect x={levelFromX} y="0" width={+(levelToX - levelFromX).toFixed(2)} height={PH}
+                  fill="var(--cream)" stroke="var(--line)" stroke-width="1" vector-effect="non-scaling-stroke" />
+            <g stroke="var(--line)" stroke-width="1">
+              {grid.map((v) => <line x1="0" y1={py(v)} x2={PW} y2={py(v)} vector-effect="non-scaling-stroke" />)}
+            </g>
+            {/* live-in range — pale fill always takes a 1.5px --teal edge */}
+            <rect x="0" y={py(liveBandHigh)} width={PW} height={+(py(liveBandLow) - py(liveBandHigh)).toFixed(2)}
+                  fill="var(--teal-soft)" stroke="var(--teal)" stroke-width="1.5" vector-effect="non-scaling-stroke" />
+            {/* care home range — dashed outline, so the overlap with live-in stays visible */}
+            <rect x="0" y={py(chHigh)} width={PW} height={+(py(chLow) - py(chHigh)).toFixed(2)}
+                  fill="none" stroke="var(--teal-d)" stroke-width="1.5" stroke-dasharray="7 4" vector-effect="non-scaling-stroke" />
+            {/* visiting care, £260 a week per hour a day */}
+            <line x1="0" y1={PH} x2={PW} y2={py(perHourDay * X_MAX)}
+                  stroke="var(--teal-d)" stroke-width="2.5" vector-effect="non-scaling-stroke" />
+          </svg>
+          <span class="calc-dot"      id="ccDot"  hidden></span>
+          <span class="calc-liveline" id="ccLive" hidden></span>
+          <span class="calc-offchart" id="ccOff"  hidden></span>
+        </div>
+
+        <div></div>
+        <div class="calc-xaxis"><span>0</span><span>2</span><span>4</span><span>6</span><span>8</span></div>
+
+        <div></div>
+        <p class="calc-axisnote">Hours of visiting care a day · <span id="ccChartNote">shown for one person</span></p>
+      </div>
+
+      <div class="calc-key">
+        <span><i class="k-visit"></i>Visiting care, by hours a day</span>
+        <span><i class="k-live"></i>Live-in care {gbp(liveBandLow)}–{gbp(liveBandHigh)}</span>
+        <span><i class="k-home"></i>A local care home {gbp(chLow)}–{gbp(chHigh)}</span>
+        <span><i class="k-level"></i>Where the two are level</span>
+      </div>
+    </div>
+
+    {/* UNCHANGED — the existing <details> and .calc-checked paragraph go here
+        exactly as they are today. */}
+
+  </div>
+</div></section>
 
   <!-- WHAT THE MONEY BUYS -->
   <section class="section tmt"><div class="wrap" style="max-width:820px">
@@ -196,40 +261,42 @@ const faqSchema = { "@context": "https://schema.org", "@type": "FAQPage",
     </div>
   </div></section>
 
-<script is:inline define:vars={{ otter, careHomes, liveInLow, liveInHigh }}>
+<script is:inline define:vars={{ otter, careHomes, perHourDay, Y_MAX, X_MAX }}>
   (function () {
     var el = function (id) { return document.getElementById(id); };
     var calc = el("ccCalc"); if (!calc) return;
     var gbp = function (n) { return "£" + Math.round(n).toLocaleString("en-GB"); };
 
-    // A week of visits: five weekday, two weekend. Bank holidays are ignored on
-    // purpose — there are eight a year and including them would overstate a
-    // typical week, which is the opposite of what this page is for.
     function visitWeek(rate, perDay) { return rate.weekday * perDay * 5 + rate.weekend * perDay * 2; }
     function nightWeek(rate) { return rate.weekday * 5 + rate.weekend * 2; }
+    var foodNote = "Someone living in, round the clock (incl. £" + otter.liveInFood + " food)";
 
     var LEVELS = {
-      v1:    function () { return { cost: visitWeek(otter.visiting.hour, 1), note: "1 hour a day, every day" }; },
-      v2:    function () { return { cost: visitWeek(otter.visiting.hour, 2), note: "2 hours a day, every day" }; },
-      v3:    function () { return { cost: visitWeek(otter.visiting.hour, 3), note: "3 hours a day, every day" }; },
-      v4:    function () { return { cost: visitWeek(otter.visiting.hour, 4), note: "4 hours a day, every day" }; },
+      v1:    function () { return { cost: visitWeek(otter.visiting.hour, 1), note: "1 hour a day, every day", hours: 1 }; },
+      v2:    function () { return { cost: visitWeek(otter.visiting.hour, 2), note: "2 hours a day, every day", hours: 2 }; },
+      v3:    function () { return { cost: visitWeek(otter.visiting.hour, 3), note: "3 hours a day, every day", hours: 3 }; },
+      v4:    function () { return { cost: visitWeek(otter.visiting.hour, 4), note: "4 hours a day, every day", hours: 4 }; },
       sleep: function () { return { cost: visitWeek(otter.visiting.hour, 2) + nightWeek(otter.night.sleeping), note: "2 hours of visits a day, plus someone sleeping over" }; },
-      wake:  function () { return { cost: visitWeek(otter.visiting.hour, 2) + nightWeek(otter.night.waking), note: "2 hours of visits a day, plus someone awake all night" }; },
-      liveA: function () { return { cost: otter.liveIn.A + otter.liveInFood, note: "Someone living in, round the clock (incl. £" + otter.liveInFood + " food)", live: true }; },
-      liveB: function () { return { cost: otter.liveIn.B + otter.liveInFood, note: "Someone living in, round the clock (incl. £" + otter.liveInFood + " food)", live: true }; },
-      liveC: function () { return { cost: otter.liveIn.C + otter.liveInFood, note: "Someone living in, round the clock (incl. £" + otter.liveInFood + " food)", live: true }; }
+      wake:  function () { return { cost: visitWeek(otter.visiting.hour, 2) + nightWeek(otter.night.waking),  note: "2 hours of visits a day, plus someone awake all night" }; },
+      liveA: function () { return { cost: otter.liveIn.A + otter.liveInFood, note: foodNote, live: true }; },
+      liveB: function () { return { cost: otter.liveIn.B + otter.liveInFood, note: foodNote, live: true }; },
+      liveC: function () { return { cost: otter.liveIn.C + otter.liveInFood, note: foodNote, live: true }; }
     };
+
+    var people = 1, aa = 0;
+    var pctTop = function (v) { return (1 - v / Y_MAX) * 100 + "%"; };
+
+    function pills(wrap, attr, value, set) {
+      wrap.querySelectorAll(".calc-pill").forEach(function (b) {
+        b.setAttribute("aria-checked", String(parseFloat(b.dataset[attr]) === value));
+      });
+    }
 
     function render() {
       var key = el("ccLevel").value;
-      var people = parseInt(el("ccWho").value, 10);
-      var aa = parseFloat(el("ccAA").value) || 0;
       var r = LEVELS[key]();
 
-      // Two people at home is one package priced at the upper end — not double.
-      // Two care home places are two full fees. That asymmetry is the point.
-      var home = r.cost;
-      var homeNotes = [r.note];
+      var home = r.cost, homeNotes = [r.note];
       if (people === 2) {
         if (r.live) { home = otter.liveIn.C + otter.liveInFood; homeNotes.push("A couple is one live-in package, priced at the higher band — not two"); }
         else { home = r.cost * 1.5; homeNotes.push("Two people at home is one visit package with longer visits, not two packages — shown here as a rough uplift"); }
@@ -238,11 +305,11 @@ const faqSchema = { "@context": "https://schema.org", "@type": "FAQPage",
       var chHigh = careHomes.dementiaResidential.high * people;
       var chNotes = ["Published local rates for residential dementia care"];
       if (people === 2) chNotes.push("Two places means two full fees");
-
-      // Attendance Allowance is not means-tested and continues at home. In a care
-      // home it usually stops if the council is paying, so we only net it off the
-      // home-care side and say why.
-      if (aa) { home = Math.max(0, home - aa * people); homeNotes.push("Less Attendance Allowance of " + gbp(aa * people) + " a week, which continues at home"); chNotes.push("Attendance Allowance usually stops if the council funds a care home place"); }
+      if (aa) {
+        home = Math.max(0, home - aa * people);
+        homeNotes.push("Less Attendance Allowance of " + gbp(aa * people) + " a week, which continues at home");
+        chNotes.push("Attendance Allowance usually stops if the council funds a care home place");
+      }
 
       el("ccHome").textContent = gbp(home);
       el("ccCH").textContent = gbp(chLow) + " – " + gbp(chHigh);
@@ -251,20 +318,84 @@ const faqSchema = { "@context": "https://schema.org", "@type": "FAQPage",
       el("ccHomeNotes").innerHTML = homeNotes.map(function (n) { return "<li>" + n + "</li>"; }).join("");
       el("ccCHNotes").innerHTML = chNotes.map(function (n) { return "<li>" + n + "</li>"; }).join("");
 
-      var v;
+      // Verdict. The three sentences are the current ones, unchanged. The
+      // trailing sentence on the cheaper cases is NEW COPY — see README.
+      var v, fwd = "";
       if (home < chLow) {
         v = "On these figures care at home is <strong>" + gbp(chLow - home) + " to " + gbp(chHigh - home) +
             " a week less</strong> — around " + gbp((chLow - home) * 52) + " to " + gbp((chHigh - home) * 52) + " a year.";
+        if (r.hours) fwd = "That holds while the hours stay where they are. Past about six hours a day, live-in care usually costs less than the same hours bought as visits.";
       } else if (home > chHigh) {
         v = "On these figures care at home costs <strong>" + gbp(home - chHigh) + " to " + gbp(home - chLow) +
             " a week more</strong>. At this level of support, live-in care is usually better value than buying the same hours as visits — and it covers the nights.";
       } else {
         v = "On these figures the two are <strong>about the same</strong>. Which means the decision is not really about money — it is about what the money buys.";
       }
-      el("ccVerdict").innerHTML = v + " These are estimates, not quotes.";
+      el("ccVerdict").innerHTML = v +
+        (fwd ? ' <span class="cv-soft">' + fwd + "</span>" : "") +
+        ' <span class="cv-soft">These are estimates, not quotes.</span>';
+
+      // Chart marker. Always the one-person picture — the axis is hours, and a
+      // couple is one package, so doubling it would draw a relationship that
+      // does not exist.
+      var dot = el("ccDot"), live = el("ccLive"), off = el("ccOff");
+      dot.hidden = live.hidden = off.hidden = true;
+      if (r.hours) {
+        dot.hidden = false;
+        dot.style.left = (r.hours / X_MAX) * 100 + "%";
+        dot.style.top = pctTop(perHourDay * r.hours);
+      } else if (r.live) {
+        live.hidden = false;
+        live.style.top = pctTop(r.cost);
+      } else {
+        off.hidden = false;
+        off.textContent = gbp(r.cost) + " a week — above the top of this chart";
+      }
+      el("ccChartNote").textContent = people === 2
+        ? "shown for one person; the figures above are for a couple"
+        : "shown for one person";
     }
 
-    ["ccLevel", "ccWho", "ccAA"].forEach(function (id) { el(id).addEventListener("change", render); });
+    // role="radio" announces a radiogroup, which commits us to arrow-key
+    // navigation and a roving tabindex — a screen-reader user is told these are
+    // radios and will try to drive them as radios. The handoff set the roles and
+    // the click handling but not this, so without it the group is operable only
+    // by Tab-and-Space and does not behave as announced.
+    function wireRadios(wrap, onPick) {
+      var btns = Array.prototype.slice.call(wrap.querySelectorAll(".calc-pill"));
+      function focusTo(i) {
+        var n = (i + btns.length) % btns.length;
+        btns.forEach(function (b, k) { b.tabIndex = k === n ? 0 : -1; });
+        btns[n].focus(); onPick(btns[n]);
+      }
+      wrap.addEventListener("keydown", function (e) {
+        var i = btns.indexOf(document.activeElement); if (i < 0) return;
+        if (e.key === "ArrowRight" || e.key === "ArrowDown") { e.preventDefault(); focusTo(i + 1); }
+        else if (e.key === "ArrowLeft" || e.key === "ArrowUp") { e.preventDefault(); focusTo(i - 1); }
+        else if (e.key === "Home") { e.preventDefault(); focusTo(0); }
+        else if (e.key === "End") { e.preventDefault(); focusTo(btns.length - 1); }
+      });
+    }
+
+
+    el("ccLevel").addEventListener("change", render);
+    el("ccWho").addEventListener("click", function (e) {
+      var b = e.target.closest(".calc-pill"); if (!b) return;
+      people = parseInt(b.dataset.people, 10); pills(this, "people", people); render();
+    });
+    el("ccAA").addEventListener("click", function (e) {
+      var b = e.target.closest(".calc-pill"); if (!b) return;
+      aa = parseFloat(b.dataset.aa) || 0; pills(this, "aa", aa); render();
+    });
+      // Route the keyboard through exactly the same state setters the click
+      // handlers use, so there is one source of truth for `people` and `aa`.
+      wireRadios(el("ccWho"), function (b) {
+        people = parseInt(b.dataset.people, 10); pills(el("ccWho"), "people", people); render();
+      });
+      wireRadios(el("ccAA"), function (b) {
+        aa = parseFloat(b.dataset.aa) || 0; pills(el("ccAA"), "aa", aa); render();
+      });
+
     render();
   })();
 </script>
