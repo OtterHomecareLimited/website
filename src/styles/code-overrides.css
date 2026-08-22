@@ -881,3 +881,13 @@ footer h3{font-family:"Hanken Grotesk";font-weight:800;color:#fff;font-size:12.5
   .buys-ic{width:46px;height:46px}
   .buys-ic img{width:23px;height:23px}
 }
+
+/* Mobile drawer CTA: no lift shadow.
+   .btn-primary carries box-shadow:0 12px 24px -12px rgba(19,107,125,.7), which
+   is right for a button on a white page ground. In the drawer it lands in the
+   10px gap between this button and the white "Call" button, and a blurred cool
+   teal haze on warm cream (#EDE1C5) reads as a faint light line around the
+   button rather than as a shadow. Confirmed by A/B: removing the shadow clears
+   it; making the transparent border solid teal does not. Nothing else about the
+   button changes, and the shadow is untouched everywhere else on the site. */
+.mobile-menu .mm-cta .btn-primary{box-shadow:none}
