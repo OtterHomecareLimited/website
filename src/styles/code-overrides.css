@@ -822,3 +822,62 @@ footer h3{font-family:"Hanken Grotesk";font-weight:800;color:#fff;font-size:12.5
 @media(prefers-reduced-motion:reduce){
   .calc-pill{transition:none}
 }
+
+/* ── Home care vs a care home: section anchors + "what the money buys" ─────
+   22 Aug 2026. ADD to src/styles/code-overrides.css. Two additions, no
+   changes to anything already there.
+
+   No new assets. Both use icons that already exist in
+   public/assets/icons/ — pound, signpost, key, clock, chat, team, calendar,
+   armchair. Nothing to commit but CSS and markup.                          */
+
+/* ── 1. Section anchors ───────────────────────────────────────────────────
+   An icon chip above the eyebrow in .head-c. Five sections take one; the
+   calculator and "what the money actually buys" do not (see README).
+
+   The 1.5px --teal edge is mandatory, not decorative. --teal-soft #E2EDF1 is
+   near lightness-identical to all three grounds this chip lands on —
+   --cream-2, --paper and --sky — so the fill cannot carry the shape on any of
+   them. Same mechanism .sc-ic and .steps-grid .step-ic already ship. */
+.head-c .hc-ic{
+  display:inline-grid;place-items:center;width:52px;height:52px;
+  border-radius:var(--r);background:var(--teal-soft);border:1.5px solid var(--teal);
+  margin-bottom:14px;
+}
+.head-c .hc-ic img{display:block;width:26px;height:26px}
+@media(max-width:520px){
+  .head-c .hc-ic{width:46px;height:46px;margin-bottom:11px}
+  .head-c .hc-ic img{width:23px;height:23px}
+}
+
+/* ── 2. "What the money actually buys" as four cards ──────────────────────
+   Replaces the single .reveal > max-width:64ch prose block in that section.
+   The section's own `style="max-width:64ch;margin:0 auto"` inner wrapper must
+   come off — the grid uses the full 820px wrap.
+
+   Copy is unchanged. Each paragraph already opens with a bold lead-in; that
+   becomes the <h3> and the remainder becomes the <p>. Nothing is cut or added.
+
+   Deliberately no hover lift. .al-card and .scale lift because they are
+   links; these are static content and lifting them would promise a click that
+   isn't there. */
+.buys-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+.buys{
+  background:var(--paper);border:1px solid var(--line);border-radius:var(--r);
+  padding:24px 24px 26px;display:flex;flex-direction:column;gap:12px;
+}
+.buys-ic{
+  display:grid;place-items:center;width:52px;height:52px;flex:none;
+  border-radius:var(--r);background:var(--teal-soft);border:1.5px solid var(--teal);
+}
+.buys-ic img{display:block;width:26px;height:26px}
+.buys h3{
+  font-family:"Spectral",Georgia,serif;font-weight:600;font-size:20px;
+  line-height:1.25;margin:0;color:var(--head);
+}
+.buys p{margin:0;font-size:15.5px;line-height:1.6;color:var(--muted)}
+@media(max-width:640px){
+  .buys{padding:20px 20px 22px;gap:10px}
+  .buys-ic{width:46px;height:46px}
+  .buys-ic img{width:23px;height:23px}
+}
