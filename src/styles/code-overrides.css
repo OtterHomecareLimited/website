@@ -909,3 +909,14 @@ footer .news .cf-turnstile{flex:0 0 100%;order:3;margin-top:10px}
 /* In the launcher panel it sits directly above Send message; give it a little
    air so it does not read as part of the button. */
 .otter-pop .cf-turnstile{margin:2px 0 10px}
+
+/* Hero: close the gap between the photo and the wave.
+   The whole gap was .hero .wrap's 76px padding-bottom — the wave sits flush
+   against the wrap, and the photo fills the content box exactly, so nothing
+   else contributed. 76px reads as dead cream because the wave immediately
+   below already carries visual weight; a hero sitting on a divider wants less
+   space beneath it than above, not more.
+   The 880px query only ever overrode padding-top, so mobile inherited the same
+   76px — which is why it looked identical on a phone. */
+.hero .wrap{padding-bottom:48px}
+@media(max-width:880px){ .hero .wrap{padding-bottom:38px} }
