@@ -43,7 +43,14 @@ const caret = `<svg class="caret" viewBox="0 0 24 24" fill="none" stroke="curren
         </div></div>
       </div>
       <a href="/how-we-work">How We Work</a>
-      <a href="/cost-of-home-care">Costs &amp; Funding</a>
+      <div class="has-drop">
+        <a class="toplink" href="/cost-of-home-care">Costs &amp; Funding <Fragment set:html={caret} /></a>
+        <div class="dropdown"><div class="dropdown-inner">
+          <a href="/cost-of-home-care">Our rates &amp; funding</a>
+          <div class="dd-sep"></div>
+          <a href="/home-care-vs-care-home">Home Care vs a Care Home</a>
+        </div></div>
+      </div>
       <div class="has-drop">
         <a class="toplink" href="/our-story">About <Fragment set:html={caret} /></a>
         <div class="dropdown"><div class="dropdown-inner">
@@ -92,7 +99,10 @@ const caret = `<svg class="caret" viewBox="0 0 24 24" fill="none" stroke="curren
       <a href="/frome">Frome</a>
     </div></details>
     <a href="/how-we-work">How We Work</a>
-    <a href="/cost-of-home-care">Costs &amp; Funding</a>
+    <details><summary>Costs &amp; Funding</summary><div class="sub">
+      <a href="/cost-of-home-care">Our rates &amp; funding</a>
+      <a href="/home-care-vs-care-home">Home Care vs a Care Home</a>
+    </div></details>
     <details><summary>About</summary><div class="sub">
       <a href="/our-story">Our Story</a>
       <a href="/our-team">Meet the Team</a>

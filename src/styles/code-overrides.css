@@ -583,7 +583,13 @@ footer h3{font-family:"Hanken Grotesk";font-weight:800;color:#fff;font-size:12.5
   nav .inner{gap:12px}
   .brand{margin-right:auto}
 }
-@media(min-width:1101px) and (max-width:1199px){
+/* Extended from 1199 to 1259 on 22 Aug 2026. Making Costs & Funding a dropdown
+   adds a caret, which widened .navlinks from 666px to 683px. At exactly 1200px
+   the tightening stopped but the full-size CTA no longer fitted, so .nav-cta
+   broke out of the viewport and the page scrolled sideways. Measured against
+   the live nav to confirm the 17px was mine and not pre-existing. The tightening
+   already buys ~52px, so carrying it up to 1259 covers it with room over. */
+@media(min-width:1101px) and (max-width:1259px){
   nav .inner{padding-left:20px;padding-right:20px;gap:18px}
 }
 
