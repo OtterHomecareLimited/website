@@ -8,6 +8,8 @@ const CONTACT_FROM = process.env.CONTACT_FROM || "Otter Website <onboarding@rese
 const MAX_CV_BYTES = 3 * 1024 * 1024; // 3MB raw
 const OK_EXT = /\.(pdf|doc|docx)$/i;
 
+import { verifyTurnstile, turnstileMessage, clientIp } from "./_turnstile.js";
+
 const esc = (s = "") =>
   String(s).replace(/[<>&]/g, (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;" }[c]));
 
@@ -21,7 +23,28 @@ export default async function handler(req, res) {
   const { name = "", phone = "", email = "", role = "", cvName = "", cvData = "" } = body;
 
   // Spam honeypot — same convention as /api/contact.
-  if (body.company) return res.status(200).json({ ok: true });
+  // Honeypots. "company" was the only guard here until 22 Aug 2026, hidden with
+  // display:none — the most guessed field name, hidden the most detectable way.
+  // "website" matches the enquiry forms: a plausible name, moved off-screen
+  // rather than hidden, so a bot that skips known honeypots still fills it.
+  // A human cannot reach either, so these are the only things we drop on.
+  if (body.company || body.website) return res.status(200).json({ ok: true });
+
+  // Turnstile. This endpoint was left open when /api/contact was hardened, and
+  // it is the softer target of the two: no origin check, no timing check, no
+  // rate limit, and it accepts file uploads. Same contract as the enquiry form
+  // — unconfigured is a no-op, Cloudflare being unreachable fails open, and a
+  // refusal always says why and gives the phone number. Somebody applying for
+  // a care job must never be turned away with an unexplained error.
+  {
+    const ts = await verifyTurnstile({
+      token: (body["cf-turnstile-response"] || "").toString(),
+      ip: clientIp(req),
+    });
+    if (ts.state === "missing" || ts.state === "fail") {
+      return res.status(400).json({ ok: false, error: turnstileMessage(ts) });
+    }
+  }
 
   const emailValid = /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email);
   if (!name.trim() || (!emailValid && !phone.trim())) {

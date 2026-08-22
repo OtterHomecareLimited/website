@@ -14,6 +14,8 @@ const CONTACT_TO = (process.env.CONTACT_TO || "hello@otterhomecare.co.uk")
 // Resend's shared onboarding domain. Swap to website@otterhomecare.co.uk post-verify.
 const CONTACT_FROM = process.env.CONTACT_FROM || "Otter Website <onboarding@resend.dev>";
 
+import { verifyTurnstile, turnstileMessage, clientIp } from "./_turnstile.js";
+
 const esc = (s = "") =>
   String(s).replace(/[<>&]/g, (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;" }[c]));
 
@@ -194,7 +196,7 @@ export default async function handler(req, res) {
   //     and the threshold is 5, not 3 — households behind one router and whole
   //     towns behind carrier-grade NAT share an address, and a family that
   //     submits twice after a typo must never be treated as a bot.
-  const ip = (req.headers["x-forwarded-for"] || "").split(",")[0].trim();
+  const ip = clientIp(req);
   if (ip) {
     globalThis.__otterSeen = globalThis.__otterSeen || new Map();
     const seen = globalThis.__otterSeen;
@@ -209,77 +211,20 @@ export default async function handler(req, res) {
     if (mine.length > 5) suspicion.push(mine.length + " submissions from this address in 15 minutes");
   }
 
-  // 8 · Cloudflare Turnstile. The heuristics above tag reliably but cannot stop
-  //     anything — by 17:00 on 22 Aug the run was 8 for 8 tagged and still
-  //     accelerating. Turnstile is the first check here that actually refuses a
-  //     submission, so it is also the first that could cost us a real enquiry.
-  //     It is therefore built to three rules:
-  //
-  //       a. Unconfigured is a no-op. No secret, no behaviour change at all.
-  //       b. Never fail closed on OUR problems. If Cloudflare is unreachable or
-  //          errors, the enquiry goes through — tagged, not lost. A bad day at
-  //          Cloudflare must never stand between a family and this form.
-  //       c. Never fail SILENTLY on theirs. Tokens expire after ~5 minutes, and
-  //          someone upset, or elderly, or interrupted, will routinely take
-  //          longer than that. So a bad token returns a visible error with the
-  //          phone number, and they can send it again or ring. What we must not
-  //          do is accept the submission, bin it, and show a thank-you page.
-  const tsSecret = process.env.TURNSTILE_SECRET_KEY;
-  if (tsSecret) {
-    const token = (body["cf-turnstile-response"] || "").toString();
-    // A missing token has to be refused, not tagged. The 22 Aug run posts
-    // straight to this endpoint with a spoofed Origin — every message carried
-    // exactly one flag, the Faker name, meaning origin and timing both looked
-    // fine. Such a request never executes the widget, so it never has a token.
-    // Tag-on-missing would let all of it through untouched and this whole
-    // integration would be decoration.
-    //
-    // The cost is real and worth naming: a visitor whose browser cannot load
-    // challenges.cloudflare.com — JS off, a blocking extension, a locked-down
-    // NHS or council network — is refused. They are not lost silently: they get
-    // the reason and the phone number, and the details are still in front of
-    // them. Weighed against that, the alternative is a form that any script can
-    // post to for as long as it feels like.
-    if (!token) {
-      const why = "We could not complete the security check — it may have been blocked by your browser or your network. Please try again, or ring us on 01225 690022 and we will take the details over the phone.";
+  // 8 · Cloudflare Turnstile — see api/_turnstile.js for the reasoning.
+  //     Unconfigured is a no-op. A missing or rejected token is refused, but
+  //     never silently: the visitor gets the reason and the phone number, and
+  //     a no-JS post gets a whole page because a static site cannot explain a
+  //     query flag to someone with no JS to read it. Cloudflare being
+  //     unreachable fails open, tagged.
+  {
+    const ts = await verifyTurnstile({ token: (body["cf-turnstile-response"] || "").toString(), ip });
+    if (ts.state === "missing" || ts.state === "fail") {
+      const why = turnstileMessage(ts);
       if (wantsFormRedirect) return refusalPage(res, why);
       return res.status(400).json({ ok: false, error: why });
     }
-
-    {
-      let verdict = null;
-      try {
-        const vr = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
-          method: "POST",
-          headers: { "content-type": "application/x-www-form-urlencoded" },
-          body: new URLSearchParams({
-            secret: tsSecret,
-            response: token,
-            ...(ip ? { remoteip: ip } : {}),
-          }),
-        });
-        verdict = await vr.json();
-      } catch {
-        verdict = null; // rule (b)
-      }
-
-      if (verdict && verdict.success === false) {
-        const codes = verdict["error-codes"] || [];
-        // Rule (c): say so, do not swallow it.
-        const stale = codes.includes("timeout-or-duplicate") || codes.includes("invalid-input-response");
-        const why = stale
-          ? "That took a little while, so the security check timed out. Please send it once more — or ring us on 01225 690022 and we will take the details over the phone."
-          : "We could not complete the security check. Please try again, or ring us on 01225 690022 and we will take the details over the phone.";
-
-        // A form POST without JS cannot be answered with JSON, and it cannot be
-        // bounced to a static page with a query flag either — the page has no
-        // way to read it without the JS this visitor does not have. So the
-        // response is a whole small page, carrying the reason and the number.
-        if (wantsFormRedirect) return refusalPage(res, why);
-        return res.status(400).json({ ok: false, error: why });
-      }
-      if (!verdict) suspicion.push("Turnstile unreachable — not verified");
-    }
+    if (ts.state === "unreachable") suspicion.push("Turnstile unreachable — not verified");
   }
 
   const suspect = suspicion.length > 0;
