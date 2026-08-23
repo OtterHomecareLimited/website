@@ -564,7 +564,13 @@ a.als-prevnext__item:hover { transform: translateY(-3px); box-shadow: var(--shad
    window — drawn to the kit's conventions (64×64 grid, 4px #136B7D
    stroke, round caps/joins, exactly one #D6A93D accent each).
    [Integration note: design's files carried the retired near-miss
-   teal #17687D; corrected to the kit's actual #136B7D on copy.]
+   teal #17687D; corrected to the kit's actual #136B7D on copy.
+   23 Aug 2026: that correction had only reached the six stage icons.
+   The seven duplicated from the main kit -- clock, heart, home, key,
+   phone, pound, team -- were still on #17687D and the retired gold
+   #D6A93D, and three of them carried no accent at all. All seven are
+   now byte-copies of the main kit files, so there is one drawing per
+   icon rather than two that drift.]
    They are kit citizens: reuse them anywhere, and keep any future
    icons to the same recipe.
    ============================================================ */
