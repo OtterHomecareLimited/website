@@ -1106,3 +1106,8 @@ footer .foot-mark{width:40px;color:#fff;opacity:.92;margin-top:18px}
 @media (prefers-reduced-motion:reduce){
   .otter-kilt,.otter-kilt *{animation:none!important;transform:none!important}
 }
+
+/* A section mark: the TT figures above a centred eyebrow, same idea as the
+   homepage motif but reusable. Only used where the section is genuinely about
+   two people together, not as decoration. */
+.sec-mark{width:44px;margin:0 auto 12px}

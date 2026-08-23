@@ -1,5 +1,6 @@
 ---
 import SiteLayout from "../layouts/SiteLayout.astro";
+import TTMark from "../components/TTMark.astro";
 ---
 <SiteLayout
   title="Page not found | Otter Homecare"
@@ -8,7 +9,7 @@ import SiteLayout from "../layouts/SiteLayout.astro";
   <section class="section" style="text-align:center;padding:110px 0">
     <div class="wrap" style="max-width:56ch">
       <div class="reveal in">
-        <span class="eyebrow">Page not found</span>
+        <TTMark pose={97} class="sec-mark" /><span class="eyebrow">Page not found</span>
         <h1 style="margin:14px 0 14px">Sorry — we can't find that page</h1>
         <p class="lede" style="max-width:none">The page may have moved when we refreshed our website. The links below should get you back on track — or just give us a ring and a real person will help.</p>
         <div style="display:flex;gap:13px;justify-content:center;flex-wrap:wrap;margin-top:26px">
