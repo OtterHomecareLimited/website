@@ -926,3 +926,46 @@ footer .news .cf-turnstile{flex:0 0 100%;order:3;margin-top:10px}
    76px — which is why it looked identical on a phone. */
 .hero .wrap{padding-bottom:48px}
 @media(max-width:880px){ .hero .wrap{padding-bottom:38px} }
+
+/* ── Mascot motion (Our Story, "Why we're called Otter") ──────────────────
+   Hooks the site's own reveal observer: .reveal gains .in when it scrolls into
+   view, so this needs no JavaScript of its own.
+
+   Everything runs once. Nothing loops except the blink, which is deliberately
+   irregular so it never reads as a metronome. Total motion is under 1.2s.
+
+   The eyes sit inside their own .head-rot group rather than taking the head's
+   animation directly. One element can carry only one transform, and the head
+   turns about the neck while a blink scales about the eye's own centre — two
+   different origins, so they cannot share an element. Without the wrapper the
+   blink wins and the eyes stay behind while the head moves. */
+.otter-mascot .eye{transform-box:fill-box;transform-origin:center}
+.otter-mascot .st8,.otter-mascot .st11,.otter-mascot .st14,.otter-mascot .st1,
+.otter-mascot .st2,.otter-mascot .st3,.otter-mascot .st5,.otter-mascot .head-rot{
+  transform-origin:84px 46px;
+}
+.otter-mascot #tail{transform-origin:78px 172px}
+
+.otter-habitat.in .otter-mascot .st8,.otter-habitat.in .otter-mascot .st11,
+.otter-habitat.in .otter-mascot .st14,.otter-habitat.in .otter-mascot .st1,
+.otter-habitat.in .otter-mascot .st2,.otter-habitat.in .otter-mascot .st3,
+.otter-habitat.in .otter-mascot .st5,.otter-habitat.in .otter-mascot .head-rot{
+  animation:otter-notice 1.1s cubic-bezier(.34,1.4,.64,1) .45s both;
+}
+.otter-habitat.in .otter-mascot #tail{
+  animation:otter-tail 1.2s cubic-bezier(.34,1.3,.64,1) .4s both;
+}
+.otter-habitat.in .otter-mascot .eye{
+  animation:otter-blink 6.2s steps(1,end) 2.6s infinite;
+}
+.otter-habitat.in .otter-mascot #eye2{animation-delay:2.64s}
+
+@keyframes otter-notice{0%{transform:rotate(0)}45%{transform:rotate(-3.2deg)}100%{transform:rotate(0)}}
+@keyframes otter-tail{0%{transform:rotate(0)}40%{transform:rotate(7deg)}70%{transform:rotate(-2.5deg)}100%{transform:rotate(0)}}
+@keyframes otter-blink{0%,96.5%{transform:scaleY(1)}97.5%{transform:scaleY(.08)}98.5%{transform:scaleY(1)}}
+
+/* The site's own Reduce Motion switch is already covered by the global
+   html.a11y-reduce-motion rule in otter-home.css. This is the OS setting. */
+@media (prefers-reduced-motion:reduce){
+  .otter-mascot,.otter-mascot *{animation:none!important;transform:none!important}
+}
