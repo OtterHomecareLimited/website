@@ -940,13 +940,13 @@ footer .news .cf-turnstile{flex:0 0 100%;order:3;margin-top:10px}
    different origins, so they cannot share an element. Without the wrapper the
    blink wins and the eyes stay behind while the head moves. */
 .otter-mascot .eye{transform-box:fill-box;transform-origin:center}
-.otter-mascot .st8,.otter-mascot .st11,.otter-mascot .st14,.otter-mascot .st1,
+.otter-mascot .st8,.otter-mascot .st11:not(.eye),.otter-mascot .st14,.otter-mascot .st1,
 .otter-mascot .st2,.otter-mascot .st3,.otter-mascot .st5,.otter-mascot .head-rot{
   transform-origin:84px 46px;
 }
 .otter-mascot #tail{transform-origin:78px 172px}
 
-.otter-habitat.in .otter-mascot .st8,.otter-habitat.in .otter-mascot .st11,
+.otter-habitat.in .otter-mascot .st8,.otter-habitat.in .otter-mascot .st11:not(.eye),
 .otter-habitat.in .otter-mascot .st14,.otter-habitat.in .otter-mascot .st1,
 .otter-habitat.in .otter-mascot .st2,.otter-habitat.in .otter-mascot .st3,
 .otter-habitat.in .otter-mascot .st5,.otter-habitat.in .otter-mascot .head-rot{
@@ -985,7 +985,7 @@ footer .news .cf-turnstile{flex:0 0 100%;order:3;margin-top:10px}
      is the bottom of the trait bubbles. All that is left is to cancel the
      scene's own 6px padding-bottom and the 8px of viewBox padding sitting
      below the otter's feet, so the feet themselves land on that line. */
-  .otterwhy .otter-scene{ margin-bottom:-14px }
+  .otterwhy .otter-scene{ margin-bottom:-11px }
 }
 
 /* ── Periodic idle, not just on scroll ────────────────────────────────────
@@ -995,7 +995,7 @@ footer .news .cf-turnstile{flex:0 0 100%;order:3;margin-top:10px}
    Head 15s and tail 11s deliberately do not divide into each other — they
    drift apart instead of locking into a repeating pattern, which is what makes
    it read as alive rather than clockwork. */
-.otter-habitat.in .otter-mascot .st8,.otter-habitat.in .otter-mascot .st11,
+.otter-habitat.in .otter-mascot .st8,.otter-habitat.in .otter-mascot .st11:not(.eye),
 .otter-habitat.in .otter-mascot .st14,.otter-habitat.in .otter-mascot .st1,
 .otter-habitat.in .otter-mascot .st2,.otter-habitat.in .otter-mascot .st3,
 .otter-habitat.in .otter-mascot .st5,.otter-habitat.in .otter-mascot .head-rot{
