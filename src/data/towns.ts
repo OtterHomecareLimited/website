@@ -42,8 +42,14 @@ export const towns: Town[] = [
     cardBlurb: "Our home town. Care across Trowbridge and the villages from Hilperton to Steeple Ashton.",
     testimonial: { quote: "She is such a gentle and caring soul and has been a godsend for my parents. We all really appreciate having Pam in our lives.", author: "Lyn E", role: "Daughter of Client" },
     faqs: [
+      { q: "How quickly can care start in Trowbridge?",
+        a: "We can usually carry out the free assessment the same day you call, and have care in place within 48 hours. If it is more urgent than that, say so when you ring and we will tell you honestly what we can do." },
+      { q: "Do you cover the villages around the town?",
+        a: "Yes — Hilperton, Staverton, Southwick, North Bradley, Wingfield, West Ashton, Keevil, Semington, Steeple Ashton, Great Hinton, Littleton and Hoggington, and the lanes between them. There is no extra charge for any of them, and no travel or call-out fee." },
       { q: "Can you help someone coming out of the RUH in Bath?",
         a: "Yes, and it is something we do often. Where it helps, we will come and assess on the ward so that care is arranged before discharge day rather than after it." },
+      { q: "Will the same carers come each time?",
+        a: "That is the whole reason we stay small. You will have a regular team who know the routine, rather than whoever the rota throws up — and you will meet them before they start." },
     ],
   },
   {
@@ -97,8 +103,14 @@ export const towns: Town[] = [
     cardBlurb: "Supporting Melksham and the villages including Atworth, Shaw, Seend and Beanacre.",
     testimonial: { quote: "All home care should be as good as this, lovely carers, nothing too much trouble, they don't just do the basics, but will help out with anything…", author: "E S", role: "Client" },
     faqs: [
+      { q: "How quickly can care start in Melksham?",
+        a: "We can usually carry out the free assessment the same day you call, and have care in place within 48 hours. If it is more urgent than that, say so when you ring and we will tell you honestly what we can do." },
+      { q: "Do you cover the villages around Melksham?",
+        a: "Yes — Broughton Gifford, Whitley, Atworth, Shaw, Bowerhill, Beanacre, Seend and Seend Cleeve, and the lanes between them. There is no extra charge for any of them, and no travel or call-out fee." },
       { q: "Can you help someone coming out of the RUH in Bath?",
         a: "Yes, and it is something we do often. Where it helps, we will come and assess on the ward so that care is arranged before discharge day rather than after it." },
+      { q: "Will the same carers come each time?",
+        a: "That is the whole reason we stay small. You will have a regular team who know the routine, rather than whoever the rota throws up — and you will meet them before they start." },
     ],
   },
   {
@@ -152,8 +164,14 @@ export const towns: Town[] = [
     cardBlurb: "Our Somerset town. Care across Frome and villages including Beckington, Rode and Norton St Philip.",
     testimonial: { quote: "I cannot recommend Otter Home Care highly enough: we used them to provide care for my elderly dad. Their level of care was excellent, the carers were always on time and were very attentive.", author: "Helen F", role: "Daughter of Client" },
     faqs: [
+      { q: "How quickly can care start in Frome?",
+        a: "We can usually carry out the free assessment the same day you call, and have care in place within 48 hours. If it is more urgent than that, say so when you ring and we will tell you honestly what we can do." },
+      { q: "Do you cover the villages around Frome?",
+        a: "Yes — Beckington, Nunney, Mells, Rode, Norton St Philip, Woolverton, Tellisford, Chantry, Great Elm and Feltham, and the lanes between them. There is no extra charge for any of them, and no travel or call-out fee." },
       { q: "Can you help someone coming out of the RUH in Bath?",
         a: "Yes, and it is something we do often. Where it helps, we will come and assess on the ward so that care is arranged before discharge day rather than after it." },
+      { q: "Will the same carers come each time?",
+        a: "That is the whole reason we stay small. You will have a regular team who know the routine, rather than whoever the rota throws up — and you will meet them before they start." },
     ],
   },
 ];
