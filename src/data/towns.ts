@@ -58,7 +58,7 @@ export const towns: Town[] = [
 
     localCare: {
       headline: "Working with your GP and the hospital",
-      body: "Most of the people we look after in Bradford-on-Avon are registered with the <b>Bradford-on-Avon &amp; Melksham Health Partnership</b> on Station Approach, <b>St Margaret's Surgery</b> on Bridge Street, or the branch surgery up at <b>Winsley</b>. Whichever is yours, we speak to them directly — and to the district nurses — so you are not left carrying messages between people who ought to be talking to each other.<br><br>We also help a good number of people home from the <b>Royal United in Bath</b>. If that is where your relative is now, we can carry out the assessment on the ward rather than waiting for discharge day, so care is ready for the day they come home. We can do the same in a care home if someone is there for a short stay and wants to get back.",
+      body: "Most of the people we look after in Bradford-on-Avon are registered with the <b>Bradford-on-Avon &amp; Melksham Health Partnership</b> on Station Approach, <b>St Margaret's Surgery</b> on Bridge Street, or the branch surgery up at <b>Winsley</b>. Whichever is yours, we speak to them directly — and to the district nurses — so you are not left carrying messages between people who ought to be talking to each other.<br><br>We also help a good number of people home from the <b>RUH in Bath</b>. If that is where your relative is now, we can carry out the assessment on the ward rather than waiting for discharge day, so care is ready for the day they come home. We can do the same in a care home if someone is there for a short stay and wants to get back.",
     },
     community: {
       headline: "Not a patch we drive to",
@@ -109,7 +109,7 @@ export const towns: Town[] = [
 
     localCare: {
       headline: "Working with your GP and the hospital",
-      body: "Most of the people we look after in Westbury are registered with <b>Westbury Group Practice</b> at the White Horse Health Centre on Mane Way. We speak to the surgery and to the district nurses directly, so nobody is left relaying messages between people who ought to be talking to each other.<br><br>For anything more serious it is usually the <b>Royal United in Bath</b>, with the Minor Injury Unit at Trowbridge closer to hand. We help a good number of people home from the RUH, and where it helps we will carry out the assessment on the ward so care is ready for the day they get back — or in a care home, if someone is there for a short stay and wants to come home.",
+      body: "Most of the people we look after in Westbury are registered with <b>Westbury Group Practice</b> at the White Horse Health Centre on Mane Way. We speak to the surgery and to the district nurses directly, so nobody is left relaying messages between people who ought to be talking to each other.<br><br>For anything more serious it is usually the <b>RUH in Bath</b>, with the Minor Injury Unit at Trowbridge closer to hand. We help a good number of people home from the RUH, and where it helps we will carry out the assessment on the ward so care is ready for the day they get back — or in a care home, if someone is there for a short stay and wants to come home.",
     },
     community: {
       headline: "Westbury people, not visitors",
