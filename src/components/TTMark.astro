@@ -1,0 +1,34 @@
+---
+/**
+ * The Otter Homecare "TT" mark — the two T's of OTTER drawn as two people,
+ * arm in arm. Inline rather than <img> so CSS can move it.
+ *
+ * Geometry from Core/Brand Assets/Logos and mascotts/TT/Otter outline web-99.svg.
+ *
+ * The bodies use currentColor so one file serves both grounds: logo teal
+ * #0E7286 on light, white in the dark footer. That teal belongs to the LOGO
+ * palette — it is deliberately not the site's teal token, and should not be
+ * "corrected" to match it. The heads keep the logo mustard either way.
+ *
+ * Motion, where it is switched on, is two small alternating head bobs. It is
+ * deliberately not a lean or a hug: the shoulders arc physically joins the two
+ * figures, so moving them apart would tear the drawing.
+ */
+interface Props {
+  /** adds .tt-live, which is what the motion rules hook */
+  animate?: boolean;
+  class?: string;
+}
+const { animate = false, class: className = "" } = Astro.props;
+const cls = ["tt-mark", animate ? "tt-live" : "", className].filter(Boolean).join(" ");
+---
+<svg class={cls} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110.6 107.89"
+     role="img" aria-label="Otter Homecare">
+  <g fill="none" stroke="currentColor" stroke-width="19" stroke-linecap="round" stroke-linejoin="round">
+    <path class="tt-shoulders" d="M9.5,48.22c16.7-13.87,19.76-8.33,45.64-7.26,25.6,1.06,31.86.09,45.95,7.26"></path>
+    <path class="tt-body-l" d="M40.28,41.05s-1.77,39.09-1.77,57.34"></path>
+    <path class="tt-body-r" d="M75.55,42.97s-.98,30.38-3.08,52.34"></path>
+  </g>
+  <circle class="tt-head-l" cx="43.15" cy="12.79" r="12.79" fill="#CCAD2D"></circle>
+  <circle class="tt-head-r" cx="78.64" cy="12.79" r="11.83" fill="#CCAD2D"></circle>
+</svg>

@@ -906,8 +906,12 @@ footer h3{font-family:"Hanken Grotesk";font-weight:800;color:#fff;font-size:12.5
    These rules are belt-and-braces: with the widget set to Invisible mode in the
    Cloudflare dashboard it renders nothing and none of this is visible. They
    exist so the layout still holds if the mode is ever changed back. */
-footer .news{flex-wrap:wrap;row-gap:0}
-footer .news .cf-turnstile{flex:0 0 100%;order:3;margin-top:10px}
+/* row-gap was 0 here, which was fine while the row never wrapped. Once the
+   Turnstile widget was added as a third item the row does wrap, and the
+   Subscribe button ended up touching the email field. It matches the column
+   gap now. */
+footer .news{flex-wrap:wrap;row-gap:8px}
+footer .news .cf-turnstile{flex:0 0 100%;order:3;margin:0}
 
 /* Never let the flexible-width widget push a narrow container wider than itself. */
 .cf-turnstile{max-width:100%;overflow:hidden}
@@ -1022,19 +1026,13 @@ footer .news .cf-turnstile{flex:0 0 100%;order:3;margin-top:10px}
   100%{transform:rotate(0)}
 }
 
-/* ── The TT mark's feet sit on the eyebrow's baseline ─────────────────────
-   The mark sits beside "What we help with" rather than above it. An
-   inline-flex box is baseline-aligned by its bottom margin edge, so with a
-   tightly-cropped asset the feet land on the baseline with no nudging.
-   The PNG this replaced needed an 18.5% offset because it carried 28px of
-   transparent padding below the feet; the SVG's viewBox is tight, so the
-   offset is gone. margin-bottom is cleared because it belonged to a stacked
-   layout and only pushed the line box around here. */
-.dots-motif{margin-bottom:0;margin-right:9px;vertical-align:baseline}
-/* 2px of the box's own baseline offset, measured. The PNG needed 18.5% here
-   because it carried transparent padding; the SVG's viewBox is tight, so only
-   this remains. */
-.dots-motif img{transform:translateY(4.5%)}
+/* ── The TT mark sits centred above the eyebrow ───────────────────────────
+   .dots-motif is inline-flex in otter-home.css:216, which puts the mark on the
+   same line as "What we help with". display:flex makes the span block-level so
+   it takes its own line, and the justify-content:center already on it does the
+   centring. Its own margin-bottom:10px was always written for this layout.
+   No baseline offset is needed now: the mark is not sharing a line with text. */
+.dots-motif{display:flex}
 
 /* ── Hairline under the river divider on Our Story ────────────────────────
    .otterwhy ends and the next section begins on the same fractional pixel
@@ -1046,3 +1044,27 @@ footer .news .cf-turnstile{flex:0 0 100%;order:3;margin-top:10px}
    Pulling the following section up a pixel closes it. Both sides of the join
    are --teal-d, so the overlap is invisible. */
 .otterwhy{margin-bottom:-1px}
+
+/* ── The TT mark ──────────────────────────────────────────────────────────
+   Inline SVG, so the colour comes from currentColor and one component serves
+   both grounds: logo teal on light, white in the dark footer. */
+.tt-mark{display:block;width:46px;height:auto;color:#0E7286}
+.dots-motif .tt-mark{margin-inline:auto}
+
+/* In the footer, under the address. White, and quiet: this appears on every
+   page, so it does not move. */
+footer .foot-mark{width:40px;color:#fff;opacity:.92;margin-top:18px}
+
+/* Two small alternating head bobs, only where .tt-live is set — the homepage.
+   Not a lean or a hug: the shoulders arc joins the two figures, so pulling
+   them together would tear the drawing. 9s and 7s so they drift rather than
+   nod in time with each other. The mark is still for most of both cycles. */
+.tt-live .tt-head-l,.tt-live .tt-head-r{transform-box:view-box}
+.tt-live .tt-head-l{animation:tt-bob-l 9s ease-in-out 1.2s infinite}
+.tt-live .tt-head-r{animation:tt-bob-r 7s ease-in-out 2.4s infinite}
+@keyframes tt-bob-l{0%,88%{transform:translateY(0)}93%{transform:translateY(-2.4px)}100%{transform:translateY(0)}}
+@keyframes tt-bob-r{0%,90%{transform:translateY(0)}95%{transform:translateY(-2px)}100%{transform:translateY(0)}}
+
+@media (prefers-reduced-motion:reduce){
+  .tt-live .tt-head-l,.tt-live .tt-head-r{animation:none!important;transform:none!important}
+}
