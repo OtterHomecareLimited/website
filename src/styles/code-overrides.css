@@ -1017,3 +1017,12 @@ footer .news .cf-turnstile{flex:0 0 100%;order:3;margin-top:10px}
   10.9%{transform:rotate(0)}
   100%{transform:rotate(0)}
 }
+
+/* ── The TT mark sits above the eyebrow, not beside it ────────────────────
+   .dots-motif is inline-flex in otter-home.css:216, so it shares a line with
+   the eyebrow. The mark is 47px tall against 21px of text, so it hangs 32px
+   above it and reads as misaligned rather than as a motif.
+   Its own margin-bottom:10px shows the intent was a stacked motif — only the
+   display value stopped it. flex makes the span block-level, so it takes its
+   own line and that margin finally does something. */
+.dots-motif{display:flex}
