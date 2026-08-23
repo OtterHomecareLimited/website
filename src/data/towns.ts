@@ -41,6 +41,10 @@ export const towns: Town[] = [
     chips: ["Hilperton","Staverton","Southwick","North Bradley","Wingfield","West Ashton","Keevil","Semington","Steeple Ashton","Great Hinton","Littleton","Hoggington"],
     cardBlurb: "Our home town. Care across Trowbridge and the villages from Hilperton to Steeple Ashton.",
     testimonial: { quote: "She is such a gentle and caring soul and has been a godsend for my parents. We all really appreciate having Pam in our lives.", author: "Lyn E", role: "Daughter of Client" },
+    faqs: [
+      { q: "Can you help someone coming out of the RUH in Bath?",
+        a: "Yes, and it is something we do often. Where it helps, we will come and assess on the ward so that care is arranged before discharge day rather than after it." },
+    ],
   },
   {
     slug: "bradford-on-avon",
@@ -92,6 +96,10 @@ export const towns: Town[] = [
     chips: ["Broughton Gifford","Whitley","Atworth","Shaw","Bowerhill","Beanacre","Seend","Seend Cleeve"],
     cardBlurb: "Supporting Melksham and the villages including Atworth, Shaw, Seend and Beanacre.",
     testimonial: { quote: "All home care should be as good as this, lovely carers, nothing too much trouble, they don't just do the basics, but will help out with anything…", author: "E S", role: "Client" },
+    faqs: [
+      { q: "Can you help someone coming out of the RUH in Bath?",
+        a: "Yes, and it is something we do often. Where it helps, we will come and assess on the ward so that care is arranged before discharge day rather than after it." },
+    ],
   },
   {
     slug: "westbury",
@@ -143,6 +151,10 @@ export const towns: Town[] = [
     chips: ["Beckington","Nunney","Mells","Rode","Norton St Philip","Woolverton","Tellisford","Chantry","Great Elm","Feltham"],
     cardBlurb: "Our Somerset town. Care across Frome and villages including Beckington, Rode and Norton St Philip.",
     testimonial: { quote: "I cannot recommend Otter Home Care highly enough: we used them to provide care for my elderly dad. Their level of care was excellent, the carers were always on time and were very attentive.", author: "Helen F", role: "Daughter of Client" },
+    faqs: [
+      { q: "Can you help someone coming out of the RUH in Bath?",
+        a: "Yes, and it is something we do often. Where it helps, we will come and assess on the ward so that care is arranged before discharge day rather than after it." },
+    ],
   },
 ];
 
