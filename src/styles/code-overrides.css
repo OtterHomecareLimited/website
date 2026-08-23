@@ -1117,3 +1117,47 @@ footer .foot-mark{width:40px;color:#fff;opacity:.92;margin-top:18px}
    currentColor trick the footer uses. Pose 97, arms open: the page has
    finished explaining and is asking. */
 .book-mark{width:46px;margin:0 auto 14px;color:#fff;opacity:.95}
+
+/* ── Service page section lists ───────────────────────────────────────────
+   These followed .lede paragraphs as a bare <ul> with no class, so they fell
+   through to browser defaults: the ink colour rather than the muted one the
+   paragraph above uses, and markers hanging outside the text column so the
+   list read as less indented than the prose it belongs to. They now match the
+   paragraph they follow and sit inside it. */
+.svc-seclist{
+  margin:2px 0 0;padding-left:30px;
+  display:flex;flex-direction:column;gap:9px;
+  list-style:disc;
+}
+.svc-seclist li{font-size:18px;line-height:1.6;color:var(--muted)}
+.svc-seclist li::marker{color:var(--teal)}
+
+/* ── Two sections on the same ground ──────────────────────────────────────
+   .section is padded top and bottom, so where two of them meet the space
+   doubles to ~216px. Where the background changes that reads as a deliberate
+   break. Where it does not — 27 joins across the site — it reads as a hole,
+   which is what Jamie spotted between the tiles and "What to expect" on How
+   We Work. Halving the top padding on the second one closes it without
+   losing the separation. */
+.section:not(.tmt):not(.bg-beige):not(.bg-paper):not(.bg-sky):not(.book):not(.teal-panel)
+  + .section:not(.tmt):not(.bg-beige):not(.bg-paper):not(.bg-sky):not(.book):not(.teal-panel),
+.section.tmt + .section.tmt,
+.section.tmt + .section.bg-beige,
+.section.bg-beige + .section.tmt,
+.section.bg-beige + .section.bg-beige,
+.section.bg-paper + .section.bg-paper,
+.section.bg-sky + .section.bg-sky{
+  padding-top:clamp(26px, 2.4vw + 14px, 46px);
+}
+/* and the same on the way out, so the join closes from both sides rather than
+   only the second half of it */
+.section:not(.tmt):not(.bg-beige):not(.bg-paper):not(.bg-sky):not(.book):not(.teal-panel):has(
+  + .section:not(.tmt):not(.bg-beige):not(.bg-paper):not(.bg-sky):not(.book):not(.teal-panel)),
+.section.tmt:has(+ .section.tmt),
+.section.tmt:has(+ .section.bg-beige),
+.section.bg-beige:has(+ .section.tmt),
+.section.bg-beige:has(+ .section.bg-beige),
+.section.bg-paper:has(+ .section.bg-paper),
+.section.bg-sky:has(+ .section.bg-sky){
+  padding-bottom:clamp(26px, 2.4vw + 14px, 46px);
+}

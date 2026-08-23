@@ -103,7 +103,7 @@ const faqSchema = service.faqs?.length
           {sec.eyebrow && <span class="eyebrow">{sec.eyebrow}</span>}
           <h2 style="font-size:clamp(24px,3vw,32px);margin:8px 0 14px">{sec.h2}</h2>
           {sec.body && sec.body.map((p) => <p class="lede" style="max-width:none;margin-bottom:14px" set:html={p}></p>)}
-          {sec.list && <ul style="margin-top:6px">{sec.list.map((li) => <li>{li}</li>)}</ul>}
+          {sec.list && <ul class="svc-seclist">{sec.list.map((li) => <li>{li}</li>)}</ul>}
         </div>
       </div>
     </section>
