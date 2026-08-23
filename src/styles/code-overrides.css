@@ -1018,11 +1018,17 @@ footer .news .cf-turnstile{flex:0 0 100%;order:3;margin-top:10px}
   100%{transform:rotate(0)}
 }
 
-/* ── The TT mark sits above the eyebrow, not beside it ────────────────────
-   .dots-motif is inline-flex in otter-home.css:216, so it shares a line with
-   the eyebrow. The mark is 47px tall against 21px of text, so it hangs 32px
-   above it and reads as misaligned rather than as a motif.
-   Its own margin-bottom:10px shows the intent was a stacked motif — only the
-   display value stopped it. flex makes the span block-level, so it takes its
-   own line and that margin finally does something. */
-.dots-motif{display:flex}
+/* ── The TT mark's feet sit on the eyebrow's baseline ─────────────────────
+   The mark stays beside "What we help with" rather than above it, but it was
+   floating: an inline-flex box is baseline-aligned by its bottom margin edge,
+   and otter-tt.png carries 28px of transparent padding below the figures'
+   feet out of 198px — 14.1% — so the feet ended up that far above the text.
+   Shifting the image down by exactly that fraction lands the feet on the
+   baseline at any size, since the padding is proportional.
+   margin-bottom:10px is cleared too: it belonged to a stacked layout and only
+   pushed the line box around here. */
+.dots-motif{margin-bottom:0;margin-right:9px;vertical-align:baseline}
+/* 14.1% clears the PNG's own transparent padding; the remaining 4.4% drops the
+   feet from the image's box edge onto the text baseline, measured against the
+   font's real metrics rather than eyeballed. */
+.dots-motif img{transform:translateY(18.5%)}
