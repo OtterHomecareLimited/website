@@ -969,3 +969,51 @@ footer .news .cf-turnstile{flex:0 0 100%;order:3;margin-top:10px}
 @media (prefers-reduced-motion:reduce){
   .otter-mascot,.otter-mascot *{animation:none!important;transform:none!important}
 }
+
+
+/* ── The otter stands above the river, not in it ──────────────────────────
+   otter-home.css:954 pulls .otterwhy .otter-scene down by
+   calc(-52px - clamp(50px,5.5vw,80px)) so the mascot overlaps the wave
+   divider. Jamie has asked twice for it to sit in the light blue above the
+   water, so the negative margin is cancelled and replaced with clearance a
+   little greater than the divider's own height (clamp(96px,11vw,140px)). */
+@media(min-width:901px){
+  /* Enough to clear the wave, not so much that the otter floats: this lands
+     its feet roughly level with the bottom of the trait bubbles, which is
+     where the composition wants it. */
+  .otterwhy .otter-scene{ margin-bottom:clamp(28px,4vw,58px) }
+}
+
+/* ── Periodic idle, not just on scroll ────────────────────────────────────
+   One infinite animation does both jobs: the first cycle plays as the entrance
+   when .in lands, then it repeats. The movement occupies a small slice of a
+   long cycle, so the otter is still most of the time.
+   Head 15s and tail 11s deliberately do not divide into each other — they
+   drift apart instead of locking into a repeating pattern, which is what makes
+   it read as alive rather than clockwork. */
+.otter-habitat.in .otter-mascot .st8,.otter-habitat.in .otter-mascot .st11,
+.otter-habitat.in .otter-mascot .st14,.otter-habitat.in .otter-mascot .st1,
+.otter-habitat.in .otter-mascot .st2,.otter-habitat.in .otter-mascot .st3,
+.otter-habitat.in .otter-mascot .st5,.otter-habitat.in .otter-mascot .head-rot{
+  animation:otter-notice-idle 15s cubic-bezier(.34,1.4,.64,1) .45s infinite both;
+}
+.otter-habitat.in .otter-mascot #tail{
+  animation:otter-tail-idle 11s cubic-bezier(.34,1.3,.64,1) .4s infinite both;
+}
+
+/* 3.3% of 15s = 495ms to the peak, 7.3% = 1,095ms back to rest, still for the
+   remaining ~13.9s */
+@keyframes otter-notice-idle{
+  0%{transform:rotate(0)}
+  3.3%{transform:rotate(-3.2deg)}
+  7.3%{transform:rotate(0)}
+  100%{transform:rotate(0)}
+}
+/* 4.4% of 11s = 484ms, 7.6% = 836ms, 10.9% = 1,199ms, still for ~9.8s */
+@keyframes otter-tail-idle{
+  0%{transform:rotate(0)}
+  4.4%{transform:rotate(7deg)}
+  7.6%{transform:rotate(-2.5deg)}
+  10.9%{transform:rotate(0)}
+  100%{transform:rotate(0)}
+}
