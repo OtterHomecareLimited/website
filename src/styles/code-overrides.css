@@ -981,7 +981,11 @@ footer .news .cf-turnstile{flex:0 0 100%;order:3;margin-top:10px}
   /* Enough to clear the wave, not so much that the otter floats: this lands
      its feet roughly level with the bottom of the trait bubbles, which is
      where the composition wants it. */
-  .otterwhy .otter-scene{ margin-bottom:clamp(28px,4vw,58px) }
+  /* align-self:end already pins the scene to the bottom of the grid row, which
+     is the bottom of the trait bubbles. All that is left is to cancel the
+     scene's own 6px padding-bottom and the 8px of viewBox padding sitting
+     below the otter's feet, so the feet themselves land on that line. */
+  .otterwhy .otter-scene{ margin-bottom:-14px }
 }
 
 /* ── Periodic idle, not just on scroll ────────────────────────────────────
@@ -1032,3 +1036,14 @@ footer .news .cf-turnstile{flex:0 0 100%;order:3;margin-top:10px}
    feet from the image's box edge onto the text baseline, measured against the
    font's real metrics rather than eyeballed. */
 .dots-motif img{transform:translateY(18.5%)}
+
+/* ── Hairline under the river divider on Our Story ────────────────────────
+   .otterwhy ends and the next section begins on the same fractional pixel
+   (4202.77 at 375px wide). Each rounds independently when rasterised, so a
+   sub-pixel sliver of the body's cream shows through as a white line under
+   the wave — visible on mobile, where the fraction lands worst.
+   The site's other dividers do not do this because .wave paints its own
+   background; .river-full is transparent, so nothing covers the seam.
+   Pulling the following section up a pixel closes it. Both sides of the join
+   are --teal-d, so the overlap is invisible. */
+.otterwhy{margin-bottom:-1px}
