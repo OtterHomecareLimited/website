@@ -1111,3 +1111,9 @@ footer .foot-mark{width:40px;color:#fff;opacity:.92;margin-top:18px}
    homepage motif but reusable. Only used where the section is genuinely about
    two people together, not as decoration. */
 .sec-mark{width:44px;margin:0 auto 12px}
+
+/* The mark closing every service page, above "Let's find the right care,
+   together". White, because that CTA sits on the dark teal ground — the same
+   currentColor trick the footer uses. Pose 97, arms open: the page has
+   finished explaining and is asking. */
+.book-mark{width:46px;margin:0 auto 14px;color:#fff;opacity:.95}

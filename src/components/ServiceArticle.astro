@@ -3,6 +3,7 @@ import RatedBadge from "./RatedBadge.astro";
 import SiteLayout from "../layouts/SiteLayout.astro";
 import type { Service } from "../data/services";
 import { services } from "../data/services";
+import TTMark from "./TTMark.astro";
 
 interface Props { service: Service }
 const { service } = Astro.props;
@@ -150,7 +151,7 @@ const faqSchema = service.faqs?.length
   <section class="section book" id="book-cta">
     <div class="wrap" style="grid-template-columns:1fr;display:block;text-align:center">
       <div class="reveal" style="max-width:36ch;margin:0 auto">
-        <span class="eyebrow" style="color:#9fc4bf">Free, no-obligation assessment</span>
+        <TTMark pose={97} animate class="book-mark" /><span class="eyebrow" style="color:#9fc4bf">Free, no-obligation assessment</span>
         <h2 style="margin:14px 0 12px">Let's find the right care, together</h2>
         <p class="lede" style="margin-bottom:26px;color:#bfe0dc">A friendly voice, not a call centre.</p>
         <div style="display:flex;gap:13px;justify-content:center;flex-wrap:wrap">
