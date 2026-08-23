@@ -1023,19 +1023,18 @@ footer .news .cf-turnstile{flex:0 0 100%;order:3;margin-top:10px}
 }
 
 /* ── The TT mark's feet sit on the eyebrow's baseline ─────────────────────
-   The mark stays beside "What we help with" rather than above it, but it was
-   floating: an inline-flex box is baseline-aligned by its bottom margin edge,
-   and otter-tt.png carries 28px of transparent padding below the figures'
-   feet out of 198px — 14.1% — so the feet ended up that far above the text.
-   Shifting the image down by exactly that fraction lands the feet on the
-   baseline at any size, since the padding is proportional.
-   margin-bottom:10px is cleared too: it belonged to a stacked layout and only
-   pushed the line box around here. */
+   The mark sits beside "What we help with" rather than above it. An
+   inline-flex box is baseline-aligned by its bottom margin edge, so with a
+   tightly-cropped asset the feet land on the baseline with no nudging.
+   The PNG this replaced needed an 18.5% offset because it carried 28px of
+   transparent padding below the feet; the SVG's viewBox is tight, so the
+   offset is gone. margin-bottom is cleared because it belonged to a stacked
+   layout and only pushed the line box around here. */
 .dots-motif{margin-bottom:0;margin-right:9px;vertical-align:baseline}
-/* 14.1% clears the PNG's own transparent padding; the remaining 4.4% drops the
-   feet from the image's box edge onto the text baseline, measured against the
-   font's real metrics rather than eyeballed. */
-.dots-motif img{transform:translateY(18.5%)}
+/* 2px of the box's own baseline offset, measured. The PNG needed 18.5% here
+   because it carried transparent padding; the SVG's viewBox is tight, so only
+   this remains. */
+.dots-motif img{transform:translateY(4.5%)}
 
 /* ── Hairline under the river divider on Our Story ────────────────────────
    .otterwhy ends and the next section begins on the same fractional pixel

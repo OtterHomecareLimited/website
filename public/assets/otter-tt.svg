@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Otter Homecare "TT" mark: the two T's of OTTER drawn as two people, arm in arm.
+
+  Source: Core/Brand Assets/Logos and mascotts/TT/Otter outline web-99.svg,
+  recoloured from the white on dark original to the logo teal #0E7286, which is
+  what the PNG this replaces used. That teal belongs to the LOGO palette, not
+  the UI palette. It is deliberately not the site's teal token #136B7D, and it
+  should not be "corrected" to match it.
+
+  Colours are inline presentation attributes on purpose. The mascot SVG kept its
+  colours in an internal stylesheet, lost it somewhere, and rendered as a black
+  silhouette for months. Attributes cannot be stripped that way.
+
+  Parts are named so the two figures can be animated separately later.
+
+  The viewBox is tight: the 19px round capped strokes land exactly on the edges.
+  So this needs no alignment offset, unlike the PNG it replaces, which carried
+  28px of transparent padding below the feet.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110.6 107.89" role="img" aria-label="Otter Homecare">
+  <g id="tt-arms" fill="none" stroke="#0E7286" stroke-width="19" stroke-linecap="round" stroke-linejoin="round">
+    <path id="tt-shoulders" d="M9.5,48.22c16.7-13.87,19.76-8.33,45.64-7.26,25.6,1.06,31.86.09,45.95,7.26"/>
+    <path id="tt-body-l" d="M40.28,41.05s-1.77,39.09-1.77,57.34"/>
+    <path id="tt-body-r" d="M75.55,42.97s-.98,30.38-3.08,52.34"/>
+  </g>
+  <circle id="tt-head-l" cx="43.15" cy="12.79" r="12.79" fill="#CCAD2D"/>
+  <circle id="tt-head-r" cx="78.64" cy="12.79" r="11.83" fill="#CCAD2D"/>
+</svg>
