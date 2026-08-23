@@ -1068,3 +1068,41 @@ footer .foot-mark{width:40px;color:#fff;opacity:.92;margin-top:18px}
 @media (prefers-reduced-motion:reduce){
   .tt-live .tt-head-l,.tt-live .tt-head-r{animation:none!important;transform:none!important}
 }
+
+/* ── The kilt otter moves on the homepage values card ─────────────────────
+   Same treatment as the plain mascot on Our Story, hooked to the site's own
+   .reveal/.in observer so it needs no JavaScript.
+
+   st9 holds the ear interiors, the eyes and the paw markings. Only the first
+   two turn with the head, which is why the head rule names the parts rather
+   than the class — rotating all of st9 would swing the paws round too.
+
+   The eyes are wrapped in .kilt-headrot so they can blink about their own
+   centre while turning about the neck. One element carries one transform
+   origin, so without the wrapper the blink beats the turn and the eyes stay
+   behind while the head moves. */
+.otter-kilt{display:block;height:auto}
+.otter-kilt .kilt-eye{transform-box:fill-box;transform-origin:center}
+.otter-kilt .st10,.otter-kilt .st12,.otter-kilt .st6,.otter-kilt .st5,
+.otter-kilt .st7,.otter-kilt .st3,.otter-kilt .kilt-ear,.otter-kilt .kilt-headrot{
+  transform-origin:435px 280px;   /* the neck */
+}
+.otter-kilt #kiltTail{transform-origin:420px 865px}
+
+.kilt-card.in .otter-kilt .st10,.kilt-card.in .otter-kilt .st12,
+.kilt-card.in .otter-kilt .st6,.kilt-card.in .otter-kilt .st5,
+.kilt-card.in .otter-kilt .st7,.kilt-card.in .otter-kilt .st3,
+.kilt-card.in .otter-kilt .kilt-ear,.kilt-card.in .otter-kilt .kilt-headrot{
+  animation:otter-notice-idle 15s cubic-bezier(.34,1.4,.64,1) .5s infinite both;
+}
+.kilt-card.in .otter-kilt #kiltTail{
+  animation:otter-tail-idle 11s cubic-bezier(.34,1.3,.64,1) .45s infinite both;
+}
+.kilt-card.in .otter-kilt .kilt-eye{
+  animation:otter-blink 6.2s steps(1,end) 2.8s infinite;
+}
+.kilt-card.in .otter-kilt #kiltEye2{animation-delay:2.84s}
+
+@media (prefers-reduced-motion:reduce){
+  .otter-kilt,.otter-kilt *{animation:none!important;transform:none!important}
+}
