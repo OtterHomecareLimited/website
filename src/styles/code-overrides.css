@@ -1135,10 +1135,11 @@ footer .foot-mark{width:40px;color:#fff;opacity:.92;margin-top:18px}
 /* ── Two sections on the same ground ──────────────────────────────────────
    .section is padded top and bottom, so where two of them meet the space
    doubles to ~216px. Where the background changes that reads as a deliberate
-   break. Where it does not — 27 joins across the site — it reads as a hole,
+   break. Where it does not — 28 joins across the site — it reads as a hole,
    which is what Jamie spotted between the tiles and "What to expect" on How
-   We Work. Halving the top padding on the second one closes it without
-   losing the separation. */
+   We Work, and again between the reviews and "Real moments" on the homepage
+   (.tmt and .moments are both --cream-2 but weren't paired here). Halving
+   the top padding on the second one closes it without losing the separation. */
 .section:not(.tmt):not(.bg-beige):not(.bg-paper):not(.bg-sky):not(.book):not(.teal-panel)
   + .section:not(.tmt):not(.bg-beige):not(.bg-paper):not(.bg-sky):not(.book):not(.teal-panel),
 .section.tmt + .section.tmt,
@@ -1146,7 +1147,8 @@ footer .foot-mark{width:40px;color:#fff;opacity:.92;margin-top:18px}
 .section.bg-beige + .section.tmt,
 .section.bg-beige + .section.bg-beige,
 .section.bg-paper + .section.bg-paper,
-.section.bg-sky + .section.bg-sky{
+.section.bg-sky + .section.bg-sky,
+.section.tmt + .section.moments{
   padding-top:clamp(26px, 2.4vw + 14px, 46px);
 }
 /* and the same on the way out, so the join closes from both sides rather than
@@ -1158,6 +1160,7 @@ footer .foot-mark{width:40px;color:#fff;opacity:.92;margin-top:18px}
 .section.bg-beige:has(+ .section.tmt),
 .section.bg-beige:has(+ .section.bg-beige),
 .section.bg-paper:has(+ .section.bg-paper),
-.section.bg-sky:has(+ .section.bg-sky){
+.section.bg-sky:has(+ .section.bg-sky),
+.section.tmt:has(+ .section.moments){
   padding-bottom:clamp(26px, 2.4vw + 14px, 46px);
 }
