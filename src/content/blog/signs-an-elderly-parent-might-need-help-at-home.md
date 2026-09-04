@@ -58,6 +58,6 @@ This is the part families worry about most. A few things we've learned from hund
 
 ## If you'd like to talk it through
 
-We're Otter Homecare, a small local team caring for people across Trowbridge, Melksham, Frome, Westbury, Bradford-on-Avon and the surrounding villages. We're always happy to have a no-pressure conversation, even if you're only starting to think about it.
+We're Otter Homecare, a small local team caring for people across Trowbridge, Melksham, Frome, Westbury, Warminster, Bradford-on-Avon and the surrounding villages. We're always happy to have a no-pressure conversation, even if you're only starting to think about it.
 
 You can read more about [how our care works](/how-we-work) and [what home care costs](/cost-of-home-care), or just give us a ring on 01225 690022. We answer our own phone, and we're happy to help you think it through, whatever you decide.

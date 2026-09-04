@@ -58,7 +58,7 @@ export const services: Service[] = [
     },
 
     serviceType: "Personal care at home",
-    areaServed: ["Trowbridge", "Bradford-on-Avon", "Melksham", "Westbury", "Frome", "West Wiltshire", "Somerset"],
+    areaServed: ["Trowbridge", "Bradford-on-Avon", "Melksham", "Westbury", "Frome", "Warminster", "West Wiltshire", "Somerset"],
     priceFrom: { amount: 27.5, unit: "30-minute visit" },
     sections: [
       {
@@ -119,7 +119,7 @@ export const services: Service[] = [
     name: "Visiting Care",
     title: "Visiting Care in Wiltshire & Somerset | Otter Homecare",
     description:
-      "Visiting care at home across Trowbridge, Bradford-on-Avon, Melksham, Westbury and Frome — from a daily call-in to several visits a day, covering personal care, companionship, dementia support and respite.",
+      "Visiting care at home across Trowbridge, Bradford-on-Avon, Melksham, Westbury, Warminster and Frome — from a daily call-in to several visits a day, covering personal care, companionship, dementia support and respite.",
     h1: "Visiting Care",
     subtitle: "Flexible visits, on your terms",
     heroImg: "ff72ba_3a8fe18215c24b3e9cb6884f0bf44228~mv2.jpg",
@@ -138,7 +138,7 @@ export const services: Service[] = [
     ],
 
     serviceType: "Home visiting care",
-    areaServed: ["Trowbridge", "Bradford-on-Avon", "Melksham", "Westbury", "Frome", "West Wiltshire", "Somerset"],
+    areaServed: ["Trowbridge", "Bradford-on-Avon", "Melksham", "Westbury", "Frome", "Warminster", "West Wiltshire", "Somerset"],
     priceFrom: { amount: 27.5, unit: "30-minute visit" },
     sections: [
       {
@@ -241,7 +241,7 @@ export const services: Service[] = [
     },
 
     serviceType: "Companionship care",
-    areaServed: ["Trowbridge", "Bradford-on-Avon", "Melksham", "Westbury", "Frome", "West Wiltshire", "Somerset"],
+    areaServed: ["Trowbridge", "Bradford-on-Avon", "Melksham", "Westbury", "Frome", "Warminster", "West Wiltshire", "Somerset"],
     priceFrom: { amount: 27.5, unit: "30-minute visit" },
     sections: [
       {
@@ -302,7 +302,7 @@ export const services: Service[] = [
     name: "Night Care",
     title: "Night Care at Home in Wiltshire & Somerset | Otter Homecare",
     description:
-      "Sleeping nights and waking nights at home across Trowbridge, Bradford-on-Avon, Melksham, Westbury and Frome — someone there through the night so the whole household can sleep.",
+      "Sleeping nights and waking nights at home across Trowbridge, Bradford-on-Avon, Melksham, Westbury, Warminster and Frome — someone there through the night so the whole household can sleep.",
     h1: "Night Care",
     subtitle: "Someone there through the night",
     // Placeholder hero — there is no evening or night photograph in the library
@@ -324,7 +324,7 @@ export const services: Service[] = [
       "A handover note so the day team know how the night went",
     ],
     serviceType: "Overnight home care",
-    areaServed: ["Trowbridge", "Bradford-on-Avon", "Melksham", "Westbury", "Frome", "West Wiltshire", "Somerset"],
+    areaServed: ["Trowbridge", "Bradford-on-Avon", "Melksham", "Westbury", "Frome", "Warminster", "West Wiltshire", "Somerset"],
     priceFrom: { amount: 240, unit: "sleeping night (9 hours)" },
     sections: [
       {
@@ -385,7 +385,7 @@ export const services: Service[] = [
     name: "Live-in Care",
     title: "Live-in Care in Wiltshire & Somerset | Otter Homecare",
     description:
-      "Live-in care at home across Trowbridge, Bradford-on-Avon, Melksham, Westbury & Frome — round-the-clock one-to-one support from a dedicated Care Professional, from £1,550 a week.",
+      "Live-in care at home across Trowbridge, Bradford-on-Avon, Melksham, Westbury, Warminster & Frome — round-the-clock one-to-one support from a dedicated Care Professional, from £1,550 a week.",
     h1: "Live-in Care",
     subtitle: "Round-the-clock support, comfort and peace of mind in the place you call home",
     heroImg: "live-in-who.jpg",
@@ -419,7 +419,7 @@ export const services: Service[] = [
     },
     serviceType: "Live-in care",
     areaServed: [
-      "Trowbridge", "Bradford-on-Avon", "Melksham", "Westbury", "Frome",
+      "Trowbridge", "Bradford-on-Avon", "Melksham", "Westbury", "Frome", "Warminster",
       "West Wiltshire", "Somerset",
     ],
     priceFrom: { amount: 1550, unit: "WEEK" },
@@ -468,7 +468,7 @@ export const services: Service[] = [
         eyebrow: "Local, familiar faces",
         h2: "Live-in care across Wiltshire & Somerset",
         body: [
-          "We provide live-in care at home across West Wiltshire and into Somerset, with a local team who live a few minutes from the people they care for. If you're looking for live-in care in <a href='/trowbridge'>Trowbridge</a>, <a href='/bradford-on-avon'>Bradford-on-Avon</a>, <a href='/melksham'>Melksham</a>, <a href='/westbury'>Westbury</a> or <a href='/frome'>Frome</a> — and the villages around them — we'd love to help.",
+          "We provide live-in care at home across West Wiltshire and into Somerset, with a local team who live a few minutes from the people they care for. If you're looking for live-in care in <a href='/trowbridge'>Trowbridge</a>, <a href='/bradford-on-avon'>Bradford-on-Avon</a>, <a href='/melksham'>Melksham</a>, <a href='/westbury'>Westbury</a>, <a href='/warminster'>Warminster</a> or <a href='/frome'>Frome</a> — and the villages around them — we'd love to help.",
         ],
       },
     ],
@@ -503,7 +503,7 @@ export const services: Service[] = [
       },
       {
         q: "Which areas do you cover for live-in care?",
-        a: ["We provide live-in care across West Wiltshire and Somerset, including Trowbridge, Bradford-on-Avon, Melksham, Westbury and Frome, and the surrounding villages."],
+        a: ["We provide live-in care across West Wiltshire and Somerset, including Trowbridge, Bradford-on-Avon, Melksham, Westbury, Warminster and Frome, and the surrounding villages."],
       },
     ],
   },
@@ -531,7 +531,7 @@ export const services: Service[] = [
     note: "Fall recovery support is available to existing Otter Homecare clients.",
 
     serviceType: "Fall recovery support at home",
-    areaServed: ["Trowbridge", "Bradford-on-Avon", "Melksham", "Westbury", "Frome", "West Wiltshire", "Somerset"],
+    areaServed: ["Trowbridge", "Bradford-on-Avon", "Melksham", "Westbury", "Frome", "Warminster", "West Wiltshire", "Somerset"],
     sections: [
       {
         eyebrow: "Why it matters",

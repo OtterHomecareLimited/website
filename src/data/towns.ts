@@ -1,4 +1,5 @@
 // v5 town-page data — drives /[slug] town pages + the /areas-we-cover hub.
+// Warminster added 4 Sep 2026 (sixth town; first families there since 2026).
 // Content reconciled from the captured Wix copy + Otterly Outstanding deep-dive,
 // confirmed by Jamie 2026-06-07. Photos self-hosted in /public/img.
 
@@ -19,8 +20,8 @@ export interface Town {
   // --- Optional depth blocks (added Aug 2026) -------------------------------
   // Rendered only when present, so towns can be deepened one at a time without
   // touching the template. Bodies may contain <b> and <br> — set:html.
-  // Bradford-on-Avon and Westbury are done; the other three still need Jamie's
-  // local detail before they can be written honestly.
+  // Bradford-on-Avon, Westbury and Warminster are done; the other three still need
+  // Jamie's local detail before they can be written honestly.
   localCare?: { headline: string; body: string };
   community?: { headline: string; body: string };
   funding?: { headline: string; body: string };
@@ -172,6 +173,51 @@ export const towns: Town[] = [
         a: "Yes, and it is something we do often. Where it helps, we will come and assess on the ward so that care is arranged before discharge day rather than after it." },
       { q: "Will the same carers come each time?",
         a: "That is the whole reason we stay small. You will have a regular team who know the routine, rather than whoever the rota throws up — and you will meet them before they start." },
+    ],
+  },
+  {
+    slug: "warminster",
+    name: "Warminster",
+    title: "Home Care in Warminster | Otter Homecare",
+    description: "Compassionate home care in Warminster and the Wylye Valley villages. Visiting care, dementia support and live-in care, with flexible visits to suit you. Call 01225 690022.",
+    h1: "Home care in Warminster",
+    intro: "Warminster is our newest town. We started looking after families here in 2026, and we bring the same small local team and the same one-to-one care that families in Westbury and Trowbridge already know. From a friendly daily visit to full live-in support, we help your loved ones stay safe and independent in the home they love, in the town itself and out through the villages to the Deverills and the Wylye Valley.",
+    locHeadline: "Care from people who know Warminster",
+    locBody: "Warminster is a few minutes down the A350 from Westbury, where several of our Care Professionals live, and our Trowbridge office is twenty minutes away. That means we can be with you quickly, and we can send the same familiar faces each visit rather than whoever happens to be free. We know the town, from the Lake Pleasure Grounds to the Market Place, and the lanes out to <b>Sutton Veny</b>, <b>Heytesbury</b> and <b>Corsley</b>.",
+    photo: "/img/town-warminster.jpg",
+    chips: ["Sutton Veny","Heytesbury","Codford","Crockerton","Longbridge Deverill","Corsley","Horningsham","Bishopstrow","Norton Bavant","Maiden Bradley"],
+    cardBlurb: "Our newest town. Care across Warminster and the villages from Sutton Veny to Codford and the Deverills.",
+    // No Warminster review yet (we only started here in 2026). This is a genuine
+    // homecare.co.uk review, spread for variety like the other five (see the
+    // 2026-06-07 content pack) — swap in a Warminster family's words as soon as
+    // we have one.
+    testimonial: { quote: "The care I have received so far is excellent, second to none. The carers are friendly and understanding. Very knowledgeable and appear to have a high quality of training. I have been treated with full dignity and respect at all times.", author: "S M", role: "Client" },
+
+    // Depth blocks written 4 Sep 2026 from public local sources (GP surgeries,
+    // the community hospital, Beyond Dementia's Warminster group), not from
+    // client stories — we don't have Warminster stories yet. Everything here is
+    // checkable; nothing claims a history we don't have.
+    localCare: {
+      headline: "Working with your GP and the hospital",
+      body: "Warminster has two GP surgeries, <b>The Avenue Surgery</b> and <b>Smallbrook Surgery</b> up at the community hospital. Smallbrook is run by the Westbury Group Practice, the same practice we already work alongside for our Westbury clients. Whichever is yours, we speak to the surgery and to the district nurses directly, so you aren't left carrying messages between people who ought to be talking to each other.<br><br>Warminster also has its own <b>community hospital</b> on The Avenue, with wards where people recover before coming home. For anything more serious it is usually the <b>RUH in Bath</b> or <b>Salisbury District Hospital</b>, with the Minor Injuries Unit in Trowbridge closer to hand. If your relative is on a ward now, in Warminster, Bath or Salisbury, we can come and assess them there, so care is ready for the day they get home rather than the week after.",
+    },
+    community: {
+      headline: "New to Warminster, and glad to be here",
+      body: "We'll be straight about where we are. We started caring for our first Warminster families in 2026, so we don't have years of local stories to tell here yet. What we do have is a team who already know the town. Several of our Care Professionals live in Westbury, four miles up the road, and Warminster is somewhere they shop, walk and visit rather than a patch they drive out to.<br><br>Dementia touches many of the families we support, and Warminster is well served. <b>Beyond Dementia</b>, the Wiltshire charity our team raised money for earlier this year, is based in the town and runs a memory group at Christ Church on Tuesday afternoons. There is a monthly memory café at the Lakeside Community Centre too. If your relative would enjoy either, we can take them along and stay. The same goes for a coffee by the lake at the <b>Pleasure Grounds</b>, a look round the shops, or a drive out towards <b>Cley Hill</b> on a clear afternoon.<br><br>Warminster is a garrison town, so many of the older people here have an Army background, or a partner who did. We take our lead from you on how you like things done.",
+    },
+    funding: {
+      headline: "Paying for care in Warminster",
+      body: "Warminster is in Wiltshire, so if you are asking for help with the cost it is <b>Wiltshire Council</b> you will be dealing with. We look after clients funded by the council, we accept Direct Payments, and we are happy to invoice the council directly.<br><br>We also publish our rates rather than asking you to ring for a number. Visiting care is from £36 an hour and live-in care from £1,550 a week, with no travel or call-out charge. The rate is the same in town as it is out at Codford or Maiden Bradley.<br><br>If you or your partner served, it is worth asking the council how a war pension is treated in the financial assessment. <b>SSAFA</b> and the <b>Royal British Legion</b> both help with that paperwork, and we can point you to the right person.",
+    },
+    faqs: [
+      { q: "How quickly can care start in Warminster?",
+        a: "We can usually carry out the free assessment the same day you call, and have care in place within 48 hours. If it is more urgent than that, say so when you ring and we will tell you honestly what we can do." },
+      { q: "Do you cover the villages around Warminster?",
+        a: "Yes. Sutton Veny, Heytesbury, Codford, Crockerton, Longbridge Deverill, Corsley, Horningsham, Bishopstrow, Norton Bavant and Maiden Bradley, and the lanes between them. There is no extra charge for any of them, and no travel or call-out fee." },
+      { q: "Are you really local to Warminster, or is this a new patch for you?",
+        a: "It is new, and we would rather say so. We started caring for families in Warminster in 2026. The Care Professionals who cover the town live in Westbury and Trowbridge, a few minutes up the A350, and the same regular faces will come each visit. You will meet them before care starts." },
+      { q: "Can you help someone coming out of hospital in Bath, Salisbury or Warminster?",
+        a: "Yes. Where it helps, we will come and assess on the ward, whether that is the RUH, Salisbury District Hospital or the community hospital on The Avenue, so care is arranged before discharge day rather than after it." },
     ],
   },
 ];
