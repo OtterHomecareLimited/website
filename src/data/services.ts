@@ -390,7 +390,8 @@ export const services: Service[] = [
     subtitle: "Round-the-clock support, comfort and peace of mind in the place you call home",
     heroImg: "live-in-who.jpg",
     intro: [
-      "Live-in care provides continuous support day and night, allowing you or your loved one to remain in the comfort and familiarity of home — with the reassurance of professional help always at hand.",
+      "Live-in care means a dedicated Care Professional lives in your home and is on hand through the day and night, so you or your loved one can stay in familiar surroundings with professional help always close by.",
+      "They sleep in your home overnight and take a daily break that we arrange cover for. If someone needs hands-on help several times a night, we add waking-night support — we'll be clear about that, and about the cost, at the assessment.",
       "Whether you're recovering from illness, managing a long-term condition, or simply want to feel safe and supported at home, we're here to help.",
     ],
     includedTitle: "What we help with",
@@ -411,7 +412,7 @@ export const services: Service[] = [
       "Recently bereaved or seeking companionship",
       "An alternative to residential care",
     ],
-    price: "Live-in care starts from £1,550 per week, with a personalised quote after a free assessment. We can help you explore local authority funding or NHS continuing healthcare where applicable.",
+    price: "Live-in care starts from £1,550 a week, plus a £50 weekly food allowance for your Care Professional. The weekly fee covers one Care Professional living in — on hand through the day and sleeping in overnight; regular waking-night help is priced separately. You'll get a personalised quote after a free assessment, and we can help you explore local authority funding or NHS continuing healthcare where applicable.",
     testimonial: {
       quote:
         "We have gone from thinking our mum would be going into a care home imminently, to having mum safe, supported and most of all happy in her own home now.",
@@ -437,8 +438,8 @@ export const services: Service[] = [
         eyebrow: "Around-the-clock care",
         h2: "How live-in care works",
         body: [
-          "With live-in care, a dedicated Care Professional moves into the home and is there day and night — so there's always a familiar, capable person on hand. You provide a spare room and meals, and we take care of everything else.",
-          "Most people have one or two regular Care Professionals who learn their routines, their likes and dislikes, and the way they want things done. We arrange cover for breaks and time off, so the support never stops and the faces stay familiar.",
+          "With live-in care, a dedicated Care Professional moves into the home and is there day and night — so there's always a familiar, capable person on hand. You provide a spare room, a £50 weekly food allowance covers their meals, and we take care of everything else.",
+          "Most people have one or two regular Care Professionals who learn their routines, their likes and dislikes, and the way they want things done. We arrange cover for daily breaks, holidays and sickness from the same small team, so the support never stops and the faces stay familiar.",
         ],
       },
       {
@@ -460,7 +461,7 @@ export const services: Service[] = [
         eyebrow: "Cost & funding",
         h2: "What live-in care costs",
         body: [
-          "Live-in care with Otter Homecare starts from £1,550 a week, with a personalised quote after a free home assessment. For couples, one live-in Care Professional can often support both of you, which can make it better value than two places in a care home.",
+          "Live-in care with Otter Homecare starts from £1,550 a week, plus a £50 weekly food allowance, with a personalised quote after a free home assessment. For couples, one live-in Care Professional can often support both of you, which can make it better value than two places in a care home.",
           "We'll talk you through any funding you may be entitled to — from local authority support and NHS Continuing Healthcare to Attendance Allowance — so you have the full picture before you decide. There's more on our <a href='/cost-of-home-care'>cost of home care</a> page.",
         ],
       },
@@ -475,7 +476,7 @@ export const services: Service[] = [
     faqs: [
       {
         q: "What is live-in care?",
-        a: ["Live-in care means a Care Professional lives in the home and provides support day and night. It's a one-to-one alternative to a care home that lets someone stay in familiar surroundings with help always close by."],
+        a: ["Live-in care means a Care Professional lives in the home and provides support through the day, sleeping in overnight so someone is always close by. It's a one-to-one alternative to a care home that lets someone stay in familiar surroundings with help always close by."],
       },
       {
         q: "How is live-in care different from visiting care?",

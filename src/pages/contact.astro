@@ -19,8 +19,8 @@ import Turnstile from "../components/Turnstile.astro";
       </div>
       <div class="reveal cg-form">
         <form class="form" id="contactForm" action="/api/contact" method="POST" novalidate>
-          <h2>Book your free assessment</h2>
-          <p class="fhint">We usually reply the same day — and there's no obligation at all.</p>
+          <h2>Talk to us about care</h2>
+          <p class="fhint">Not sure what help you need yet? Ask for a call and we'll talk it through first — a free home visit only when you're ready. We usually reply the same day, and there's no obligation at all.</p>
           <input type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none" />
           <!-- Second honeypot. Positioned off-screen rather than display:none, which
                spam tooling detects and skips, and given an ordinary-looking name so a
@@ -35,12 +35,13 @@ import Turnstile from "../components/Turnstile.astro";
           </div>
           <div class="field"><label for="e">Email</label><input id="e" name="email" type="email" autocomplete="email" inputmode="email" placeholder="jane@example.com" /></div>
           <div class="frow">
-            <div class="field"><label for="who">Who is the care for?</label><select id="who" name="who"><option>My parent</option><option>My partner</option><option>Myself</option><option>Another relative</option><option>Someone else</option></select></div>
-            <div class="field"><label for="area">Your area</label><select id="area" name="area"><option>Trowbridge</option><option>Bradford-on-Avon</option><option>Melksham</option><option>Westbury</option><option>Frome</option><option>Warminster</option><option>Elsewhere nearby</option></select></div>
+            <div class="field"><label for="who">Who is the care for?</label><select id="who" name="who"><option value="" selected>Please choose…</option><option>My parent</option><option>My partner</option><option>Myself</option><option>Another relative</option><option>Someone else</option></select></div>
+            <div class="field"><label for="area">Your area</label><select id="area" name="area"><option value="" selected>Please choose…</option><option>Trowbridge</option><option>Bradford-on-Avon</option><option>Melksham</option><option>Westbury</option><option>Frome</option><option>Warminster</option><option>Elsewhere nearby</option></select></div>
           </div>
+          <div class="field"><label for="next">What would you like?</label><select id="next" name="next"><option value="" selected>Please choose…</option><option>A call to talk it through first</option><option>A free home assessment</option><option>Not sure yet</option></select></div>
           <div class="field"><label for="m">How can we help?</label><textarea id="m" name="msg" placeholder="Tell us a little about what you're looking for…"></textarea></div>
           <Turnstile />
-          <button class="btn btn-primary" type="submit">Request my free assessment →</button>
+          <button class="btn btn-primary" type="submit">Send my enquiry →</button>
           <p class="privacy">We'll only use your details to respond to your enquiry. See our <a href="/privacy" style="text-decoration:underline">privacy policy</a>.</p>
         </form>
         <div class="form-success" id="contactOk" style="display:none">

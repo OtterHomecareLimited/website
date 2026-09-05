@@ -53,7 +53,7 @@ export default async function handler(req, res) {
   const {
     firstName = "", lastName = "", name: nameField = "",
     email = "", phone = "", consent = "",
-    who = "", area = "",
+    who = "", area = "", next = "",
     // Provenance, collected from the URL/referrer at submit time by window.otterAdSource
     // (SiteLayout head). Nothing is stored on the visitor's device to produce these.
     gclid = "", gbraid = "", wbraid = "", gad_source = "",
@@ -280,6 +280,7 @@ export default async function handler(req, res) {
           <p><strong>Email:</strong> ${esc(email) || "—"}</p>
           ${who ? `<p><strong>Care for:</strong> ${esc(who)}</p>` : ""}
           ${area ? `<p><strong>Area:</strong> ${esc(area)}</p>` : ""}
+          ${next ? `<p><strong>They'd like:</strong> ${esc(next)}</p>` : ""}
           ${consent ? `<p><strong>Marketing opt-in:</strong> Yes</p>` : ""}
           <hr>
           <p style="white-space:pre-wrap">${esc(message) || "(no message)"}</p>

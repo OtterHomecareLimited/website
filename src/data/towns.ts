@@ -50,7 +50,7 @@ export const towns: Town[] = [
       { q: "Can you help someone coming out of the RUH in Bath?",
         a: "Yes, and it is something we do often. Where it helps, we will come and assess on the ward so that care is arranged before discharge day rather than after it." },
       { q: "Will the same carers come each time?",
-        a: "That is the whole reason we stay small. You will have a regular team who know the routine, rather than whoever the rota throws up — and you will meet them before they start." },
+        a: "That is the whole reason we stay small. You will have a regular team who know the routine, rather than whoever the rota throws up — and you will meet them before they start. When one of them is on holiday or off sick, cover comes from that same small team, and we tell you who is coming." },
     ],
   },
   {
@@ -87,7 +87,7 @@ export const towns: Town[] = [
       { q: "Can you help someone coming out of the RUH in Bath?",
         a: "Yes, and it is something we do often. Where it helps, we will come and assess on the ward so that care is arranged before discharge day rather than after it." },
       { q: "Will the same carers come each time?",
-        a: "That is the whole reason we stay small. You will have a regular team who know the routine, rather than whoever the rota throws up — and you will meet them before they start." },
+        a: "That is the whole reason we stay small. You will have a regular team who know the routine, rather than whoever the rota throws up — and you will meet them before they start. When one of them is on holiday or off sick, cover comes from that same small team, and we tell you who is coming." },
     ],
   },
   {
@@ -111,7 +111,7 @@ export const towns: Town[] = [
       { q: "Can you help someone coming out of the RUH in Bath?",
         a: "Yes, and it is something we do often. Where it helps, we will come and assess on the ward so that care is arranged before discharge day rather than after it." },
       { q: "Will the same carers come each time?",
-        a: "That is the whole reason we stay small. You will have a regular team who know the routine, rather than whoever the rota throws up — and you will meet them before they start." },
+        a: "That is the whole reason we stay small. You will have a regular team who know the routine, rather than whoever the rota throws up — and you will meet them before they start. When one of them is on holiday or off sick, cover comes from that same small team, and we tell you who is coming." },
     ],
   },
   {
@@ -148,7 +148,7 @@ export const towns: Town[] = [
       { q: "Can you help someone coming out of the RUH in Bath?",
         a: "Yes, and it is something we do often. Where it helps, we will come and assess on the ward so that care is arranged before discharge day rather than after it." },
       { q: "Are your carers actually local to Westbury?",
-        a: "Several of them are Westbury people. It is why we can be with you quickly, and why the same faces keep coming back rather than a different carer every week." },
+        a: "Several of them are Westbury people. It is why we can be with you quickly, and why the same faces keep coming back rather than a different carer every week. When one of them is on holiday or off sick, cover comes from that same small team, and we tell you who is coming." },
     ],
   },
   {
@@ -172,7 +172,7 @@ export const towns: Town[] = [
       { q: "Can you help someone coming out of the RUH in Bath?",
         a: "Yes, and it is something we do often. Where it helps, we will come and assess on the ward so that care is arranged before discharge day rather than after it." },
       { q: "Will the same carers come each time?",
-        a: "That is the whole reason we stay small. You will have a regular team who know the routine, rather than whoever the rota throws up — and you will meet them before they start." },
+        a: "That is the whole reason we stay small. You will have a regular team who know the routine, rather than whoever the rota throws up — and you will meet them before they start. When one of them is on holiday or off sick, cover comes from that same small team, and we tell you who is coming." },
     ],
   },
   {
