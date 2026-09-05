@@ -1165,6 +1165,16 @@
   ],
   "base": "img/town-trowbridge"
  },
+ "img/town-warminster.jpg": {
+  "hash": "39c4def7820a",
+  "width": 960,
+  "height": 720,
+  "widths": [
+   480,
+   768
+  ],
+  "base": "img/town-warminster"
+ },
  "img/town-westbury.jpg": {
   "hash": "8c34ec9f9d33",
   "width": 960,
