@@ -181,7 +181,7 @@ export const towns: Town[] = [
     title: "Home Care in Warminster | Otter Homecare",
     description: "Compassionate home care in Warminster and the Wylye Valley villages. Visiting care, dementia support and live-in care, with flexible visits to suit you. Call 01225 690022.",
     h1: "Home care in Warminster",
-    intro: "Warminster is our newest town. We started looking after families here in 2026, and we bring the same small local team and the same one-to-one care that families in Westbury and Trowbridge already know. From a friendly daily visit to full live-in support, we help your loved ones stay safe and independent in the home they love, in the town itself and out through the villages to the Deverills and the Wylye Valley.",
+    intro: "Warminster sits at the edge of Salisbury Plain, the next town along from Westbury, where several of our Care Professionals live. We provide warm, professional home care across Warminster and the Wylye Valley villages, from a friendly daily visit to full live-in support, so your loved ones can stay safe and independent in the home they love.",
     locHeadline: "Care from people who know Warminster",
     locBody: "Warminster is a few minutes down the A350 from Westbury, where several of our Care Professionals live, and our Trowbridge office is twenty minutes away. That means we can be with you quickly, and we can send the same familiar faces each visit rather than whoever happens to be free. We know the town, from the Lake Pleasure Grounds to the Market Place, and the lanes out to <b>Sutton Veny</b>, <b>Heytesbury</b> and <b>Corsley</b>.",
     photo: "/img/town-warminster.jpg",
@@ -196,14 +196,15 @@ export const towns: Town[] = [
     // Depth blocks written 4 Sep 2026 from public local sources (GP surgeries,
     // the community hospital, Beyond Dementia's Warminster group), not from
     // client stories — we don't have Warminster stories yet. Everything here is
-    // checkable; nothing claims a history we don't have.
+    // checkable. Jamie (5 Sep): confident, not apologetic — say "newest town"
+    // once, never "we only started in 2026".
     localCare: {
       headline: "Working with your GP and the hospital",
       body: "Warminster has two GP surgeries, <b>The Avenue Surgery</b> and <b>Smallbrook Surgery</b> up at the community hospital. Smallbrook is run by the Westbury Group Practice, the same practice we already work alongside for our Westbury clients. Whichever is yours, we speak to the surgery and to the district nurses directly, so you aren't left carrying messages between people who ought to be talking to each other.<br><br>Warminster also has its own <b>community hospital</b> on The Avenue, with wards where people recover before coming home. For anything more serious it is usually the <b>RUH in Bath</b> or <b>Salisbury District Hospital</b>, with the Minor Injuries Unit in Trowbridge closer to hand. If your relative is on a ward now, in Warminster, Bath or Salisbury, we can come and assess them there, so care is ready for the day they get home rather than the week after.",
     },
     community: {
-      headline: "New to Warminster, and glad to be here",
-      body: "We'll be straight about where we are. We started caring for our first Warminster families in 2026, so we don't have years of local stories to tell here yet. What we do have is a team who already know the town. Several of our Care Professionals live in Westbury, four miles up the road, and Warminster is somewhere they shop, walk and visit rather than a patch they drive out to.<br><br>Dementia touches many of the families we support, and Warminster is well served. <b>Beyond Dementia</b>, the Wiltshire charity our team raised money for earlier this year, is based in the town and runs a memory group at Christ Church on Tuesday afternoons. There is a monthly memory café at the Lakeside Community Centre too. If your relative would enjoy either, we can take them along and stay. The same goes for a coffee by the lake at the <b>Pleasure Grounds</b>, a look round the shops, or a drive out towards <b>Cley Hill</b> on a clear afternoon.<br><br>Warminster is a garrison town, so many of the older people here have an Army background, or a partner who did. We take our lead from you on how you like things done.",
+      headline: "Warminster is on our doorstep",
+      body: "Several of our Care Professionals live in Westbury, four miles up the road, and Warminster is somewhere they shop, walk and know well rather than a patch they drive out to. We already look after families here and in the villages around, the number is growing, and the same regular faces come each visit.<br><br>Dementia touches many of the families we support, and Warminster is well served. <b>Beyond Dementia</b>, the Wiltshire charity our team raised money for earlier this year, is based in the town and runs a memory group at Christ Church on Tuesday afternoons. There is a monthly memory café at the Lakeside Community Centre too. If your relative would enjoy either, we can take them along and stay. The same goes for a coffee by the lake at the <b>Pleasure Grounds</b>, a look round the shops, or a drive out towards <b>Cley Hill</b> on a clear afternoon.<br><br>Warminster is a garrison town, so many of the older people here have an Army background, or a partner who did. We take our lead from you on how you like things done.",
     },
     funding: {
       headline: "Paying for care in Warminster",
@@ -214,8 +215,8 @@ export const towns: Town[] = [
         a: "We can usually carry out the free assessment the same day you call, and have care in place within 48 hours. If it is more urgent than that, say so when you ring and we will tell you honestly what we can do." },
       { q: "Do you cover the villages around Warminster?",
         a: "Yes. Sutton Veny, Heytesbury, Codford, Crockerton, Longbridge Deverill, Corsley, Horningsham, Bishopstrow, Norton Bavant and Maiden Bradley, and the lanes between them. There is no extra charge for any of them, and no travel or call-out fee." },
-      { q: "Are you really local to Warminster, or is this a new patch for you?",
-        a: "It is new, and we would rather say so. We started caring for families in Warminster in 2026. The Care Professionals who cover the town live in Westbury and Trowbridge, a few minutes up the A350, and the same regular faces will come each visit. You will meet them before care starts." },
+      { q: "Are your carers local to Warminster?",
+        a: "Warminster is the newest of our six towns, and the Care Professionals who cover it live in Westbury and Trowbridge, a few minutes up the A350. You will have a small regular team who know your routine, and you will meet them before care starts." },
       { q: "Can you help someone coming out of hospital in Bath, Salisbury or Warminster?",
         a: "Yes. Where it helps, we will come and assess on the ward, whether that is the RUH, Salisbury District Hospital or the community hospital on The Avenue, so care is arranged before discharge day rather than after it." },
     ],
