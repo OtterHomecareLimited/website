@@ -1164,3 +1164,13 @@ footer .foot-mark{width:40px;color:#fff;opacity:.92;margin-top:18px}
 .section.tmt:has(+ .section.moments){
   padding-bottom:clamp(26px, 2.4vw + 14px, 46px);
 }
+
+/* ── Review fixes, Sep 2026 ─────────────────────────────────────────────── */
+/* "(optional)" on form labels: quieter than the label itself */
+.form label .opt{font-weight:400;color:var(--muted);font-size:.92em}
+/* Careers hero: Apply now beside the phone number */
+.phero-cta{display:flex;gap:13px;flex-wrap:wrap;margin-top:22px}
+.phero-cta .btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.5)}
+/* Talk-to-us launcher slides away while an enquiry form is on screen (see ContactLauncher.astro) */
+#talkToggle.fab-away{opacity:0;pointer-events:none;transform:translateY(24px)}
+#talkToggle{transition:opacity .25s ease,transform .25s ease,box-shadow .2s ease}

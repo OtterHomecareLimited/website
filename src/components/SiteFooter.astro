@@ -48,7 +48,7 @@ const year = new Date().getFullYear();
         <Turnstile />
         <button type="submit">Subscribe</button>
       </form>
-      <p id="newsOk" style="display:none;margin-top:10px;color:#bcd6d2;font-weight:700">Thanks — you're on the list.</p>
+      <p id="newsOk" style="display:none;margin-top:10px;color:#bcd6d2;font-weight:700">Thanks — we'll add you to the list.</p>
       <script is:inline>
         (function () {
           var f = document.getElementById("newsForm"); if (!f) return;
@@ -58,11 +58,15 @@ const year = new Date().getFullYear();
             if (!email) return;
             var btn = f.querySelector("button"); btn.disabled = true; btn.textContent = "…";
             try {
-              var r = await fetch("/api/contact", { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify({ name: "Newsletter subscriber", email: email, msg: "Newsletter signup (footer)", company: (f.querySelector("[name=company]") || {}).value || "" }) });
+              var r = await fetch("/api/contact", { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify({ name: "Newsletter subscriber", email: email, msg: "Newsletter signup (footer)", company: (f.querySelector("[name=company]") || {}).value || "",
+                // Turnstile injects this hidden input into the form; the server refuses a post without it once the secret is configured.
+                "cf-turnstile-response": (f.querySelector("[name=cf-turnstile-response]") || {}).value || "" }) });
               var j = await r.json();
               if (r.ok && j.ok) { f.style.display = "none"; document.getElementById("newsOk").style.display = "block"; }
-              else { btn.disabled = false; btn.textContent = "Subscribe"; alert(j.error || "Something went wrong — please email hello@otterhomecare.co.uk."); }
-            } catch (_) { btn.disabled = false; btn.textContent = "Subscribe"; alert("Something went wrong — please email hello@otterhomecare.co.uk."); }
+              else { retry(); alert(j.error || "Something went wrong — please try again, or email hello@otterhomecare.co.uk."); }
+            } catch (_) { retry(); alert("Something went wrong — please try again, or email hello@otterhomecare.co.uk."); }
+            // A used or expired token is single-use: reset the widget so the next click gets a fresh one.
+            function retry() { btn.disabled = false; btn.textContent = "Subscribe"; try { var w = f.querySelector(".cf-turnstile"); if (w && window.turnstile) window.turnstile.reset(w); } catch (_) {} }
           });
         })();
       </script>

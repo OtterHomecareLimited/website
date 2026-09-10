@@ -3,7 +3,10 @@ import Turnstile from "./Turnstile.astro";
 // "Talk to us" launcher. Markup + look = design (otter-a11y-talk). Behaviour = Code.
 // Hooks: #talkToggle, #talkPanel, .talk-opt, #talkForm. Channels: phone + inline
 // message form (posts to /api/contact, same handler as the Contact page).
+// Not rendered on /contact — the form IS that page, and the launcher sat over it.
+const onContactPage = /^\/contact(\.html|\/)?$/.test(Astro.url.pathname); // build.format is "file", so the path can be /contact.html
 ---
+{!onContactPage && (<>
 <button id="talkToggle" class="otter-fab" aria-expanded="false" aria-controls="talkPanel" aria-haspopup="dialog">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.1 7.6L3 21l1.9-5.9A8.4 8.4 0 1 1 21 11.5z"></path></svg>
   <span class="fab-label">Talk to us</span>
@@ -46,6 +49,7 @@ import Turnstile from "./Turnstile.astro";
     function setOpen(o) {
       if (o) { panel.removeAttribute("hidden"); void panel.offsetWidth; panel.classList.add("open"); var ap = document.getElementById("a11yPanel"); if (ap) { ap.classList.remove("open"); ap.setAttribute("hidden", ""); } var at = document.getElementById("a11yToggle"); if (at) at.setAttribute("aria-expanded", "false"); }
       else { panel.classList.remove("open"); panel.setAttribute("hidden", ""); }
+    if (typeof keepClearOfForms === "function") keepClearOfForms();
       toggle.setAttribute("aria-expanded", String(o));
     }
     toggle.addEventListener("click", function (e) { e.stopPropagation(); setOpen(panel.hasAttribute("hidden")); });
@@ -53,6 +57,20 @@ import Turnstile from "./Turnstile.astro";
     document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !panel.hasAttribute("hidden")) { setOpen(false); toggle.focus(); } });
     var closeBtn = panel.querySelector("[data-talk-close]"); if (closeBtn) closeBtn.addEventListener("click", function () { setOpen(false); toggle.focus(); });
     panel.querySelectorAll("a[href]").forEach(function (a) { a.addEventListener("click", function () { setOpen(false); }); });
+  // Slide the launcher away while a full enquiry form is on screen, so it never covers a field or the submit button.
+  // A plain scroll check rather than IntersectionObserver: one getBoundingClientRect per form is cheap, and it works the same everywhere.
+  var forms = document.querySelectorAll("form.form");
+  function keepClearOfForms() {
+    if (!forms.length) return;
+    var h = window.innerHeight || document.documentElement.clientHeight, over = false;
+    forms.forEach(function (fm) { var r = fm.getBoundingClientRect(); if (r.bottom > 0 && r.top < h) over = true; });
+    toggle.classList.toggle("fab-away", over && panel.hasAttribute("hidden"));
+  }
+  if (forms.length) {
+    window.addEventListener("scroll", keepClearOfForms, { passive: true });
+    window.addEventListener("resize", keepClearOfForms);
+    keepClearOfForms();
+  }
 
     // Inline message form → same /api/contact handler as the Contact page (emails the team via Resend).
     var form = document.getElementById("talkForm");
@@ -77,3 +95,4 @@ import Turnstile from "./Turnstile.astro";
     });
   })();
 </script>
+</>)}
