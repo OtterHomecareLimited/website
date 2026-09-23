@@ -2,7 +2,9 @@
 // Mirrors /api/contact.js conventions. The CV arrives as base64 JSON (client caps
 // at 3MB raw — Vercel's function body limit is 4.5MB and base64 inflates ~33%).
 
-const CONTACT_TO = process.env.CONTACT_TO || "hello@otterhomecare.co.uk";
+// Comma-separated, same as /api/contact.js (Vercel sets "hello@…, jamie@…").
+const CONTACT_TO = (process.env.CONTACT_TO || "hello@otterhomecare.co.uk")
+  .split(",").map((s) => s.trim()).filter(Boolean);
 const CONTACT_FROM = process.env.CONTACT_FROM || "Otter Website <onboarding@resend.dev>";
 
 const MAX_CV_BYTES = 3 * 1024 * 1024; // 3MB raw
@@ -77,7 +79,7 @@ export default async function handler(req, res) {
       },
       body: JSON.stringify({
         from: CONTACT_FROM,
-        to: [CONTACT_TO],
+        to: CONTACT_TO,
         ...(emailValid ? { reply_to: email } : {}),
         subject: `Job application — ${role || "role not specified"} — ${name}`,
         html: `

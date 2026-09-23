@@ -10,8 +10,8 @@
 // enquiries. Set CONTACT_TO in Vercel to "hello@otterhomecare.co.uk, jamie@otterhomecare.co.uk".
 const CONTACT_TO = (process.env.CONTACT_TO || "hello@otterhomecare.co.uk")
   .split(",").map((s) => s.trim()).filter(Boolean);
-// Until the otterhomecare.co.uk domain is verified in Resend, sends must come from
-// Resend's shared onboarding domain. Swap to website@otterhomecare.co.uk post-verify.
+// otterhomecare.co.uk is verified in Resend (23 Sep 2026); Vercel sets CONTACT_FROM to
+// website@otterhomecare.co.uk. The onboarding@resend.dev fallback only delivers to jamie@.
 const CONTACT_FROM = process.env.CONTACT_FROM || "Otter Website <onboarding@resend.dev>";
 
 import { verifyTurnstile, turnstileMessage, clientIp } from "./_turnstile.js";
