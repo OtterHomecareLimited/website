@@ -1,5 +1,6 @@
 // v5 town-page data — drives /[slug] town pages + the /areas-we-cover hub.
 // Warminster added 4 Sep 2026 (sixth town; first families there since 2026).
+// Corsham added 7 Oct 2026 (seventh town; growth area, covered from Melksham).
 // Content reconciled from the captured Wix copy + Otterly Outstanding deep-dive,
 // confirmed by Jamie 2026-06-07. Photos self-hosted in /public/img.
 
@@ -20,7 +21,7 @@ export interface Town {
   // --- Optional depth blocks (added Aug 2026) -------------------------------
   // Rendered only when present, so towns can be deepened one at a time without
   // touching the template. Bodies may contain <b> and <br> — set:html.
-  // Bradford-on-Avon, Westbury and Warminster are done; the other three still need
+  // Bradford-on-Avon, Westbury, Warminster and Corsham are done; the other three still need
   // Jamie's local detail before they can be written honestly.
   localCare?: { headline: string; body: string };
   community?: { headline: string; body: string };
@@ -186,7 +187,7 @@ export const towns: Town[] = [
     locBody: "Warminster is a few minutes down the A350 from Westbury, where several of our Care Professionals live, and our Trowbridge office is twenty minutes away. That means we can be with you quickly, and we can send the same familiar faces each visit rather than whoever happens to be free. We know the town, from the Lake Pleasure Grounds to the Market Place, and the lanes out to <b>Sutton Veny</b>, <b>Heytesbury</b> and <b>Corsley</b>.",
     photo: "/img/town-warminster.jpg",
     chips: ["Sutton Veny","Heytesbury","Codford","Crockerton","Longbridge Deverill","Corsley","Horningsham","Bishopstrow","Norton Bavant","Maiden Bradley"],
-    cardBlurb: "Our newest town. Care across Warminster and the villages from Sutton Veny to Codford and the Deverills.",
+    cardBlurb: "Care across Warminster and the villages from Sutton Veny to Codford and the Deverills.",
     // No Warminster review yet (we only started here in 2026). This is a genuine
     // homecare.co.uk review, spread for variety like the other five (see the
     // 2026-06-07 content pack) — swap in a Warminster family's words as soon as
@@ -216,9 +217,52 @@ export const towns: Town[] = [
       { q: "Do you cover the villages around Warminster?",
         a: "Yes. Sutton Veny, Heytesbury, Codford, Crockerton, Longbridge Deverill, Corsley, Horningsham, Bishopstrow, Norton Bavant and Maiden Bradley, and the lanes between them. There is no extra charge for any of them, and no travel or call-out fee." },
       { q: "Are your carers local to Warminster?",
-        a: "Warminster is the newest of our six towns, and the Care Professionals who cover it live in Westbury and Trowbridge, a few minutes up the A350. You will have a small regular team who know your routine, and you will meet them before care starts." },
+        a: "Warminster is one of our newer towns, and the Care Professionals who cover it live in Westbury and Trowbridge, a few minutes up the A350. You will have a small regular team who know your routine, and you will meet them before care starts." },
       { q: "Can you help someone coming out of hospital in Bath, Salisbury or Warminster?",
         a: "Yes. Where it helps, we will come and assess on the ward, whether that is the RUH, Salisbury District Hospital or the community hospital on The Avenue, so care is arranged before discharge day rather than after it." },
+    ],
+  },
+  {
+    // Corsham added 7 Oct 2026 (seventh town; Jamie wants to grow here). Copy
+    // written from public local sources (NHS GP listings, Beyond Dementia's
+    // group page), not client stories. The carers who cover Corsham are based
+    // in Melksham, so the page says that rather than claiming a Corsham team.
+    // The testimonial is a genuine review (also on /personal-care); swap in a
+    // Corsham family's words as soon as we have one.
+    slug: "corsham",
+    name: "Corsham",
+    title: "Home Care in Corsham | Otter Homecare",
+    description: "Compassionate home care in Corsham, Box and the villages around. Visiting care, dementia support and live-in care, with flexible visits to suit you. Call 01225 690022.",
+    h1: "Home care in Corsham",
+    intro: "Corsham is a few miles up the road from Melksham, where several of our Care Professionals live. We provide warm, professional home care across Corsham, Box and the villages around, from a friendly daily visit to full live-in support, so your loved ones can stay safe and independent in the home they love.",
+    locHeadline: "Care from people who know Corsham",
+    locBody: "The Care Professionals who look after our Corsham families are based in Melksham, about four miles away, and our Trowbridge office is twenty minutes down the road. We plan Corsham visits as a run of their own, so the same familiar faces come each time and nobody is squeezed in between calls somewhere else. We cover the town and the villages around it, from <b>Box</b> and <b>Rudloe</b> to <b>Neston</b>, <b>Gastard</b> and <b>Lacock</b>.",
+    photo: "/img/town-corsham.jpg",
+    chips: ["Box","Rudloe","Pickwick","Neston","Gastard","Easton","Lacock","Biddestone","Colerne"],
+    cardBlurb: "Our newest town. Care across Corsham and the villages from Box to Lacock and Biddestone.",
+    testimonial: { quote: "Everyone I have seen has gone the extra mile and for me at this extremely difficult stage of his quickly diminishing control it has been a God send. I cannot recommend them highly enough.", author: "J W", role: "Wife of Client" },
+
+    localCare: {
+      headline: "Working with your GP and the hospital",
+      body: "Most people in Corsham are registered with <b>The Porch Surgery</b> on Beechfield Road, and in Box with <b>Box Surgery</b> on London Road. Whichever is yours, we speak to the surgery and to the district nurses directly, so you aren't left carrying messages between people who ought to be talking to each other.<br><br>For anything serious it is usually the <b>RUH in Bath</b>, with the Minor Injury Unit at <b>Chippenham Community Hospital</b> closer to hand. If your relative is on a ward now, we can come and assess them there, so care is ready for the day they get home rather than the week after.",
+    },
+    community: {
+      headline: "Getting out and about in Corsham",
+      body: "Good care isn't only what happens indoors. We can go with your relative to the shops on the <b>High Street</b>, for a coffee in town, or out to <b>Lacock</b> on a fine afternoon, and stay with them while they're there.<br><br>Dementia touches many of the families we support. <b>Beyond Dementia</b>, the Wiltshire charity our team raised money for earlier this year, runs the <b>Corsham Memory Shed</b> on Wednesday afternoons at the Pockeridge and Potley Community Centre, where people with dementia work on practical projects alongside a carer. There is also a memory café in Chippenham for families from Corsham and Melksham. If your relative would enjoy either, we can take them along.",
+    },
+    funding: {
+      headline: "Paying for care in Corsham",
+      body: "Corsham is in Wiltshire, so if you are asking for help with the cost it is <b>Wiltshire Council</b> you will be dealing with. We look after clients funded by the council, we accept Direct Payments, and we are happy to invoice the council directly.<br><br>We also publish our rates rather than asking you to ring for a number. Visiting care is from £36 an hour and live-in care from £1,550 a week, with no travel or call-out charge. The rate is the same in town as it is out at Box or Biddestone.",
+    },
+    faqs: [
+      { q: "How quickly can care start in Corsham?",
+        a: "We can usually carry out the free assessment the same day you call, and have care in place within 48 hours. If it is more urgent than that, say so when you ring and we will tell you honestly what we can do." },
+      { q: "Do you cover the villages around Corsham?",
+        a: "Yes. Box, Rudloe, Pickwick, Neston, Gastard, Easton, Lacock, Biddestone and Colerne, and the lanes between them. There is no extra charge for any of them, and no travel or call-out fee." },
+      { q: "Are your carers local to Corsham?",
+        a: "Corsham is the newest of our towns, and the Care Professionals who cover it live in Melksham, about four miles away. You will have a small regular team who know your routine, and you will meet them before care starts." },
+      { q: "Can you help someone coming out of the RUH in Bath?",
+        a: "Yes, and it is something we do often. Where it helps, we will come and assess on the ward so that care is arranged before discharge day rather than after it." },
     ],
   },
 ];
