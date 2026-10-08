@@ -170,7 +170,7 @@ export const services: Service[] = [
         body: [
           "Families often ask which service they need. Usually the answer is that they need visiting care, and the question is really what the visits should do — which can change from month to month without the arrangement changing at all.",
           "<strong><a href='/personal-care'>Personal care</a></strong> is the hands-on side: washing, dressing, the bathroom, medication, meals. <strong><a href='/companionship'>Companionship</a></strong> is a visit whose job is the company itself — a cup of tea, a game of cards, a lift to the shops. Plenty of people have both, on different days.",
-          "<strong><a href='/dementia'>Dementia care</a></strong> is visiting care delivered by people trained for it, with the patience and the familiarity that memory loss needs. <strong><a href='/respite-care'>Respite</a></strong> is the same visits arranged so a family carer can rest, travel or recover. <strong><a href='/fall-recovery'>Fall recovery</a></strong> and support for <strong><a href='/conditions'>other conditions</a></strong> work the same way.",
+          "<strong><a href='/dementia'>Dementia care</a></strong> is visiting care delivered by people trained for it, with the patience and the familiarity that memory loss needs. <strong><a href='/respite-care'>Respite</a></strong> is the same visits arranged so a family carer can rest, travel or recover. Support for <strong><a href='/conditions'>other conditions</a></strong> works the same way.",
           "You do not need to pick the right label before you ring. Describe the day you are dealing with and we will work out the shape with you.",
         ],
       },
