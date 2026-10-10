@@ -58,7 +58,7 @@ export const office: Person[] = [
   },
   {
     name: "Maria",
-    role: "Care Coordinator",
+    role: "Care Supervisor",
     photo: "/img/team-maria.jpg",
     words:
       "Maria brings 13+ years across hospices, hospitals and home care. Her calm, organised approach keeps care plans, referrals and family communications running with professionalism and compassion. She's passionate about helping people feel heard, supported and safe.",

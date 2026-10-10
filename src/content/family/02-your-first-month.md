@@ -132,8 +132,8 @@ Access is set up for up to three people, chosen by your relative or their repres
 No call centre, no ticket number. The same small team every time.
 
 <div class="hc-grid als-grid-team als-wide">
-  <div class="hc-card"><strong>Cherie</strong><p>Registered Manager. Accountable for the quality and safety of your relative's care.</p></div>
-  <div class="hc-card"><strong>Maria</strong><p>Care Coordinator. Visit times, rotas and scheduling.</p></div>
+  <div class="hc-card"><strong>Cherie</strong><p>Registered Manager. Accountable for the quality and safety of your relative's care. Arranges visit times and the rota.</p></div>
+  <div class="hc-card"><strong>Maria</strong><p>Care Supervisor. Out visiting, checking how care is going.</p></div>
   <div class="hc-card"><strong>Brad</strong><p>Care Supervisor. Out visiting, checking how care is going.</p></div>
   <div class="hc-card"><strong>Abbey</strong><p>Training Coordinator. Looks after our Care Professionals' training.</p></div>
   <div class="hc-card"><strong>Jamie</strong><p>Our founder. Started Otter after caring for his own dad.</p></div>
