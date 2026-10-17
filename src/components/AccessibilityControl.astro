@@ -68,12 +68,18 @@
     function setOpen(o) {
       if (o) { panel.removeAttribute("hidden"); void panel.offsetWidth; panel.classList.add("open"); var tp = document.getElementById("talkPanel"); if (tp) { tp.classList.remove("open"); tp.setAttribute("hidden", ""); } var tt = document.getElementById("talkToggle"); if (tt) tt.setAttribute("aria-expanded", "false"); }
       else { panel.classList.remove("open"); panel.setAttribute("hidden", ""); }
-      toggle.setAttribute("aria-expanded", String(o));
+      triggers.forEach(function (t) { t.setAttribute("aria-expanded", String(o)); });
     }
-    toggle.addEventListener("click", function (e) { e.stopPropagation(); setOpen(panel.hasAttribute("hidden")); });
-    document.addEventListener("click", function (e) { if (!panel.hasAttribute("hidden") && !panel.contains(e.target) && !toggle.contains(e.target)) setOpen(false); });
-    document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !panel.hasAttribute("hidden")) { setOpen(false); toggle.focus(); } });
-    var closeBtn = panel.querySelector("[data-a11y-close]"); if (closeBtn) closeBtn.addEventListener("click", function () { setOpen(false); toggle.focus(); });
+    // The corner button, plus the header icon and footer link ([data-a11y-open]) that
+    // stand in for it on phones. Focus goes back to whichever one opened the panel.
+    var triggers = [toggle].concat(Array.prototype.slice.call(document.querySelectorAll("[data-a11y-open]")));
+    var opener = toggle;
+    function isTrigger(el) { return triggers.some(function (t) { return t.contains(el); }); }
+    function closeAndReturn() { setOpen(false); if (opener) opener.focus(); }
+    triggers.forEach(function (t) { t.addEventListener("click", function (e) { e.stopPropagation(); opener = t; setOpen(panel.hasAttribute("hidden")); }); });
+    document.addEventListener("click", function (e) { if (!panel.hasAttribute("hidden") && !panel.contains(e.target) && !isTrigger(e.target)) setOpen(false); });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !panel.hasAttribute("hidden")) closeAndReturn(); });
+    var closeBtn = panel.querySelector("[data-a11y-close]"); if (closeBtn) closeBtn.addEventListener("click", closeAndReturn);
 
     var readBtn = panel.querySelector('[data-a11y="read"]');
     function stopRead() { try { window.speechSynthesis.cancel(); } catch (e) {} if (readBtn) { readBtn.classList.remove("is-playing"); var l = readBtn.querySelector(".read-label"); if (l) l.textContent = "Read this page aloud"; } }
