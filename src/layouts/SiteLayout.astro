@@ -127,7 +127,9 @@ const breadcrumbSchema = buildCrumbs();
          defaults are all DENIED and there is no banner, so no cookies are ever set — that keeps
          the /cookies "not a single cookie" promise true. Attribution relies on the ad-click ID
          in the landing URL (url_passthrough carries it across internal links) plus Google's
-         aggregate modelling. Do NOT add analytics_storage/ad_storage grants or any other
+         aggregate modelling. Do NOT set ads_data_redaction: with ad_storage denied it strips that
+         click ID out of the conversion ping, so Google can't tie an enquiry to the ad and records
+         nothing (Oct 2026: 0 conversions recorded against a real paid enquiry). Do NOT add analytics_storage/ad_storage grants or any other
          analytics here without updating /cookies and /privacy first. -->
     <script is:inline>
       window.dataLayer = window.dataLayer || [];
@@ -139,7 +141,6 @@ const breadcrumbSchema = buildCrumbs();
         analytics_storage: "denied",
       });
       gtag("set", "url_passthrough", true);
-      gtag("set", "ads_data_redaction", true);
       gtag("js", new Date());
       gtag("config", "AW-11233030388");
     </script>
