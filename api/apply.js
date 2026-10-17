@@ -22,7 +22,7 @@ export default async function handler(req, res) {
   }
 
   const body = req.body || {};
-  const { name = "", phone = "", email = "", role = "", cvName = "", cvData = "" } = body;
+  const { name = "", phone = "", email = "", role = "", town = "", drives = "", cvName = "", cvData = "" } = body;
 
   // Spam honeypot — same convention as /api/contact.
   // Honeypots. "company" was the only guard here until 22 Aug 2026, hidden with
@@ -88,6 +88,8 @@ export default async function handler(req, res) {
           <p><strong>Phone:</strong> ${esc(phone) || "—"}</p>
           <p><strong>Email:</strong> ${esc(email) || "—"}</p>
           <p><strong>Role:</strong> ${esc(role) || "—"}</p>
+          <p><strong>Lives in:</strong> ${esc(town) || "—"}</p>
+          <p><strong>Drives:</strong> ${esc(drives) || "—"}</p>
           <p><strong>CV:</strong> ${attachment ? esc(attachment.filename) + " (attached)" : "not attached"}</p>
         `,
         ...(attachment ? { attachments: [attachment] } : {}),
