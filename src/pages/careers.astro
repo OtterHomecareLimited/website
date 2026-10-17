@@ -50,7 +50,9 @@ import Turnstile from "../components/Turnstile.astro";
           fetch("/api/apply", {
             method: "POST",
             headers: { "Content-Type": "application/json", Accept: "application/json" },
-            body: JSON.stringify({ name: name, phone: phone, email: email, role: role, town: town, drives: drives, cvName: cvName || "", cvData: cvData || "", company: f.querySelector("[name=company]").value || "", website: (f.querySelector("[name=website]") || {}).value || "", "cf-turnstile-response": (f.querySelector("[name=cf-turnstile-response]") || {}).value || "" }),
+            // Attach where this applicant came from (ad-click ID / campaign / page) — see SiteLayout head.
+            body: JSON.stringify(Object.assign({ name: name, phone: phone, email: email, role: role, town: town, drives: drives, cvName: cvName || "", cvData: cvData || "", company: f.querySelector("[name=company]").value || "", website: (f.querySelector("[name=website]") || {}).value || "", "cf-turnstile-response": (f.querySelector("[name=cf-turnstile-response]") || {}).value || "" },
+              typeof window.otterAdSource === "function" ? window.otterAdSource() : {})),
           }).then(function (r) { return r.json().then(function (j) { return { ok: r.ok && j.ok, err: j.error }; }); })
             .then(function (out) {
               if (out.ok) { f.style.display = "none"; var s = document.getElementById("applyOk"); s.style.display = "block"; }
