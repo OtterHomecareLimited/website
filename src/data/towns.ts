@@ -34,7 +34,7 @@ export const towns: Town[] = [
     slug: "trowbridge",
     name: "Trowbridge",
     title: "Home Care in Trowbridge | Otter Homecare",
-    description: "Compassionate home care in Trowbridge and nearby villages — visiting care, dementia support and live-in care, with flexible visits to suit you. Call 01225 690022.",
+    description: "Compassionate home care in Trowbridge and nearby villages. Visiting care, dementia support and live-in care, with flexible visits. Call 01225 690022.",
     h1: "Home care in Trowbridge",
     intro: "Trowbridge is our home town — it's where our office is and where many of our team live. We provide warm, professional home care across Trowbridge and the surrounding villages, helping your loved ones stay safe, comfortable and independent in the home they love.",
     locHeadline: "Care from people who know Trowbridge",
@@ -46,7 +46,7 @@ export const towns: Town[] = [
     faqs: [
       { q: "How quickly can care start in Trowbridge?",
         a: "We can usually carry out the free assessment the same day you call, and have care in place within 48 hours. If it is more urgent than that, say so when you ring and we will tell you honestly what we can do." },
-      { q: "Do you cover the villages around the town?",
+      { q: "Do you cover the villages around Trowbridge?",
         a: "Yes — Hilperton, Staverton, Southwick, North Bradley, Wingfield, West Ashton, Keevil, Semington, Steeple Ashton, Great Hinton, Littleton and Hoggington, and the lanes between them. There is no extra charge for any of them, and no travel or call-out fee." },
       { q: "Can you help someone coming out of the RUH in Bath?",
         a: "Yes, and it is something we do often. Where it helps, we will come and assess on the ward so that care is arranged before discharge day rather than after it." },
@@ -58,7 +58,7 @@ export const towns: Town[] = [
     slug: "bradford-on-avon",
     name: "Bradford-on-Avon",
     title: "Home Care in Bradford-on-Avon | Otter Homecare",
-    description: "Professional home care in Bradford-on-Avon and surrounding villages — visiting care, dementia support and live-in care, with flexible visits to suit you. Call 01225 690022.",
+    description: "Professional home care in Bradford-on-Avon and nearby villages. Visiting care, dementia support and live-in care, with flexible visits. Call 01225 690022.",
     h1: "Home care in Bradford-on-Avon",
     intro: "From the riverside town to the hillside villages, we provide compassionate home care across Bradford-on-Avon and nearby. Whether it's a daily visit, dementia support or full live-in care, our small local team helps your loved ones stay independent at home.",
     locHeadline: "Care from people who know Bradford-on-Avon",
@@ -83,7 +83,7 @@ export const towns: Town[] = [
     faqs: [
       { q: "How quickly can care start in Bradford-on-Avon?",
         a: "We can usually carry out the free assessment the same day you call, and have care in place within 48 hours. If it is more urgent than that, say so when you ring and we will tell you honestly what we can do." },
-      { q: "Do you cover the villages around the town?",
+      { q: "Do you cover the villages around Bradford-on-Avon?",
         a: "Yes — Winsley, Turleigh, Westwood, Avoncliff, Limpley Stoke, Monkton Farleigh and Iford, and the lanes between them. There is no extra charge for any of them, and no travel or call-out fee." },
       { q: "Can you help someone coming out of the RUH in Bath?",
         a: "Yes, and it is something we do often. Where it helps, we will come and assess on the ward so that care is arranged before discharge day rather than after it." },
@@ -95,7 +95,7 @@ export const towns: Town[] = [
     slug: "melksham",
     name: "Melksham",
     title: "Home Care in Melksham | Otter Homecare",
-    description: "Compassionate home care in Melksham and nearby villages — visiting care, dementia support and live-in care, with flexible visits to suit you. Call 01225 690022.",
+    description: "Compassionate home care in Melksham and nearby villages. Visiting care, dementia support and live-in care, with flexible visits. Call 01225 690022.",
     h1: "Home care in Melksham",
     intro: "We provide warm, professional home care across Melksham and the surrounding villages — from a friendly daily visit to round-the-clock live-in support — so your loved ones can stay safe and comfortable in their own home.",
     locHeadline: "Care from people who know Melksham",
@@ -119,7 +119,7 @@ export const towns: Town[] = [
     slug: "westbury",
     name: "Westbury",
     title: "Home Care in Westbury | Otter Homecare",
-    description: "Compassionate home care in Westbury and nearby villages — visiting care, dementia support and live-in care, with flexible visits to suit you. Call 01225 690022.",
+    description: "Compassionate home care in Westbury and nearby villages. Visiting care, dementia support and live-in care, with flexible visits. Call 01225 690022.",
     h1: "Home care in Westbury",
     intro: "Beneath the White Horse, we provide compassionate home care across Westbury and the surrounding villages. From daily visits to dementia and live-in care, our small local team helps your loved ones stay independent in the home they love.",
     locHeadline: "Care from people who know Westbury",
@@ -145,7 +145,7 @@ export const towns: Town[] = [
       { q: "How quickly can care start in Westbury?",
         a: "We can usually carry out the free assessment the same day you call, and have care in place within 48 hours. If it is more urgent than that, say so when you ring and we will tell you honestly what we can do." },
       { q: "Do you cover the villages around Westbury?",
-        a: "Yes — Dilton Marsh, Bratton, Edington, Heywood, Hawkeridge, Chapmanslade and Upton Scudamore. There is no extra charge for any of them, and no travel or call-out fee." },
+        a: "Yes — Dilton Marsh, Bratton, Edington, Heywood, Hawkeridge, Chapmanslade and Upton Scudamore, and the lanes between them. There is no extra charge for any of them, and no travel or call-out fee." },
       { q: "Can you help someone coming out of the RUH in Bath?",
         a: "Yes, and it is something we do often. Where it helps, we will come and assess on the ward so that care is arranged before discharge day rather than after it." },
       { q: "Are your carers actually local to Westbury?",
@@ -156,7 +156,7 @@ export const towns: Town[] = [
     slug: "frome",
     name: "Frome",
     title: "Home Care in Frome | Otter Homecare",
-    description: "Trusted home care in Frome and surrounding villages — visiting care, dementia support and live-in care, with flexible visits to suit you. Call 01225 690022.",
+    description: "Trusted home care in Frome and nearby villages. Visiting care, dementia support and live-in care, with flexible visits. Call 01225 690022.",
     h1: "Home care in Frome",
     intro: "Frome is our Somerset town. We provide warm, professional home care across Frome and the surrounding villages, helping your loved ones stay safe, comfortable and independent at home — with the same small-team, one-to-one care we bring across the border in Wiltshire.",
     locHeadline: "Care from people who know Frome",
@@ -180,7 +180,7 @@ export const towns: Town[] = [
     slug: "warminster",
     name: "Warminster",
     title: "Home Care in Warminster | Otter Homecare",
-    description: "Compassionate home care in Warminster and the Wylye Valley villages. Visiting care, dementia support and live-in care, with flexible visits to suit you. Call 01225 690022.",
+    description: "Compassionate home care in Warminster and the Wylye Valley villages. Visiting care, dementia support and live-in care, with flexible visits. Call 01225 690022.",
     h1: "Home care in Warminster",
     intro: "Warminster sits at the edge of Salisbury Plain, the next town along from Westbury, where several of our Care Professionals live. We provide warm, professional home care across Warminster and the Wylye Valley villages, from a friendly daily visit to full live-in support, so your loved ones can stay safe and independent in the home they love.",
     locHeadline: "Care from people who know Warminster",
@@ -201,7 +201,7 @@ export const towns: Town[] = [
     // once, never "we only started in 2026".
     localCare: {
       headline: "Working with your GP and the hospital",
-      body: "Warminster has two GP surgeries, <b>The Avenue Surgery</b> and <b>Smallbrook Surgery</b> up at the community hospital. Smallbrook is run by the Westbury Group Practice, the same practice we already work alongside for our Westbury clients. Whichever is yours, we speak to the surgery and to the district nurses directly, so you aren't left carrying messages between people who ought to be talking to each other.<br><br>Warminster also has its own <b>community hospital</b> on The Avenue, with wards where people recover before coming home. For anything more serious it is usually the <b>RUH in Bath</b> or <b>Salisbury District Hospital</b>, with the Minor Injuries Unit in Trowbridge closer to hand. If your relative is on a ward now, in Warminster, Bath or Salisbury, we can come and assess them there, so care is ready for the day they get home rather than the week after.",
+      body: "Warminster has two GP surgeries, <b>The Avenue Surgery</b> and <b>Smallbrook Surgery</b> up at the community hospital. Smallbrook is run by the Westbury Group Practice, the same practice we already work alongside for our Westbury clients. Whichever is yours, we speak to the surgery and to the district nurses directly, so you aren't left carrying messages between people who ought to be talking to each other.<br><br>Warminster also has its own <b>community hospital</b> on The Avenue, with wards where people recover before coming home. For anything more serious it is usually the <b>RUH in Bath</b> or <b>Salisbury District Hospital</b>, with the Minor Injury Unit in Trowbridge closer to hand. If your relative is on a ward now, in Warminster, Bath or Salisbury, we can come and assess them there, so care is ready for the day they get home rather than the week after.",
     },
     community: {
       headline: "Warminster is on our doorstep",
@@ -232,7 +232,7 @@ export const towns: Town[] = [
     slug: "corsham",
     name: "Corsham",
     title: "Home Care in Corsham | Otter Homecare",
-    description: "Compassionate home care in Corsham, Box and the villages around. Visiting care, dementia support and live-in care, with flexible visits to suit you. Call 01225 690022.",
+    description: "Compassionate home care in Corsham, Box and the villages around. Visiting care, dementia support and live-in care, with flexible visits. Call 01225 690022.",
     h1: "Home care in Corsham",
     intro: "Corsham is a few miles up the road from Melksham, where several of our Care Professionals live. We provide warm, professional home care across Corsham, Box and the villages around, from a friendly daily visit to full live-in support, so your loved ones can stay safe and independent in the home they love.",
     locHeadline: "Care from people who know Corsham",
@@ -267,7 +267,6 @@ export const towns: Town[] = [
   },
 ];
 
-// The 4 shared "How we can help" cards (identical across towns).
 // The "How we can help" cards (identical across towns).
 // Needs only — no live-in here. Live-in is a delivery model, not a need, and
 // mixing it in made it read as a rival to personal care; it now leads the
