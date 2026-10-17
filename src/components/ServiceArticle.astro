@@ -5,6 +5,7 @@ import type { Service } from "../data/services";
 import { services } from "../data/services";
 import TTMark from "./TTMark.astro";
 import PheroCta from "./PheroCta.astro";
+import Photo from "./Photo.astro";
 
 interface Props { service: Service }
 const { service } = Astro.props;
@@ -61,19 +62,21 @@ const faqSchema = service.faqs?.length
 <SiteLayout title={service.title} description={service.description}>
   {serviceSchema && <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />}
   {faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
-  <header class="phero">
+  <header class="phero phero--photo">
     <div class="wrap">
-      <div class="crumb"><a href="/">Home</a> · <a href="/care-services">Care Services</a> · {service.name}</div>
-      <h1>{service.h1}</h1>
-      <p>{service.subtitle}</p>
-      <PheroCta />
+      <div class="phero-text">
+        <div class="crumb"><a href="/">Home</a> · <a href="/care-services">Care Services</a> · {service.name}</div>
+        <h1>{service.h1}</h1>
+        <p>{service.subtitle}</p>
+        <PheroCta />
+      </div>
+      <div class="phero-media"><Photo src={img(service.heroImg)} alt={service.h1} priority sizes="(max-width: 900px) 100vw, 520px" /></div>
     </div>
   </header>
 
   <section class="section">
     <div class="wrap">
-      <div class="srow reveal">
-        <div class="srow-media"><img src={img(service.heroImg)} alt={service.h1} /></div>
+      <div class="srow srow--solo reveal">
         <div>
           {service.intro.map((p) => <p class="lede" style="margin-bottom:14px">{p}</p>)}
           <h2 style="font-size:22px;margin:20px 0 8px">{service.includedTitle ?? "What's included"}</h2>
