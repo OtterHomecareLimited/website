@@ -58,6 +58,39 @@ const faqSchema = service.faqs?.length
       })),
     }
   : null;
+
+// Quicker to scan (28 Sep review P3, Jamie chose "All four", 17 Oct 2026):
+// key facts after the intro, "On this page" links, the review mid-page and a
+// second button after the costs section. All of it is built from the data above.
+const money = (n: number) => `£${n.toLocaleString("en-GB", { minimumFractionDigits: n % 1 ? 2 : 0 })}`;
+// Fall Recovery is for existing clients and has no rate of its own, so it gets no key-facts card.
+const fromLine = service.priceFrom
+  ? `From ${money(service.priceFrom.amount)} ${
+      service.priceFrom.unit === "WEEK" ? "a week" : `a ${service.priceFrom.unit.replace(" (9 hours)", "")}`
+    }`
+  : null;
+const slugify = (t: string) => t.toLowerCase().replace(/<[^>]+>/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+const used = new Set<string>();
+const secs = (service.sections ?? []).map((sec) => {
+  let id = slugify(sec.h2);
+  while (used.has(id)) id += "-2";
+  used.add(id);
+  return { ...sec, id, isCost: /cost/i.test(`${sec.eyebrow ?? ""} ${sec.h2}`) };
+});
+// Two live-in headings differ only by a comma; list the first one only.
+const seen = new Set<string>();
+const toc = [
+  ...(service.secondList ? [{ id: "who-for", label: service.secondListTitle ?? "" }] : []),
+  ...secs.map((sec) => ({ id: sec.id, label: sec.h2 })),
+  ...(service.faqs?.length ? [{ id: "questions", label: "Questions" }] : []),
+].filter((t) => {
+  const k = t.label.toLowerCase().replace(/[^a-z]/g, "");
+  if (!t.label || seen.has(k)) return false;
+  seen.add(k);
+  return true;
+});
+// The review sits inside the middle section (a band of its own would break the band joins); pages without sections keep it near the end.
+const quoteAfter = secs.length >= 2 ? Math.ceil(secs.length / 2) - 1 : -1;
 ---
 <SiteLayout title={service.title} description={service.description}>
   {serviceSchema && <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />}
@@ -79,6 +112,18 @@ const faqSchema = service.faqs?.length
       <div class="srow srow--solo reveal">
         <div>
           {service.intro.map((p) => <p class="lede" style="margin-bottom:14px">{p}</p>)}
+          {service.slug !== "fall-recovery" && (<dl class="svc-facts">
+            <div><dt>Cost</dt><dd>{fromLine ?? "Every rate is published"} · <a href="/cost-of-home-care">full rate card</a></dd></div>
+            <div><dt>Who comes</dt><dd>A small, familiar team, directly employed and DBS-checked</dd></div>
+            <div><dt>Getting started</dt><dd>A free home assessment, usually the same day you call</dd></div>
+            <div><dt>Where</dt><dd>Trowbridge, Melksham, Frome and nearby towns · <a href="/areas-we-cover">areas we cover</a></dd></div>
+          </dl>)}
+          {toc.length >= 3 && (
+            <nav class="svc-toc" aria-label="On this page">
+              <p class="svc-toc__title">On this page</p>
+              <ul>{toc.map((t) => <li><a href={`#${t.id}`}>{t.label}</a></li>)}</ul>
+            </nav>
+          )}
           <h2 style="font-size:22px;margin:20px 0 8px">{service.includedTitle ?? "What's included"}</h2>
           <ul>{service.included.map((i) => <li>{i}</li>)}</ul>
           {service.price && (
@@ -94,7 +139,7 @@ const faqSchema = service.faqs?.length
   </section>
 
   {service.secondList && (
-    <section class="section trustwhy">
+    <section class="section trustwhy" id="who-for">
       <div class="wrap">
         <div class="head-c reveal"><h2>{service.secondListTitle}</h2></div>
         <div class="conds reveal">{service.secondList.map((i) => <span>{i}</span>)}</div>
@@ -102,21 +147,34 @@ const faqSchema = service.faqs?.length
     </section>
   )}
 
-  {service.sections && service.sections.map((sec) => (
-    <section class="section">
+  {secs.map((sec, i) => (
+    <section class="section" id={sec.id}>
       <div class="wrap" style="max-width:760px">
         <div class="reveal">
           {sec.eyebrow && <span class="eyebrow">{sec.eyebrow}</span>}
           <h2 style="font-size:clamp(24px,3vw,32px);margin:8px 0 14px">{sec.h2}</h2>
           {sec.body && sec.body.map((p) => <p class="lede" style="max-width:none;margin-bottom:14px" set:html={p}></p>)}
           {sec.list && <ul class="svc-seclist">{sec.list.map((li) => <li>{li}</li>)}</ul>}
+          {sec.isCost && (
+            <div class="svc-cta">
+              <a class="btn btn-primary" href="/contact">Book a free assessment</a>
+              <a class="btn btn-ghost" href="tel:01225690022">Call 01225 690022</a>
+            </div>
+          )}
+          {i === quoteAfter && service.testimonial && (
+            <figure class="quote svc-midquote">
+              <div class="star">★★★★★</div>
+              <p>{service.testimonial.quote}</p>
+              <div class="by"><span class="av">{service.testimonial.who.slice(0, 1)}</span><div><b>{service.testimonial.who}</b></div></div>
+            </figure>
+          )}
         </div>
       </div>
     </section>
   ))}
 
   {service.faqs && service.faqs.length > 0 && (
-    <section class="section trustwhy">
+    <section class="section trustwhy" id="questions">
       <div class="wrap">
         <div class="head-c reveal"><span class="eyebrow">Good to know</span><h2>{service.name} questions</h2></div>
         <div class="faqs reveal">
@@ -131,7 +189,7 @@ const faqSchema = service.faqs?.length
     </section>
   )}
 
-  {service.testimonial && (
+  {service.testimonial && quoteAfter < 0 && (
     <section class="section tmt">
       <div class="wrap">
         <div class="quote reveal" style="max-width:760px;margin:0 auto">

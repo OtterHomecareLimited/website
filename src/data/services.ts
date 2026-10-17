@@ -136,6 +136,12 @@ export const services: Service[] = [
       "Help around the home and with errands",
       "The same familiar faces, every visit",
     ],
+    // Verbatim from homecare.co.uk, already on /reviews (30 Sep 2025).
+    testimonial: {
+      quote:
+        "I cannot recommend Otter Home Care highly enough: we used them to provide care for my elderly dad. Their level of care was excellent, the carers were always on time and were very attentive.",
+      who: "Helen F · Daughter of Client",
+    },
 
     serviceType: "Home visiting care",
     areaServed: ["Trowbridge", "Bradford-on-Avon", "Melksham", "Westbury", "Frome", "Warminster", "Corsham", "West Wiltshire", "Somerset"],
@@ -323,6 +329,11 @@ export const services: Service[] = [
       "Help up and dressed in the morning",
       "A handover note so the day team know how the night went",
     ],
+    // Verbatim from homecare.co.uk, already on /reviews (27 Mar 2026). Not night-specific.
+    testimonial: {
+      quote: "Otter staff are superb in every way. They are kind, and really understand what being caring carers means.",
+      who: "Frances W · Client",
+    },
     serviceType: "Overnight home care",
     areaServed: ["Trowbridge", "Bradford-on-Avon", "Melksham", "Westbury", "Frome", "Warminster", "Corsham", "West Wiltshire", "Somerset"],
     priceFrom: { amount: 240, unit: "sleeping night (9 hours)" },
