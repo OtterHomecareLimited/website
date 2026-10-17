@@ -254,10 +254,24 @@ export default async function handler(req, res) {
     : referrer   ? referrer
     :              "Direct or unknown — not a tracked ad click";
 
+  // The click ID plus this time are the two values Google Ads asks for when an enquiry is
+  // uploaded by hand (Goals → Conversions → Uploads). That upload is the dependable way to count
+  // a paid enquiry, because the site's cookieless tag only gives Google a partial picture.
+  // Format "yyyy-MM-dd HH:mm:ss+hh:mm" in UK time, as Google's upload template expects.
+  function adsUploadTime(d) {
+    const parts = Object.fromEntries(new Intl.DateTimeFormat("en-GB", {
+      timeZone: "Europe/London", year: "numeric", month: "2-digit", day: "2-digit",
+      hour: "2-digit", minute: "2-digit", second: "2-digit", hourCycle: "h23", timeZoneName: "longOffset",
+    }).formatToParts(d).map((p) => [p.type, p.value]));
+    const offset = parts.timeZoneName === "GMT" ? "+00:00" : parts.timeZoneName.replace("GMT", "");
+    return `${parts.year}-${parts.month}-${parts.day} ${parts.hour}:${parts.minute}:${parts.second}${offset}`;
+  }
+
   const sourceHtml = `
           <hr>
           <p style="font-size:13px;color:#555"><strong>Came from:</strong> ${esc(cameFrom)}</p>
-          ${adClickId ? `<p style="font-size:12px;color:#777"><strong>Google click ID:</strong> ${esc(adClickId)}</p>` : ""}
+          ${adClickId ? `<p style="font-size:12px;color:#777"><strong>Google click ID:</strong> ${esc(adClickId)}</p>
+          <p style="font-size:12px;color:#777"><strong>Enquiry time (for Google Ads upload):</strong> ${esc(adsUploadTime(new Date()))}</p>` : ""}
           ${utm_campaign ? `<p style="font-size:13px;color:#555"><strong>Campaign:</strong> ${esc(utm_campaign)}</p>` : ""}
           ${page ? `<p style="font-size:13px;color:#555"><strong>Page used:</strong> ${esc(page)}</p>` : ""}`;
 
