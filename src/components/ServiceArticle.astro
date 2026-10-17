@@ -4,6 +4,7 @@ import SiteLayout from "../layouts/SiteLayout.astro";
 import type { Service } from "../data/services";
 import { services } from "../data/services";
 import TTMark from "./TTMark.astro";
+import PheroCta from "./PheroCta.astro";
 
 interface Props { service: Service }
 const { service } = Astro.props;
@@ -65,6 +66,7 @@ const faqSchema = service.faqs?.length
       <div class="crumb"><a href="/">Home</a> · <a href="/care-services">Care Services</a> · {service.name}</div>
       <h1>{service.h1}</h1>
       <p>{service.subtitle}</p>
+      <PheroCta />
     </div>
   </header>
 

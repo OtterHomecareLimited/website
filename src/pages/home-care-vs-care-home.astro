@@ -7,6 +7,7 @@
 // team observe faster decline after a move, but people usually move once decline
 // has begun, and that confound is stated rather than exploited.
 import SiteLayout from "../layouts/SiteLayout.astro";
+import PheroCta from "../components/PheroCta.astro";
 import RatedBadge from "../components/RatedBadge.astro";
 import { otter, careHomes, funding, checked } from "../data/careCosts";
 
@@ -55,6 +56,7 @@ const faqSchema = { "@context": "https://schema.org", "@type": "FAQPage",
     <div class="crumb"><a href="/">Home</a> · <a href="/cost-of-home-care">Costs &amp; Funding</a> · Home care vs a care home</div>
     <h1>Home care or a care home?</h1>
     <p>Most comparisons like this are written by someone who wants one answer. This one includes the cases where a care home is the better choice — because you will find those out anyway, and you should hear them from us first.</p>
+    <PheroCta />
   </div></header>
 
   <!-- THE SHORT ANSWER -->
