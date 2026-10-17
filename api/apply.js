@@ -23,6 +23,12 @@ export default async function handler(req, res) {
 
   const body = req.body || {};
   const { name = "", phone = "", email = "", role = "", town = "", drives = "", cvName = "", cvData = "" } = body;
+  // Provenance from window.otterAdSource (SiteLayout head), same fields as /api/contact.
+  const {
+    gclid = "", gbraid = "", wbraid = "", gad_source = "",
+    utm_source = "", utm_medium = "", utm_campaign = "",
+    page = "", referrer = "",
+  } = body;
 
   // Spam honeypot — same convention as /api/contact.
   // Honeypots. "company" was the only guard here until 22 Aug 2026, hidden with
@@ -66,6 +72,15 @@ export default async function handler(req, res) {
     attachment = { filename: cvName.replace(/[^\w.\- ]/g, "_"), content: cvData };
   }
 
+  // "Came from" line, worded as /api/contact does so applications and enquiries read alike.
+  const adClickId = gclid || gbraid || wbraid;
+  const cameFrom =
+    adClickId    ? "Google Ads — paid click"
+    : gad_source ? "Google Ads (no click ID captured)"
+    : utm_source ? `${utm_source}${utm_medium ? ` / ${utm_medium}` : ""}`
+    : referrer   ? referrer
+    :              "Direct or unknown — not a tracked ad click";
+
   if (!process.env.RESEND_API_KEY) {
     return res.status(200).json({ ok: true, emailed: false, note: "Resend not configured yet" });
   }
@@ -91,6 +106,11 @@ export default async function handler(req, res) {
           <p><strong>Lives in:</strong> ${esc(town) || "—"}</p>
           <p><strong>Drives:</strong> ${esc(drives) || "—"}</p>
           <p><strong>CV:</strong> ${attachment ? esc(attachment.filename) + " (attached)" : "not attached"}</p>
+          <hr>
+          <p style="font-size:13px;color:#555"><strong>Came from:</strong> ${esc(cameFrom)}</p>
+          ${adClickId ? `<p style="font-size:12px;color:#777"><strong>Google click ID:</strong> ${esc(adClickId)}</p>` : ""}
+          ${utm_campaign ? `<p style="font-size:13px;color:#555"><strong>Campaign:</strong> ${esc(utm_campaign)}</p>` : ""}
+          ${page ? `<p style="font-size:13px;color:#555"><strong>Page used:</strong> ${esc(page)}</p>` : ""}
         `,
         ...(attachment ? { attachments: [attachment] } : {}),
       }),
