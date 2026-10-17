@@ -119,7 +119,7 @@ export const services: Service[] = [
     name: "Visiting Care",
     title: "Visiting Care in Wiltshire & Somerset | Otter Homecare",
     description:
-      "Visiting care at home across Trowbridge, Bradford-on-Avon, Melksham, Westbury, Warminster, Corsham and Frome — from a daily call-in to several visits a day, covering personal care, companionship, dementia support and respite.",
+      "Visiting care at home in Trowbridge, Melksham, Frome and nearby towns, from a daily call-in to several visits a day, with personal care and dementia support.",
     h1: "Visiting Care",
     subtitle: "Flexible visits, on your terms",
     heroImg: "ff72ba_3a8fe18215c24b3e9cb6884f0bf44228~mv2.jpg",
@@ -210,7 +210,7 @@ export const services: Service[] = [
     name: "Companionship",
     title: "Companionship Care at Home | Otter Homecare",
     description:
-      "Friendly companionship care at home in Wiltshire and Somerset — conversation, hobbies, outings and genuine connection that lifts the spirits and eases loneliness.",
+      "Companionship care at home in Wiltshire and Somerset: conversation, hobbies, outings and real connection that lifts the spirits and eases loneliness.",
     h1: "Companionship Care",
     subtitle: "Friendly faces, meaningful moments",
     heroImg: "ff72ba_f2124d3e3abf4903ad29e1bbc13fab8e~mv2.jpg",
@@ -302,7 +302,7 @@ export const services: Service[] = [
     name: "Night Care",
     title: "Night Care at Home in Wiltshire & Somerset | Otter Homecare",
     description:
-      "Sleeping nights and waking nights at home across Trowbridge, Bradford-on-Avon, Melksham, Westbury, Warminster, Corsham and Frome — someone there through the night so the whole household can sleep.",
+      "Sleeping and waking nights at home across West Wiltshire and Frome. Someone there through the night, so the whole household can get some sleep.",
     h1: "Night Care",
     subtitle: "Someone there through the night",
     // Placeholder hero — there is no evening or night photograph in the library
@@ -385,7 +385,7 @@ export const services: Service[] = [
     name: "Live-in Care",
     title: "Live-in Care in Wiltshire & Somerset | Otter Homecare",
     description:
-      "Live-in care at home across Trowbridge, Bradford-on-Avon, Melksham, Westbury, Warminster, Corsham & Frome — round-the-clock one-to-one support from a dedicated Care Professional, from £1,550 a week.",
+      "Live-in care at home across West Wiltshire and Frome. Round-the-clock, one-to-one support from a dedicated Care Professional, from £1,550 a week.",
     h1: "Live-in Care",
     subtitle: "Round-the-clock support, comfort and peace of mind in the place you call home",
     heroImg: "live-in-who.jpg",
@@ -513,7 +513,7 @@ export const services: Service[] = [
     name: "Fall Recovery",
     title: "Fall Recovery Support at Home | Otter Homecare",
     description:
-      "Swift, safe fall recovery support at home in Wiltshire and Somerset, using the Raizer lifting chair to help someone up safely and with dignity. Available to existing clients.",
+      "Safe fall recovery at home for existing Otter clients in Wiltshire and Somerset, using the Raizer lifting chair to help someone up with dignity.",
     h1: "Fall Recovery Support",
     subtitle: "Swift, safe support if a fall happens",
     heroImg: "fall-recovery-photo.jpg",
@@ -584,7 +584,7 @@ export const services: Service[] = [
     name: "Respite Care",
     title: "Respite Care in Wiltshire & Somerset | Otter Homecare",
     description:
-      "Planned short-term respite care at home in Wiltshire and Somerset — so family carers can rest, travel or recover, knowing their loved one is in kind, capable hands.",
+      "Planned respite care at home in Wiltshire and Somerset, so family carers can rest, travel or recover knowing their loved one is in kind hands.",
     h1: "Respite Care",
     subtitle: "A proper break for family carers — with your loved one safe at home",
     heroImg: "out-and-about.jpg",

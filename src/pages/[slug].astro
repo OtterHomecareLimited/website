@@ -3,6 +3,7 @@ import RatedBadge from "../components/RatedBadge.astro";
 import Photo from "../components/Photo.astro";
 import SiteLayout from "../layouts/SiteLayout.astro";
 import { towns, helpCards } from "../data/towns";
+import stats from "../data/reviewStats.json";
 
 export function getStaticPaths() {
   return towns.map((town) => ({ params: { slug: town.slug }, props: { town } }));
@@ -48,7 +49,7 @@ const faqSchema = town.faqs?.length
     <div class="localtrust reveal">
       <Photo class="lt-photo" src={town.photo} alt={`Otter Homecare Care Professionals supporting families in ${town.name}`} priority sizes="(max-width: 900px) 100vw, 420px" />
       <div class="lt-facts">
-        <div class="lt-fact"><span class="k">homecare.co.uk</span><span class="v">9.5 / 10</span></div>
+        <div class="lt-fact"><span class="k">homecare.co.uk</span><span class="v">{stats.homecare.score} / 10</span></div>
         <div class="lt-fact"><span class="k">Local office</span><span class="v sm">01225 690022</span></div>
         <div class="lt-fact"><span class="k">Based at</span><span class="v sm">Arlington House, 72 Fore Street, Trowbridge</span></div>
         <div class="lt-villages">{town.chips.map((c) => <span>{c}</span>)}</div>
