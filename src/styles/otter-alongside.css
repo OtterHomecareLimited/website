@@ -52,7 +52,7 @@
 
 .als-hero { background: var(--teal); color: #fff; }
 .als-hero__inner {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(min(330px, 100%), 1fr));
   gap: var(--space-16) 56px; align-items: center;
   padding: 26px var(--gutter) var(--space-16);
   max-width: var(--max-width); margin: 0 auto;
