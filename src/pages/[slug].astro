@@ -1,6 +1,7 @@
 ---
 import RatedBadge from "../components/RatedBadge.astro";
 import Photo from "../components/Photo.astro";
+import PheroCta from "../components/PheroCta.astro";
 import SiteLayout from "../layouts/SiteLayout.astro";
 import { towns, helpCards } from "../data/towns";
 import stats from "../data/reviewStats.json";
@@ -32,6 +33,7 @@ const faqSchema = town.faqs?.length
     <div class="crumb"><a href="/">Home</a> · <a href="/areas-we-cover">Areas We Cover</a> · {town.name}</div>
     <h1>{town.h1}</h1>
     <p>{town.intro}</p>
+    <PheroCta />
   </div></header>
 
   <!-- genuinely local -->

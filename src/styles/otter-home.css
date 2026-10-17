@@ -1173,3 +1173,47 @@ html.a11y-contrast .section.bg-cream,html.a11y-contrast .section.bg-sky,html.a11
 .careers-strip .cs-label svg{display:inline-block;vertical-align:-3px;margin-left:4px}
 @media(max-width:560px){.careers-strip a{font-size:24px}}
 .careers-strip a svg{width:20px;height:20px}
+
+/* Easy wins 17 Oct
+   From the 17 Oct easy-wins review (items 1–10; F1–F7 shipped separately).
+   Kept as one block at the end of this file, as the review asked. Each selector
+   was checked against code-overrides.css; the FAQ list-item rule (#8) carries
+   extra specificity to beat the .faq .ans ul li rule there. */
+/* 1. Review score in interior heroes (PheroCta.astro). Block, not flex: as
+   flex items the line's text pieces wrapped apart on a 390px phone. */
+.phero .bt-stars{margin-top:16px;font-size:14.5px;font-weight:700;line-height:1.5;color:#cfe6e3}
+.phero .bt-stars .s{color:var(--sun);letter-spacing:1px;font-size:15px;margin-right:5px}
+.phero .bt-stars b{color:#fff}
+/* 2. Hero buttons turn mustard: teal on the teal-d band is ~1.9:1 */
+.phero .btn-primary,.phero .btn-clay{background:var(--sun);color:#3a2a06;box-shadow:none}
+.phero .btn-primary:hover,.phero .btn-clay:hover{background:#C09A3E;color:#3a2a06}
+/* 3. Close the gap under interior heroes; top-align the intro photo */
+.phero + .section{padding-top:clamp(32px,2vw + 24px,56px)}
+.phero + .section .srow{align-items:start}
+@media(max-width:820px){.phero + .section .srow-media{aspect-ratio:16/9}}
+/* 4. Phone buttons: full width in hero rows, at least 48px tall in content */
+@media(max-width:560px){
+  .hero-cta .btn,.phero-cta .btn{width:100%;justify-content:center}
+  main .btn{min-height:48px}
+}
+/* 5. Review quotes set as quotes; the 9.5 reads first */
+.hc-card p{font-family:"Newsreader",Georgia,serif;font-style:italic;
+  font-size:17px;line-height:1.5;color:var(--ink)}
+@media(max-width:520px){.hc-card p{font-size:18px}}
+.hc-badge{width:64px;height:64px;font-family:"Spectral",serif;font-weight:600;font-size:26px}
+/* 6. Contact page: the phone number is the biggest thing in the list */
+.contact-info .ci .ic img{width:60%}
+.contact-info .ci a[href^="tel:"]{display:inline-block;margin-top:2px;
+  font-family:"Spectral",serif;font-size:26px;font-weight:600;line-height:1.2;color:var(--teal-d)}
+.contact-info .ci a[href^="mailto:"]{color:var(--teal);font-weight:700}
+/* 7. Section rhythm: 108px down to 88px between bands */
+.section{padding:clamp(56px,4vw + 32px,88px) 0}
+/* 8. Small-text floor on cards and FAQ answers (first step of P7) */
+.post-card p,.rate p,.perk p,.fund p,.step p{font-size:16px}
+.faq .ans p,.faqs .faq .ans ul li{font-size:16.5px;max-width:68ch}
+.post-card .cat,.rate .rtag,.trust .item small,.lt-fact .k{font-size:12.5px}
+.post-card .meta,.hc-date{font-size:13.5px}
+/* 9. Eyebrow labels: less tracking, balanced line breaks */
+.eyebrow{letter-spacing:.12em;text-wrap:balance}
+/* 10. Footer phone and email are tap links (footer a is display:block) */
+footer p a{display:inline;padding:0;color:#fff;text-decoration:underline;text-underline-offset:3px}
