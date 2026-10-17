@@ -635,6 +635,35 @@ footer h3{font-family:"Hanken Grotesk";font-weight:800;color:#fff;font-size:12.5
   #a11yPanel::after{left:auto;right:34px}
 }
 
+/* ── Accessibility control on phones and tablets: header icon, not a corner button
+   28 Sep layout review P1 (Jamie chose "Move accessibility", 17 Oct 2026). The
+   two corner buttons covered page content at 83% of phone scroll positions.
+   Wherever the compact header shows (1100px and below, see above) the corner
+   accessibility button goes; the same control opens
+   from an icon in the header beside Call, and from "Accessibility options" in
+   the footer's legal row (on every width). "Talk to us" stays in its corner.
+   Both new triggers carry [data-a11y-open]; AccessibilityControl wires them up.
+   The panel drops from under the sticky header instead of rising from the
+   bottom-left corner, and loses its pointer, since it can be opened from the
+   footer too. These rules sit after the short-screen block above so they win
+   over its right-hand placement between 641px and 1100px. */
+.nav-a11y{display:none;height:40px;width:40px;padding:0;border:none;border-radius:50%;background:rgba(255,255,255,.16);color:#fff;align-items:center;justify-content:center;cursor:pointer;position:relative;z-index:8;flex:none}
+.nav-a11y svg{width:22px;height:22px}
+.nav-a11y:focus-visible{outline:3px solid #fff;outline-offset:2px}
+.nav-a11y[aria-expanded="true"]{background:#fff;color:var(--teal-d)}
+nav:has(.mobile-menu.show) .nav-a11y{display:none!important}
+html.a11y-contrast .nav-a11y{background:#000;color:#fff;outline:2px solid #fff}
+footer .legal .footer-a11y{display:inline;padding:0;border:0;background:none;color:inherit;font:inherit;cursor:pointer}
+footer .legal .footer-a11y:hover{color:#fff}
+@media(max-width:760px){footer .legal .footer-a11y{display:inline-block;margin:2px 9px}}
+@media(max-width:1100px){
+  .nav-a11y{display:inline-flex}
+  #a11yToggle{display:none}
+  #a11yPanel{top:84px;bottom:auto;left:auto;right:16px;max-height:calc(100dvh - 100px);transform-origin:top right;transform:translateY(-10px) scale(.98)}
+  #a11yPanel.open{transform:none}
+  #a11yPanel::after{display:none}
+}
+
 /* ── Home care vs a care home: the cost calculator ──────────────────────────
    Redesign, 22 Aug 2026. REPLACES the whole ".calc" block at the foot of
    src/styles/code-overrides.css. Same tokens, no new ones. Plain CSS.

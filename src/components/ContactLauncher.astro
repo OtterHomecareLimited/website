@@ -47,7 +47,7 @@ const onContactPage = /^\/contact(\.html|\/)?$/.test(Astro.url.pathname); // bui
     var panel = document.getElementById("talkPanel"), toggle = document.getElementById("talkToggle");
     if (!panel || !toggle) return;
     function setOpen(o) {
-      if (o) { panel.removeAttribute("hidden"); void panel.offsetWidth; panel.classList.add("open"); var ap = document.getElementById("a11yPanel"); if (ap) { ap.classList.remove("open"); ap.setAttribute("hidden", ""); } var at = document.getElementById("a11yToggle"); if (at) at.setAttribute("aria-expanded", "false"); }
+      if (o) { panel.removeAttribute("hidden"); void panel.offsetWidth; panel.classList.add("open"); var ap = document.getElementById("a11yPanel"); if (ap) { ap.classList.remove("open"); ap.setAttribute("hidden", ""); } document.querySelectorAll("#a11yToggle, [data-a11y-open]").forEach(function (at) { at.setAttribute("aria-expanded", "false"); }); }
       else { panel.classList.remove("open"); panel.setAttribute("hidden", ""); }
     if (typeof keepClearOfForms === "function") keepClearOfForms();
       toggle.setAttribute("aria-expanded", String(o));
