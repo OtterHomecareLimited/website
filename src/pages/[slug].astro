@@ -29,11 +29,14 @@ const faqSchema = town.faqs?.length
 ---
 {faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
 <SiteLayout title={town.title} description={town.description} ogImage={town.photo} breadcrumbLabel={town.name}>
-  <header class="phero"><div class="wrap">
-    <div class="crumb"><a href="/">Home</a> · <a href="/areas-we-cover">Areas We Cover</a> · {town.name}</div>
-    <h1>{town.h1}</h1>
-    <p>{town.intro}</p>
-    <PheroCta />
+  <header class="phero phero--photo"><div class="wrap">
+    <div class="phero-text">
+      <div class="crumb"><a href="/">Home</a> · <a href="/areas-we-cover">Areas We Cover</a> · {town.name}</div>
+      <h1>{town.h1}</h1>
+      <p>{town.intro}</p>
+      <PheroCta />
+    </div>
+    <div class="phero-media"><Photo src={town.photo} alt={`Otter Homecare Care Professionals supporting families in ${town.name}`} priority sizes="(max-width: 900px) 100vw, 520px" /></div>
   </div></header>
 
   <!-- genuinely local -->
@@ -48,8 +51,7 @@ const faqSchema = town.faqs?.length
   <!-- local trust panel -->
   <section class="section tmt"><div class="wrap" style="max-width:980px">
     <div class="head-c reveal" style="margin-bottom:24px"><h2>Your local Otter team</h2></div>
-    <div class="localtrust reveal">
-      <Photo class="lt-photo" src={town.photo} alt={`Otter Homecare Care Professionals supporting families in ${town.name}`} priority sizes="(max-width: 900px) 100vw, 420px" />
+    <div class="localtrust localtrust--solo reveal">
       <div class="lt-facts">
         <div class="lt-fact"><span class="k">homecare.co.uk</span><span class="v">{stats.homecare.score} / 10</span></div>
         <div class="lt-fact"><span class="k">Local office</span><span class="v sm">01225 690022</span></div>
