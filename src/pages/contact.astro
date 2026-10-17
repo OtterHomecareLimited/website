@@ -5,7 +5,7 @@ import Turnstile from "../components/Turnstile.astro";
 ---
 <SiteLayout
   title="Contact Otter Homecare | Home Care in Wiltshire & Somerset"
-  description="Get in touch with Otter Homecare for a free, no-pressure chat about home care in Trowbridge, Melksham, Frome, Bradford-on-Avon, Westbury, Warminster and Corsham. Call 01225 690022."
+  description="Call 01225 690022 or send us a message for a free, no-pressure chat about home care in Trowbridge, Melksham, Frome and nearby towns."
 >
   <header class="phero"><div class="wrap"><div class="crumb"><a href="/">Home</a> · Contact</div><h1>Get in touch</h1><p>A friendly voice, not a call centre — here to answer your questions, with no pressure and no obligation.</p></div></header>
 
@@ -85,8 +85,8 @@ import Turnstile from "../components/Turnstile.astro";
           // Google Ads: count the successful send as a "Contact form submission" conversion (cookieless — see SiteLayout head)
           if (typeof gtag === "function") gtag("event", "conversion", { send_to: "AW-11233030388/uXnICMDw5bwcEPThqewp" });
         }
-        else { btn.disabled = false; btn.textContent = "Request my free assessment →"; alert(json.error || "Something went wrong — please call us on 01225 690022."); }
-      } catch { btn.disabled = false; btn.textContent = "Request my free assessment →"; alert("Something went wrong — please call us on 01225 690022."); }
+        else { btn.disabled = false; btn.textContent = "Send my enquiry →"; alert(json.error || "Something went wrong — please call us on 01225 690022."); }
+      } catch { btn.disabled = false; btn.textContent = "Send my enquiry →"; alert("Something went wrong — please call us on 01225 690022."); }
     });
   </script>
 </SiteLayout>
