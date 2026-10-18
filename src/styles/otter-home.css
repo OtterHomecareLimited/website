@@ -2478,3 +2478,11 @@ nav.svc-toc li::before{content:none}
 @media(min-width:900px){.faq .ans p,.faqs .faq .ans ul li,.prose p,.prose li{font-size:18px}}
 .svc .body p,.alongside-home .al-foot p,.area-body p,.benefit p,
 .app .fl p,.jstage .jnote,.trait-bubble .tb-text,.calc-checked,.prose .updated,.team-card p,.prose td{font-size:15px}
+
+/* Nothing wider than a small phone (18 Oct 2026). At 320px the care-app callouts on the
+   phone mockup poked 6px past the screen edge, the 340px yellow panel behind the
+   phone was wider than the screen (homepage and /support-for-families went to 344px),
+   and long web addresses in blog posts (one 645px wide) pushed the page sideways. */
+@media(max-width:400px){.app-co.co1,.app-co.co2{left:0}.app-co.co3,.app-co.co4{right:0}.app-stage::before{width:100%}}
+.prose{overflow-wrap:break-word}
+.prose a{overflow-wrap:anywhere}
