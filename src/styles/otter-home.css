@@ -2470,3 +2470,11 @@ nav.svc-toc li::before{content:none}
   footer .wrap{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:20px}
   footer .wrap > div:first-child,footer .wrap > div:last-child{grid-column:1/-1}
 }
+
+/* Text floor (18 Oct 2026, 28 Sep review P7, Jamie chose "Text floor"; headings left as they are).
+   Running text is at least 17px on phones and 18px on desktop; card and caption text at least 15px.
+   The Otter Alongside pages size their own text from one variable and already sit above this. */
+.faq .ans p,.faqs .faq .ans ul li,.prose p,.prose li,.srow li{font-size:17px}
+@media(min-width:900px){.faq .ans p,.faqs .faq .ans ul li,.prose p,.prose li{font-size:18px}}
+.svc .body p,.alongside-home .al-foot p,.area-body p,.benefit p,
+.app .fl p,.jstage .jnote,.trait-bubble .tb-text,.calc-checked,.prose .updated,.team-card p,.prose td{font-size:15px}
