@@ -227,7 +227,7 @@ a.als-stage:hover { transform: translateY(-2px); box-shadow: var(--shadow-sm); }
   border-radius: 0 var(--radius) var(--radius) 0; padding: 18px 22px;
 }
 .als-note p, .als-note__title { margin: 0; }
-.als-note p { font-size: .9em; line-height: 1.65; color: #5C4A20; max-width: 58ch; }
+.als-note p { font-size: max(.9em, 15px); /* 15px floor, 18 Oct 2026 (P7) */ line-height: 1.65; color: #5C4A20; max-width: 58ch; }
 .als-note p strong, .als-note__title { color: var(--ink); font-weight: 700; }
 .als-note__title { display: block; font-family: var(--font-display); font-size: 1.04em; font-weight: 600; margin-bottom: 6px; }
 .als-note--lg { padding: 22px 26px; }
