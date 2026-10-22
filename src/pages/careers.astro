@@ -3,6 +3,52 @@ import Photo from "../components/Photo.astro";
 import RatedBadge from "../components/RatedBadge.astro";
 import SiteLayout from "../layouts/SiteLayout.astro";
 import Turnstile from "../components/Turnstile.astro";
+
+// JobPosting — lets the visiting Care Professional role appear in Google's job
+// search. Every fact here must match the visible page. When the role closes,
+// or the pay changes, update this too. DATE_POSTED is the day the listing was
+// last reviewed: bump it when you re-check the facts, don't automate it, as
+// Google treats a date that changes on every deploy as misleading.
+const DATE_POSTED = "2026-10-22";
+const jobSchema = {
+  "@context": "https://schema.org",
+  "@type": "JobPosting",
+  title: "Care Professional (visiting)",
+  description:
+    "<p>Become an Otter Care Professional. Join a small, local home care team who look out for each other, with proper training, flexible hours and good pay, visiting people in their own homes across West Wiltshire and Somerset.</p>" +
+    "<ul><li>£15.25 an hour from day one on weekdays, with more at weekends</li>" +
+    "<li>A flexible contract, no guaranteed hours, so you choose shifts that fit your life: daytimes, evenings or weekends</li>" +
+    "<li>Fully paid induction, training and DBS check</li>" +
+    "<li>No experience needed: we'll teach you what you need</li></ul>" +
+    "<p>We cover Trowbridge, Melksham, Westbury, Warminster, Corsham, Bradford-on-Avon, Frome and the villages around them.</p>",
+  datePosted: DATE_POSTED,
+  employmentType: ["PART_TIME", "FULL_TIME"],
+  directApply: true,
+  hiringOrganization: {
+    "@type": "Organization",
+    "@id": "https://www.otterhomecare.co.uk/#organization",
+    name: "Otter Homecare",
+    sameAs: "https://www.otterhomecare.co.uk",
+    logo: "https://www.otterhomecare.co.uk/assets/apple-touch-icon.png",
+  },
+  jobLocation: {
+    "@type": "Place",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Arlington House, 72 Fore Street",
+      addressLocality: "Trowbridge",
+      addressRegion: "Wiltshire",
+      postalCode: "BA14 8HQ",
+      addressCountry: "GB",
+    },
+  },
+  baseSalary: {
+    "@type": "MonetaryAmount",
+    currency: "GBP",
+    value: { "@type": "QuantitativeValue", value: 15.25, unitText: "HOUR" },
+  },
+  experienceRequirements: "No experience needed",
+};
 ---
 <SiteLayout title="Care Jobs in Wiltshire & Somerset | Otter Homecare Careers" description="Care jobs in Trowbridge, Melksham, Westbury, Warminster, Corsham, Bradford-on-Avon and Frome. £15.25 an hour from day one. No experience needed.">
 <header class="phero"><div class="wrap"><div class="crumb"><a href="/">Home</a> · Careers</div><h1>Become an Otter Care Professional</h1><p>Join a small, local team who look out for each other — with proper training, flexible hours and good pay. No experience needed.</p><div class="phero-cta"><a class="btn btn-clay btn-lg" href="#apply">Apply now →</a><a class="btn btn-ghost btn-lg" href="tel:01225690022">Call 01225 690022</a></div></div></header>
@@ -14,6 +60,8 @@ import Turnstile from "../components/Turnstile.astro";
 <section class="section bg-sky tmt" id="apply"><div class="wrap"><div class="head-c reveal"><span class="eyebrow">Apply today</span><h2>Send us your details</h2><p class="lede">Fill in the form and attach your CV — we read every application personally.</p></div><div style="max-width:680px;margin:0 auto"><form class="form reveal" id="applyForm" data-success="applyOk" novalidate><input type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none"><input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden"><div class="frow"><div class="field"><label for="cn">Your name</label><input id="cn" type="text" required placeholder="Jane Smith"></div><div class="field"><label for="cp">Phone</label><input id="cp" type="tel" required placeholder="07700 900000"></div></div><div class="field"><label for="ce">Email <span class="opt">(optional)</span></label><input id="ce" type="email" placeholder="jane@example.com"></div><div class="field"><label for="ct">Where do you live? <span class="opt">(optional)</span></label><input id="ct" type="text" autocomplete="address-level2" placeholder="e.g. Trowbridge"></div><div class="field"><label for="cd">Do you drive? <span class="opt">(optional)</span></label><select id="cd"><option value="" selected>Please choose…</option><option>Yes, and I have a car</option><option>Yes, but I don't have a car</option><option>No</option></select></div><div class="field"><label for="cr">Role</label><select id="cr"><option>Care Professional (visiting)</option><option>Care Professional (live-in)</option><option>Senior Care Professional</option><option>Not sure yet</option></select></div><div class="field"><label>Your CV</label><label class="filefield" for="cv"><span class="ff-ic">↑</span><b>Tap to upload your CV</b><small id="cvHint">PDF, DOC or DOCX · up to 3MB</small><input id="cv" type="file" accept=".pdf,.doc,.docx"></label></div><Turnstile /><button class="btn btn-primary" type="submit">Send my application →</button><p class="privacy">Your details are kept private and used only for recruitment.</p></form><div class="form-success" id="applyOk" style="display:none"><div class="tick">✓</div><h3>Thank you — application received</h3><p>We read every application personally and will be in touch soon.</p></div></div></div></section>
 <section class="section bg-beige "><div class="wrap" style="max-width:820px"><div class="head-c reveal"><span class="eyebrow">Our language</span><h2>Why we say Care Professionals, not carers</h2></div><div class="video-embed reveal" data-yt="2YTsaanm_fY" role="button" tabindex="0" aria-label="Play video: Why we say Care Professionals, not carers"><img src="/img/poster-why-care-pros.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/2YTsaanm_fY/hqdefault.jpg'" alt="An Otter Care Professional" loading="lazy"><span class="playbtn"><span></span></span><span class="vlabel">Watch: Why we say Care Professionals</span></div></div></section>
 <section class="section book"><div class="wrap" style="grid-template-columns:1fr;display:block;text-align:center"><div class="reveal" style="max-width:36ch;margin:0 auto"><span class="eyebrow" style="color:#9fc4bf">Join the team</span><h2 style="margin:14px 0 12px">Ready to care, properly?</h2><p class="lede" style="margin-bottom:26px;color:#bfe0dc">Send your details today, or ring for a friendly, no-pressure chat about the role.</p><div style="display:flex;gap:13px;justify-content:center;flex-wrap:wrap"><a class="btn btn-clay btn-lg" href="#apply">Apply now</a><a class="btn btn-ghost btn-lg" href="tel:01225690022" style="background:transparent;color:#fff;border-color:rgba(255,255,255,.5)">Call 01225 690022</a></div></div><div class="book-trust reveal"><div class="bt-ticks"><span>£15.25/hr from day one</span><span>Fully paid training &amp; DBS</span><span>We read every application personally</span></div><RatedBadge /></div></div></section>
+
+<script type="application/ld+json" set:html={JSON.stringify(jobSchema)} />
 
 <style is:global>
 .benefit-list{display:grid;grid-template-columns:1fr 1fr;gap:0 60px;max-width:980px;margin:8px auto 0}
@@ -28,6 +76,11 @@ import Turnstile from "../components/Turnstile.astro";
 
   <!-- Careers application — posts to /api/apply with the CV as base64 (3MB cap) -->
   <script is:inline>
+    // Google Ads "Job application" conversion. Blank until that conversion action
+    // exists in Google Ads: paste its "AW-11233030388/xxxx" send_to here. It must
+    // be its own action, never the Contact form one, or carer applications would
+    // be counted as client enquiries. Cookieless, like the rest (see SiteLayout head).
+    var APPLY_CONVERSION = "";
     (function () {
       var f = document.getElementById("applyForm"); if (!f) return;
       var cv = document.getElementById("cv"), hint = document.getElementById("cvHint");
@@ -55,7 +108,9 @@ import Turnstile from "../components/Turnstile.astro";
               typeof window.otterAdSource === "function" ? window.otterAdSource() : {})),
           }).then(function (r) { return r.json().then(function (j) { return { ok: r.ok && j.ok, err: j.error }; }); })
             .then(function (out) {
-              if (out.ok) { f.style.display = "none"; var s = document.getElementById("applyOk"); s.style.display = "block"; }
+              if (out.ok) {
+                if (APPLY_CONVERSION && typeof gtag === "function") gtag("event", "conversion", { send_to: APPLY_CONVERSION });
+                f.style.display = "none"; var s = document.getElementById("applyOk"); s.style.display = "block"; }
               else { btn.disabled = false; btn.textContent = "Send my application →"; alert(out.err || "Something went wrong — please email hello@otterhomecare.co.uk."); }
             })
             .catch(function () { btn.disabled = false; btn.textContent = "Send my application →"; alert("Something went wrong — please email hello@otterhomecare.co.uk."); });
