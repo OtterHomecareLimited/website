@@ -76,11 +76,11 @@ const jobSchema = {
 
   <!-- Careers application — posts to /api/apply with the CV as base64 (3MB cap) -->
   <script is:inline>
-    // Google Ads "Job application" conversion. Blank until that conversion action
-    // exists in Google Ads: paste its "AW-11233030388/xxxx" send_to here. It must
-    // be its own action, never the Contact form one, or carer applications would
-    // be counted as client enquiries. Cookieless, like the rest (see SiteLayout head).
-    var APPLY_CONVERSION = "";
+    // Google Ads "Job application" conversion (secondary, Sign-up category, created
+    // 23 Oct 2026). It must stay its own action, never the Contact form one, or carer
+    // applications would be counted as client enquiries. Cookieless, like the rest
+    // (see SiteLayout head). Set to "" to switch it off.
+    var APPLY_CONVERSION = "AW-11233030388/rtAXCOalpKcdEPThqewp";
     (function () {
       var f = document.getElementById("applyForm"); if (!f) return;
       var cv = document.getElementById("cv"), hint = document.getElementById("cvHint");
