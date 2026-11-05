@@ -30,7 +30,7 @@ Otter Homecare was founded by Jamie Rowland-Jones after caring for his own fathe
 - [How we work](https://www.otterhomecare.co.uk/how-we-work)
 - [Areas we cover](https://www.otterhomecare.co.uk/areas-we-cover)
 - [Cost of home care](https://www.otterhomecare.co.uk/cost-of-home-care)
-- [Reviews](https://www.otterhomecare.co.uk/reviews) — 9.5/10 on homecare.co.uk
+- [Reviews](https://www.otterhomecare.co.uk/reviews) — {{HOMECARE_SCORE}}/10 on homecare.co.uk
 - [Contact / book a free assessment](https://www.otterhomecare.co.uk/contact)
 
 ## Independent profiles (verify us)
